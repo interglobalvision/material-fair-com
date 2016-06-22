@@ -51,6 +51,7 @@ get_template_part( 'lib/custom-gallery' );
 get_template_part( 'lib/post-types' );
 get_template_part( 'lib/meta-boxes' );
 get_template_part( 'lib/theme-options' );
+get_template_part( 'lib/custom-taxonomy' );
 
 
 // Add third party PHP libs
