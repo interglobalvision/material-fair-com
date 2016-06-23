@@ -101,6 +101,76 @@ class IGV_Admin {
       ),
     ) );
 
+    $options_metabox->add_field( array(
+      'name' => __( 'Fair Venue Name', 'cmb2' ),
+      'desc' => __( '', 'cmb2' ),
+      'id'   => $prefix . 'venue_name',
+      'type' => 'text',
+    ) );
+
+    $options_metabox->add_field( array(
+      'name' => __( 'Fair Start Date', 'cmb2' ),
+      'desc' => __( '', 'cmb2' ),
+      'id'   => $prefix . 'fair_start',
+      'type' => 'text_date_timestamp',
+    ) );
+
+    $options_metabox->add_field( array(
+      'name' => __( 'Fair End Date', 'cmb2' ),
+      'desc' => __( '', 'cmb2' ),
+      'id'   => $prefix . 'fair_end',
+      'type' => 'text_date_timestamp',
+    ) );
+
+    $options_metabox->add_field( array(
+      'name' => __( 'Primary Sponsor Logo', 'IGV' ),
+      'desc' => __( 'displayed in header', 'IGV' ),
+      'id'   => $this->prefix . 'primary_sponsor_logo',
+      'type' => 'file',
+    ) );
+
+    $options_metabox->add_field( array(
+      'name' => __( 'Primary Sponsor URL', 'cmb2' ),
+      'desc' => __( '', 'cmb2' ),
+      'id'   => $prefix . 'primary_sponsor_url',
+      'type' => 'text_url',
+    ) );
+
+    $options_metabox->add_field( array(
+      'name' => __( 'Show VIP Login', 'cmb2' ),
+      'desc' => __( '', 'cmb2' ),
+      'id'   => $prefix . 'show_vip_login',
+      'type' => 'checkbox',
+    ) );
+
+    $options_metabox->add_field( array(
+      'name' => __( 'App Login Button Text', 'cmb2' ),
+      'desc' => __( '', 'cmb2' ),
+      'id'   => $prefix . 'app_login_text',
+      'type' => 'text',
+    ) );
+
+    $options_metabox->add_field( array(
+      'name' => __( 'Publish Exhibitors', 'cmb2' ),
+      'desc' => __( '', 'cmb2' ),
+      'id'   => $prefix . 'publish_exhibitors',
+      'type' => 'checkbox',
+    ) );
+
+    $options_metabox->add_field( array(
+      'name' => __( 'Publish Exhibitors', 'cmb2' ),
+      'desc' => __( '', 'cmb2' ),
+      'id'   => $prefix . 'publish_program',
+      'type' => 'checkbox',
+    ) );
+
+    $options_metabox->add_field( array(
+      'name' => __( 'Show Reading Material', 'cmb2' ),
+      'desc' => __( '', 'cmb2' ),
+      'id'   => $prefix . 'show_reading_material',
+      'type' => 'checkbox',
+    ) );
+
     // SOCIAL MEDIA OPTIONS
 
     $options_metabox->add_field( array(
@@ -161,29 +231,39 @@ class IGV_Admin {
       'type' => 'text',
     ) );
 
-    // BOILER
+
+  // PARTNERS
 
     $options_metabox->add_field( array(
-      'name' => __( 'Title for options section', 'cmb2' ),
+      'name' => __( 'Partners', 'cmb2' ),
       'desc' => __( '', 'cmb2' ),
-      'id'   => $this->prefix . 'general_title',
+      'id'   => $this->prefix . 'partners_title',
       'type' => 'title',
     ) );
 
-    $options_metabox->add_field( array(
-      'name' => __( 'Test Text', 'IGV' ),
-      'desc' => __( 'field description (optional)', 'IGV' ),
-      'id'   => $this->prefix . 'test_text',
-      'type' => 'text',
-      'default' => 'Default Text',
+    $partners_group = $options_metabox->add_field( array(
+      'id'          => $this->prefix . 'partners',
+      'type'        => 'group',
+      'description' => __( '', 'cmb2' ),
+      'options'     => array(
+        'group_title'   => __( 'Partner {#}', 'cmb2' ), // {#} gets replaced by row number
+        'add_button'    => __( 'Add Another Partner', 'cmb2' ),
+        'remove_button' => __( 'Remove Partner', 'cmb2' ),
+        'sortable'      => true, // beta
+        // 'closed'     => true, // true to have the groups closed by default
+      ),
     ) );
 
-    $options_metabox->add_field( array(
-      'name'    => __( 'Test Color Picker', 'IGV' ),
-      'desc'    => __( 'field description (optional)', 'IGV' ),
-      'id'      => $this->prefix . 'test_colorpicker',
-      'type'    => 'colorpicker',
-      'default' => '#bada55',
+    $options_metabox->add_group_field( $partners_group, array(
+      'name'       => __( 'URL', 'cmb2' ),
+      'id'         => 'url',
+      'type'       => 'text_url',
+    ) );
+
+    $options_metabox->add_group_field( $partners_group, array(
+      'name' => __( 'Logo', 'cmb2' ),
+      'id'   => 'logo',
+      'type' => 'file',
     ) );
 
   }
