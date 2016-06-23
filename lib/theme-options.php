@@ -158,7 +158,7 @@ class IGV_Admin {
     ) );
 
     $options_metabox->add_field( array(
-      'name' => __( 'Publish Exhibitors', 'cmb2' ),
+      'name' => __( 'Publish Program', 'cmb2' ),
       'desc' => __( '', 'cmb2' ),
       'id'   => $prefix . 'publish_program',
       'type' => 'checkbox',
