@@ -4,7 +4,7 @@ $suffix = '_options';
 
 // SITE OPTIONS
 
-$page_key = $prefix . 'theme' . $suffix;
+$page_key = $prefix . 'site' . $suffix;
 $page_title = 'Site Options';
 $metabox = array(
   'id'         => $page_key, //id used as tab page slug, must be unique
@@ -59,6 +59,18 @@ $metabox = array(
       'type' => 'title',
     ),
     array(
+      'name' => __( 'Splash image', 'cmb2' ),
+      'desc' => __( '', 'cmb2' ),
+      'id'   => $prefix . 'front_page_splash',
+      'type' => 'file',
+    ),
+    array(
+      'name' => __( 'Splash link', 'cmb2' ),
+      'desc' => __( 'optional', 'cmb2' ),
+      'id'   => $prefix . 'front_page_splash_url',
+      'type' => 'text_url',
+    ),
+    array(
       'name' => __( 'Show Reading Material', 'cmb2' ),
       'desc' => __( '', 'cmb2' ),
       'id'   => $prefix . 'show_reading_material',
@@ -87,6 +99,35 @@ $metabox = array(
       'desc' => __( '', 'cmb2' ),
       'id'   => $prefix . 'front_description_es',
       'type' => 'textarea',
+    ),
+    array(
+      'name' => __( 'Footer', 'cmb2' ),
+      'id'   => $prefix . 'footer_title',
+      'type' => 'title',
+    ),
+    array(
+      'name' => __( 'Office Address', 'cmb2' ),
+      'desc' => __( '', 'cmb2' ),
+      'id'   => $prefix . 'office_address',
+      'type' => 'textarea',
+    ),
+    array(
+      'name' => __( 'Contact Email', 'cmb2' ),
+      'desc' => __( '', 'cmb2' ),
+      'id'   => $prefix . 'contact_email',
+      'type' => 'text_email',
+    ),
+    array(
+      'name' => __( 'Contact Phone', 'cmb2' ),
+      'desc' => __( '', 'cmb2' ),
+      'id'   => $prefix . 'contact_phone',
+      'type' => 'text_medium',
+    ),
+    array(
+      'name' => __( 'Mailchimp Embed URL', 'cmb2' ),
+      'desc' => __( '', 'cmb2' ),
+      'id'   => $prefix . 'mailchimp_url',
+      'type' => 'text_url',
     ),
   )
 );
