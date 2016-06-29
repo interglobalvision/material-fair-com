@@ -560,6 +560,9 @@ th {
   padding-right: 18px;
   padding-left: 18px;
 }
+.offset-s-0 {
+  margin-left: 0%;
+}
 .offset-s-1 {
   margin-left: 8.333333333333334%;
 }
@@ -672,6 +675,9 @@ th {
             flex: 0 0 auto;
     padding-right: 18px;
     padding-left: 18px;
+  }
+  .offset-m-0 {
+    margin-left: 0%;
   }
   .offset-m-1 {
     margin-left: 8.333333333333334%;
@@ -786,6 +792,9 @@ th {
             flex: 0 0 auto;
     padding-right: 18px;
     padding-left: 18px;
+  }
+  .offset-l-0 {
+    margin-left: 0%;
   }
   .offset-l-1 {
     margin-left: 8.333333333333334%;
