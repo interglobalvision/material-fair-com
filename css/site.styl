@@ -71,10 +71,8 @@ $color-white-soft = rgb(253, 253, 253)
   flex: 0 1 auto
   flex-direction: row
   flex-wrap: wrap
-  padding-top: $margin-tiny
-  margin-bottom: $margin-tiny
-  margin-right: -( $margin-micro )
-  margin-left: -( $margin-micro )
+  padding-top: ($gutter / 2)
+  margin-bottom: ($gutter / 2)
   &.reverse
     flex-direction: row-reverse
     
@@ -116,8 +114,8 @@ $color-white-soft = rgb(253, 253, 253)
   
 .col-s
   flex: 0 0 auto
-  padding-right: $margin-tiny
-  padding-left: $margin-tiny
+  padding-right: ($gutter / 2)
+  padding-left: ($gutter / 2)
   
 for offset in 1..($cols - 1)
   .offset-s-{offset}
@@ -132,8 +130,8 @@ for col in 1..$cols
 
   .col-m
     flex: 0 0 auto
-    padding-right: $margin-tiny
-    padding-left: $margin-tiny
+    padding-right: ($gutter / 2)
+    padding-left: ($gutter / 2)
 
   for offset in 1..($cols - 1)
     .offset-m-{offset}
@@ -148,8 +146,8 @@ for col in 1..$cols
 
   .col-l
     flex: 0 0 auto
-    padding-right: $margin-tiny
-    padding-left: $margin-tiny
+    padding-right: ($gutter / 2)
+    padding-left: ($gutter / 2)
 
   for offset in 1..($cols - 1)
     .offset-l-{offset}
