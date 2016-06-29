@@ -131,17 +131,19 @@ $metabox = array(
     array(
       'name' => __( 'Contact Email', 'cmb2' ),
       'desc' => __( '', 'cmb2' ),
+      'default' => 'info@material-fair.com',
       'id'   => $prefix . 'contact_email',
       'type' => 'text_email',
     ),
     array(
       'name' => __( 'Contact Phone', 'cmb2' ),
-      'desc' => __( '', 'cmb2' ),
+      'desc' => __( 'with country code', 'cmb2' ),
+      'default' => '+52-55-5256-5533',
       'id'   => $prefix . 'contact_phone',
       'type' => 'text_medium',
     ),
     array(
-      'name' => __( 'Mailchimp Embed URL', 'cmb2' ),
+      'name' => __( 'Mailchimp AJAX Request URL', 'cmb2' ),
       'desc' => __( '', 'cmb2' ),
       'id'   => $prefix . 'mailchimp_url',
       'type' => 'text_url',
