@@ -1,32 +1,45 @@
     <footer id="footer" class="section">
     <?php 
       $logo_id = IGV_get_option('_igv_social_options', '_igv_metadata_logo_id');
+
       $address = IGV_get_option('_igv_site_options', '_igv_office_address');
+
       $email = IGV_get_option('_igv_site_options', '_igv_contact_email');
       $phone = IGV_get_option('_igv_site_options', '_igv_contact_phone');
+
       $mailchimp_url = IGV_get_option('_igv_site_options', '_igv_mailchimp_url');
+
       $sponsors = IGV_get_option('_igv_sponsors_options', '_igv_sponsors_group');
+
+      $facebook = IGV_get_option('_igv_social_options', '_igv_socialmedia_facebook_url');
+      $twitter = IGV_get_option('_igv_social_options', '_igv_socialmedia_twitter');
+      $instagram = IGV_get_option('_igv_social_options', '_igv_socialmedia_instagram');
     ?>
       <div class="container">
+
         <div class="row">
 
           <div class="col col-l col-l-1 align-center">
-        <?php if ($logo_id) { ?>
+        <?php if (!empty($logo_id)) { ?>
             <a href="<?php echo home_url(); ?>"><?php echo wp_get_attachment_image($logo_id); ?></a>
         <?php } else { ?>
             <h1 class="col"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
         <?php } ?>
           </div>
 
-        <?php if ($address) { ?>
+        <?php if (!empty($address)) { ?>
 
           <div class="col col-l col-l-2">
-            Address
+          <?php
+            _e('<p>Material Art Fair [:en](Office)[:es](Oficina)</p>');
+
+            echo wpautop($address);
+          ?>
           </div>
 
         <?php } ?>
 
-        <?php if ($email || $phone) { ?>
+        <?php if (!empty($email) || !empty($phone)) { ?>
 
           <div class="col col-l col-l-2">
           <?php
@@ -39,7 +52,7 @@
 
         <?php } ?>
 
-        <?php if ($mailchimp_url) { ?>
+        <?php if (!empty($mailchimp_url)) { ?>
 
           <div class="col col-l col-l-4">
             <p>Mailing List</p>
@@ -51,23 +64,56 @@
 
         <?php } ?>
 
-          <div class="col col-l col-l-3">
-            Copy / Social
+        <?php if (!empty($facebook)) { ?>
+
+          <div class="col col-l col-l-1 align-center">
+            <?php echo '<a href="' . $facebook . '"><img src="' . get_stylesheet_directory_uri() . '/img/dist/fb-icon.png"></a>'; ?>
           </div>
 
-        </div>
+        <?php } ?>
+
+        <?php if (!empty($twitter)) { ?>
+
+          <div class="col col-l col-l-1 align-center">
+            <?php echo '<a href="https://twitter.com/' . $twitter . '"><img src="' . get_stylesheet_directory_uri() . '/img/dist/tw-icon.png"></a>'; ?>
+          </div>
+
+        <?php } ?>
+
+        <?php if (!empty($instagram)) { ?>
+
+          <div class="col col-l col-l-1 align-center">
+            <?php echo '<a href="https://www.instagram.com/' . $instagram . '"><img src="' . get_stylesheet_directory_uri() . '/img/dist/ig-icon.png"></a>'; ?>
+          </div>
+
+        <?php } ?>
+
+        </div> <!-- END ROW -->
 
         <?php if ($sponsors) { ?>
 
         <div class="row">
-          <div class="col col-l col-l-12">
-            Sponsors
+          <div class="col col-l col-l-12 flex-row align-center">
+          <?php foreach ($sponsors as $sponsor) { ?>
+          
+            <?php 
+              $sponsor_img = wp_get_attachment_image($sponsor['logo_id'], 'full', null, array( 'class' => 'lead-sponsor-logo' ));
+              echo (!empty($sponsor['url']) ? '<a href="' . $sponsor['url'] . '">' . $sponsor_img . '</a>' : $sponsor_img); 
+            ?>
+          
+          <?php } ?>
           </div>
         </div>
 
         <?php } ?>
 
-      </div>
+        <div class="row">
+          <div class="col col-s">
+            <span class="font-small-caps">&copy; <?php echo get_the_date('Y'); ?> Feria de Arte Material México SA de CV</span>
+          </div>
+        </div>
+
+      </div> <!-- END CONTAINER -->
     </footer>
 
   </section>
