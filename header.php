@@ -65,7 +65,7 @@
   $vip_login_url = IGV_get_option('_igv_site_options', '_igv_vip_login_url');
   $show_vip_login = IGV_get_option('_igv_site_options', '_igv_show_vip_login');
 
-  $sponsor_logo = IGV_get_option('_igv_sponsors_options', '_igv_primary_sponsor_logo');
+  $sponsor_logo = IGV_get_option('_igv_sponsors_options', '_igv_primary_sponsor_logo_id');
   $sponsor_url = IGV_get_option('_igv_sponsors_options', '_igv_primary_sponsor_url');
   ?>
 </head>
@@ -78,11 +78,11 @@
   <header id="header" class="section">
     <div class="container">
       <div class="row">
-        <div class="col col-l col-l-2">
+        <div class="col col-l col-l-2 align-center">
         <?php if ($logo_id) { ?>
-          <a href="<?php echo home_url(); ?>" class="col flex-col justify-center"><?php echo wp_get_attachment_image($logo_id); ?></a>
+          <a href="<?php echo home_url(); ?>"><?php echo wp_get_attachment_image($logo_id); ?></a>
         <?php } else { ?>
-          <h1 class="col"><a href="<?php echo home_url(); ?>" class="col flex-col justify-center align-center"><?php bloginfo('name'); ?></a></h1>
+          <h1 class="col"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
         <?php } ?>
         </div>
         <div class="col col-l col-l-3 flex-col justify-center align-center"> 
@@ -158,5 +158,54 @@
         ?>
         </div>
       </div>
+      <nav>
+        <ul class="row">
+        <?php 
+          $page_id = get_id_by_slug('visitor-information');
+          if ($page_id) {
+        ?>
+          <li class="col col-l col-l-2 flex-col justify-center align-center">
+            <a href="<?php echo get_permalink($page_id); ?>">
+              <?php echo get_the_title($page_id); ?>
+            </a>
+          </li>
+        <?php } ?>
+          <li class="col col-l col-l-2 flex-col justify-center align-center">
+            <a href="<?php echo get_post_type_archive_link( 'exhibitor' ); ?>">
+              <?php _e('[:en]Exhibitors[:es]Expositores'); ?>
+            </a>
+          </li>
+          <li class="col col-l col-l-2 flex-col justify-center align-center">
+            <a href="<?php echo get_post_type_archive_link( 'event' ); ?>">
+              <?php _e('[:en]Program[:es]Programa'); ?>
+            </a>
+          </li>
+          <li class="col col-l col-l-2 flex-col justify-center align-center">
+            <a href="<?php echo get_post_type_archive_link( 'press' ); ?>">
+              <?php _e('[:en]Press[:es]Prensa'); ?>
+            </a>
+          </li>
+        <?php 
+          $page_id = get_id_by_slug('reading-material');
+          if ($page_id) {
+        ?>
+          <li class="col col-l col-l-2 flex-col justify-center align-center">
+            <a href="<?php echo get_permalink($page_id); ?>">
+              <?php echo get_the_title($page_id); ?>
+            </a>
+          </li>
+        <?php 
+          }
+          $page_id = get_id_by_slug('partners');
+          if ($page_id) {
+        ?>
+          <li class="col col-l col-l-2 flex-col justify-center align-center">
+            <a href="<?php echo get_permalink($page_id); ?>">
+              <?php echo get_the_title($page_id); ?>
+            </a>
+          </li>
+        <?php } ?>
+        </ul>
+      </nav>
     </div>
   </header>
