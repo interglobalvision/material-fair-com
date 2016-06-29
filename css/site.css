@@ -488,6 +488,7 @@ th {
   flex-direction: row;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  padding-top: 18px;
   margin-bottom: 18px;
   margin-right: -18px;
   margin-left: -18px;
@@ -960,7 +961,7 @@ html {
 }
 .section {
   width: 100%;
-  padding: 36px 0 18px;
+  padding: 18px 0;
   border-bottom: 1px solid #0e0e0e;
 }
 img {
