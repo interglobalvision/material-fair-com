@@ -967,7 +967,7 @@ html {
 .section {
   width: 100%;
   padding: 18px 0;
-  border-bottom: 1px solid #0e0e0e;
+  border-top: 1px solid #0e0e0e;
 }
 img {
   max-width: 100%;
@@ -1045,13 +1045,13 @@ img {
 .padding-bottom-large {
   padding-bottom: 180px;
 }
-@media screen and (max-width: 601px) {
+@media screen and (max-width: 1150px) {
+  .container {
+    width: 993px;
+  }
+}
+@media screen and (max-width: 993px) {
   .container {
     width: 96%;
-  }
-  .col {
-    width: 100%;
-    float: none;
-    margin-left: 18px;
   }
 }
