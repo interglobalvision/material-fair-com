@@ -534,13 +534,25 @@ th {
           justify-content: flex-end;
 }
 .align-start {
-  text-align: start;
+  -webkit-box-align: start;
+  -ms-align-items: flex-start;
+  -ms-flex-align: start;
+      -ms-grid-row-align: flex-start;
+      align-items: flex-start;
 }
 .align-center {
-  text-align: center;
+  -webkit-box-align: center;
+  -ms-align-items: center;
+  -ms-flex-align: center;
+      -ms-grid-row-align: center;
+      align-items: center;
 }
 .align-end {
-  text-align: end;
+  -webkit-box-align: end;
+  -ms-align-items: flex-end;
+  -ms-flex-align: end;
+      -ms-grid-row-align: flex-end;
+      align-items: flex-end;
 }
 .col {
   box-sizing: border-box;
@@ -904,7 +916,7 @@ th {
 }
 html {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 15px;
+  font-size: 12px;
   letter-spacing: 0.001em;
 }
 body {
@@ -1044,6 +1056,9 @@ img {
 }
 .padding-bottom-large {
   padding-bottom: 180px;
+}
+.lead-sponsor-logo {
+  margin-right: 36px;
 }
 @media screen and (max-width: 1150px) {
   .container {
