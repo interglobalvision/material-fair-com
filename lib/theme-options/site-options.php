@@ -35,10 +35,22 @@ $metabox = array(
       'type' => 'text_date_timestamp',
     ),
     array(
+      'name' => __( 'Apply URL', 'cmb2' ),
+      'desc' => __( '', 'cmb2' ),
+      'id'   => $prefix . 'apply_url',
+      'type' => 'text_url',
+    ),
+    array(
       'name' => __( 'Show VIP Login', 'cmb2' ),
       'desc' => __( '', 'cmb2' ),
       'id'   => $prefix . 'show_vip_login',
       'type' => 'checkbox',
+    ),
+    array(
+      'name' => __( 'VIP Login URL', 'cmb2' ),
+      'desc' => __( '', 'cmb2' ),
+      'id'   => $prefix . 'vip_login_url',
+      'type' => 'text_url',
     ),
     array(
       'name' => __( 'App Login Button Text (English)', 'cmb2' ),
@@ -51,6 +63,12 @@ $metabox = array(
       'desc' => __( '', 'cmb2' ),
       'id'   => $prefix . 'app_login_text_es',
       'type' => 'text',
+    ),
+    array(
+      'name' => __( 'App Login URL', 'cmb2' ),
+      'desc' => __( '', 'cmb2' ),
+      'id'   => $prefix . 'app_login_url',
+      'type' => 'text_url',
     ),
     array(
       'name' => __( 'Front Page', 'cmb2' ),

@@ -48,7 +48,26 @@
   <?php if (is_singular() && pings_open(get_queried_object())) { ?>
   <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
   <?php } ?>
-  <?php wp_head(); ?>
+  <?php wp_head(); 
+
+  $logo_id = IGV_get_option('_igv_social_options', '_igv_metadata_logo_id');
+
+  $venue = IGV_get_option('_igv_site_options', '_igv_venue_name');
+  $start_date = IGV_get_option('_igv_site_options', '_igv_fair_start');
+  $end_date = IGV_get_option('_igv_site_options', '_igv_fair_end');
+
+  $apply_url = IGV_get_option('_igv_site_options', '_igv_apply_url');
+
+  $app_login_url = IGV_get_option('_igv_site_options', '_igv_app_login_url');
+  $app_login_en = IGV_get_option('_igv_site_options', '_igv_app_login_text_en');
+  $app_login_es = IGV_get_option('_igv_site_options', '_igv_app_login_text_es');
+
+  $vip_login_url = IGV_get_option('_igv_site_options', '_igv_vip_login_url');
+  $show_vip_login = IGV_get_option('_igv_site_options', '_igv_show_vip_login');
+
+  $sponsor_logo = IGV_get_option('_igv_sponsors_options', '_igv_primary_sponsor_logo_id');
+  $sponsor_url = IGV_get_option('_igv_sponsors_options', '_igv_primary_sponsor_url');
+  ?>
 </head>
 <body <?php body_class(); ?>>
 <!--[if lt IE 9]><p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p><![endif]-->
@@ -56,6 +75,137 @@
   <section id="main-container">
 
   <!-- start content -->
-  <header id="header">
-    <h1><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
+  <header id="header" class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col col-l col-l-2 align-center">
+        <?php if ($logo_id) { ?>
+          <a href="<?php echo home_url(); ?>"><?php echo wp_get_attachment_image($logo_id); ?></a>
+        <?php } else { ?>
+          <h1 class="col"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
+        <?php } ?>
+        </div>
+        <div class="col col-l col-l-3 flex-col justify-center align-center"> 
+        <?php if ($venue) { ?>
+          <div><?php echo $venue; ?></div>
+        <?php } 
+        if ($start_date && $end_date) { 
+        ?>
+          <div>
+            <?php 
+              $start_day = date('j', $start_date);
+              $start_month = date('M', $start_date);
+
+              $end_day = date('j', $end_date);
+              $end_month = date('M', $end_date);
+
+              $year = date('Y', $start_date);
+
+              if ($start_month == $end_month) {
+                echo $start_day . ' – ' . $end_day . ' ' . $start_month . ' ';
+              } else {
+                echo $start_day . ' ' . $start_month . ' – ' . $end_day . ' ' . $start_month . ' ';
+              }
+
+              echo $year;
+            ?>
+          </div>
+        <?php } ?>
+        </div>
+        <div class="col col-l col-l-2 flex-col justify-center align-center"> 
+          <?php 
+              if ($apply_url) { 
+                echo '<a href="' . $app_login_url . '" class="col flex-col justify-center">';
+                echo __('[:en]Apply[:es]Apply');
+                echo '</a>';
+              }
+            ?>
+        </div>
+        <div class="col col-l col-l-3 flex-col"> 
+          <div class="col flex-col justify-start align-end">
+            <?php echo qtranxf_generateLanguageSelectCode('both'); ?>
+          </div>
+          <div class="col flex-col justify-end align-center">
+            <?php 
+              if ($vip_login_url) { 
+                echo '<a href="' . $vip_login_url . '" class="button">';
+                echo __('[:en]VIP Login[:es]Sección VIP');
+                echo '</a>';
+              }
+            ?>
+          </div>
+        </div>
+        <div class="col col-l col-l-2 flex-col"> 
+          <div class="col flex-col justify-start align-end">
+            <?php 
+              if ($app_login_url && $app_login_en && $app_login_es) { 
+                echo '<a href="' . $app_login_url . '" class="button">';
+                echo __('[:en]' . $app_login_en . '[:es]' . $app_login_es);
+                echo '</a>';
+              }
+            ?>
+          </div>
+        <?php if ($sponsor_logo) { 
+        ?>
+          <div class="col flex-col justify-end align-center">
+            <?php 
+              $sponsor_logo_img = wp_get_attachment_image($sponsor_logo);
+              echo ($sponsor_url ? '<a href="' . $sponsor_url . '">' . $sponsor_logo_img . '</a>' : $sponsor_logo_img); 
+            ?>
+          </div>
+        <?php 
+          } 
+        ?>
+        </div>
+      </div>
+      <nav>
+        <ul class="row">
+        <?php 
+          $page_id = get_id_by_slug('visitor-information');
+          if ($page_id) {
+        ?>
+          <li class="col col-l col-l-2 flex-col justify-center align-center">
+            <a href="<?php echo get_permalink($page_id); ?>">
+              <?php echo get_the_title($page_id); ?>
+            </a>
+          </li>
+        <?php } ?>
+          <li class="col col-l col-l-2 flex-col justify-center align-center">
+            <a href="<?php echo get_post_type_archive_link( 'exhibitor' ); ?>">
+              <?php _e('[:en]Exhibitors[:es]Expositores'); ?>
+            </a>
+          </li>
+          <li class="col col-l col-l-2 flex-col justify-center align-center">
+            <a href="<?php echo get_post_type_archive_link( 'event' ); ?>">
+              <?php _e('[:en]Program[:es]Programa'); ?>
+            </a>
+          </li>
+          <li class="col col-l col-l-2 flex-col justify-center align-center">
+            <a href="<?php echo get_post_type_archive_link( 'press' ); ?>">
+              <?php _e('[:en]Press[:es]Prensa'); ?>
+            </a>
+          </li>
+        <?php 
+          $page_id = get_id_by_slug('reading-material');
+          if ($page_id) {
+        ?>
+          <li class="col col-l col-l-2 flex-col justify-center align-center">
+            <a href="<?php echo get_permalink($page_id); ?>">
+              <?php echo get_the_title($page_id); ?>
+            </a>
+          </li>
+        <?php 
+          }
+          $page_id = get_id_by_slug('partners');
+          if ($page_id) {
+        ?>
+          <li class="col col-l col-l-2 flex-col justify-center align-center">
+            <a href="<?php echo get_permalink($page_id); ?>">
+              <?php echo get_the_title($page_id); ?>
+            </a>
+          </li>
+        <?php } ?>
+        </ul>
+      </nav>
+    </div>
   </header>
