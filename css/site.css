@@ -1060,6 +1060,9 @@ img {
 .lead-sponsor-logo {
   margin-right: 36px;
 }
+.social-icon {
+  padding-left: 18px;
+}
 @media screen and (max-width: 1150px) {
   .container {
     width: 993px;
