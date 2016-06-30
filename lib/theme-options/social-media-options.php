@@ -17,18 +17,21 @@ $metabox = array(
       'name' => __( 'Facebook Page URL', 'IGV' ),
       'desc' => __( '', 'IGV' ),
       'id'   => $prefix . 'socialmedia_facebook_url',
+      'default' => 'https://www.facebook.com/materialfair',
       'type' => 'text',
     ),
     array(
       'name' => __( 'Twitter Account Handle', 'IGV' ),
       'desc' => __( '', 'IGV' ),
       'id'   => $prefix . 'socialmedia_twitter',
+      'default' => 'MaterialFair',
       'type' => 'text',
     ),
     array(
       'name' => __( 'Instagram Account Handle', 'IGV' ),
       'desc' => __( '', 'IGV' ),
       'id'   => $prefix . 'socialmedia_instagram',
+      'default' => 'materialfair',
       'type' => 'text',
     ),
 

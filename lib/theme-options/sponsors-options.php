@@ -21,7 +21,7 @@ $metabox = array(
     ),
     array(
       'name' => __( 'Primary Sponsor URL', 'cmb2' ),
-      'desc' => __( '', 'cmb2' ),
+      'desc' => __( 'optional', 'cmb2' ),
       'id'   => $prefix . 'primary_sponsor_url',
       'type' => 'text_url',
     ),
@@ -51,6 +51,7 @@ $metabox = array(
           'name'       => __( 'URL', 'cmb2' ),
           'id'         => 'url',
           'type'       => 'text_url',
+          'desc' => __( 'optional', 'cmb2' ),
         )
       )
     ), 
@@ -80,6 +81,7 @@ $metabox = array(
           'name'       => __( 'URL', 'cmb2' ),
           'id'         => 'url',
           'type'       => 'text_url',
+          'desc' => __( 'optional', 'cmb2' ),
         )
       )
     )    

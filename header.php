@@ -78,9 +78,9 @@
   <header id="header" class="section">
     <div class="container">
       <div class="row">
-        <div class="col col-l col-l-2 align-center">
-        <?php if ($logo_id) { ?>
-          <a href="<?php echo home_url(); ?>"><?php echo wp_get_attachment_image($logo_id); ?></a>
+        <div class="col col-l col-l-2 flex-col justify-center align-center">
+        <?php if (!empty($logo_id)) { ?>
+          <a href="<?php echo home_url(); ?>"><?php echo wp_get_attachment_image($logo_id, 'thumbnail'); ?></a>
         <?php } else { ?>
           <h1 class="col"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
         <?php } ?>
@@ -89,7 +89,7 @@
         <?php if ($venue) { ?>
           <div><?php echo $venue; ?></div>
         <?php } 
-        if ($start_date && $end_date) { 
+        if (!empty($start_date) && !empty($end_date)) { 
         ?>
           <div>
             <?php 
@@ -114,8 +114,8 @@
         </div>
         <div class="col col-l col-l-2 flex-col justify-center align-center"> 
           <?php 
-              if ($apply_url) { 
-                echo '<a href="' . $app_login_url . '" class="col flex-col justify-center">';
+              if (!empty($apply_url)) { 
+                echo '<a href="' . $apply_url . '" class="col flex-col justify-center">';
                 echo __('[:en]Apply[:es]Apply');
                 echo '</a>';
               }
@@ -127,7 +127,7 @@
           </div>
           <div class="col flex-col justify-end align-center">
             <?php 
-              if ($vip_login_url) { 
+              if (!empty($vip_login_url)) { 
                 echo '<a href="' . $vip_login_url . '" class="button">';
                 echo __('[:en]VIP Login[:es]Sección VIP');
                 echo '</a>';
@@ -138,19 +138,19 @@
         <div class="col col-l col-l-2 flex-col"> 
           <div class="col flex-col justify-start align-end">
             <?php 
-              if ($app_login_url && $app_login_en && $app_login_es) { 
+              if (!empty($app_login_url) && !empty($app_login_en) && !empty($app_login_es)) { 
                 echo '<a href="' . $app_login_url . '" class="button">';
                 echo __('[:en]' . $app_login_en . '[:es]' . $app_login_es);
                 echo '</a>';
               }
             ?>
           </div>
-        <?php if ($sponsor_logo) { 
+        <?php if (!empty($sponsor_logo)) { 
         ?>
           <div class="col flex-col justify-end align-center">
             <?php 
-              $sponsor_logo_img = wp_get_attachment_image($sponsor_logo);
-              echo ($sponsor_url ? '<a href="' . $sponsor_url . '">' . $sponsor_logo_img . '</a>' : $sponsor_logo_img); 
+              $sponsor_logo_img = wp_get_attachment_image($sponsor_logo, 'sponsor');
+              echo (!empty($sponsor_url) ? '<a href="' . $sponsor_url . '">' . $sponsor_logo_img . '</a>' : $sponsor_logo_img); 
             ?>
           </div>
         <?php 

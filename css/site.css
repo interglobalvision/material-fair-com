@@ -534,13 +534,25 @@ th {
           justify-content: flex-end;
 }
 .align-start {
-  text-align: start;
+  -webkit-box-align: start;
+  -ms-align-items: flex-start;
+  -ms-flex-align: start;
+      -ms-grid-row-align: flex-start;
+      align-items: flex-start;
 }
 .align-center {
-  text-align: center;
+  -webkit-box-align: center;
+  -ms-align-items: center;
+  -ms-flex-align: center;
+      -ms-grid-row-align: center;
+      align-items: center;
 }
 .align-end {
-  text-align: end;
+  -webkit-box-align: end;
+  -ms-align-items: flex-end;
+  -ms-flex-align: end;
+      -ms-grid-row-align: flex-end;
+      align-items: flex-end;
 }
 .col {
   box-sizing: border-box;
@@ -559,6 +571,9 @@ th {
           flex: 0 0 auto;
   padding-right: 18px;
   padding-left: 18px;
+}
+.offset-s-0 {
+  margin-left: 0%;
 }
 .offset-s-1 {
   margin-left: 8.333333333333334%;
@@ -672,6 +687,9 @@ th {
             flex: 0 0 auto;
     padding-right: 18px;
     padding-left: 18px;
+  }
+  .offset-m-0 {
+    margin-left: 0%;
   }
   .offset-m-1 {
     margin-left: 8.333333333333334%;
@@ -787,6 +805,9 @@ th {
     padding-right: 18px;
     padding-left: 18px;
   }
+  .offset-l-0 {
+    margin-left: 0%;
+  }
   .offset-l-1 {
     margin-left: 8.333333333333334%;
   }
@@ -895,7 +916,7 @@ th {
 }
 html {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 15px;
+  font-size: 12px;
   letter-spacing: 0.001em;
 }
 body {
@@ -958,7 +979,7 @@ html {
 .section {
   width: 100%;
   padding: 18px 0;
-  border-bottom: 1px solid #0e0e0e;
+  border-top: 1px solid #0e0e0e;
 }
 img {
   max-width: 100%;
@@ -1036,13 +1057,19 @@ img {
 .padding-bottom-large {
   padding-bottom: 180px;
 }
-@media screen and (max-width: 601px) {
+.lead-sponsor-logo {
+  margin-right: 36px;
+}
+.social-icon {
+  padding-left: 18px;
+}
+@media screen and (max-width: 1150px) {
+  .container {
+    width: 993px;
+  }
+}
+@media screen and (max-width: 993px) {
   .container {
     width: 96%;
-  }
-  .col {
-    width: 100%;
-    float: none;
-    margin-left: 18px;
   }
 }
