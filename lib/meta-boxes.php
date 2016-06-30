@@ -48,6 +48,15 @@ function igv_cmb_metaboxes() {
   ) );
 
   $exhibitor_metabox->add_field( array(
+    'name'             => __( 'Year', 'cmb2' ),
+    'desc'             => __( '', 'cmb2' ),
+    'id'               => $prefix . 'exhibitor_year',
+    'type'             => 'select',
+    'show_option_none' => false,
+    'options'          => get_exhibitor_year_options(),
+  ) );
+
+  $exhibitor_metabox->add_field( array(
     'name'     => __( 'Stand #', 'cmb2' ),
     'desc'     => __( '', 'cmb2' ),
     'id'       => $prefix . 'exhibitor_stand',
