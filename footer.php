@@ -21,7 +21,7 @@
 
           <div class="col col-l col-l-1 align-center">
         <?php if (!empty($logo_id)) { ?>
-            <a href="<?php echo home_url(); ?>"><?php echo wp_get_attachment_image($logo_id); ?></a>
+            <a href="<?php echo home_url(); ?>"><?php echo wp_get_attachment_image($logo_id, 'thumbnail'); ?></a>
         <?php } else { ?>
             <h1 class="col"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
         <?php } ?>
