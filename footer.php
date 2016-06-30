@@ -88,7 +88,7 @@
           <?php foreach ($sponsors as $sponsor) { ?>
           
             <?php 
-              $sponsor_img = wp_get_attachment_image($sponsor['logo_id'], 'full', null, array( 'class' => 'lead-sponsor-logo' ));
+              $sponsor_img = wp_get_attachment_image($sponsor['logo_id'], 'sponsor', null, array( 'class' => 'lead-sponsor-logo' ));
               echo (!empty($sponsor['url']) ? '<a href="' . $sponsor['url'] . '">' . $sponsor_img . '</a>' : $sponsor_img); 
             ?>
           
