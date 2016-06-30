@@ -64,29 +64,20 @@
 
         <?php } ?>
 
-        <?php if (!empty($facebook)) { ?>
+          <div class="col col-l col-l-3 text-align-right">
 
-          <div class="col col-l col-l-1 align-center">
-            <?php echo '<a href="' . $facebook . '"><img src="' . get_stylesheet_directory_uri() . '/img/dist/fb-icon.png"></a>'; ?>
+            <?php 
+            if (!empty($facebook) || !empty($twitter) || !empty($instagram)) { 
+              if (!empty($facebook)) { 
+                echo '<a href="' . $facebook . '" class="social-icon"><img src="' . get_stylesheet_directory_uri() . '/img/dist/facebook.svg"></a>'; 
+              } if (!empty($twitter)) {
+                echo '<a href="https://twitter.com/' . $twitter . '" class="social-icon"><img src="' . get_stylesheet_directory_uri() . '/img/dist/twitter.svg"></a>'; 
+              } if (!empty($instagram)) { 
+                echo '<a href="https://www.instagram.com/' . $instagram . '" class="social-icon"><img src="' . get_stylesheet_directory_uri() . '/img/dist/instagram.svg"></a>'; 
+              }
+            } ?>
+
           </div>
-
-        <?php } ?>
-
-        <?php if (!empty($twitter)) { ?>
-
-          <div class="col col-l col-l-1 align-center">
-            <?php echo '<a href="https://twitter.com/' . $twitter . '"><img src="' . get_stylesheet_directory_uri() . '/img/dist/tw-icon.png"></a>'; ?>
-          </div>
-
-        <?php } ?>
-
-        <?php if (!empty($instagram)) { ?>
-
-          <div class="col col-l col-l-1 align-center">
-            <?php echo '<a href="https://www.instagram.com/' . $instagram . '"><img src="' . get_stylesheet_directory_uri() . '/img/dist/ig-icon.png"></a>'; ?>
-          </div>
-
-        <?php } ?>
 
         </div> <!-- END ROW -->
 
