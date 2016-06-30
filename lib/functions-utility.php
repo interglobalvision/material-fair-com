@@ -55,3 +55,17 @@ function debug_page_request() {
   echo basename($template);
   echo ' -->'.D4P_EOL;
 }
+
+// Get year options for Exhibitors
+function get_exhibitor_year_options() {
+  $first_year = '2014';
+  $next_year = date('Y') + 1;
+
+  $year_options = array();
+
+  for ($i = $next_year; $i >= $first_year; $i--) {
+    $year_options[ $i ] = $i;
+  }
+
+  return $year_options;
+}
