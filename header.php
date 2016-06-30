@@ -78,7 +78,7 @@
   <header id="header" class="section">
     <div class="container">
       <div class="row">
-        <div class="col col-l col-l-2 align-center">
+        <div class="col col-l col-l-2 flex-col justify-center align-center">
         <?php if (!empty($logo_id)) { ?>
           <a href="<?php echo home_url(); ?>"><?php echo wp_get_attachment_image($logo_id); ?></a>
         <?php } else { ?>
