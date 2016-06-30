@@ -172,12 +172,6 @@ function igv_cmb_metaboxes() {
     'id'            => $prefix . 'event_metabox',
     'title'         => __( 'Event Options', 'cmb2' ),
     'object_types'  => array( 'event', ), // Post type
-    // 'show_on_cb' => 'yourprefix_show_if_front_page', // function should return a bool value
-    // 'context'    => 'normal',
-    // 'priority'   => 'high',
-    // 'show_names' => true, // Show field names on the left
-    // 'cmb_styles' => false, // false to disable the CMB stylesheet
-    // 'closed'     => true, // true to keep the metabox closed by default
   ) );
 
   $event_metabox->add_field( array(
@@ -213,7 +207,10 @@ function igv_cmb_metaboxes() {
     'desc'    => __( '', 'cmb2' ),
     'id'      => $prefix . 'event_rsvp',
     'type'    => 'wysiwyg',
-    'options' => array( 'textarea_rows' => 3, ),
+    'options' => array( 
+      'media_buttons' => false,
+      'textarea_rows' => 3, 
+    ),
   ) );
 
 // PRESS
@@ -222,12 +219,6 @@ function igv_cmb_metaboxes() {
     'id'            => $prefix . 'press_metabox',
     'title'         => __( 'Press Options', 'cmb2' ),
     'object_types'  => array( 'press', ), // Post type
-    // 'show_on_cb' => 'yourprefix_show_if_front_page', // function should return a bool value
-    // 'context'    => 'normal',
-    // 'priority'   => 'high',
-    // 'show_names' => true, // Show field names on the left
-    // 'cmb_styles' => false, // false to disable the CMB stylesheet
-    // 'closed'     => true, // true to keep the metabox closed by default
   ) );
 
   $press_metabox->add_field( array(
@@ -257,6 +248,54 @@ function igv_cmb_metaboxes() {
     'id'   => $prefix . 'press_date',
     'type' => 'text_date_timestamp',
     // 'timezone_meta_key' => $prefix . 'timezone', // Optionally make this field honor the timezone selected in the select_timezone specified above
+  ) );
+
+// COMMITTEE
+  
+  $committee_metabox = new_cmb2_box( array(
+    'id'            => $prefix . 'committee_metabox',
+    'title'         => __( 'Committee Members', 'cmb2' ),
+    'object_types'  => array( 'committee', ), // Post type
+  ) );
+
+  $committee_members = $committee_metabox->add_field( array(
+    'id'          => $prefix . 'exhibitor_featured',
+    'type'        => 'group',
+    'description' => __( '', 'cmb2' ),
+    'options'     => array(
+      'group_title'   => __( 'Member {#}', 'cmb2' ), // {#} gets replaced by row number
+      'add_button'    => __( 'Add Another Member', 'cmb2' ),
+      'remove_button' => __( 'Remove Member', 'cmb2' ),
+      'sortable'      => true, // beta
+      // 'closed'     => true, // true to have the groups closed by default
+    ),
+  ) );
+
+  $committee_metabox->add_group_field( $committee_members, array(
+    'name'        => __( 'Name', 'cmb2' ),
+    'description' => __( '', 'cmb2' ),
+    'id'          => 'name',
+    'type'        => 'text_medium',
+  ) );
+
+  $committee_metabox->add_group_field( $committee_members, array(
+    'name'    => __( 'Bio (English)', 'cmb2' ),
+    'id'      => 'bio_en',
+    'type'    => 'wysiwyg',
+    'options' => array( 
+      'media_buttons' => false,
+      'textarea_rows' => 3, 
+    ),
+  ) );
+
+  $committee_metabox->add_group_field( $committee_members, array(
+    'name'    => __( 'Bio (Español)', 'cmb2' ),
+    'id'      => 'bio_es',
+    'type'    => 'wysiwyg',
+    'options' => array( 
+      'media_buttons' => false,
+      'textarea_rows' => 3, 
+    ),
   ) );
 
 }
