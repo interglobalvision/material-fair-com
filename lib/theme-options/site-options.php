@@ -77,7 +77,7 @@ $metabox = array(
     ),
     array(
       'name' => __( 'Splash image', 'cmb2' ),
-      'desc' => __( '', 'cmb2' ),
+      'desc' => __( '1440 px width * 550 px height', 'cmb2' ),
       'id'   => $prefix . 'front_page_splash',
       'type' => 'file',
     ),
