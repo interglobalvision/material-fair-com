@@ -31,3 +31,15 @@ function display_exhibitor_year_column( $column, $post_id ) {
     break;
   }
 }
+
+// Replace 'Enter title here' text on Committee post type edit screen
+function committee_title_text( $title ){
+     $screen = get_current_screen();
+
+     if  ( 'committee' == $screen->post_type ) {
+          $title = 'Enter year here';
+     }
+
+     return $title;
+}
+add_filter( 'enter_title_here', 'committee_title_text' );

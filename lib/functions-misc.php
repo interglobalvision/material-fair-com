@@ -48,6 +48,7 @@ function clean_site_blog_info() {
 }
 add_action( 'after_setup_theme', 'clean_site_blog_info' );
 
+
 // custom login logo
 /*
 function custom_login_logo() {
