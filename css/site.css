@@ -1069,6 +1069,14 @@ header#header {
   margin: 0 auto;
   display: block;
 }
+.text-columns-2 {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
+  -webkit-column-gap: 36px;
+  -moz-column-gap: 36px;
+  column-gap: 36px;
+}
 .lead-sponsor-logo {
   margin-right: 36px;
 }
