@@ -33,7 +33,7 @@
           <?php
             _e('<p>Material Art Fair [:en](Office)[:es](Oficina)</p>');
 
-            echo wpautop($address);
+            echo '<span class="u-break-lines">' . $address . '</span>';
           ?>
           </div>
 
