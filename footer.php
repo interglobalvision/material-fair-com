@@ -57,8 +57,8 @@
           <div class="col col-l col-l-4">
             <p>Mailing List</p>
             <form method="post" id="mailchimp-form" name="mailchimp-form">
-              <input type="email" size="30" value="email" name="email">
-              <input type="submit" value="Subscribe" name="subscribe" class="button">
+              <input type="email" size="30" placeholder="email" value="" name="email">
+              <input type="submit" value="Subscribe" name="subscribe">
             </form>
           </div>
 
