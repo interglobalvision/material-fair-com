@@ -41,6 +41,12 @@ $metabox = array(
       'type' => 'text_url',
     ),
     array(
+      'name' => __( 'Application Closed Date', 'cmb2' ),
+      'desc' => __( '', 'cmb2' ),
+      'id'   => $prefix . 'apply_end',
+      'type' => 'text_date_timestamp',
+    ),
+    array(
       'name' => __( 'Show VIP Login', 'cmb2' ),
       'desc' => __( '', 'cmb2' ),
       'id'   => $prefix . 'show_vip_login',
