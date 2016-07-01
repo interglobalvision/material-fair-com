@@ -94,7 +94,7 @@ $metabox = array(
       'fields'      => array(
         array(
           'name'       => __( 'Day', 'cmb2' ),
-          'id'         => 'day_en',
+          'id'         => 'date',
           'type'       => 'text_date_timestamp',
         ),
         array(
