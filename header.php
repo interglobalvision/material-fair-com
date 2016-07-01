@@ -56,6 +56,7 @@
   $start_date = IGV_get_option('_igv_site_options', '_igv_fair_start');
   $end_date = IGV_get_option('_igv_site_options', '_igv_fair_end');
 
+  $publish_exhibitors = IGV_get_option('_igv_exhibitors_options', '_igv_publish_exhibitors');
   $apply_url = IGV_get_option('_igv_site_options', '_igv_apply_url');
   $apply_end = IGV_get_option('_igv_site_options', '_igv_apply_end');
 
@@ -68,6 +69,7 @@
 
   $sponsor_logo = IGV_get_option('_igv_sponsors_options', '_igv_primary_sponsor_logo_id');
   $sponsor_url = IGV_get_option('_igv_sponsors_options', '_igv_primary_sponsor_url');
+  
   ?>
 </head>
 <body <?php body_class(); ?>>
@@ -114,8 +116,8 @@
         <?php } ?>
         </div>
         
-        <?php 
-          if (!empty($apply_url) && !empty($apply_end) && ( strtotime($apply_end) < time() ) ) { 
+        <?php  
+          if (!empty($apply_url) && !empty($apply_end) && ( time() <= $apply_end ) && !$publish_exhibitors ) { 
             echo '<a href="' . $apply_url . '" class="col col-l col-l-2 flex-col justify-center align-center button">';
             echo __('[:en]Apply[:es]Apply');
             echo '</a>';
