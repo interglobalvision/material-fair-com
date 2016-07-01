@@ -85,6 +85,9 @@ ul.u-inline-list li {
       -ms-flex-pack: center;
           justify-content: center;
 }
+.u-break-lines {
+  white-space: pre-wrap;
+}
 @font-face {
   font-family: 'fontello';
   src: url("fontello.eot");
@@ -922,16 +925,23 @@ html {
 body {
   line-height: 1.35;
 }
-h1 {
-  font-size: 2.617924rem;
+h1,
+.font-size-h1 {
+  font-size: 4.663706972827746rem;
   line-height: 1.15;
 }
-h2 {
-  font-size: 2.058106176075472rem;
+h2,
+.font-size-h2 {
+  font-size: 3.330015792890114rem;
   line-height: 1.15;
 }
-h3 {
-  font-size: 1.618rem;
+h3,
+.font-size-h3 {
+  font-size: 2.266018647162703rem;
+}
+h4,
+.font-size-h4 {
+  font-size: 1.541986833892031rem;
 }
 p {
   margin-bottom: 1rem;
