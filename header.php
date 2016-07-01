@@ -112,23 +112,24 @@
           </div>
         <?php } ?>
         </div>
-        <div class="col col-l col-l-2 flex-col justify-center align-center"> 
-          <?php 
-              if (!empty($apply_url)) { 
-                echo '<a href="' . $apply_url . '" class="col flex-col justify-center">';
-                echo __('[:en]Apply[:es]Apply');
-                echo '</a>';
-              }
-            ?>
-        </div>
+        
+        <?php 
+          if (!empty($apply_url)) { 
+            echo '<a href="' . $apply_url . '" class="col col-l col-l-2 flex-col justify-center align-center button">';
+            echo __('[:en]Apply[:es]Apply');
+            echo '</a>';
+          } else {
+            echo '<div class="col col-l col-l-2"></div>';
+          };
+        ?>
         <div class="col col-l col-l-3 flex-col"> 
           <div class="col flex-col justify-start align-end">
             <?php echo qtranxf_generateLanguageSelectCode('both'); ?>
           </div>
-          <div class="col flex-col justify-end align-center">
+          <div class="col flex-row align-end">
             <?php 
               if (!empty($vip_login_url)) { 
-                echo '<a href="' . $vip_login_url . '" class="button">';
+                echo '<a href="' . $vip_login_url . '" class="button col text-align-center">';
                 echo __('[:en]VIP Login[:es]Sección VIP');
                 echo '</a>';
               }
