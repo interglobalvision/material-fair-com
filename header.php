@@ -57,6 +57,7 @@
   $end_date = IGV_get_option('_igv_site_options', '_igv_fair_end');
 
   $apply_url = IGV_get_option('_igv_site_options', '_igv_apply_url');
+  $apply_end = IGV_get_option('_igv_site_options', '_igv_apply_end');
 
   $app_login_url = IGV_get_option('_igv_site_options', '_igv_app_login_url');
   $app_login_en = IGV_get_option('_igv_site_options', '_igv_app_login_text_en');
@@ -114,7 +115,7 @@
         </div>
         
         <?php 
-          if (!empty($apply_url)) { 
+          if (!empty($apply_url) && !empty($apply_end) && ( strtotime($apply_end) < time() ) ) { 
             echo '<a href="' . $apply_url . '" class="col col-l col-l-2 flex-col justify-center align-center button">';
             echo __('[:en]Apply[:es]Apply');
             echo '</a>';
