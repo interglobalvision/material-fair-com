@@ -985,6 +985,25 @@ img {
   max-width: 100%;
   height: auto;
 }
+.button {
+  border: 1px solid #0e0e0e;
+  padding: 11.124611797497385px;
+}
+.button-big {
+  padding: 36px 0;
+}
+input {
+  border: 1px solid #0e0e0e;
+  padding: 11.124611797497385px;
+  -webkit-appearance: none;
+  background: none;
+}
+input:focus {
+  outline: none;
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #fdfdfd inset !important;
+}
 .margin-top-micro {
   margin-top: 11.124611797497385px;
 }

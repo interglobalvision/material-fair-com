@@ -242,6 +242,24 @@ html
 img
   max-width: 100%
   height: auto
+  
+.button
+  border: 1px solid $color-black-soft
+  padding: $margin-micro
+  
+.button-big
+  padding: $margin-small 0
+  
+input
+  border: 1px solid $color-black-soft
+  padding: $margin-micro
+  -webkit-appearance: none
+  background: none
+  &:focus 
+    outline: none
+  &:-webkit-autofill 
+    -webkit-box-shadow: 0 0 0px 1000px $color-white-soft inset !important //Hack kills autofill yellow
+  
 
 // ******************************************************
 
