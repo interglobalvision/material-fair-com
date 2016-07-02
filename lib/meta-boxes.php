@@ -184,10 +184,17 @@ function igv_cmb_metaboxes() {
   ) );
 
   $event_metabox->add_field( array(
+    'name'     => __( 'Artist / Performer', 'cmb2' ),
+    'desc'     => __( '', 'cmb2' ),
+    'id'       => $prefix . 'event_artist',
+    'type'     => 'text',
+  ) );
+
+  $event_metabox->add_field( array(
     'name'     => __( 'Location', 'cmb2' ),
     'desc'     => __( '', 'cmb2' ),
     'id'       => $prefix . 'event_location',
-    'type'     => 'textarea_small',
+    'type'     => 'text',
   ) );
 
   $event_metabox->add_field( array(
@@ -212,9 +219,20 @@ function igv_cmb_metaboxes() {
   ) );
 
   $event_metabox->add_field( array(
-    'name'    => __( 'RSVP info', 'cmb2' ),
+    'name'    => __( 'RSVP info (English)', 'cmb2' ),
     'desc'    => __( '', 'cmb2' ),
-    'id'      => $prefix . 'event_rsvp',
+    'id'      => $prefix . 'event_rsvp_en',
+    'type'    => 'wysiwyg',
+    'options' => array( 
+      'media_buttons' => false,
+      'textarea_rows' => 3, 
+    ),
+  ) );
+
+  $event_metabox->add_field( array(
+    'name'    => __( 'RSVP info (Español)', 'cmb2' ),
+    'desc'    => __( '', 'cmb2' ),
+    'id'      => $prefix . 'event_rsvp_es',
     'type'    => 'wysiwyg',
     'options' => array( 
       'media_buttons' => false,
