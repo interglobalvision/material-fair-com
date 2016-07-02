@@ -25,6 +25,18 @@ $exhibitors_text_es = IGV_get_option('_igv_exhibitors_options', '_igv_exhibitors
 
 $apply_url = IGV_get_option('_igv_site_options', '_igv_apply_url');
 $apply_end = IGV_get_option('_igv_site_options', '_igv_apply_end');
+
+// Program
+$publish_program = IGV_get_option('_igv_program_options', '_igv_publish_program');
+
+$program_image = IGV_get_option('_igv_program_options', '_igv_program_image');
+
+$program_text_en = IGV_get_option('_igv_program_options', '_igv_program_temp_text_en');
+$program_text_es = IGV_get_option('_igv_program_options', '_igv_program_temp_text_es');
+
+$start_date = IGV_get_option('_igv_site_options', '_igv_fair_start');
+$end_date = IGV_get_option('_igv_site_options', '_igv_fair_end');
+
 ?>
 
 <!-- main content -->
@@ -68,7 +80,9 @@ if (!empty($headline_en) || !empty($intro_en)) { ?>
       </div>
     </div>
   </section>
-<?php } ?>
+<?php 
+} 
+?>
 
 <?php 
 //
@@ -139,7 +153,9 @@ if (!empty($schedule) || ( !empty($venue_name) && !empty($venue_address) )  || !
       </div>
     </div>
   </section>
-<?php } ?>
+<?php 
+} 
+?>
 
 <?php 
 //
@@ -147,8 +163,8 @@ if (!empty($schedule) || ( !empty($venue_name) && !empty($venue_address) )  || !
 //
 //
 
-  if ( !empty($apply_end) && ( time() <= $apply_end ) && !$publish_exhibitors ) { 
-    if (!empty($exhibitors_text_en) && !empty($exhibitors_text_es)) {
+if ( !empty($apply_end) && ( time() <= $apply_end ) && !$publish_exhibitors ) { 
+  if (!empty($exhibitors_text_en) && !empty($exhibitors_text_es)) {
 ?>
   <section id="front-exhibitors" class="section">
     <div class="container">
@@ -163,30 +179,31 @@ if (!empty($schedule) || ( !empty($venue_name) && !empty($venue_address) )  || !
         </div>
       </div>
 <?php 
-    }
-    if (!empty($apply_url)) {  
+  }
+
+  if (!empty($apply_url)) {  
 ?>
       <div class="row justify-center">
-        <a href="#" class="col col-l col-l-2 flex-row align-center justify-center button button-big">
+        <a class="col col-l col-l-2 flex-row align-center justify-center button button-big" href="<?php echo esc_url($apply_url); ?>">
           <?php _e( '[:en]Apply[:es]Applicar' ); ?>
         </a>
       </div>
 <?php
-    } 
+  } 
 ?>
     </div>
   </section>
 <?php 
-  } elseif ( $publish_exhibitors ) {
-    $args = array (
-      'post_type'       => array( 'exhibitor' ),
-      'posts_per_page'  => '8',
-      'meta_key'        => '_igv_exhibitor_year',
-      'orderby'         => 'random',
-    );
-    $exhibitors = new WP_Query( $args );
+} elseif ( $publish_exhibitors ) {
+  $args = array (
+    'post_type'       => array( 'exhibitor' ),
+    'posts_per_page'  => '8',
+    'meta_key'        => '_igv_exhibitor_year',
+    'orderby'         => 'rand',
+  );
+  $exhibitors = new WP_Query( $args );
 
-    if ( $exhibitors->have_posts() ) {
+  if ( $exhibitors->have_posts() ) {
 ?>
   <section id="front-exhibitors" class="section">
     <div class="container">
@@ -197,22 +214,180 @@ if (!empty($schedule) || ( !empty($venue_name) && !empty($venue_address) )  || !
       </div>
       <div class="row">
 <?php
-      while ( $exhibitors->have_posts() ) {
-        $exhibitors->the_post();
+    while ( $exhibitors->have_posts() ) {
+      $exhibitors->the_post();
 ?>
         <a class="col col-l col-l-3">
           <?php the_post_thumbnail(); ?>
           <?php the_title(); ?>
         </a>
 <?php
-      }
+    }
 ?>
+      </div>
+      <div class="row justify-center">
+        <a href="<?php echo get_post_type_archive_link( 'event' ); ?>" class="col col-l col-l-2 flex-row align-center justify-center button">
+          <?php _e( '[:en]Apply[:es]Applicar' ); ?>
+        </a>
       </div>
     </div>
   </section>
 <?php
+  }
+} 
+?>
+
+<?php
+//
+// PROGRAM
+//
+//
+
+if ( !$publish_program ) { 
+  if (!empty($program_text_en) && !empty($program_text_es) && !empty($program_image)) {
+?>
+  <section id="front-program" class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col col-l col-l-12">
+          <h2 class="text-align-left"><?php _e('[:en]Program[:es]Programa'); ?></h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-l col-l-6">
+          <?php echo wp_get_attachment_image($program_image, 'col-6'); ?>
+        </div>
+        <div class="col col-l col-l-6">
+          <?php _e( '[:en]' . wpautop($program_text_en) . '[:es]' . wpautop($program_text_es) ); ?>
+        </div>
+      </div>
+    </div>
+  </section>
+<?php 
+  }
+} else if ( $publish_program ) {
+  $now = time();
+
+  $args = array (
+    'post_type'       => array( 'event' ),
+    'posts_per_page'  => '2',
+    'order'           => 'rand',
+    'meta_query' => array(
+      array(
+        'key'     => '_igv_event_start',
+        'compare' => 'EXISTS',
+      ),
+      array(
+        'key'     => '_igv_event_end',
+        'compare' => 'EXISTS',
+      ),
+    ),
+  );
+
+  if ( !empty($start_date) && !empty($end_date) ) {
+
+    $opening = strtotime('-1 day', $start_date); // 
+    $closing = strtotime('+1 day', $end_date);
+
+    if ( $now >= $opening && $now <= $closing ) {
+
+      $args = array (
+        'post_type'       => array( 'event' ),
+        'posts_per_page'  => '2',
+        'meta_key'        => '_igv_event_start',
+        'orderby'    => 'meta_value_num',
+        'order'      => 'ASC',
+        'meta_query' => array(
+          array(
+            'key'     => '_igv_event_start',
+            'compare' => 'EXISTS',
+          ),
+          array(
+            'key'     => '_igv_event_start',
+            'value'   => $now,
+            'compare' => '>=',
+          ),
+          array(
+            'key'     => '_igv_event_end',
+            'compare' => 'EXISTS',
+          ),
+          array(
+            'key'     => '_igv_event_location',
+            'compare' => 'EXISTS',
+          ),
+        ),
+      );
     }
-  } 
+  }
+
+  $events = new WP_Query( $args );
+
+  if ( $events->have_posts() ) {
+?>
+  <section id="front-program" class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col col-l col-l-10">
+          <h2 class="text-align-left"><?php _e('[:en]Upcoming Events[:es]Próximos eventos'); ?></h2>
+        </div>
+        <div class="col col-l col-l-2">
+          <a class="button col flex-row align-center justify-center" href="<?php echo get_post_type_archive_link( 'event' ); ?>"><?php _e('[:en]See More[:es]Ver más'); ?></a>
+        </div>
+      </div>
+      <div class="row">
+<?php 
+    while ( $events->have_posts() ) {
+      $events->the_post();
+
+      $event_start = get_post_meta($post->ID, '_igv_event_start', false);
+      $event_end = get_post_meta($post->ID, '_igv_event_end', false);
+
+      $event_artist = get_post_meta($post->ID, '_igv_event_artist', false);
+      $event_url = get_post_meta($post->ID, '_igv_event_url', false);
+      $event_location = get_post_meta($post->ID, '_igv_event_location', false);
+
+      $event_rsvp_en = get_post_meta($post->ID, '_igv_event_rsvp', false);
+      $event_rsvp_es = get_post_meta($post->ID, '_igv_event_rsvp', false);
+
+      if (has_post_thumbnail()) {
+?>  
+        <div class="col col-l col-l-6">
+          <?php echo (!empty($event_url) ? '<a href="' . esc_url($event_url[0]) . '">' . get_the_post_thumbnail() . '</a>' : get_the_post_thumbnail()); ?>
+          <div class="row">
+            <div class="col col-l-4 flex-col justify-start align-center">
+              <div class="font-size-h4"><?php _e(date('l', $event_start[0])); ?></div>
+              <div class="font-size-h3"><?php echo date('G', $event_start[0]) . ':' . date('i', $event_start[0]); ?></div>
+              <div class="font-size-h3">|</div>
+              <div class="font-size-h4"><?php _e(date('l', $event_end[0])); ?></div>
+              <div class="font-size-h3"><?php echo date('G', $event_end[0]) . ':' . date('i', $event_end[0]); ?></div>
+            </div>
+            <div class="col col-l-8">
+              <?php echo $event_location[0]; ?>
+              <?php if (!empty($event_artist)) { ?>
+              <div class="font-size-h4"><?php echo $event_artist[0]; ?></div>
+              <?php } ?>
+              <div class="font-size-h3 margin-bottom-tiny"><?php echo (!empty($event_url) ? '<a href="' . esc_url($event_url[0]) . '">' . get_the_title() . '</a>' : get_the_title()); ?></div>
+              <?php the_content(); ?>
+              <?php 
+                if (!empty($event_rsvp_en) && !empty($event_rsvp_es)) {
+                  _e( '[:en]' . $event_rsvp_en[0] . '[:es]' . $event_rsvp_es[0] ); 
+                } 
+              ?>
+            </div>
+          </div>
+        </div>  
+<?php 
+      }
+    }
+?>
+      </div>
+    </div>
+  </section>
+<?php 
+  }
+
+  wp_reset_postdata();
+}
 ?>
 
 <?php
@@ -238,7 +413,7 @@ if ( $press->have_posts() ) {
           <h2 class="text-align-left"><?php _e('[:en]Press[:es]Prensa'); ?></h2>
         </div>
         <div class="col col-l col-l-2">
-          <a class="button col flex-row align-center justify-center"><?php _e('[:en]See More[:es]Ver más'); ?></a>
+          <a class="button col flex-row align-center justify-center" href="<?php echo get_post_type_archive_link( 'press' ); ?>"><?php _e('[:en]See More[:es]Ver más'); ?></a>
         </div>
       </div>
       <div class="row">
