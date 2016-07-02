@@ -32,7 +32,7 @@ $metabox = array(
     ),
     array(
       'name' => __( 'Español', 'IGV' ),
-      'id'   => $prefix . 'exhibitors_temp_text_es',
+      'id'   => $prefix . 'program_temp_text_es',
       'type' => 'textarea',
     ),
     array(
