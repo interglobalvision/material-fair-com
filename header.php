@@ -168,23 +168,23 @@
           $page_id = get_id_by_slug('visitor-information');
           if ($page_id) {
         ?>
-          <li class="col col-l col-l-2 flex-col justify-center align-center">
+          <li class="menu-item col col-l col-l-2 flex-col justify-center align-center">
             <a href="<?php echo get_permalink($page_id); ?>">
               <?php echo get_the_title($page_id); ?>
             </a>
           </li>
         <?php } ?>
-          <li class="col col-l col-l-2 flex-col justify-center align-center">
+          <li class="menu-item col col-l col-l-2 flex-col justify-center align-center">
             <a href="<?php echo get_post_type_archive_link( 'exhibitor' ); ?>">
               <?php _e('[:en]Exhibitors[:es]Expositores'); ?>
             </a>
           </li>
-          <li class="col col-l col-l-2 flex-col justify-center align-center">
+          <li class="menu-item col col-l col-l-2 flex-col justify-center align-center">
             <a href="<?php echo get_post_type_archive_link( 'event' ); ?>">
               <?php _e('[:en]Program[:es]Programa'); ?>
             </a>
           </li>
-          <li class="col col-l col-l-2 flex-col justify-center align-center">
+          <li class="menu-item col col-l col-l-2 flex-col justify-center align-center">
             <a href="<?php echo get_post_type_archive_link( 'press' ); ?>">
               <?php _e('[:en]Press[:es]Prensa'); ?>
             </a>
@@ -193,7 +193,7 @@
           $page_id = get_id_by_slug('reading-material');
           if ($page_id) {
         ?>
-          <li class="col col-l col-l-2 flex-col justify-center align-center">
+          <li class="menu-item col col-l col-l-2 flex-col justify-center align-center">
             <a href="<?php echo get_permalink($page_id); ?>">
               <?php echo get_the_title($page_id); ?>
             </a>
@@ -203,7 +203,7 @@
           $page_id = get_id_by_slug('partners');
           if ($page_id) {
         ?>
-          <li class="col col-l col-l-2 flex-col justify-center align-center">
+          <li class="menu-item col col-l col-l-2 flex-col justify-center align-center">
             <a href="<?php echo get_permalink($page_id); ?>">
               <?php echo get_the_title($page_id); ?>
             </a>
