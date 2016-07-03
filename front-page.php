@@ -6,6 +6,8 @@ $splash_id = IGV_get_option('_igv_site_options', '_igv_front_page_splash_id');
 $splash_link = IGV_get_option('_igv_site_options', '_igv_front_page_splash_url');
 
 // Intro
+$organizers_en = IGV_get_option('_igv_site_options', '_igv_front_organizers_en');
+$organizers_es = IGV_get_option('_igv_site_options', '_igv_front_organizers_es');
 $headline_en = IGV_get_option('_igv_site_options', '_igv_front_headline_en');
 $headline_es = IGV_get_option('_igv_site_options', '_igv_front_headline_es');
 $intro_en = IGV_get_option('_igv_site_options', '_igv_front_description_en');
@@ -36,6 +38,9 @@ $program_text_es = IGV_get_option('_igv_program_options', '_igv_program_temp_tex
 
 $start_date = IGV_get_option('_igv_site_options', '_igv_fair_start');
 $end_date = IGV_get_option('_igv_site_options', '_igv_fair_end');
+
+//Partners
+$partners = IGV_get_option('_igv_sponsors_options', '_igv_partners_group');
 
 ?>
 
@@ -73,8 +78,11 @@ if (!empty($headline_en) || !empty($intro_en)) { ?>
           <h2 class="text-align-center"><?php _e(!empty($headline_en) && !empty($headline_es) ? '[:en]' . $headline_en . '[:es]' . $headline_es : ''); ?></h2>
         </div>
         <div class="col col-l col-l-8">
-          <div class="text-columns-2 font-size-h4">
-            <?php _e(!empty($intro_en) && !empty($intro_es) ? '[:en]' . wpautop($intro_en) . '[:es]' . wpautop($intro_es) : ''); ?>
+          <div class="text-columns-2">
+            <div class="font-size-h4">
+              <?php _e(!empty($intro_en) && !empty($intro_es) ? '[:en]' . apply_filters( 'the_content', $intro_en ) . '[:es]' . apply_filters( 'the_content', $intro_es ) : ''); ?>
+            </div>
+            <?php _e(!empty($organizers_en) && !empty($organizers_es) ? '[:en]' . apply_filters( 'the_content', $organizers_en ) . '[:es]' . apply_filters( 'the_content', $organizers_es ) : ''); ?>
           </div>
         </div>
       </div>
@@ -115,7 +123,7 @@ if (!empty($schedule) || ( !empty($venue_name) && !empty($venue_address) )  || !
           <?php foreach ($schedule as $day) { ?>
           <div class="flex-row margin-bottom-tiny">
             <div class="col col-l-6 font-size-h4">
-              <?php _e( date('d, D M', $day['date']) ); ?>
+              <?php _e( date('l, j F Y', $day['date']) ); ?>
             </div>
             <div class="col col-l-6">
               <span class="u-break-lines font-size-h4"><?php _e( '[:en]' . $day['schedule_en'] . '[:es]' . $day['schedule_es']); ?></span>
@@ -216,18 +224,25 @@ if ( !empty($apply_end) && ( time() <= $apply_end ) && !$publish_exhibitors ) {
 <?php
     while ( $exhibitors->have_posts() ) {
       $exhibitors->the_post();
+
+      $city_en = get_post_meta($post->ID, '_igv_exhibitor_city_en', true);
+      $city_es = get_post_meta($post->ID, '_igv_exhibitor_city_es', true);
+
+      if ( has_post_thumbnail() && !empty($city_en) && !empty($city_es) ) {
 ?>
         <a class="col col-l col-l-3">
-          <?php the_post_thumbnail(); ?>
-          <?php the_title(); ?>
+          <?php the_post_thumbnail('col-3-crop'); ?>
+          <div class="font-size-h3"><?php the_title(); ?></div>
+          <div class="font-size-h4"><?php _e( '[:en]' . $city_en . '[:es]' . $city_es ); ?></div>
         </a>
 <?php
+      }
     }
 ?>
       </div>
       <div class="row justify-center">
         <a href="<?php echo get_post_type_archive_link( 'event' ); ?>" class="col col-l col-l-2 flex-row align-center justify-center button">
-          <?php _e( '[:en]Apply[:es]Applicar' ); ?>
+          <?php _e( '[:en]See More[:es]Ver más' ); ?>
         </a>
       </div>
     </div>
@@ -451,6 +466,37 @@ if ( $press->have_posts() ) {
 }
 
 wp_reset_postdata();
+?>
+
+<?php
+//
+// PARTNERS
+//
+//
+
+if (!empty($partners)) {
+?>
+  <section id="front-partners" class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col col-l col-l-12">
+          <h2 class="text-align-center"><?php _e('[:en]Partners[:es]Asociados'); ?></h2>
+        </div>
+      </div>
+      <div class="row justify-center align-center">
+        <?php
+          foreach ($partners as $partner) {  
+            $partner_img = wp_get_attachment_image($partner['logo_id'], 'sponsor');
+            echo '<div class="col col-l col-l-2 text-align-center">';
+            echo (!empty($partner['url']) ? '<a href="' . esc_url($partner['url']) . '">' . $partner_img . '</a>' : $partner_img);
+            echo '</div>';
+          } 
+        ?>
+      </div>
+    </div>
+  </section>
+<?php 
+}
 ?>
 
 <!-- end main-content -->
