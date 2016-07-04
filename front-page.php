@@ -58,7 +58,7 @@ if (!empty($splash_id)) { ?>
   <section id="front-splash" class="section">
     <?php 
       echo (!empty($splash_link) ? '<a href="' . esc_url( $splash_link ) . '">' : ''); 
-      echo wp_get_attachment_image($splash_id, 'splash', null, array('class' => 'splash-image'));
+      echo wp_get_attachment_image($splash_id, 'splash', null, array('id' => 'splash-image'));
       echo (!empty($splash_link) ? '</a>' : ''); 
     ?>
   </section>
