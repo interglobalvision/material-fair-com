@@ -1086,13 +1086,13 @@ input:-webkit-autofill {
 .padding-bottom-large {
   padding-bottom: 180px;
 }
-header#header {
+#header {
   border-top: 0;
 }
 #front-splash {
   padding: 0;
 }
-.splash-image {
+#splash-image {
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
