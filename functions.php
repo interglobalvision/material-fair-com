@@ -35,6 +35,12 @@ function scripts_and_styles_method() {
 add_action('wp_enqueue_scripts', 'scripts_and_styles_method');
 
 
+function enqueue_admin_js() {
+    wp_enqueue_script( 'cmb2_qtranslate', get_template_directory_uri() . '/js/cmb2-qtranslate.js' );
+  }
+add_action( 'admin_enqueue_scripts', 'enqueue_admin_js' );
+
+
 // Declare thumbnail sizes
 
 get_template_part( 'lib/thumbnail-sizes' );

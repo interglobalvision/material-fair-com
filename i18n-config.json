@@ -1,7 +1,7 @@
 {
 "admin-config": {
 	"cmb2": {
-		"pages": { "post.php": "", "post-new.php": "", "admin.php": "" },
+		"pages": { "admin.php": "" },
 		"forms":{
 			"main":{
 				"fields":{
