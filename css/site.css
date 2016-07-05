@@ -85,6 +85,9 @@ ul.u-inline-list li {
       -ms-flex-pack: center;
           justify-content: center;
 }
+.u-break-lines {
+  white-space: pre-wrap;
+}
 @font-face {
   font-family: 'fontello';
   src: url("fontello.eot");
@@ -922,16 +925,23 @@ html {
 body {
   line-height: 1.35;
 }
-h1 {
-  font-size: 2.617924rem;
+h1,
+.font-size-h1 {
+  font-size: 4.663706972827746rem;
   line-height: 1.15;
 }
-h2 {
-  font-size: 2.058106176075472rem;
+h2,
+.font-size-h2 {
+  font-size: 3.330015792890114rem;
   line-height: 1.15;
 }
-h3 {
-  font-size: 1.618rem;
+h3,
+.font-size-h3 {
+  font-size: 2.266018647162703rem;
+}
+h4,
+.font-size-h4 {
+  font-size: 1.541986833892031rem;
 }
 p {
   margin-bottom: 1rem;
@@ -984,6 +994,25 @@ html {
 img {
   max-width: 100%;
   height: auto;
+}
+.button {
+  border: 1px solid #0e0e0e;
+  padding: 11.124611797497385px;
+}
+.button-big {
+  padding: 36px 0;
+}
+input {
+  border: 1px solid #0e0e0e;
+  padding: 11.124611797497385px;
+  -webkit-appearance: none;
+  background: none;
+}
+input:focus {
+  outline: none;
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #fdfdfd inset !important;
 }
 .margin-top-micro {
   margin-top: 11.124611797497385px;
@@ -1056,6 +1085,26 @@ img {
 }
 .padding-bottom-large {
   padding-bottom: 180px;
+}
+#header {
+  border-top: 0;
+}
+#front-splash {
+  padding: 0;
+}
+#splash-image {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: block;
+}
+.text-columns-2 {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
+  -webkit-column-gap: 36px;
+  -moz-column-gap: 36px;
+  column-gap: 36px;
 }
 .lead-sponsor-logo {
   margin-right: 36px;

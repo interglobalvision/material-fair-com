@@ -31,9 +31,11 @@
 
           <div class="col col-l col-l-2">
           <?php
-            _e('<p>Material Art Fair [:en](Office)[:es](Oficina)</p>');
+            echo '<h5 class="margin-bottom-micro">';
+            _e('Material Art Fair [:en](Office)[:es](Oficina)');
+            echo '</h5>';
 
-            echo wpautop($address);
+            echo '<div class="u-break-lines">' . $address . '</div>';
           ?>
           </div>
 
@@ -43,10 +45,12 @@
 
           <div class="col col-l col-l-2">
           <?php
-            _e('<p>[:en]Contact[:es]Contacto</p>');
+            echo '<h5 class="margin-bottom-micro">';
+            _e('[:en]Contact[:es]Contacto');
+            echo '</h5>';
 
-            echo ($email ? '<p><a href="mailto:' . $email . '">' . $email . '</a></p>' : '');
-            echo ($phone ? '<p><a href="tel:' . $phone . '">' . $phone . '</a></p>' : ''); 
+            echo ($email ? '<div class="margin-bottom-micro"><a href="mailto:' . $email . '">' . $email . '</a></div>' : '');
+            echo ($phone ? '<a href="tel:' . $phone . '">' . $phone . '</a>' : ''); 
           ?>
           </div>
 
@@ -55,10 +59,10 @@
         <?php if (!empty($mailchimp_url)) { ?>
 
           <div class="col col-l col-l-4">
-            <p>Mailing List</p>
+            <h5 class="margin-bottom-micro">Mailing List</h5>
             <form method="post" id="mailchimp-form" name="mailchimp-form">
-              <input type="email" size="30" value="email" name="email">
-              <input type="submit" value="Subscribe" name="subscribe" class="button">
+              <input type="email" size="30" placeholder="email" value="" name="email">
+              <input type="submit" value="Subscribe" name="subscribe">
             </form>
           </div>
 
@@ -81,14 +85,14 @@
 
         </div> <!-- END ROW -->
 
-        <?php if ($sponsors) { ?>
+        <?php if (!empty($sponsors)) { ?>
 
         <div class="row">
           <div class="col col-l col-l-12 flex-row align-center">
           <?php foreach ($sponsors as $sponsor) { ?>
           
             <?php 
-              $sponsor_img = wp_get_attachment_image($sponsor['logo_id'], 'full', null, array( 'class' => 'lead-sponsor-logo' ));
+              $sponsor_img = wp_get_attachment_image($sponsor['logo_id'], 'sponsor', null, array( 'class' => 'lead-sponsor-logo' ));
               echo (!empty($sponsor['url']) ? '<a href="' . $sponsor['url'] . '">' . $sponsor_img . '</a>' : $sponsor_img); 
             ?>
           

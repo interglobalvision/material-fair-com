@@ -41,6 +41,12 @@ $metabox = array(
       'type' => 'text_url',
     ),
     array(
+      'name' => __( 'Application Closed Date', 'cmb2' ),
+      'desc' => __( '', 'cmb2' ),
+      'id'   => $prefix . 'apply_end',
+      'type' => 'text_date_timestamp',
+    ),
+    array(
       'name' => __( 'Show VIP Login', 'cmb2' ),
       'desc' => __( '', 'cmb2' ),
       'id'   => $prefix . 'show_vip_login',
@@ -77,7 +83,7 @@ $metabox = array(
     ),
     array(
       'name' => __( 'Splash image', 'cmb2' ),
-      'desc' => __( '', 'cmb2' ),
+      'desc' => __( '1440 px width * 550 px height', 'cmb2' ),
       'id'   => $prefix . 'front_page_splash',
       'type' => 'file',
     ),
@@ -109,13 +115,29 @@ $metabox = array(
       'name' => __( 'Front Page Description (English)', 'cmb2' ),
       'desc' => __( '', 'cmb2' ),
       'id'   => $prefix . 'front_description_en',
-      'type' => 'textarea',
+      'type' => 'wysiwyg',
+      'options' => array( 'textarea_rows' => 6, ),
     ),
     array(
       'name' => __( 'Front Page Description (Español)', 'cmb2' ),
       'desc' => __( '', 'cmb2' ),
       'id'   => $prefix . 'front_description_es',
-      'type' => 'textarea',
+      'type' => 'wysiwyg',
+      'options' => array( 'textarea_rows' => 6, ),
+    ),
+    array(
+      'name' => __( 'Organizers (English)', 'cmb2' ),
+      'desc' => __( 'One sentence description', 'cmb2' ),
+      'id'   => $prefix . 'front_organizers_en',
+      'type' => 'wysiwyg',
+      'options' => array( 'textarea_rows' => 3, ),
+    ),
+    array(
+      'name' => __( 'Organizers (Español)', 'cmb2' ),
+      'desc' => __( 'One sentence description', 'cmb2' ),
+      'id'   => $prefix . 'front_organizers_es',
+      'type' => 'wysiwyg',
+      'options' => array( 'textarea_rows' => 3, ),
     ),
     array(
       'name' => __( 'Footer', 'cmb2' ),
