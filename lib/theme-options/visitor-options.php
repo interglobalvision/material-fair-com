@@ -1,11 +1,10 @@
 <?php
 
 $prefix = '_igv_';
-$suffix = '_options';
 
 // VISITOR INFO
 
-$page_key = $prefix . 'visitor_info' . $suffix;
+$page_key = $prefix . 'visitor_options';
 $page_title = 'Visitor Info';
 $metabox = array(
   'id'         => $page_key, //id used as tab page slug, must be unique
@@ -17,18 +16,18 @@ $metabox = array(
       'name' => __( 'Venue Address', 'cmb2' ),
       'id'   => $prefix . 'venue_address',
       'type' => 'textarea',
+      'attributes' => array(
+        'class' => 'cmb2-qtranslate'
+      )
     ),
     array(
-      'name' => __( 'How to Arrive (English)', 'cmb2' ),
-      'id'   => $prefix . 'how_to_arrive_en',
+      'name' => __( 'How to Arrive', 'cmb2' ),
+      'id'   => $prefix . 'how_to_arrive',
       'type' => 'wysiwyg',
-      'options' => array( 'textarea_rows' => 5, ),
-    ),
-    array(
-      'name' => __( 'How to Arrive (Español)', 'cmb2' ),
-      'id'   => $prefix . 'how_to_arrive_es',
-      'type' => 'wysiwyg',
-      'options' => array( 'textarea_rows' => 5, ),
+      'options' => array( 
+        'textarea_rows' => 5, 
+        'editor_class' => 'cmb2-qtranslate'
+      ),
     ),
     array(
       'name' => __( 'Venue Map Embed URL', 'cmb2' ),
@@ -38,49 +37,37 @@ $metabox = array(
     ),
     array(
       'name' => __( 'Ticket Info', 'cmb2' ),
-      'id'   => $prefix . 'ticket_info_title',
-      'type' => 'title',
-    ),
-    array(
       'id'          => $prefix . 'ticket_info',
       'type'        => 'group',
       'description' => __( '', 'cmb2' ),
       'options'     => array(
-        'group_title'   => __( 'Group {#}', 'cmb2' ), // {#} gets replaced by row number
-        'add_button'    => __( 'Add Another Group', 'cmb2' ),
-        'remove_button' => __( 'Remove Group', 'cmb2' ),
+        'group_title'   => __( 'Class {#}', 'cmb2' ), // {#} gets replaced by row number
+        'add_button'    => __( 'Add Another Class', 'cmb2' ),
+        'remove_button' => __( 'Remove Class', 'cmb2' ),
         'sortable'      => true, // beta
         // 'closed'     => true, // true to have the groups closed by default
       ),
       'fields'      => array(
         array(
-          'name'       => __( 'Group (English)', 'cmb2' ),
-          'id'         => 'group_en',
-          'type'       => 'text',
+          'name'       => __( 'Class', 'cmb2' ),
+          'id'         => 'class',
+          'type'       => 'text_medium',
+          'attributes' => array(
+            'class' => 'cmb2-qtranslate'
+          )
         ),
         array(
-          'name'       => __( 'Group (Español)', 'cmb2' ),
-          'id'         => 'group_es',
+          'name'       => __( 'Price', 'cmb2' ),
+          'id'         => 'price',
           'type'       => 'text',
-        ),
-        array(
-          'name'       => __( 'Price (English)', 'cmb2' ),
-          'id'         => 'price_en',
-          'type'       => 'text',
-        ),
-        array(
-          'name'       => __( 'Price (Español)', 'cmb2' ),
-          'id'         => 'price_es',
-          'type'       => 'text',
+          'attributes' => array(
+            'class' => 'cmb2-qtranslate'
+          )
         ),
       )
     ),
     array(
-      'name' => __( 'Schedule', 'cmb2' ),
-      'id'   => $prefix . 'schedule_title',
-      'type' => 'title',
-    ),
-    array(
+      'name'        => __( 'Schedule', 'cmb2' ),
       'id'          => $prefix . 'schedule',
       'type'        => 'group',
       'description' => __( '', 'cmb2' ),
@@ -98,14 +85,12 @@ $metabox = array(
           'type'       => 'text_date_timestamp',
         ),
         array(
-          'name'       => __( 'Schedule (English)', 'cmb2' ),
-          'id'         => 'schedule_en',
+          'name'       => __( 'Schedule', 'cmb2' ),
+          'id'         => 'schedule',
           'type'       => 'textarea_small',
-        ),
-        array(
-          'name'       => __( 'Schedule (Español)', 'cmb2' ),
-          'id'         => 'schedule_es',
-          'type'       => 'textarea_small',
+          'attributes' => array(
+            'class' => 'cmb2-qtranslate'
+          )
         )
       )
     )
