@@ -440,7 +440,7 @@ if ( $press->have_posts() ) {
     $press_pub = $press_meta['_igv_press_publication'][0];
     $press_url = $press_meta['_igv_press_url'][0];
 
-    if (!empty($press_author) && !empty($press_url) && !empty($press_url)) {
+    if (!empty($press_author) && !empty($press_url) && !empty($press_pub)) {
 ?>
         <a class="col col-l col-l-4" href="<?php echo esc_url($press_url); ?>">
           <h4 class="margin-bottom-tiny">
@@ -454,7 +454,7 @@ if ( $press->have_posts() ) {
             echo ' ' . $press_author;
           ?>
         </a>
-<?
+<?php
     }
   }
 ?>
