@@ -6,35 +6,30 @@ $splash_id = IGV_get_option('_igv_site_options', '_igv_front_page_splash_id');
 $splash_link = IGV_get_option('_igv_site_options', '_igv_front_page_splash_url');
 
 // Intro
-$organizers_en = IGV_get_option('_igv_site_options', '_igv_front_organizers_en');
-$organizers_es = IGV_get_option('_igv_site_options', '_igv_front_organizers_es');
-$headline_en = IGV_get_option('_igv_site_options', '_igv_front_headline_en');
-$headline_es = IGV_get_option('_igv_site_options', '_igv_front_headline_es');
-$intro_en = IGV_get_option('_igv_site_options', '_igv_front_description_en');
-$intro_es = IGV_get_option('_igv_site_options', '_igv_front_description_es');
+$organizers = IGV_get_option('_igv_site_options', '_igv_front_organizers');
+$headline = IGV_get_option('_igv_site_options', '_igv_front_headline');
+$intro = IGV_get_option('_igv_site_options', '_igv_front_description');
 
 // Visitor Info
-$schedule = IGV_get_option('_igv_visitor_info_options', '_igv_schedule');
-$tickets = IGV_get_option('_igv_visitor_info_options', '_igv_ticket_info');
+$schedule = IGV_get_option('_igv_visitor_options', '_igv_schedule');
+$tickets = IGV_get_option('_igv_visitor_options', '_igv_ticket_info');
 $venue_name = IGV_get_option('_igv_site_options', '_igv_venue_name');
-$venue_address = IGV_get_option('_igv_visitor_info_options', '_igv_venue_address');
+$venue_address = IGV_get_option('_igv_visitor_options', '_igv_venue_address');
 
 // Exhibitors
-$publish_exhibitors = IGV_get_option('_igv_exhibitors_options', '_igv_publish_exhibitors');
+$publish_exhibitors = IGV_get_option('_igv_page_options', '_igv_publish_exhibitors');
 
-$exhibitors_text_en = IGV_get_option('_igv_exhibitors_options', '_igv_exhibitors_temp_text_en');
-$exhibitors_text_es = IGV_get_option('_igv_exhibitors_options', '_igv_exhibitors_temp_text_es');
+$exhibitors_text = IGV_get_option('_igv_page_options', '_igv_exhibitors_temp_text');
 
 $apply_url = IGV_get_option('_igv_site_options', '_igv_apply_url');
 $apply_end = IGV_get_option('_igv_site_options', '_igv_apply_end');
 
 // Program
-$publish_program = IGV_get_option('_igv_program_options', '_igv_publish_program');
+$publish_program = IGV_get_option('_igv_page_options', '_igv_publish_program');
 
-$program_image = IGV_get_option('_igv_program_options', '_igv_program_image');
+$program_image = IGV_get_option('_igv_page_options', '_igv_program_image');
 
-$program_text_en = IGV_get_option('_igv_program_options', '_igv_program_temp_text_en');
-$program_text_es = IGV_get_option('_igv_program_options', '_igv_program_temp_text_es');
+$program_text = IGV_get_option('_igv_page_options', '_igv_program_temp_text');
 
 $start_date = IGV_get_option('_igv_site_options', '_igv_fair_start');
 $end_date = IGV_get_option('_igv_site_options', '_igv_fair_end');
@@ -70,19 +65,19 @@ if (!empty($splash_id)) { ?>
 //
 //
 
-if (!empty($headline_en) || !empty($intro_en)) { ?>
+if (!empty($headline) || !empty($intro)) { ?>
   <section id="front-intro" class="section">
     <div class="container">
       <div class="row">
         <div class="col col-l col-l-4">
-          <h2 class="text-align-center"><?php _e(!empty($headline_en) && !empty($headline_es) ? '[:en]' . $headline_en . '[:es]' . $headline_es : ''); ?></h2>
+          <h2 class="text-align-center"><?php echo (!empty($headline) ? $headline : ''); ?></h2>
         </div>
         <div class="col col-l col-l-8">
           <div class="text-columns-2">
             <div class="font-size-h4">
-              <?php _e(!empty($intro_en) && !empty($intro_es) ? '[:en]' . apply_filters( 'the_content', $intro_en ) . '[:es]' . apply_filters( 'the_content', $intro_es ) : ''); ?>
+              <?php echo (!empty($intro) ? apply_filters( 'the_content', $intro ) : ''); ?>
             </div>
-            <?php _e(!empty($organizers_en) && !empty($organizers_es) ? '[:en]' . apply_filters( 'the_content', $organizers_en ) . '[:es]' . apply_filters( 'the_content', $organizers_es ) : ''); ?>
+            <?php echo (!empty($organizers) ? apply_filters( 'the_content', $organizers ) : ''); ?>
           </div>
         </div>
       </div>
@@ -120,16 +115,22 @@ if (!empty($schedule) || ( !empty($venue_name) && !empty($venue_address) )  || !
       <?php if (!empty($schedule)) { ?>
         <div class="col col-l col-l-6">
           <h3 class="margin-bottom-tiny"><?php _e('[:en]Schedule[:es]Horario'); ?></h3>
-          <?php foreach ($schedule as $day) { ?>
+          <?php 
+            foreach ($schedule as $day) { 
+              if (!empty($day['schedule']) && !empty($day['date'])) {
+          ?>
           <div class="flex-row margin-bottom-tiny">
             <div class="col col-l-6 font-size-h4">
               <?php _e( date('l, j F Y', $day['date']) ); ?>
             </div>
             <div class="col col-l-6">
-              <span class="u-break-lines font-size-h4"><?php _e( '[:en]' . $day['schedule_en'] . '[:es]' . $day['schedule_es']); ?></span>
+              <span class="u-break-lines font-size-h4"><?php echo $day['schedule']; ?></span>
             </div>
           </div>
-          <?php } ?>
+          <?php 
+              }
+            } 
+          ?>
         </div>
       <?php } if (!empty($venue_name) && !empty($venue_address)) { ?>
         <div class="col col-l col-l-3">
@@ -147,12 +148,17 @@ if (!empty($schedule) || ( !empty($venue_name) && !empty($venue_address) )  || !
           <div class="row">
             <div class="col">
               <ul>
-                <?php foreach ($tickets as $price) { ?>
+                <?php foreach ($tickets as $ticket) { 
+                  if (!empty($ticket['class']) && !empty($ticket['price'])) {
+                ?>
                 <li class="padding-bottom-micro">
-                  <?php _e( '[:en]' . $price['group_en'] . '[:es]' . $price['group_es']); ?>:&nbsp;
-                  <div class="font-size-h4"><?php _e( '[:en]' . $price['price_en'] . '[:es]' . $price['price_es']); ?></div>
+                  <?php echo $ticket['class']; ?>:
+                  <div class="font-size-h4"><?php _e($ticket['price']); ?></div>
                 </li>
-                <?php } ?>
+                <?php 
+                  }
+                } 
+                ?>
               </ul>
             </div>
           </div>
@@ -172,7 +178,7 @@ if (!empty($schedule) || ( !empty($venue_name) && !empty($venue_address) )  || !
 //
 
 if ( !empty($apply_end) && ( time() <= $apply_end ) && !$publish_exhibitors ) { 
-  if (!empty($exhibitors_text_en) && !empty($exhibitors_text_es)) {
+  if (!empty($exhibitors_text)) {
 ?>
   <section id="front-exhibitors" class="section">
     <div class="container">
@@ -183,13 +189,11 @@ if ( !empty($apply_end) && ( time() <= $apply_end ) && !$publish_exhibitors ) {
       </div>
       <div class="row justify-center">
         <div class="col col-l col-l-8 text-align-center font-size-h3">
-          <?php _e( '[:en]' . wpautop($exhibitors_text_en) . '[:es]' . wpautop($exhibitors_text_es) ); ?>
+          <?php echo wpautop($exhibitors_text_en); ?>
         </div>
       </div>
 <?php 
-  }
-
-  if (!empty($apply_url)) {  
+    if (!empty($apply_url)) {  
 ?>
       <div class="row justify-center">
         <a class="col col-l col-l-2 flex-row align-center justify-center button button-big" href="<?php echo esc_url($apply_url); ?>">
@@ -197,6 +201,7 @@ if ( !empty($apply_end) && ( time() <= $apply_end ) && !$publish_exhibitors ) {
         </a>
       </div>
 <?php
+    }
   } 
 ?>
     </div>
@@ -225,15 +230,14 @@ if ( !empty($apply_end) && ( time() <= $apply_end ) && !$publish_exhibitors ) {
     while ( $exhibitors->have_posts() ) {
       $exhibitors->the_post();
 
-      $city_en = get_post_meta($post->ID, '_igv_exhibitor_city_en', true);
-      $city_es = get_post_meta($post->ID, '_igv_exhibitor_city_es', true);
+      $city = get_post_meta($post->ID, '_igv_exhibitor_city', true);
 
-      if ( has_post_thumbnail() && !empty($city_en) && !empty($city_es) ) {
+      if ( has_post_thumbnail() && !empty($city) ) {
 ?>
         <a class="col col-l col-l-3">
           <?php the_post_thumbnail('col-3-crop'); ?>
           <div class="font-size-h3"><?php the_title(); ?></div>
-          <div class="font-size-h4"><?php _e( '[:en]' . $city_en . '[:es]' . $city_es ); ?></div>
+          <div class="font-size-h4"><?php echo $city; ?></div>
         </a>
 <?php
       }
@@ -259,7 +263,7 @@ if ( !empty($apply_end) && ( time() <= $apply_end ) && !$publish_exhibitors ) {
 //
 
 if ( !$publish_program ) { 
-  if (!empty($program_text_en) && !empty($program_text_es) && !empty($program_image)) {
+  if (!empty($program_text) && !empty($program_image)) {
 ?>
   <section id="front-program" class="section">
     <div class="container">
@@ -273,7 +277,7 @@ if ( !$publish_program ) {
           <?php echo wp_get_attachment_image($program_image, 'col-6'); ?>
         </div>
         <div class="col col-l col-l-6">
-          <?php _e( '[:en]' . wpautop($program_text_en) . '[:es]' . wpautop($program_text_es) ); ?>
+          <?php echo wpautop($program_text_en); ?>
         </div>
       </div>
     </div>
@@ -361,8 +365,7 @@ if ( !$publish_program ) {
       $event_url = get_post_meta($post->ID, '_igv_event_url', false);
       $event_location = get_post_meta($post->ID, '_igv_event_location', false);
 
-      $event_rsvp_en = get_post_meta($post->ID, '_igv_event_rsvp', false);
-      $event_rsvp_es = get_post_meta($post->ID, '_igv_event_rsvp', false);
+      $event_rsvp = get_post_meta($post->ID, '_igv_event_rsvp', false);
 
       if (has_post_thumbnail()) {
 ?>  
@@ -383,11 +386,7 @@ if ( !$publish_program ) {
               <?php } ?>
               <div class="font-size-h3 margin-bottom-tiny"><?php echo (!empty($event_url) ? '<a href="' . esc_url($event_url[0]) . '">' . get_the_title() . '</a>' : get_the_title()); ?></div>
               <?php the_content(); ?>
-              <?php 
-                if (!empty($event_rsvp_en) && !empty($event_rsvp_es)) {
-                  _e( '[:en]' . $event_rsvp_en[0] . '[:es]' . $event_rsvp_es[0] ); 
-                } 
-              ?>
+              <?php echo (!empty($event_rsvp) ? $event_rsvp : ''); ?>
             </div>
           </div>
         </div>  
