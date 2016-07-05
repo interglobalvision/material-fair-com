@@ -124,7 +124,7 @@ if (!empty($schedule) || ( !empty($venue_name) && !empty($venue_address) )  || !
               <?php _e( date('l, j F Y', $day['date']) ); ?>
             </div>
             <div class="col col-l-6">
-              <span class="u-break-lines font-size-h4"><?php echo $day['schedule']; ?></span>
+              <span class="font-size-h4"><?php echo apply_filters( 'the_content', $day['schedule'] ); ?></span>
             </div>
           </div>
           <?php 
@@ -138,7 +138,7 @@ if (!empty($schedule) || ( !empty($venue_name) && !empty($venue_address) )  || !
           <div class="row">
             <div class="col">
               <h4 class="padding-bottom-tiny"><?php echo $venue_name; ?></h4>
-              <span class="font-size-h4 u-break-lines"><?php echo $venue_address; ?></span>
+              <span class="font-size-h4"><?php echo apply_filters( 'the_content', $venue_address ); ?></span>
             </div>
           </div>
         </div>
@@ -189,7 +189,7 @@ if ( !empty($apply_end) && ( time() <= $apply_end ) && !$publish_exhibitors ) {
       </div>
       <div class="row justify-center">
         <div class="col col-l col-l-8 text-align-center font-size-h3">
-          <?php echo wpautop($exhibitors_text_en); ?>
+          <?php echo apply_filters( 'the_content', $exhibitors_text ); ?>
         </div>
       </div>
 <?php 
@@ -277,7 +277,7 @@ if ( !$publish_program ) {
           <?php echo wp_get_attachment_image($program_image, 'col-6'); ?>
         </div>
         <div class="col col-l col-l-6">
-          <?php echo wpautop($program_text_en); ?>
+          <?php echo apply_filters( 'the_content', $program_text ); ?>
         </div>
       </div>
     </div>
