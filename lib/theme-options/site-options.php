@@ -61,14 +61,11 @@ $metabox = array(
     array(
       'name' => __( 'App Login Button Text (English)', 'cmb2' ),
       'desc' => __( '', 'cmb2' ),
-      'id'   => $prefix . 'app_login_text_en',
+      'id'   => $prefix . 'app_login_text',
       'type' => 'text',
-    ),
-    array(
-      'name' => __( 'App Login Button Text (Español)', 'cmb2' ),
-      'desc' => __( '', 'cmb2' ),
-      'id'   => $prefix . 'app_login_text_es',
-      'type' => 'text',
+      'attributes' => array(
+        'class' => 'cmb2-qtranslate'
+      )
     ),
     array(
       'name' => __( 'App Login URL', 'cmb2' ),
@@ -102,42 +99,31 @@ $metabox = array(
     array(
       'name' => __( 'Front Page Headline (English)', 'cmb2' ),
       'desc' => __( '', 'cmb2' ),
-      'id'   => $prefix . 'front_headline_en',
+      'id'   => $prefix . 'front_headline',
       'type' => 'text',
-    ),
-    array(
-      'name' => __( 'Front Page Headline (Español)', 'cmb2' ),
-      'desc' => __( '', 'cmb2' ),
-      'id'   => $prefix . 'front_headline_es',
-      'type' => 'text',
+      'attributes' => array(
+        'class' => 'cmb2-qtranslate'
+      )
     ),
     array(
       'name' => __( 'Front Page Description (English)', 'cmb2' ),
       'desc' => __( '', 'cmb2' ),
-      'id'   => $prefix . 'front_description_en',
+      'id'   => $prefix . 'front_description',
       'type' => 'wysiwyg',
-      'options' => array( 'textarea_rows' => 6, ),
-    ),
-    array(
-      'name' => __( 'Front Page Description (Español)', 'cmb2' ),
-      'desc' => __( '', 'cmb2' ),
-      'id'   => $prefix . 'front_description_es',
-      'type' => 'wysiwyg',
-      'options' => array( 'textarea_rows' => 6, ),
+      'options' => array( 
+        'textarea_rows' => 6, 
+        'editor_class' => 'cmb2-qtranslate'
+      ),
     ),
     array(
       'name' => __( 'Organizers (English)', 'cmb2' ),
       'desc' => __( 'One sentence description', 'cmb2' ),
-      'id'   => $prefix . 'front_organizers_en',
+      'id'   => $prefix . 'front_organizers',
       'type' => 'wysiwyg',
-      'options' => array( 'textarea_rows' => 3, ),
-    ),
-    array(
-      'name' => __( 'Organizers (Español)', 'cmb2' ),
-      'desc' => __( 'One sentence description', 'cmb2' ),
-      'id'   => $prefix . 'front_organizers_es',
-      'type' => 'wysiwyg',
-      'options' => array( 'textarea_rows' => 3, ),
+      'options' => array( 
+        'textarea_rows' => 3, 
+        'editor_class' => 'cmb2-qtranslate'
+      ),
     ),
     array(
       'name' => __( 'Footer', 'cmb2' ),

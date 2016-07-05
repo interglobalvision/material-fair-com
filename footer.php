@@ -35,7 +35,7 @@
             _e('Material Art Fair [:en](Office)[:es](Oficina)');
             echo '</h5>';
 
-            echo '<div class="u-break-lines">' . $address . '</div>';
+            echo apply_filters( 'the_content', $address );
           ?>
           </div>
 

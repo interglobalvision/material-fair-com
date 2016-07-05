@@ -56,13 +56,12 @@
   $start_date = IGV_get_option('_igv_site_options', '_igv_fair_start');
   $end_date = IGV_get_option('_igv_site_options', '_igv_fair_end');
 
-  $publish_exhibitors = IGV_get_option('_igv_exhibitors_options', '_igv_publish_exhibitors');
+  $publish_exhibitors = IGV_get_option('_igv_page_options', '_igv_publish_exhibitors');
   $apply_url = IGV_get_option('_igv_site_options', '_igv_apply_url');
   $apply_end = IGV_get_option('_igv_site_options', '_igv_apply_end');
 
   $app_login_url = IGV_get_option('_igv_site_options', '_igv_app_login_url');
-  $app_login_en = IGV_get_option('_igv_site_options', '_igv_app_login_text_en');
-  $app_login_es = IGV_get_option('_igv_site_options', '_igv_app_login_text_es');
+  $app_login_text = IGV_get_option('_igv_site_options', '_igv_app_login_text');
 
   $vip_login_url = IGV_get_option('_igv_site_options', '_igv_vip_login_url');
   $show_vip_login = IGV_get_option('_igv_site_options', '_igv_show_vip_login');
@@ -142,9 +141,9 @@
         <div class="col col-l col-l-2 flex-col"> 
           <div class="col flex-col justify-start align-end">
             <?php 
-              if (!empty($app_login_url) && !empty($app_login_en) && !empty($app_login_es)) { 
+              if (!empty($app_login_url) && !empty($app_login_text)) { 
                 echo '<a href="' . $app_login_url . '" class="button">';
-                echo __('[:en]' . $app_login_en . '[:es]' . $app_login_es);
+                echo $app_login_text;
                 echo '</a>';
               }
             ?>
