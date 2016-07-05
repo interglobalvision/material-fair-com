@@ -35,9 +35,13 @@ function scripts_and_styles_method() {
 add_action('wp_enqueue_scripts', 'scripts_and_styles_method');
 
 
-function enqueue_admin_js() {
+function enqueue_admin_js($hook) {
+  if ($hook == 'post.php' || $hook == 'post-new.php' || $hook == 'admin.php') {
     wp_enqueue_script( 'cmb2_qtranslate', get_template_directory_uri() . '/js/cmb2-qtranslate.js' );
+  } else {
+    return;
   }
+}
 add_action( 'admin_enqueue_scripts', 'enqueue_admin_js' );
 
 
