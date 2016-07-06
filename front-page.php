@@ -27,7 +27,7 @@ $apply_end = IGV_get_option('_igv_site_options', '_igv_apply_end');
 // Program
 $publish_program = IGV_get_option('_igv_page_options', '_igv_publish_program');
 
-$program_image = IGV_get_option('_igv_page_options', '_igv_program_image');
+$program_image_id = IGV_get_option('_igv_page_options', '_igv_program_image_id');
 
 $program_text = IGV_get_option('_igv_page_options', '_igv_program_temp_text');
 
@@ -119,7 +119,7 @@ if (!empty($schedule) || ( !empty($venue_name) && !empty($venue_address) )  || !
             foreach ($schedule as $day) { 
               if (!empty($day['schedule']) && !empty($day['date'])) {
           ?>
-          <div class="flex-row margin-bottom-tiny">
+          <div class="flex-row">
             <div class="col col-l-6 font-size-h4">
               <?php _e( date('l, j F Y', $day['date']) ); ?>
             </div>
@@ -263,7 +263,7 @@ if ( !empty($apply_end) && ( time() <= $apply_end ) && !$publish_exhibitors ) {
 //
 
 if ( !$publish_program ) { 
-  if (!empty($program_text) && !empty($program_image)) {
+  if (!empty($program_text) && !empty($program_image_id)) {
 ?>
   <section id="front-program" class="section">
     <div class="container">
@@ -274,7 +274,7 @@ if ( !$publish_program ) {
       </div>
       <div class="row">
         <div class="col col-l col-l-6">
-          <?php echo wp_get_attachment_image($program_image, 'col-6'); ?>
+          <?php echo wp_get_attachment_image($program_image_id, 'col-6'); ?>
         </div>
         <div class="col col-l col-l-6">
           <?php echo apply_filters( 'the_content', $program_text ); ?>
