@@ -199,7 +199,7 @@ $organizers = IGV_get_option('_igv_page_options', '_igv_organizers_group');
       foreach ( $organizers as $organizer ) {
         if ( !empty($organizer['name']) && !empty($organizer['bio']) && !empty($organizer['photo_id']) ) {
 ?>
-          <div class="flex-row margin-bottom-small">
+          <div class="flex-row margin-bottom-tiny">
             <div class="col col-6">
               <h3 class="margin-bottom-micro"><?php echo $organizer['name']; ?></h3>
               <div class="font-size-h4">
