@@ -2,20 +2,6 @@
 
 $prefix = '_igv_';
 
-// Get year options
-function get_fair_year_options() {
-  $first_year = '2014';
-  $next_year = date('Y') + 1;
-
-  $year_options = array();
-
-  for ($i = $next_year; $i >= $first_year; $i--) {
-    $year_options[ $i ] = $i;
-  }
-
-  return $year_options;
-}
-
 // PROGRAM
 
 $page_key = $prefix . 'page_options';
@@ -26,14 +12,6 @@ $metabox = array(
   'show_on'    => array( 'key' => 'options-page', 'value' => array( $page_key ), ), //value must be same as id
   'show_names' => true,
   'fields'     => array(
-    array(
-      'name'       => __( 'Current Fair Year', 'cmb2' ),
-      'desc'       => __( '', 'cmb2' ),
-      'id'         => $prefix . 'current_fair_year',
-      'type'       => 'select',
-      'show_option_none' => false,
-      'options'          => get_fair_year_options(), 
-    ),
     array(
       'name' => __( 'Program', 'cmb2' ),
       'id'   => $prefix . 'program_title',
