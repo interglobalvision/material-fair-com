@@ -2,9 +2,9 @@
 // hook into the init action and call create_book_taxonomies when it fires
 
 // create two taxonomies, genres and writers for the post type "book"
-add_action( 'init', 'create_exhibitor_year_tax' );
+add_action( 'init', 'create_fair_year_tax' );
 
-function create_exhibitor_year_tax() {
+function create_fair_year_tax() {
   $labels = array(
     'name'                       => _x( 'Years', 'taxonomy general name' ),
     'singular_name'              => _x( 'Year', 'taxonomy singular name' ),
@@ -32,10 +32,10 @@ function create_exhibitor_year_tax() {
     'query_var'             => true,
   );
 
-  register_taxonomy( 'exhibitor_year', 'exhibitor', $args );
+  register_taxonomy( 'fair_year', array('exhibitor','press','committee','event'), $args );
 }
 
 function remove_year_metabox() {
-  remove_meta_box( 'tagsdiv-exhibitor_year', 'exhibitor', 'side' );
+  remove_meta_box( 'tagsdiv-fair_year', array('exhibitor','press','committee','event'), 'side' );
 }
 add_action( 'admin_menu', 'remove_year_metabox' );
