@@ -36,7 +36,7 @@ function register_cpt_exhibitor() {
         'has_archive' => true,
         'query_var' => true,
         'can_export' => true,
-        'rewrite' => true,
+        'rewrite' => array( 'slug' => 'exhibitors' ),
         'capability_type' => 'post'
     );
 
@@ -122,7 +122,7 @@ function register_cpt_event() {
         'has_archive' => true,
         'query_var' => true,
         'can_export' => true,
-        'rewrite' => true,
+        'rewrite' => array( 'slug' => 'program' ),
         'capability_type' => 'post'
     );
 
@@ -152,7 +152,7 @@ function register_cpt_committee() {
         'labels' => $labels,
         'hierarchical' => false,
         
-        'supports' => array( 'title', ),
+        'supports' => array( 'title','editor' ),
         
         'public' => true,
         'show_ui' => true,

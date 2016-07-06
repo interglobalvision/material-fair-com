@@ -17,9 +17,11 @@ $venue_name = IGV_get_option('_igv_site_options', '_igv_venue_name');
 $venue_address = IGV_get_option('_igv_visitor_options', '_igv_venue_address');
 
 // Exhibitors
+$current_year_id = IGV_get_option('_igv_site_options', '_igv_current_fair_year');
+$current_year = (!empty($current_year_id)) ? get_term($current_year_id)->slug : false;
 $publish_exhibitors = IGV_get_option('_igv_page_options', '_igv_publish_exhibitors');
 
-$exhibitors_text = IGV_get_option('_igv_page_options', '_igv_exhibitors_temp_text');
+$exhibitors_apply_text = IGV_get_option('_igv_page_options', '_igv_exhibitors_apply_text');
 
 $apply_url = IGV_get_option('_igv_site_options', '_igv_apply_url');
 $apply_end = IGV_get_option('_igv_site_options', '_igv_apply_end');
@@ -178,18 +180,18 @@ if (!empty($schedule) || ( !empty($venue_name) && !empty($venue_address) )  || !
 //
 
 if ( !empty($apply_end) && ( time() <= $apply_end ) && !$publish_exhibitors ) { 
-  if (!empty($exhibitors_text)) {
+  if (!empty($exhibitors_apply_text)) {
 ?>
   <section id="front-exhibitors" class="section">
     <div class="container">
       <div class="row">
         <div class="col col-l col-l-12 text-align-center">
-          <h2>Exhibitors</h2>
+          <h2><?php _e('[:en]Exhibitor applications are now open![:es]Solicitud de participación ya está abierta!'); ?></h2>
         </div>
       </div>
       <div class="row justify-center">
         <div class="col col-l col-l-8 text-align-center font-size-h3">
-          <?php echo apply_filters( 'the_content', $exhibitors_text ); ?>
+          <?php echo apply_filters( 'the_content', $exhibitors_apply_text ); ?>
         </div>
       </div>
 <?php 
@@ -207,12 +209,24 @@ if ( !empty($apply_end) && ( time() <= $apply_end ) && !$publish_exhibitors ) {
     </div>
   </section>
 <?php 
-} elseif ( $publish_exhibitors ) {
+} elseif ( $publish_exhibitors && !empty($current_year_id)) {
+
   $args = array (
-    'post_type'       => array( 'exhibitor' ),
+    'post_type'       => 'exhibitor',
     'posts_per_page'  => '8',
-    'meta_key'        => '_igv_exhibitor_year',
+    'tax_query'       => array(
+      array(
+        'taxonomy' => 'fair_year',
+        'field' => 'term_id',
+        'terms' => $current_year_id,
+      )
+    ),
     'orderby'         => 'rand',
+    'meta_query'      => array( 
+      array(
+        'key' => '_thumbnail_id',
+      ),
+    ),
   );
   $exhibitors = new WP_Query( $args );
 
@@ -222,7 +236,7 @@ if ( !empty($apply_end) && ( time() <= $apply_end ) && !$publish_exhibitors ) {
     <div class="container">
       <div class="row">
         <div class="col col-l col-l-12 text-align-center">
-          <h2>Exhibitors</h2>
+          <h2><?php _e('[:en]Exhibitors[:es]Expositores'); ?></h2>
         </div>
       </div>
       <div class="row">
@@ -230,22 +244,19 @@ if ( !empty($apply_end) && ( time() <= $apply_end ) && !$publish_exhibitors ) {
     while ( $exhibitors->have_posts() ) {
       $exhibitors->the_post();
 
-      $city = get_post_meta($post->ID, '_igv_exhibitor_city', true);
-
-      if ( has_post_thumbnail() && !empty($city) ) {
+      $city = get_post_meta($post->ID, '_igv_exhibitor_city');
 ?>
         <a class="col col-l col-l-3">
           <?php the_post_thumbnail('col-3-crop'); ?>
-          <div class="font-size-h3"><?php the_title(); ?></div>
-          <div class="font-size-h4"><?php echo $city; ?></div>
+          <h3><?php the_title(); ?></h3>
+          <?php echo (!empty($city) ? '<span class="font-size-h4">' . $city[0] . '</span>' : ''); ?>
         </a>
 <?php
-      }
     }
 ?>
       </div>
       <div class="row justify-center">
-        <a href="<?php echo get_post_type_archive_link( 'event' ); ?>" class="col col-l col-l-2 flex-row align-center justify-center button">
+        <a href="<?php echo get_post_type_archive_link( 'exhibitor' ); ?>" class="col col-l col-l-2 flex-row align-center justify-center button">
           <?php _e( '[:en]See More[:es]Ver más' ); ?>
         </a>
       </div>
