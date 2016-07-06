@@ -21,19 +21,38 @@ $metabox = array(
       )
     ),
     array(
-      'name' => __( 'How to Arrive', 'cmb2' ),
-      'id'   => $prefix . 'how_to_arrive',
+      'name' => __( 'Fair Description', 'cmb2' ),
+      'id'   => $prefix . 'fair_description',
       'type' => 'wysiwyg',
       'options' => array( 
-        'textarea_rows' => 5, 
-        'editor_class' => 'cmb2-qtranslate'
+        'textarea_rows' => 10, 
+        'editor_class' => 'cmb2-qtranslate',
+        'media_buttons' => false,
       ),
     ),
     array(
-      'name' => __( 'Venue Map Embed URL', 'cmb2' ),
-      'description' => __( 'Google maps', 'cmb2' ),
-      'id'   => $prefix . 'venue_map_url',
-      'type' => 'text_url',
+      'name' => __( 'Fair Image', 'cmb2' ),
+      'desc' => __( '', 'cmb2' ),
+      'id'   => $prefix . 'fair_image',
+      'type' => 'file',
+    ),
+    array(
+      'name' => __( 'How to Arrive', 'cmb2' ),
+      'id'   => $prefix . 'how_to_arrive',
+      'description' => 'Wrap methods (Metro, Ecobici, etc) in Heading 4 (H4 tags)',
+      'type' => 'wysiwyg',
+      'options' => array( 
+        'textarea_rows' => 10, 
+        'editor_class' => 'cmb2-qtranslate',
+        'media_buttons' => false,
+      ),
+    ),
+    array(
+      'name' => __( 'Venue Map Embed', 'cmb2' ),
+      'description' => __( 'Paste Google Maps iframe embed.', 'cmb2' ),
+      'id'   => $prefix . 'venue_map',
+      'type' => 'textarea_code',
+
     ),
     array(
       'name' => __( 'Ticket Info', 'cmb2' ),
