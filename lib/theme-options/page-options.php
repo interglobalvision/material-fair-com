@@ -26,23 +26,31 @@ $metabox = array(
     array(
       'name' => __( 'Program Temporary Text', 'IGV' ),
       'id'   => $prefix . 'program_temp_text',
-      'type' => 'textarea',
-      'attributes' => array(
-        'class' => 'cmb2-qtranslate'
-      )
+      'type' => 'wysiwyg',
+      'options' => array( 
+        'textarea_rows' => 6, 
+        'editor_class' => 'cmb2-qtranslate'
+      ),
     ),
     array(
       'name' => __( 'Program Page Text', 'IGV' ),
       'id'   => $prefix . 'program_page_text_en',
-      'type' => 'textarea',
-      'attributes' => array(
-        'class' => 'cmb2-qtranslate'
-      )
+      'type' => 'wysiwyg',
+      'options' => array( 
+        'textarea_rows' => 6, 
+        'editor_class' => 'cmb2-qtranslate'
+      ),
     ),
     array(
       'name' => __( 'Exhibitors', 'cmb2' ),
       'id'   => $prefix . 'exhbitors_title',
       'type' => 'title',
+    ),
+    array(
+      'name' => __( 'Publish Committee', 'cmb2' ),
+      'desc' => __( '', 'cmb2' ),
+      'id'   => $prefix . 'publish_committee',
+      'type' => 'checkbox',
     ),
     array(
       'name' => __( 'Publish Exhibitors', 'cmb2' ),
@@ -51,20 +59,30 @@ $metabox = array(
       'type' => 'checkbox',
     ),
     array(
-      'name' => __( 'Exhibitors Temporary Text', 'IGV' ),
-      'id'   => $prefix . 'exhibitors_temp_text',
-      'type' => 'textarea',
-      'attributes' => array(
-        'class' => 'cmb2-qtranslate'
-      )
+      'name' => __( 'Exhibitors Apply Text', 'IGV' ),
+      'id'   => $prefix . 'exhibitors_apply_text',
+      'desc' => __( 'To encourage exhibitors to apply.', 'cmb2' ),
+      'type' => 'wysiwyg',
+      'options' => array( 
+        'textarea_rows' => 6, 
+        'editor_class' => 'cmb2-qtranslate'
+      ),
     ),
     array(
-      'name' => __( 'Exhibitors Page Text', 'IGV' ),
+      'name' => __( 'Exhibitors Introduction Image', 'IGV' ),
+      'desc' => __( 'Appears next to introduction on main Exhibitors page.', 'cmb2' ),
+      'id'   => $prefix . 'exhibitors_page_image',
+      'type' => 'file',
+    ),
+    array(
+      'name' => __( 'Exhibitors Introduction Text', 'IGV' ),
+      'desc' => __( 'Appears on main exhibitors page.', 'cmb2' ),
       'id'   => $prefix . 'exhibitors_page_text',
-      'type' => 'textarea',
-      'attributes' => array(
-        'class' => 'cmb2-qtranslate'
-      )
+      'type' => 'wysiwyg',
+      'options' => array( 
+        'textarea_rows' => 6, 
+        'editor_class' => 'cmb2-qtranslate'
+      ),
     ),
     array(
       'name' => __( 'Fair History', 'cmb2' ),
