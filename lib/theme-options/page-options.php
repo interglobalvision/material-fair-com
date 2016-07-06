@@ -126,6 +126,7 @@ $metabox = array(
         ),
         array(
           'name'       => __( 'Photo', 'cmb2' ),
+          'description' => 'Square crop',
           'id'         => 'photo',
           'type'       => 'file',
         ),

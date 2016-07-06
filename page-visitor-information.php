@@ -195,7 +195,6 @@ $organizers = IGV_get_option('_igv_page_options', '_igv_organizers_group');
 ?>
         <div class="col col-l col-l-6">
           <h2 class="margin-bottom-tiny"><?php _e('[:en]Organizers[:es]Organizadores'); ?></h2>
-          
 <?php
       foreach ( $organizers as $organizer ) {
         if ( !empty($organizer['name']) && !empty($organizer['bio']) && !empty($organizer['photo_id']) ) {
@@ -208,7 +207,7 @@ $organizers = IGV_get_option('_igv_page_options', '_igv_organizers_group');
               </div>
             </div>
             <div class="col col-6">
-              <?php echo wp_get_attachment_image($organizer['photo_id'], 'col-3-crop'); ?>
+              <?php echo wp_get_attachment_image($organizer['photo_id'], 'col-3-square'); ?>
             </div>
           </div>
 <?php
