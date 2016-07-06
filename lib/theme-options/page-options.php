@@ -72,12 +72,27 @@ $metabox = array(
       'type' => 'title',
     ),
     array(
-      'name' => __( 'Fair History', 'cmb2' ),
-      'id'   => $prefix . 'fair_history',
-      'type' => 'textarea',
+      'name' => __( 'Fair History Headline', 'cmb2' ),
+      'id'   => $prefix . 'fair_history_headline',
+      'type' => 'textarea_small',
       'attributes' => array(
         'class' => 'cmb2-qtranslate'
       )
+    ),
+    array(
+      'name' => __( 'Fair History Image', 'cmb2' ),
+      'id'   => $prefix . 'fair_history_image',
+      'type' => 'file',
+    ),
+    array(
+      'name' => __( 'Fair History', 'cmb2' ),
+      'id'   => $prefix . 'fair_history',
+      'type' => 'wysiwyg',
+      'options' => array( 
+        'textarea_rows' => 20, 
+        'editor_class' => 'cmb2-qtranslate',
+        'media_buttons' => false,
+      ),
     ),
     array(
       'name' => __( 'Organizers', 'cmb2' ),
@@ -111,6 +126,7 @@ $metabox = array(
         ),
         array(
           'name'       => __( 'Photo', 'cmb2' ),
+          'description' => 'Square crop',
           'id'         => 'photo',
           'type'       => 'file',
         ),
