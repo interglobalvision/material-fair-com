@@ -2,7 +2,9 @@
 get_header();
 
 $current_year_id = IGV_get_option('_igv_site_options', '_igv_current_fair_year');
-$current_year = (!empty($current_year_id)) ? get_term($current_year_id)->slug : false;
+$current_year = (!empty($current_year_id)) ? get_term($current_year_id)->slug : false; 
+// if we have the term ID, get the slug, 
+// otherwise set it false for later conditionals
 
 $publish_exhibitors = IGV_get_option('_igv_page_options', '_igv_publish_exhibitors');
 $publish_committee = IGV_get_option('_igv_page_options', '_igv_publish_committee');
@@ -28,6 +30,8 @@ $apply_end = IGV_get_option('_igv_site_options', '_igv_apply_end');
           <?php 
             _e('[:en]Exhibitors&nbsp;[:es]Expositores&nbsp;'); 
             echo ($current_year && $publish_exhibitors ? $current_year : ''); 
+            // add the current year to the heading if we have it, 
+            // and the exhibitors are published.
           ?>
           </h1>
         </div>
@@ -68,7 +72,7 @@ if ( $publish_committee && !empty($current_year_id)) {
       array(
         'taxonomy' => 'fair_year',
         'field' => 'term_id',
-        'terms' => $current_year_id,
+        'terms' => $current_year_id, // get posts with current year
       )
     ),
     'orderby'         => 'title',
@@ -107,7 +111,10 @@ if ( $publish_committee && !empty($current_year_id)) {
 ?>
 
 <?php
-if ( !empty($apply_end) && time() <= $apply_end && $publish_exhibitors == false && !empty($exhibitors_apply_text) && !empty($apply_url) ) { 
+// if the application hasn't ended and 
+// exhibitors are not published, 
+// show the Apply Now section
+if ( !empty($apply_end) && time() <= $apply_end && !$publish_exhibitors && !empty($exhibitors_apply_text) && !empty($apply_url) ) { 
 ?>
   <section id="exhibitors-apply" class="section">
     <div class="container">
@@ -130,9 +137,12 @@ if ( !empty($apply_end) && time() <= $apply_end && $publish_exhibitors == false 
     </div>
   </section>
 <?php 
-} elseif ( $publish_exhibitors ) {
+// Otherwise if the exhibitors are published, 
+// show exhibitor list section
+} elseif ( $publish_exhibitors ) { 
 
   if( have_posts() ) {
+    //set section letter (#,A,B,C...) to null to start
     $section_letter = null;
 ?>
   <section id="exhibitors-list" class="section">
@@ -147,10 +157,16 @@ if ( !empty($apply_end) && time() <= $apply_end && $publish_exhibitors == false 
 
       $the_title = get_the_title();
       $first_letter = $the_title[0];
+      // the first letter of the title
 
       $first_letter = (!ctype_alpha($first_letter)) ? '#' : $first_letter;
+      // if the first letter is not alphabetic, 
+      // set it to '#' for numbers and symbols
 
       if ($first_letter !== $section_letter) {
+        // if the first letter is not equal the current section letter
+        //then we reset the section letter, and start a new section
+
         $section_letter = $first_letter;
 ?>
       </div>
@@ -170,7 +186,7 @@ if ( !empty($apply_end) && time() <= $apply_end && $publish_exhibitors == false 
           <a href="<?php the_permalink() ?>">
             <?php the_post_thumbnail('col-3-crop'); ?>
             <h4><?php the_title(); ?></h4>
-            <?php echo (!empty($city) ? '<span>' . $city[0] . '</span>' : ''); ?>
+            <?php echo (!empty($city) ? '<span>' . $city[0] . '</span>' : ''); ?> 
           </a>
         </article>
 
@@ -190,7 +206,7 @@ if ( !empty($apply_end) && time() <= $apply_end && $publish_exhibitors == false 
 ?>
 
 <?php
-// LINKS TO PAST EDITIONS
+// LINKS TO PAST EDITIONS WILL GO HERE
 ?>
 
 <?php // get_template_part('partials/pagination'); ?>
