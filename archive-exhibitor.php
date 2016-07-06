@@ -1,5 +1,18 @@
 <?php
 get_header();
+
+$current_year_id = IGV_get_option('_igv_site_options', '_igv_current_fair_year');
+$current_year = (!empty($current_year_id)) ? get_term($current_year_id)->slug : false;
+
+$publish_exhibitors = IGV_get_option('_igv_page_options', '_igv_publish_exhibitors');
+$publish_committee = IGV_get_option('_igv_page_options', '_igv_publish_committee');
+
+$exhibitors_apply_text = IGV_get_option('_igv_page_options', '_igv_exhibitors_apply_text');
+$exhibitors_page_text = IGV_get_option('_igv_page_options', '_igv_exhibitors_page_text');
+$exhibitors_page_image_id = IGV_get_option('_igv_page_options', '_igv_exhibitors_page_image_id');
+
+$apply_url = IGV_get_option('_igv_site_options', '_igv_apply_url');
+$apply_end = IGV_get_option('_igv_site_options', '_igv_apply_end');
 ?>
 
 <!-- main content -->
@@ -7,34 +20,180 @@ get_header();
 <main id="main-content">
 
   <!-- main posts loop -->
-  <section id="posts">
-
-<?php intval(IGV_get_option('_igv_site_options', '_igv_current_fair_year'));
-if( have_posts() ) {
-  while( have_posts() ) {
-    the_post();
+  <section id="exhibitors-intro" class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col col-l col-l-12">
+          <h1>
+          <?php 
+            _e('[:en]Exhibitors&nbsp;[:es]Expositores&nbsp;'); 
+            echo ($current_year && $publish_exhibitors ? $current_year : ''); 
+          ?>
+          </h1>
+        </div>
+      </div>
+<?php 
+if (!empty($exhibitors_page_text) || !empty($exhibitors_page_image_id)) { 
 ?>
-
-    <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-
-      <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-
-      <?php the_content(); ?>
-
-    </article>
-
-<?php
+      <div class="row">
+<?php 
+  if (!empty($exhibitors_page_image_id)) {
+?>
+        <div class="col col-l col-l-6">
+          <?php echo wp_get_attachment_image($exhibitors_page_image_id, 'col-6'); ?>
+        </div>
+<?php 
+  } if (!empty($exhibitors_page_text)) { 
+?>
+        <div class="col col-l col-l-6 font-size-h3">
+          <?php echo apply_filters( 'the_content', $exhibitors_page_text ); ?>
+        </div>
+<?php 
   }
-} else {
 ?>
-    <article class="u-alert"><?php _e('Sorry, no posts matched your criteria :{'); ?></article>
-<?php
-} ?>
-
-  <!-- end posts -->
+      </div>
+<?php 
+}
+?>
+    </div>
   </section>
 
-  <?php get_template_part('partials/pagination'); ?>
+<?php 
+if ( $publish_committee && !empty($current_year_id)) {
+
+  $args = array (
+    'post_type'       => 'committee',
+    'posts_per_page'  => -1,
+    'tax_query'       => array(
+      array(
+        'taxonomy' => 'fair_year',
+        'field' => 'term_id',
+        'terms' => $current_year_id,
+      )
+    ),
+    'orderby'         => 'title',
+  );
+  $committee = new WP_Query( $args );
+
+  if ( $committee->have_posts() ) {
+
+?>
+  <section id="exhibitors-committee" class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col col-l col-l-12">
+          <h2><?php _e('[:en]Selection Committee[:es]Comité de Selección'); ?></h2>
+        </div>
+      </div>
+      <div class="row">
+<?php 
+    while( $committee->have_posts() ) {
+      $committee->the_post();
+?>
+        <div <?php post_class('col col-l col-l-6 margin-bottom-tiny'); ?> id="post-<?php the_ID(); ?>">
+          <h3><?php the_title(); ?></h3>
+          <div class="font-size-h4"><?php the_content(); ?></div>
+        </div>
+<?php
+    }
+?>
+    </div>
+  </section>
+<?php 
+  }
+
+  wp_reset_postdata();
+}
+?>
+
+<?php
+if ( !empty($apply_end) && time() <= $apply_end && $publish_exhibitors == false && !empty($exhibitors_apply_text) && !empty($apply_url) ) { 
+?>
+  <section id="exhibitors-apply" class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col col-l col-l-12 text-align-center">
+          <h2><?php _e('[:en]Exhibitor application now open![:es]Solicitud de participación ya está abierta!'); ?></h2>
+        </div>
+      </div>
+      <div class="row justify-center">
+        <div class="col col-l col-l-8 text-align-center font-size-h3">
+          <?php echo apply_filters( 'the_content', $exhibitors_apply_text ); ?>
+        </div>
+      </div>
+
+      <div class="row justify-center">
+        <a class="col col-l col-l-2 flex-row align-center justify-center button button-big" href="<?php echo esc_url($apply_url); ?>">
+          <?php _e( '[:en]Apply[:es]Applicar' ); ?>
+        </a>
+      </div>
+    </div>
+  </section>
+<?php 
+} elseif ( $publish_exhibitors ) {
+
+  if( have_posts() ) {
+    $section_letter = null;
+?>
+  <section id="exhibitors-list" class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col col-l col-l-12 text-align-center">
+          <h2><?php _e('[:en]Exhibitors[:es]Expositores'); ?></h2>
+        </div>
+<?php 
+    while( have_posts() ) {
+      the_post();
+
+      $the_title = get_the_title();
+      $first_letter = $the_title[0];
+
+      $first_letter = (!ctype_alpha($first_letter)) ? '#' : $first_letter;
+
+      if ($first_letter !== $section_letter) {
+        $section_letter = $first_letter;
+?>
+      </div>
+      <div class="row">
+        <div class="col col-l col-l-12">
+          <h3><?php echo $section_letter; ?></h3>
+        </div>
+      </div>
+      <div class="row">
+<?php 
+      }
+
+      $city = get_post_meta($post->ID, '_igv_exhibitor_city');
+?>
+
+        <article <?php post_class('col col-l col-l-3'); ?> id="post-<?php the_ID(); ?>">
+          <a href="<?php the_permalink() ?>">
+            <?php the_post_thumbnail('col-3-crop'); ?>
+            <h4><?php the_title(); ?></h4>
+            <?php echo (!empty($city) ? '<span>' . $city[0] . '</span>' : ''); ?>
+          </a>
+        </article>
+
+<?php
+    }
+?>
+      </div>
+    </div>
+  </section>
+<?php 
+  } else {
+?>
+  <article class="u-alert"><?php _e('Sorry, no posts matched your criteria :{'); ?></article>
+<?php
+  }
+} 
+?>
+
+<?php
+// LINKS TO PAST EDITIONS
+?>
+
+<?php // get_template_part('partials/pagination'); ?>
 
 <!-- end main-content -->
 
