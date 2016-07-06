@@ -97,7 +97,7 @@ $metabox = array(
       'type' => 'checkbox',
     ),
     array(
-      'name' => __( 'Front Page Headline (English)', 'cmb2' ),
+      'name' => __( 'Front Page Headline', 'cmb2' ),
       'desc' => __( '', 'cmb2' ),
       'id'   => $prefix . 'front_headline',
       'type' => 'text',
@@ -106,23 +106,25 @@ $metabox = array(
       )
     ),
     array(
-      'name' => __( 'Front Page Description (English)', 'cmb2' ),
+      'name' => __( 'Front Page Description', 'cmb2' ),
       'desc' => __( '', 'cmb2' ),
       'id'   => $prefix . 'front_description',
       'type' => 'wysiwyg',
       'options' => array( 
-        'textarea_rows' => 6, 
-        'editor_class' => 'cmb2-qtranslate'
+        'textarea_rows' => 20, 
+        'editor_class' => 'cmb2-qtranslate',
+        'media_buttons' => false,
       ),
     ),
     array(
-      'name' => __( 'Organizers (English)', 'cmb2' ),
-      'desc' => __( 'One sentence description', 'cmb2' ),
+      'name' => __( 'Front Page Organizers', 'cmb2' ),
+      'desc' => __( 'One sentence description. Appears after description', 'cmb2' ),
       'id'   => $prefix . 'front_organizers',
       'type' => 'wysiwyg',
       'options' => array( 
-        'textarea_rows' => 3, 
-        'editor_class' => 'cmb2-qtranslate'
+        'textarea_rows' => 5, 
+        'editor_class' => 'cmb2-qtranslate',
+        'media_buttons' => false,
       ),
     ),
     array(
