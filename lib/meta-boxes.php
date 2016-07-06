@@ -51,9 +51,8 @@ function igv_cmb_metaboxes() {
     'name'             => __( 'Year', 'cmb2' ),
     'desc'             => __( '', 'cmb2' ),
     'id'               => $prefix . 'exhibitor_year',
-    'type'             => 'select',
-    'show_option_none' => false,
-    'options'          => get_exhibitor_year_options(),
+    'type'             => 'taxonomy_select',
+    'taxonomy'         => 'exhibitor_year',
   ) );
 
   $exhibitor_metabox->add_field( array(
