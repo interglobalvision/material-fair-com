@@ -39,20 +39,27 @@ function igv_cmb_metaboxes() {
    * Reference: https://github.com/WebDevStudios/CMB2/blob/master/example-functions.php
 	 */
 
+
+  $year_metabox = new_cmb2_box( array(
+    'id'            => $prefix . 'year_metabox',
+    'title'         => __( 'Year', 'cmb2' ),
+    'object_types'  => array( 'exhibitor','press','event','committee' ), // Post type
+  ) );
+
+  $year_metabox->add_field( array(
+    'name'             => __( '', 'cmb2' ),
+    'desc'             => __( '', 'cmb2' ),
+    'id'               => $prefix . 'post_year',
+    'type'             => 'taxonomy_select',
+    'taxonomy'         => 'fair_year',
+  ) );
+
 // EXHIBITOR
 
   $exhibitor_metabox = new_cmb2_box( array(
     'id'            => $prefix . 'exhibitor_metabox',
     'title'         => __( 'Exhibitor Options', 'cmb2' ),
     'object_types'  => array( 'exhibitor', ), // Post type
-  ) );
-
-  $exhibitor_metabox->add_field( array(
-    'name'             => __( 'Year', 'cmb2' ),
-    'desc'             => __( '', 'cmb2' ),
-    'id'               => $prefix . 'exhibitor_year',
-    'type'             => 'taxonomy_select',
-    'taxonomy'         => 'exhibitor_year',
   ) );
 
   $exhibitor_metabox->add_field( array(
