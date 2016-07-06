@@ -26,14 +26,20 @@ add_filter( 'enter_title_here', 'committee_title_text' );
 
 function exclude_past_exhibitors( $query ) {
   if ( $query->is_main_query() && is_post_type_archive('exhibitor') && !is_admin() ) {
-    $current_year = IGV_get_option('_igv_site_options', '_igv_current_fair_year');
+    $current_year_id = IGV_get_option('_igv_site_options', '_igv_current_fair_year');
+    $metaquery = array( 
+      array(
+        'key' => '_thumbnail_id',
+      ) 
+    );
     $taxquery = array(
       array(
         'taxonomy' => 'fair_year',
         'field' => 'term_id',
-        'terms' => $current_year,
+        'terms' => $current_year_id,
       )
     );
+    $query->set( 'meta_query', $metaquery );
     $query->set( 'tax_query', $taxquery );
   }
 }
