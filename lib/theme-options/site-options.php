@@ -3,6 +3,7 @@
 $prefix = '_igv_';
 $suffix = '_options';
 
+
 $page_key = $prefix . 'site' . $suffix;
 $page_title = 'Site Options';
 $metabox = array(
@@ -15,6 +16,18 @@ $metabox = array(
       'name' => __( 'Header', 'cmb2' ),
       'id'   => $prefix . 'header_title',
       'type' => 'title',
+    ),
+    array(
+      'name'       => __( 'Current Fair Year', 'cmb2' ),
+      'desc'       => __( '', 'cmb2' ),
+      'id'         => $prefix . 'current_fair_year',
+      'type'       => 'select',
+      'options_cb'     => 'cmb2_get_term_options',
+      // Same arguments you would pass to `get_terms`.
+      'get_terms_args' => array(
+        'taxonomy'   => 'fair_year',
+        'hide_empty' => false,
+      ),
     ),
     array(
       'name' => __( 'Fair Venue Name', 'cmb2' ),
