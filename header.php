@@ -68,7 +68,10 @@
 
   $sponsor_logo = IGV_get_option('_igv_sponsors_options', '_igv_primary_sponsor_logo_id');
   $sponsor_url = IGV_get_option('_igv_sponsors_options', '_igv_primary_sponsor_url');
+
+  $fair_year = IGV_get_option('_igv_page_options', '_igv_current_fair_year');
   
+  debug_page_request();
   ?>
 </head>
 <body <?php body_class(); ?>>
