@@ -34,8 +34,3 @@ function create_fair_year_tax() {
 
   register_taxonomy( 'fair_year', array('exhibitor','press','committee','event'), $args );
 }
-
-function remove_year_metabox() {
-  remove_meta_box( 'tagsdiv-fair_year', array('exhibitor','press','committee','event'), 'side' );
-}
-add_action( 'admin_menu', 'remove_year_metabox' );
