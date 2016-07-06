@@ -24,12 +24,13 @@ function committee_title_text( $title ){
 }
 add_filter( 'enter_title_here', 'committee_title_text' );
 
+// Only get current year exhibitors with thumbnail for archive
 function exclude_past_exhibitors( $query ) {
   if ( $query->is_main_query() && is_post_type_archive('exhibitor') && !is_admin() ) {
     $current_year_id = IGV_get_option('_igv_site_options', '_igv_current_fair_year');
     $metaquery = array( 
       array(
-        'key' => '_thumbnail_id',
+        'key' => '_thumbnail_id', // if has thumbnail
       ) 
     );
     $taxquery = array(
