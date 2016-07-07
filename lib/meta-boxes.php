@@ -281,5 +281,22 @@ function igv_cmb_metaboxes() {
     // 'timezone_meta_key' => $prefix . 'timezone', // Optionally make this field honor the timezone selected in the select_timezone specified above
   ) );
 
+// PHOTOS
+
+  $photo_gallery_metabox = new_cmb2_box( array(
+    'id'            => $prefix . 'photo_gallery_metabox',
+    'title'         => __( 'Photo gallery', 'cmb2' ),
+    'object_types'  => array( 'photo_gallery', ), // Post type
+  ) );
+
+  $photo_gallery_metabox->add_field( array(
+    'name'         => __( '', 'cmb2' ),
+    'desc'         => __( 'Upload or add multiple images.', 'cmb2' ),
+    'id'           => $prefix . 'photo_gallery',
+    'type'         => 'pw_gallery',
+    'sanitization_cb' => 'pw_gallery_field_sanitise',
+    'preview_size' => array( 150, 150 ),
+  ) );
+
 }
 ?>

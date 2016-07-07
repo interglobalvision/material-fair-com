@@ -171,3 +171,46 @@ function register_cpt_committee() {
 
     register_post_type( 'committee', $args );
 }
+
+add_action( 'init', 'register_cpt_photo_gallery' );
+
+function register_cpt_photo_gallery() {
+
+    $labels = array( 
+        'name' => _x( 'Photo galleries', 'photo_gallery' ),
+        'singular_name' => _x( 'Photo gallery', 'photo_gallery' ),
+        'add_new' => _x( 'Add New', 'photo_gallery' ),
+        'add_new_item' => _x( 'Add New Photo gallery', 'photo_gallery' ),
+        'edit_item' => _x( 'Edit Photo gallery', 'photo_gallery' ),
+        'new_item' => _x( 'New Photo gallery', 'photo_gallery' ),
+        'view_item' => _x( 'View Photo gallery', 'photo_gallery' ),
+        'search_items' => _x( 'Search Photo galleries', 'photo_gallery' ),
+        'not_found' => _x( 'No photo galleries found', 'photo_gallery' ),
+        'not_found_in_trash' => _x( 'No photo galleries found in Trash', 'photo_gallery' ),
+        'parent_item_colon' => _x( 'Parent Photo gallery:', 'photo_gallery' ),
+        'menu_name' => _x( 'Photo galleries', 'photo_gallery' ),
+    );
+
+    $args = array( 
+        'labels' => $labels,
+        'hierarchical' => false,
+        
+        'supports' => array( 'title' ),
+        
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'menu_position' => 5,
+        
+        'show_in_nav_menus' => true,
+        'publicly_queryable' => true,
+        'exclude_from_search' => false,
+        'has_archive' => true,
+        'query_var' => true,
+        'can_export' => true,
+        'rewrite' => true,
+        'capability_type' => 'post'
+    );
+
+    register_post_type( 'photo_gallery', $args );
+}
