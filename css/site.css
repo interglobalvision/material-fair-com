@@ -1200,11 +1200,11 @@ input:-webkit-autofill {
   column-gap: 36px;
 }
 .schedule-row {
-  border-top: 1px solid #000;
+  border-top: 1px solid #ffd923;
   padding: 18px 0;
 }
 .schedule-row:last-of-type {
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #ffd923;
 }
 .schedule-row p {
   margin-bottom: 0;
