@@ -81,10 +81,10 @@ $args = array (
     ),
   ),
 );
-$press = new WP_Query( $args );
+$highlight_press = new WP_Query( $args );
 
-if ( $press->have_posts() ) { 
-  $highlight = 0;
+if ( $highlight_press->have_posts() ) { 
+  $highlight_post = 0;
 ?>
   <section id="press-highlights" class="section">
     <div class="container">
@@ -95,17 +95,17 @@ if ( $press->have_posts() ) {
       </div>
       <div class="row">
 <?php 
-    while( $press->have_posts() ) {
-      $press->the_post();
+    while( $highlight_press->have_posts() ) {
+      $highlight_press->the_post();
 
-      $press_meta = get_post_meta($post->ID);
+      $highlight_meta = get_post_meta($post->ID);
 
-      $publication = $press_meta['_igv_press_publication'][0];
-      $date = $press_meta['_igv_press_date'][0];
-      $author = $press_meta['_igv_press_author'][0];
-      $link = $press_meta['_igv_press_url'][0];
+      $publication = $highlight_meta['_igv_press_publication'][0];
+      $date = $highlight_meta['_igv_press_date'][0];
+      $author = $highlight_meta['_igv_press_author'][0];
+      $link = $highlight_meta['_igv_press_url'][0];
 
-      if ($highlight == 0) { // Image first
+      if ($highlight_post == 0) { // Image first
 ?>
         <div class="col col-l-12 flex-row align-center">
           <div <?php post_class('col col-l col-l-6'); ?> id="post-<?php the_ID(); ?>">
@@ -161,7 +161,7 @@ if ( $press->have_posts() ) {
         </div>
 <?php 
       }
-      $highlight++;
+      $highlight_post++;
     }
 ?>
       </div>
@@ -230,7 +230,79 @@ if( have_posts() ) {
   <article class="u-alert"><?php _e('Sorry, no posts matched your criteria :{'); ?></article>
 <?php
 }
+?>
 
+<?php 
+
+$tax_query = array();
+if (!empty($current_year_id)) {
+  $tax_query = array(
+    array(
+      'taxonomy' => 'fair_year',
+      'field' => 'term_id',
+      'terms' => $current_year_id,
+    ),
+  );
+}
+
+$args = array (
+  'post_type' => 'photo_gallery',
+  'numberposts' => '-1',
+  'tax_query' => $tax_query,
+);
+$photo_galleries = new WP_Query( $args );
+
+if ( $photo_galleries->have_posts() ) { 
+?>
+  <section id="press-photo-gallery" class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col col-l col-l-12 text-align-center">
+          <h2><?php _e('[:en]Photos[:es]Fotos'); ?></h2>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row justify-center align-center">
+        <div class="col col-l col-l-10">
+          <div class="swiper-container">
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-wrapper">
+<?php 
+    while( $photo_galleries->have_posts() ) {
+      $photo_galleries->the_post();
+
+      if ( get_post_gallery() ) {
+        $gallery = get_post_gallery( $post->ID, false );
+        $gids = explode( ",", $gallery['ids'] );
+      
+        foreach ($gids as $gid) {
+          $attachment = get_post( $gid );
+          $caption = $attachment->post_excerpt;
+          $description = $attachment->post_content;
+
+?>
+              <div class="swiper-slide flex-col justify-center align-center">
+                <img src="<?php echo wp_get_attachment_image_src($gid, 'col-8')[0]; ?>">
+                <div class="margin-top-tiny text-align-center">
+                  <div class="font-size-h4"><?php _e($description); ?></div>
+                  <?php _e($caption); ?>
+                </div>
+              </div>
+<?
+        }
+      }
+    }
+?>
+            </div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<?php
+  }
 ?>
 
 <?php
