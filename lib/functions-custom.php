@@ -27,3 +27,21 @@ function cmb2_get_term_options( $field ) {
 
   return $term_options;
 }
+
+add_filter( 'manage_press_posts_columns', 'add_press_highlight_column' );
+function add_press_highlight_column($columns) {
+  $columns['press_highlight'] = __( 'Highlight', 'IGV' );
+  return $columns;
+}
+
+add_action( 'manage_press_posts_custom_column' , 'display_press_highlight_column', 10, 2 );
+function display_press_highlight_column( $column, $post_id ) {
+  switch ( $column ) {
+    case 'press_highlight' :
+    $highlight = get_post_meta( $post_id , '_igv_press_highlight' , false );
+    if ( !empty($highlight[0]) )
+      echo $highlight[0];
+    break;
+  }
+}
+
