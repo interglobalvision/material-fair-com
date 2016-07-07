@@ -246,6 +246,13 @@ function igv_cmb_metaboxes() {
   ) );
 
   $press_metabox->add_field( array(
+    'name'     => __( 'Highlight', 'cmb2' ),
+    'desc'     => __( 'Appears on Front Page and Press page highlights', 'cmb2' ),
+    'id'       => $prefix . 'press_highlight',
+    'type'     => 'checkbox',
+  ) );
+
+  $press_metabox->add_field( array(
     'name'     => __( 'Author', 'cmb2' ),
     'desc'     => __( '', 'cmb2' ),
     'id'       => $prefix . 'press_author',
