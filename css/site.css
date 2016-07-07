@@ -980,37 +980,79 @@ a:visited {
   color: inherit;
   text-decoration: none;
 }
+p a,
+p a:active,
+p a:visited {
+  border-bottom: 1px solid;
+  border-color: inherit;
+}
 html {
-  background-color: #fdfdfd;
-  color: #0e0e0e;
+  background-color: #000;
+  color: #fff;
+}
+h1,
+h2 {
+  color: #ffd923;
 }
 .section {
   width: 100%;
-  padding: 18px 0;
-  border-top: 1px solid #0e0e0e;
+  padding: 36px 0;
+  border-top: 1px solid #ffd923;
+}
+.section-yellow {
+  background-color: #ffd923;
+  color: #000;
+}
+.section-yellow .button,
+.section-yellow a.button {
+  background-color: #000;
+  color: #fff;
+}
+.section-yellow h1,
+.section-yellow h2 {
+  color: inherit;
 }
 img {
   max-width: 100%;
   height: auto;
 }
-.button {
-  border: 1px solid #0e0e0e;
-  padding: 11.124611797497385px;
+.button,
+a.button {
+  background-color: #ff7bac;
+  color: #000;
+  border: 1px solid #000;
+  padding: 18px;
+  text-transform: uppercase;
+  font-weight: 600;
 }
-.button-big {
+a.button-big {
   padding: 36px 0;
+  font-size: 1.541986833892031rem;
 }
 input {
-  border: 1px solid #0e0e0e;
+  border: 1px solid #000;
   padding: 11.124611797497385px;
   -webkit-appearance: none;
   background: none;
+  color: inherit;
 }
 input:focus {
   outline: none;
 }
 input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px #fdfdfd inset !important;
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset !important;
+}
+::-webkit-input-placeholder {
+  color: inherit !important;
+}
+::-moz-placeholder {
+  color: inherit !important;
+}
+:-ms-input-placeholder {
+  color: inherit !important;
+}
+::placeholder {
+  color: inherit !important;
 }
 .margin-top-micro {
   margin-top: 11.124611797497385px;
@@ -1087,6 +1129,13 @@ input:-webkit-autofill {
 #header {
   border-top: 0;
 }
+.menu-item {
+  font-size: 1.541986833892031rem;
+}
+.menu-item a {
+  border-bottom: 1px solid;
+  border-color: inherit;
+}
 #front-splash {
   padding: 0;
 }
@@ -1105,11 +1154,11 @@ input:-webkit-autofill {
   column-gap: 36px;
 }
 .schedule-row {
-  border-top: 1px solid #0e0e0e;
+  border-top: 1px solid #000;
   padding: 18px 0;
 }
 .schedule-row:last-of-type {
-  border-bottom: 1px solid #0e0e0e;
+  border-bottom: 1px solid #000;
 }
 .schedule-row p {
   margin-bottom: 0;
