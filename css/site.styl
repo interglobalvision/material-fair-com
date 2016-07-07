@@ -1,5 +1,6 @@
 @import "kouto-swiss"
-@import "helpers"
+@import "helpers" 
+@import "fonts"
 
 // ******************************************************
 
@@ -54,6 +55,9 @@ $font-leading-larger = 1.45
 
 $font-tracking-basic = 0.001em
 $font-tracking-wider = 0.05em
+
+$font-sans = 'Akkurat Pro', 'Helvatica Neue', Helvetica, Arial, sans-serif
+$font-serif = 'Stanley', 'Times New Roman', Times, Georgia, serif
 
 $color-black = rgb(0, 0, 0)
 $color-white = rgb(255, 255, 255)
@@ -167,7 +171,7 @@ for col in 1..$cols
 // TYPOGRAPHY
 
 html
-  font-family: font-stack('Helvetica')
+  font-family: $font-sans
   font-size: $font-size-basic
   letter-spacing: $font-tracking-basic
 
@@ -180,10 +184,14 @@ h1, .font-size-h1
   font-size: $font-size-h1
   line-height: $font-leading-tighter
   margin: 0
+  font-family: $font-serif
+  font-weight: 900
 
 h2, .font-size-h2
   font-size: $font-size-h2
   line-height: $font-leading-tighter
+  font-family: $font-serif
+  font-weight: bold
 
 h3, .font-size-h3
   font-size: $font-size-h3
@@ -389,7 +397,7 @@ input
   border-top: 0
   
 .menu-item
-  font-size: $font-size-h4
+  font-size: $font-size-larger
   a 
     border-bottom: 1px solid
     border-color: inherit
