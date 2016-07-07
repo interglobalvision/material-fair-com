@@ -85,6 +85,37 @@ $metabox = array(
       ),
     ),
     array(
+      'name' => __( 'Press', 'cmb2' ),
+      'id'   => $prefix . 'press_title',
+      'type' => 'title',
+    ),
+    array(
+      'name' => __( 'Press Introduction Image', 'IGV' ),
+      'desc' => __( 'Appears next to introduction on Press page.', 'cmb2' ),
+      'id'   => $prefix . 'press_page_image',
+      'type' => 'file',
+    ),
+    array(
+      'name' => __( 'Press Introduction Text', 'IGV' ),
+      'desc' => __( 'Appears on Press page.', 'cmb2' ),
+      'id'   => $prefix . 'press_page_text',
+      'type' => 'wysiwyg',
+      'options' => array( 
+        'textarea_rows' => 6, 
+        'editor_class' => 'cmb2-qtranslate'
+      ),
+    ),
+    array(
+      'name' => __( 'Press Accreditation Text', 'IGV' ),
+      'desc' => __( 'Appears on Press page below introduction.', 'cmb2' ),
+      'id'   => $prefix . 'press_accreditation_text',
+      'type' => 'wysiwyg',
+      'options' => array( 
+        'textarea_rows' => 4, 
+        'editor_class' => 'cmb2-qtranslate'
+      ),
+    ),
+    array(
       'name' => __( 'Fair History', 'cmb2' ),
       'id'   => $prefix . 'fair_history_title',
       'type' => 'title',
