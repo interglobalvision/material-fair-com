@@ -70,6 +70,12 @@
   $sponsor_url = IGV_get_option('_igv_sponsors_options', '_igv_primary_sponsor_url');
 
   $fair_year = IGV_get_option('_igv_page_options', '_igv_current_fair_year');
+
+  $show_apply = false;
+
+  if (!empty($apply_url) && !empty($apply_end) && ( time() <= $apply_end ) && !$publish_exhibitors ) { 
+    $show_apply = true;
+  }
   ?>
 </head>
 <body <?php body_class(); ?>>
@@ -80,71 +86,47 @@
   <!-- start content -->
   <header id="header" class="section">
     <div class="container">
-      <div class="row">
-        <div class="col col-l col-l-2 flex-col justify-center align-center">
+      <div class="row font-uppercase">
+        <div class="col col-l col-l-5 flex-col justify-center align-center">
         <?php if (!empty($logo_id)) { ?>
           <a href="<?php echo home_url(); ?>"><?php echo wp_get_attachment_image($logo_id, 'thumbnail'); ?></a>
         <?php } else { ?>
           <h1 class="col"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
         <?php } ?>
         </div>
-        <div class="col col-l col-l-3 flex-col justify-center align-center"> 
-        <?php if ($venue) { ?>
-          <div><?php echo $venue; ?></div>
-        <?php } 
-        if (!empty($start_date) && !empty($end_date)) { 
-        ?>
-          <div>
-            <?php 
-              $start_day = date('j', $start_date);
-              $start_month = date('M', $start_date);
 
-              $end_day = date('j', $end_date);
-              $end_month = date('M', $end_date);
-
-              $year = date('Y', $start_date);
-
-              if ($start_month == $end_month) {
-                echo $start_day . ' – ' . $end_day . ' ' . $start_month . ' ';
-              } else {
-                echo $start_day . ' ' . $start_month . ' – ' . $end_day . ' ' . $start_month . ' ';
-              }
-
-              echo $year;
-            ?>
-          </div>
+        <?php if ($show_apply) { ?>
+        <div class="col col-l col-l-3 flex-row"> 
+        <?php } else { ?>
+        <div class="col col-l col-l-5 flex-row"> 
         <?php } ?>
+          <div class="col flex-col justify-center align-center section-yellow font-size-h4">
+            <div><?php echo $venue; ?></div>
+          </div>
         </div>
         
-        <?php  
-          if (!empty($apply_url) && !empty($apply_end) && ( time() <= $apply_end ) && !$publish_exhibitors ) { 
-            echo '<a href="' . $apply_url . '" class="col col-l col-l-2 flex-col justify-center align-center button">';
-            echo __('[:en]Apply[:es]Apply');
-            echo '</a>';
-          } else {
-            echo '<div class="col col-l col-l-2"></div>';
-          };
-        ?>
-        <div class="col col-l col-l-3 flex-col"> 
+        <?php if ($show_apply) { ?>
+        <div class="col col-l col-l-2 flex-row">
+          <a class="col flex-col justify-center align-center button font-size-h4" href="<?php echo esc_url($apply_url); ?>">
+            <?php _e('[:en]Apply![:es]Applicar!'); ?>
+          </a>
+        </div>
+        <?php } ?>
+
+        <div class="col col-l col-l-2 flex-col">
           <div class="col flex-col justify-start align-end">
             <?php echo qtranxf_generateLanguageSelectCode('both'); ?>
-          </div>
-          <div class="col flex-row align-end">
             <?php 
-              if (!empty($vip_login_url)) { 
-                echo '<a href="' . $vip_login_url . '" class="button col text-align-center">';
-                echo __('[:en]VIP Login[:es]Sección VIP');
+              if (!empty($app_login_url) && !empty($app_login_text)) { 
+                echo '<a href="' . $app_login_url . '">';
+                echo $app_login_text;
                 echo '</a>';
               }
             ?>
-          </div>
-        </div>
-        <div class="col col-l col-l-2 flex-col"> 
-          <div class="col flex-col justify-start align-end">
             <?php 
-              if (!empty($app_login_url) && !empty($app_login_text)) { 
-                echo '<a href="' . $app_login_url . '" class="button">';
-                echo $app_login_text;
+              if (!empty($vip_login_url)) { 
+                echo '<a href="' . $vip_login_url . '">';
+                echo __('[:en]VIP Login[:es]Sección VIP');
                 echo '</a>';
               }
             ?>
