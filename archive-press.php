@@ -127,9 +127,30 @@ if ( $press->have_posts() ) {
         <div class="col col-l-12 flex-row align-center">
           <div <?php post_class('col col-l col-l-6'); ?> id="post-<?php the_ID(); ?>">
             <a href="<?php echo esc_url($link); ?>" target="_blank">
+<?php 
+        if (!empty($publication)) {
+?>
               <div class="font-size-h3 margin-bottom-micro"><?php echo $publication; ?></div>
+<?php 
+        }
+?>
               <h3 class="font-size-h2 margin-bottom-micro">"<?php the_title(); ?>"</h3>
-              <div class="font-size-h4"><?php _e('[:en]by[:es]por'); echo ' ' . $author; ?></div>
+<?php 
+        if (!empty($author) || !empty($date)) {
+?>
+              <div class="font-size-h4">
+                <?php 
+                  if (!empty($author)) {
+                    _e('[:en]by[:es]por'); 
+                    echo ' ' . $author;
+                  }
+                ?> 
+                <?php echo (!empty($date) && !empty($author) ? ' | ' : '' ); ?>
+                <?php _e(!empty($date) ? date('j F Y', $date) : '' ); ?>
+              </div>
+<?php 
+        }
+?>
             </a>
           </div>
           <div <?php post_class('col col-l col-l-6'); ?> id="post-<?php the_ID(); ?>">
@@ -178,9 +199,22 @@ if( have_posts() ) {
         <article <?php post_class('col col-l col-l-4 margin-bottom-small'); ?> id="post-<?php the_ID(); ?>">
           <a href="<?php echo $link; ?>" target="_blank">
             <?php the_post_thumbnail('col-4-crop'); ?>
+<?php 
+    if (!empty($publication)) {
+?>
             <div class="font-size-h4"><?php echo $publication; ?></div>
+<?php 
+    }
+?>
             <h3><?php the_title(); ?></h3>
-            <?php _e('[:en]by[:es]por'); echo ' ' . $author; ?> | <?php _e( date('j F Y', $date) ); ?>
+            <?php 
+              if (!empty($author)) {
+                _e('[:en]by[:es]por'); 
+                echo ' ' . $author;
+              }
+            ?> 
+            <?php echo (!empty($date) && !empty($author) ? ' | ' : '' ); ?>
+            <?php _e(!empty($date) ? date('j F Y', $date) : '' ); ?>
           </a>
         </article>
 
