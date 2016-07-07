@@ -103,15 +103,23 @@ if (!empty($headline) || !empty($intro)) { ?>
 //
 
 if (!empty($schedule) || ( !empty($venue_name) && !empty($venue_address) )  || !empty($tickets)) { ?>
-  <section id="front-visitor-info" class="section">
+  <section id="front-visitor-info" class="section section-yellow">
     <div class="container">
       <div class="row">
         <div class="col col-l col-l-10">
           <h2 class="text-align-left"><?php _e('[:en]Visitor Info[:es]Info para visitantes'); ?></h2>
         </div>
-        <div class="col col-l col-l-2">
-          <a class="button col flex-row align-center justify-center"><?php _e('[:en]See More[:es]Ver más'); ?></a>
-        </div>
+        <?php 
+          $page_id = get_id_by_slug('visitor-information');
+          if ($page_id) {
+        ?>
+          <div class="col col-l col-l-2">
+            <a class="button col flex-row align-center justify-center" href="<?php echo get_permalink($page_id); ?>">
+              <?php _e('[:en]See More[:es]Ver más'); ?>
+            </a>
+          </div>
+        <?php } ?>
+        
       </div>
       <div class="row">
       <?php if (!empty($schedule)) { ?>
@@ -246,7 +254,7 @@ if ( !empty($apply_end) && ( time() <= $apply_end ) && !$publish_exhibitors ) {
 
       $city = get_post_meta($post->ID, '_igv_exhibitor_city');
 ?>
-        <a class="col col-l col-l-3">
+        <a class="col col-l col-l-3" href="<?php the_permalink(); ?>">
           <?php the_post_thumbnail('col-3-crop'); ?>
           <h3><?php the_title(); ?></h3>
           <?php echo (!empty($city) ? '<span class="font-size-h4">' . $city[0] . '</span>' : ''); ?>
@@ -453,7 +461,7 @@ if ( $press->have_posts() ) {
 
     if (!empty($press_author) && !empty($press_url) && !empty($press_pub)) {
 ?>
-        <a class="col col-l col-l-4" href="<?php echo esc_url($press_url); ?>">
+        <a class="col col-l col-l-4" target="_blank" href="<?php echo esc_url($press_url); ?>">
           <h4 class="margin-bottom-tiny">
             <?php echo $press_pub; ?>
           </h4>
