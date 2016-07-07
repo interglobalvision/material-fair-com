@@ -1,4 +1,4 @@
-    <footer id="footer" class="section">
+    <footer id="footer" class="section section-yellow">
     <?php 
       $logo_id = IGV_get_option('_igv_social_options', '_igv_metadata_logo_id');
 
