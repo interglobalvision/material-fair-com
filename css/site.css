@@ -1104,14 +1104,14 @@ input:-webkit-autofill {
   -moz-column-gap: 36px;
   column-gap: 36px;
 }
-.schedule-row {
+.border-row {
   border-top: 1px solid #0e0e0e;
   padding: 18px 0;
 }
-.schedule-row:last-of-type {
+.border-row:last-of-type {
   border-bottom: 1px solid #0e0e0e;
 }
-.schedule-row p {
+.border-row p {
   margin-bottom: 0;
 }
 .venue-map iframe {
