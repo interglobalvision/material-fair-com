@@ -12,8 +12,9 @@ function add_slug_body_class( $classes ) {
 }
 add_filter( 'body_class', 'add_slug_body_class' );
 
-// Replace 'Enter title here' text on Committee post type edit screen
-function committee_title_text( $title ){
+// Replace 'Enter title here' text on 
+// Committee post type edit screen
+function year_title_text( $title ){
   $screen = get_current_screen();
 
   if  ( 'committee' == $screen->post_type ) {
@@ -22,17 +23,12 @@ function committee_title_text( $title ){
 
   return $title;
 }
-add_filter( 'enter_title_here', 'committee_title_text' );
+add_filter( 'enter_title_here', 'year_title_text' );
 
-// Only get current year exhibitors with thumbnail for archive
+// Only return current year exhibitors for archive
 function exclude_past_exhibitors( $query ) {
   if ( $query->is_main_query() && is_post_type_archive('exhibitor') && !is_admin() ) {
     $current_year_id = IGV_get_option('_igv_site_options', '_igv_current_fair_year');
-    $metaquery = array( 
-      array(
-        'key' => '_thumbnail_id', // if has thumbnail
-      ) 
-    );
     $taxquery = array(
       array(
         'taxonomy' => 'fair_year',
@@ -40,14 +36,13 @@ function exclude_past_exhibitors( $query ) {
         'terms' => $current_year_id,
       )
     );
-    $query->set( 'meta_query', $metaquery );
     $query->set( 'tax_query', $taxquery );
   }
 }
 add_action( 'pre_get_posts', 'exclude_past_exhibitors' );
 
 
-// Only get current year exhibitors with thumbnail for archive
+// Only return non-highlight, current year exhibitors for archive
 function filter_press_posts( $query ) {
   if ( $query->is_main_query() && is_post_type_archive('press') && !is_admin() ) {
 
