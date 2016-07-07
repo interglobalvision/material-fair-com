@@ -459,20 +459,38 @@ if ( $press->have_posts() ) {
     $press_pub = $press_meta['_igv_press_publication'][0];
     $press_url = $press_meta['_igv_press_url'][0];
 
-    if (!empty($press_author) && !empty($press_url) && !empty($press_pub)) {
+    if (!empty($press_url)) {
 ?>
-        <a class="col col-l col-l-4" target="_blank" href="<?php echo esc_url($press_url); ?>">
+        <div class="col col-l col-l-4">
+<?php 
+      if (!empty($press_pub)) {
+?>
           <h4 class="margin-bottom-tiny">
-            <?php echo $press_pub; ?>
+            <a target="_blank" href="<?php echo esc_url($press_url); ?>">
+              <?php echo $press_pub; ?>
+            </a>
           </h4>
+<?php 
+      }
+?>
           <h3 class="margin-bottom-tiny">
-            <?php echo '"' . get_the_title() . '"'; ?>
+            <a target="_blank" href="<?php echo esc_url($press_url); ?>">
+              <?php echo '"' . get_the_title() . '"'; ?>
+            </a>
           </h3>
-          <?php
-            _e('[:en]by[:es]por');
-            echo ' ' . $press_author;
-          ?>
-        </a>
+<?php 
+      if (!empty($press_author)) {
+?>
+          <a target="_blank" href="<?php echo esc_url($press_url); ?>">
+            <?php
+              _e('[:en]by[:es]por');
+              echo ' ' . $press_author;
+            ?>
+          </a>
+<?php 
+      }
+?>
+        </div>
 <?php
     }
   }
