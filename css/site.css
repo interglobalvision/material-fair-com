@@ -1638,6 +1638,12 @@ input:-webkit-autofill {
       -ms-flex-positive: 1;
           flex-grow: 1;
 }
+.swiper-container {
+  height: 500px;
+}
+.swiper-slide img {
+  max-height: 440px;
+}
 .lead-sponsor-logo {
   margin-right: 36px;
 }
