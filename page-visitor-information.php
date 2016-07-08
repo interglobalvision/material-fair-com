@@ -6,14 +6,14 @@
 
 get_header();
 
-$fair_description = IGV_get_option('_igv_visitor_options', '_igv_fair_description');
-$fair_image_id = IGV_get_option('_igv_visitor_options', '_igv_fair_image_id');
+$visitor_info_text = IGV_get_option('_igv_visitor_options', '_igv_visitor_info_page_text');
+$visitor_info_image_id = IGV_get_option('_igv_visitor_options', '_igv_visitor_info_page_image_id');
 
 $schedule = IGV_get_option('_igv_visitor_options', '_igv_schedule');
 
 $tickets = IGV_get_option('_igv_visitor_options', '_igv_ticket_info');
 
-$venue_name = IGV_get_option('_igv_site_options', '_igv_venue_name');
+$venue_name = IGV_get_option('_igv_visitor_options', '_igv_venue_name');
 $venue_address = IGV_get_option('_igv_visitor_options', '_igv_venue_address');
 
 $how_to_arrive = IGV_get_option('_igv_visitor_options', '_igv_how_to_arrive');
@@ -44,20 +44,20 @@ $organizers = IGV_get_option('_igv_page_options', '_igv_organizers_group');
 
       </div>
 <?php 
-  if ( !empty($fair_image_id) || !empty($fair_description) ) {
+  if ( !empty($visitor_info_image_id) || !empty($visitor_info_text) ) {
 ?>
       <div class="row">
 <?php 
-    if ( !empty($fair_image_id) ) {
+    if ( !empty($visitor_info_image_id) ) {
 ?>
         <div class="col col-l col-l-6">
-          <?php echo wp_get_attachment_image($fair_image_id, 'col-6'); ?>
+          <?php echo wp_get_attachment_image($visitor_info_image_id, 'col-6'); ?>
         </div>
 <?php 
-    } if ( !empty($fair_description) ) {
+    } if ( !empty($visitor_info_text) ) {
 ?>
         <div class="col col-l col-l-6 font-size-h3">
-          <?php echo apply_filters( 'the_content', $fair_description ); ?>
+          <?php echo apply_filters( 'the_content', $visitor_info_text ); ?>
         </div>
 <?php 
     }

@@ -13,16 +13,9 @@ $metabox = array(
   'show_names' => true,
   'fields'     => array(
     array(
-      'name' => __( 'Venue Address', 'cmb2' ),
-      'id'   => $prefix . 'venue_address',
-      'type' => 'textarea',
-      'attributes' => array(
-        'class' => 'cmb2-qtranslate'
-      )
-    ),
-    array(
-      'name' => __( 'Fair Description', 'cmb2' ),
-      'id'   => $prefix . 'fair_description',
+      'name' => __( 'Visitor Info Introduction Text', 'cmb2' ),
+      'id'   => $prefix . 'visitor_info_page_text',
+      'description' => 'Description of the fair'
       'type' => 'wysiwyg',
       'options' => array( 
         'textarea_rows' => 10, 
@@ -31,10 +24,24 @@ $metabox = array(
       ),
     ),
     array(
-      'name' => __( 'Fair Image', 'cmb2' ),
+      'name' => __( 'Visitor Info Introduction Image', 'cmb2' ),
       'desc' => __( '', 'cmb2' ),
-      'id'   => $prefix . 'fair_image',
+      'id'   => $prefix . 'visitor_info_page_image',
       'type' => 'file',
+    ),
+    array(
+      'name' => __( 'Fair Venue Name', 'cmb2' ),
+      'desc' => __( 'Used sitewide', 'cmb2' ),
+      'id'   => $prefix . 'venue_name',
+      'type' => 'text',
+    ),
+    array(
+      'name' => __( 'Venue Address', 'cmb2' ),
+      'id'   => $prefix . 'venue_address',
+      'type' => 'textarea',
+      'attributes' => array(
+        'class' => 'cmb2-qtranslate'
+      )
     ),
     array(
       'name' => __( 'How to Arrive', 'cmb2' ),
