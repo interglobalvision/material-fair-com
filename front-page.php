@@ -129,7 +129,7 @@ if (!empty($schedule) || ( !empty($venue_name) && !empty($venue_address) )  || !
             foreach ($schedule as $day) { 
               if (!empty($day['schedule']) && !empty($day['date'])) {
           ?>
-          <div class="flex-row">
+          <div class="flex-row border-row padding-top-micro padding-bottom-micro">
             <div class="col col-l-6 font-size-h4">
               <?php _e( date('l, j F Y', $day['date']) ); ?>
             </div>
