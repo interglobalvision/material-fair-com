@@ -91,13 +91,9 @@
   <header id="header" class="section">
     <div class="container">
       <div class="row font-uppercase">
-        <div class="col col-l col-l-5 flex-col justify-center align-center">
-        <?php if (!empty($logo_id)) { ?>
-          <a href="<?php echo home_url(); ?>"><?php echo wp_get_attachment_image($logo_id, 'thumbnail'); ?></a>
-        <?php } else { ?>
-          <h1 class="col"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
-        <?php } ?>
-        </div>
+        <a class="col col-l col-l-5" href="<?php echo home_url(); ?>">
+          <img id="header-logo" src="<?php bloginfo('stylesheet_directory'); ?>/img/dist/header-logo.svg">
+        </a>
 
         <?php if ($show_apply) { ?>
         <div class="col col-l col-l-3 flex-row"> 

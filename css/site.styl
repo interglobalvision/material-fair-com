@@ -271,6 +271,9 @@ p
 
 html
   background-color: $color-black
+  background-image: url('../img/dist/background.svg')
+  background-size: 200% 150% 
+  background-position: center
   color: $color-white
   
 h1, h2
@@ -294,6 +297,7 @@ h1, h2
   .button, a.button 
     background-color: $color-black
     color: $color-white
+    border: none
   h1, h2
     color: inherit  
   .border-row
@@ -309,6 +313,7 @@ img
   padding: $margin-tiny
   text-transform: uppercase
   font-weight: 600
+  border: 2px solid $color-black
   
 a.button.button-big
   padding: $margin-small 0
@@ -419,8 +424,14 @@ input
 
 #header 
   border-top: 0 
+  background-color: $color-black
   p 
     margin-bottom: 0
+  #header-logo
+    width: 100%
+    height: auto
+  .button 
+    border: none
     
 ul.language-chooser
   margin-bottom: $margin-micro
