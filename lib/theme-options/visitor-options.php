@@ -15,7 +15,7 @@ $metabox = array(
     array(
       'name' => __( 'Visitor Info Introduction Text', 'cmb2' ),
       'id'   => $prefix . 'visitor_info_page_text',
-      'description' => 'Description of the fair'
+      'description' => 'Description of the fair',
       'type' => 'wysiwyg',
       'options' => array( 
         'textarea_rows' => 10, 
