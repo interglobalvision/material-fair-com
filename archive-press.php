@@ -242,9 +242,13 @@ if( have_posts() ) {
 
 <?php 
 
-$tax_query = array();
+$args = array (
+  'post_type' => 'photo_gallery',
+  'numberposts' => '-1',
+);
+
 if (!empty($current_year_id)) {
-  $tax_query = array(
+  $args['tax_query'] = array(
     array(
       'taxonomy' => 'fair_year',
       'field' => 'term_id',
@@ -253,11 +257,6 @@ if (!empty($current_year_id)) {
   );
 }
 
-$args = array (
-  'post_type' => 'photo_gallery',
-  'numberposts' => '-1',
-  'tax_query' => $tax_query,
-);
 $photo_galleries = new WP_Query( $args );
 
 if ( $photo_galleries->have_posts() ) { 
