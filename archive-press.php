@@ -71,13 +71,7 @@ $args = array (
       'value' => 'on',
     ),
     array(
-      'key' => '_igv_press_author',
-    ),
-    array(
-      'key' => '_igv_press_publication',
-    ),
-    array(
-      'key' => '_thumbnail_id',
+      'key' => '_igv_press_url',
     ),
   ),
 );
@@ -115,9 +109,21 @@ if ( $highlight_press->have_posts() ) {
           </div>
           <div <?php post_class('col col-l col-l-6'); ?> id="post-<?php the_ID(); ?>">
             <a href="<?php echo esc_url($link); ?>" target="_blank">
+<?php 
+        if (!empty($publication)) {
+?>
               <div class="font-size-h3 margin-bottom-micro"><?php echo $publication; ?></div>
+<?php 
+        }
+?>
               <h3 class="font-size-h2 margin-bottom-micro">"<?php the_title(); ?>"</h3>
+<?php 
+        if (!empty($author)) {
+?>
               <div class="font-size-h4"><?php _e('[:en]by[:es]por'); echo ' ' . $author; ?></div>
+<?php 
+        }
+?>
             </a>
           </div>
         </div>
