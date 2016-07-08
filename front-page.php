@@ -103,15 +103,23 @@ if (!empty($headline) || !empty($intro)) { ?>
 //
 
 if (!empty($schedule) || ( !empty($venue_name) && !empty($venue_address) )  || !empty($tickets)) { ?>
-  <section id="front-visitor-info" class="section">
+  <section id="front-visitor-info" class="section section-yellow">
     <div class="container">
       <div class="row">
         <div class="col col-l col-l-10">
           <h2 class="text-align-left"><?php _e('[:en]Visitor Info[:es]Info para visitantes'); ?></h2>
         </div>
-        <div class="col col-l col-l-2">
-          <a class="button col flex-row align-center justify-center"><?php _e('[:en]See More[:es]Ver más'); ?></a>
-        </div>
+        <?php 
+          $page_id = get_id_by_slug('visitor-information');
+          if ($page_id) {
+        ?>
+          <div class="col col-l col-l-2">
+            <a class="button col flex-row align-center justify-center" href="<?php echo get_permalink($page_id); ?>">
+              <?php _e('[:en]See More[:es]Ver más'); ?>
+            </a>
+          </div>
+        <?php } ?>
+        
       </div>
       <div class="row">
       <?php if (!empty($schedule)) { ?>
@@ -199,7 +207,7 @@ if ( !empty($apply_end) && ( time() <= $apply_end ) && !$publish_exhibitors ) {
 ?>
       <div class="row justify-center">
         <a class="col col-l col-l-2 flex-row align-center justify-center button button-big" href="<?php echo esc_url($apply_url); ?>">
-          <?php _e( '[:en]Apply[:es]Applicar' ); ?>
+          <?php _e( '[:en]Apply![:es]Applicar!' ); ?>
         </a>
       </div>
 <?php
@@ -246,7 +254,7 @@ if ( !empty($apply_end) && ( time() <= $apply_end ) && !$publish_exhibitors ) {
 
       $city = get_post_meta($post->ID, '_igv_exhibitor_city');
 ?>
-        <a class="col col-l col-l-3">
+        <a class="col col-l col-l-3" href="<?php the_permalink(); ?>">
           <?php the_post_thumbnail('col-3-crop'); ?>
           <h3><?php the_title(); ?></h3>
           <?php echo (!empty($city) ? '<span class="font-size-h4">' . $city[0] . '</span>' : ''); ?>
@@ -452,25 +460,42 @@ if ( $press->have_posts() ) {
   while ( $press->have_posts() ) {
     $press->the_post();
 
-    $press_meta = get_post_meta($post->ID);
-    $press_author = $press_meta['_igv_press_author'][0];
-    $press_pub = $press_meta['_igv_press_publication'][0];
-    $press_url = $press_meta['_igv_press_url'][0];
+    $press_author = get_post_meta($post->ID, '_igv_press_author', false)[0];
+    $press_pub = get_post_meta($post->ID, '_igv_press_publication', false)[0];
+    $press_url = get_post_meta($post->ID, '_igv_press_url', false)[0];
 
-    if (!empty($press_author) && !empty($press_url) && !empty($press_pub)) {
+    if (!empty($press_url)) {
 ?>
-        <a class="col col-l col-l-4" href="<?php echo esc_url($press_url); ?>">
+        <div class="col col-l col-l-4">
+<?php 
+      if (!empty($press_pub)) {
+?>
           <h4 class="margin-bottom-tiny">
-            <?php echo $press_pub; ?>
+            <a target="_blank" href="<?php echo esc_url($press_url); ?>">
+              <?php echo $press_pub; ?>
+            </a>
           </h4>
+<?php 
+      }
+?>
           <h3 class="margin-bottom-tiny">
-            <?php echo '"' . get_the_title() . '"'; ?>
+            <a target="_blank" href="<?php echo esc_url($press_url); ?>">
+              <?php echo '"' . get_the_title() . '"'; ?>
+            </a>
           </h3>
-          <?php
-            _e('[:en]by[:es]por');
-            echo ' ' . $press_author;
-          ?>
-        </a>
+<?php 
+      if (!empty($press_author)) {
+?>
+          <a target="_blank" href="<?php echo esc_url($press_url); ?>">
+            <?php
+              _e('[:en]by[:es]por');
+              echo ' ' . $press_author;
+            ?>
+          </a>
+<?php 
+      }
+?>
+        </div>
 <?php
     }
   }
