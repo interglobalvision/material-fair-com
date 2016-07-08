@@ -1032,6 +1032,19 @@ p a:visited {
   border-bottom: 1px solid;
   border-color: inherit;
 }
+.border-underline {
+  border-bottom: 1px solid;
+  border-color: inherit;
+}
+.font-yellow {
+  color: #ffd923;
+}
+.font-green {
+  color: #009870;
+}
+.font-pink {
+  color: #ff7bac;
+}
 html {
   background-color: #000;
   color: #fff;
@@ -1066,12 +1079,11 @@ img {
 a.button {
   background-color: #ff7bac;
   color: #000;
-  border: 1px solid #000;
   padding: 18px;
   text-transform: uppercase;
   font-weight: 600;
 }
-a.button-big {
+a.button.button-big {
   padding: 36px 0;
   font-size: 1.541986833892031rem;
 }
@@ -1174,6 +1186,29 @@ input:-webkit-autofill {
 }
 #header {
   border-top: 0;
+}
+#header p {
+  margin-bottom: 0;
+}
+ul.language-chooser {
+  margin-bottom: 11.124611797497385px;
+}
+ul.language-chooser li {
+  display: inline-block;
+  border-bottom: 1px solid;
+  border-color: inherit;
+}
+ul.language-chooser li.active {
+  border-bottom: none;
+}
+ul.language-chooser li a {
+  background: none;
+}
+ul.language-chooser li.active:first-of-type:after {
+  content: ' /';
+}
+ul.language-chooser li.active:last-of-type:before {
+  content: '/ ';
 }
 .menu-item {
   font-size: 1.3rem;

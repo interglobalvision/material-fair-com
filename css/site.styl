@@ -248,6 +248,21 @@ p
   a:visited
     border-bottom: 1px solid
     border-color: inherit
+    
+.border-underline 
+  border-bottom: 1px solid
+  border-color: inherit
+  
+  // FONT COLORS
+    
+.font-yellow
+  color: $color-yellow
+  
+.font-green
+  color: $color-green
+  
+.font-pink
+  color: $color-pink
 
 // ******************************************************
 
@@ -281,12 +296,11 @@ img
 .button, a.button
   background-color: $color-pink
   color: $color-black
-  border: 1px solid $color-black
   padding: $margin-tiny
   text-transform: uppercase
   font-weight: 600
   
-a.button-big
+a.button.button-big
   padding: $margin-small 0
   font-size: $font-size-h4
   
@@ -394,7 +408,24 @@ input
 // HEADER
 
 #header 
-  border-top: 0
+  border-top: 0 
+  p 
+    margin-bottom: 0
+    
+ul.language-chooser
+  margin-bottom: $margin-micro
+  li 
+    display:inline-block
+    border-bottom: 1px solid
+    border-color: inherit
+    &.active
+      border-bottom: none
+    a 
+      background: none
+    &.active:first-of-type:after 
+      content: ' /'
+    &.active:last-of-type:before 
+      content: '/ '
   
 .menu-item
   font-size: $font-size-larger
