@@ -30,6 +30,15 @@ $metabox = array(
       ),
     ),
     array(
+      'name' => __( 'Header text', 'cmb2' ),
+      'desc' => __( '', 'cmb2' ),
+      'id'   => $prefix . 'header_text',
+      'type' => 'textarea_small',
+      'attributes' => array(
+        'class' => 'cmb2-qtranslate',
+      )
+    ),
+    array(
       'name' => __( 'Fair Venue Name', 'cmb2' ),
       'desc' => __( 'Used sitewide', 'cmb2' ),
       'id'   => $prefix . 'venue_name',
