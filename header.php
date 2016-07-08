@@ -128,12 +128,10 @@
               }
             ?>
             <?php 
-              if (!empty($vip_login_url) && !empty($show_vip_login)) { 
-                if ($show_vip_login == 'on') {
-                  echo '<a href="' . $vip_login_url . '" class="border-underline margin-bottom-micro">';
-                  echo __('[:en]VIP Login[:es]Sección VIP');
-                  echo '</a>';
-                }
+              if (!empty($vip_login_url) && $show_vip_login == 'on') { 
+                echo '<a href="' . $vip_login_url . '" class="border-underline margin-bottom-micro">';
+                echo __('[:en]VIP Login[:es]Sección VIP');
+                echo '</a>';
               }
             ?>
           </div>
@@ -179,8 +177,7 @@
           </li>
         <?php 
           $page_id = get_id_by_slug('reading-material');
-          if ($page_id && !empty($show_reading_material)) {
-            if ($show_reading_material == 'on') {
+          if ($page_id && $show_reading_material == 'on') {
         ?>
           <li class="menu-item col col-l col-l-2 flex-col justify-center align-center font-yellow">
             <a href="<?php echo get_permalink($page_id); ?>">
@@ -188,7 +185,6 @@
             </a>
           </li>
         <?php 
-            }
           }
           $page_id = get_id_by_slug('partners');
           if ($page_id) {
