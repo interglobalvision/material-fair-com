@@ -147,7 +147,7 @@
         </div>
       </div>
       <nav>
-        <ul class="row">
+        <ul class="row justify-center">
         <?php 
           $page_id = get_id_by_slug('visitor-information');
           if ($page_id) {

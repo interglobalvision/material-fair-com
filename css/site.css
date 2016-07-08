@@ -1211,7 +1211,8 @@ ul.language-chooser li.active:last-of-type:before {
   content: '/ ';
 }
 .menu-item {
-  font-size: 1.3rem;
+  font-size: 1.541986833892031rem;
+  padding: 0;
 }
 .menu-item a {
   border-bottom: 1px solid;
