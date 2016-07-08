@@ -176,6 +176,23 @@ function igv_cmb_metaboxes() {
   ) );
 
   $exhibitor_featured_metabox->add_group_field( $exhibitor_featured, array(
+    'name'        => __( 'Title, Year', 'cmb2' ),
+    'description' => __( '', 'cmb2' ),
+    'id'          => 'name',
+    'type'        => 'text_medium',
+  ) );
+
+  $exhibitor_featured_metabox->add_group_field( $exhibitor_featured, array(
+    'name'        => __( 'Description', 'cmb2' ),
+    'description' => __( 'Materials, Dimensions', 'cmb2' ),
+    'id'          => 'name',
+    'type'        => 'textarea_small',
+    'attributes' => array(
+      'class' => 'cmb2-qtranslate'
+    )
+  ) );
+
+  $exhibitor_featured_metabox->add_group_field( $exhibitor_featured, array(
     'name' => __( 'Image', 'cmb2' ),
     'id'   => 'image',
     'type' => 'file',
