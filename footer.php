@@ -101,8 +101,8 @@
             _e('[:en]Contact[:es]Contacto');
             echo '</h5>';
 
-            echo ($email ? '<div class="margin-bottom-micro"><a href="mailto:' . $email . '">' . $email . '</a></div>' : '');
-            echo ($phone ? '<a href="tel:' . $phone . '">' . $phone . '</a>' : ''); 
+            echo $email ? '<div class="margin-bottom-micro"><a href="mailto:' . $email . '">' . $email . '</a></div>' : '';
+            echo $phone ? '<a href="tel:' . $phone . '">' . $phone . '</a>' : ''; 
           ?>
           </div>
 
@@ -145,7 +145,7 @@
           
             <?php 
               $sponsor_img = wp_get_attachment_image($sponsor['logo_id'], 'sponsor', null, array( 'class' => 'lead-sponsor-logo' ));
-              echo (!empty($sponsor['url']) ? '<a href="' . $sponsor['url'] . '">' . $sponsor_img . '</a>' : $sponsor_img); 
+              echo !empty($sponsor['url']) ? '<a href="' . $sponsor['url'] . '">' . $sponsor_img . '</a>' : $sponsor_img; 
             ?>
           
           <?php } ?>

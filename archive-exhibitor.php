@@ -29,7 +29,7 @@ $apply_end = IGV_get_option('_igv_site_options', '_igv_apply_end');
           <h1>
           <?php 
             _e('[:en]Exhibitors&nbsp;[:es]Expositores&nbsp;'); 
-            echo ($current_year && $publish_exhibitors ? $current_year : ''); 
+            echo $current_year && $publish_exhibitors ? $current_year : ''; 
             // add the current year to the heading if we have it, 
             // and the exhibitors are published.
           ?>
@@ -159,7 +159,7 @@ if ( !empty($apply_end) && time() <= $apply_end && !$publish_exhibitors && !empt
       $first_letter = $the_title[0];
       // the first letter of the title
 
-      $first_letter = (!ctype_alpha($first_letter)) ? '#' : $first_letter;
+      $first_letter = !ctype_alpha($first_letter) ? '#' : $first_letter;
       // if the first letter is not alphabetic, 
       // set it to '#' for numbers and symbols
 
@@ -186,7 +186,7 @@ if ( !empty($apply_end) && time() <= $apply_end && !$publish_exhibitors && !empt
           <a href="<?php the_permalink() ?>">
             <?php the_post_thumbnail('col-3-crop'); ?>
             <h4><?php the_title(); ?></h4>
-            <?php echo (!empty($city) ? '<span>' . $city[0] . '</span>' : ''); ?> 
+            <?php echo !empty($city) ? '<span>' . $city[0] . '</span>' : ''; ?> 
           </a>
         </article>
 

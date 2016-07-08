@@ -2,7 +2,7 @@
 get_header();
 
 $current_year_id = IGV_get_option('_igv_site_options', '_igv_current_fair_year');
-$current_year = (!empty($current_year_id)) ? get_term($current_year_id)->slug : false; 
+$current_year = !empty($current_year_id) ? get_term($current_year_id)->slug : false; 
 // if we have the term ID, get the slug, 
 // otherwise set it false for later conditionals
 
@@ -48,7 +48,7 @@ if (!empty($press_page_text) || !empty($press_page_image_id)) {
             <?php echo apply_filters( 'the_content', $press_page_text ); ?>
           </div>
           <div class="font-size-h4">
-            <?php echo (!empty($press_accreditation) ? apply_filters( 'the_content', $press_accreditation ) : ''); ?>
+            <?php echo !empty($press_accreditation) ? apply_filters( 'the_content', $press_accreditation ) : ''; ?>
           </div>
         </div>
 <?php 
@@ -153,8 +153,8 @@ if ( $highlight_press->have_posts() ) {
                     echo ' ' . $author;
                   }
                 ?> 
-                <?php echo (!empty($date) && !empty($author) ? ' | ' : '' ); ?>
-                <?php _e(!empty($date) ? date('j F Y', $date) : '' ); ?>
+                <?php echo !empty($date) && !empty($author) ? ' | ' : ''; ?>
+                <?php _e(!empty($date) ? date('j F Y', $date) : ''); ?>
               </div>
 <?php 
         }
@@ -221,7 +221,7 @@ if( have_posts() ) {
                 echo ' ' . $author;
               }
             ?> 
-            <?php echo (!empty($date) && !empty($author) ? ' | ' : '' ); ?>
+            <?php echo !empty($date) && !empty($author) ? ' | ' : ''; ?>
             <?php _e(!empty($date) ? date('j F Y', $date) : '' ); ?>
           </a>
         </article>
