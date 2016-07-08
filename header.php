@@ -73,6 +73,8 @@
 
   $fair_year = IGV_get_option('_igv_page_options', '_igv_current_fair_year');
 
+  $show_reading_material = IGV_get_option('_igv_site_options', '_igv_show_reading_material');
+
   $show_apply = false;
 
   if (!empty($apply_url) && !empty($apply_end) && ( time() <= $apply_end ) && !$publish_exhibitors ) { 
@@ -126,7 +128,7 @@
               }
             ?>
             <?php 
-              if (!empty($vip_login_url)) { 
+              if (!empty($vip_login_url) && $show_vip_login == 'on') { 
                 echo '<a href="' . $vip_login_url . '" class="border-underline margin-bottom-micro">';
                 echo __('[:en]VIP Login[:es]Sección VIP');
                 echo '</a>';
@@ -175,7 +177,7 @@
           </li>
         <?php 
           $page_id = get_id_by_slug('reading-material');
-          if ($page_id) {
+          if ($page_id && $show_reading_material == 'on') {
         ?>
           <li class="menu-item col col-l col-l-2 flex-col justify-center align-center font-yellow">
             <a href="<?php echo get_permalink($page_id); ?>">
