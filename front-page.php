@@ -422,14 +422,20 @@ if ( !$publish_program ) {
 //
 
 $args = array (
-  'post_type'       => array( 'press' ),
+  'post_type'       => 'press',
   'posts_per_page'  => '3',
   'meta_key'        => '_igv_press_date',
   'orderby'         => 'meta_value_num',
+  'meta_query'      => array( 
+    array(
+      'key' => '_igv_press_highlight',
+      'value' => 'on',
+    ),
+  ),
 );
 $press = new WP_Query( $args );
 
-if ( $press->have_posts() ) {
+if ( $press->have_posts() ) { 
 ?>
   <section id="front-press" class="section">
     <div class="container">

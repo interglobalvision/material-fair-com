@@ -1,5 +1,6 @@
 @import "kouto-swiss"
 @import "helpers"
+@import "swiper"
 
 // ******************************************************
 
@@ -368,13 +369,13 @@ input
   margin: 0 auto
   display: block
 
-.text-columns-2
+.text-columns-2 
   column-count: 2
   column-gap: $gutter
   
 // VISITOR INFO
 
-.schedule-row
+.border-row
   border-top: 1px solid $color-black-soft
   padding: $margin-tiny 0
   &:last-of-type
@@ -386,6 +387,14 @@ input
   width: 100%
   max-height: 500px
   flex-grow: 1
+  
+// PRESS
+
+.swiper-container
+  height: 500px
+  
+.swiper-slide img
+  max-height: 440px // to fit the caption
 
 // FOOTER
 
@@ -394,7 +403,7 @@ input
   
 .social-icon
   padding-left: $margin-tiny
-
+ 
 
 
 // ******************************************************
