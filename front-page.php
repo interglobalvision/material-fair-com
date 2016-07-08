@@ -207,7 +207,7 @@ if ( !empty($apply_end) && ( time() <= $apply_end ) && !$publish_exhibitors ) {
 ?>
       <div class="row justify-center">
         <a class="col col-l col-l-2 flex-row align-center justify-center button button-big" href="<?php echo esc_url($apply_url); ?>">
-          <?php _e( '[:en]Apply[:es]Applicar' ); ?>
+          <?php _e( '[:en]Apply![:es]Applicar!' ); ?>
         </a>
       </div>
 <?php
