@@ -416,16 +416,20 @@ ul.language-chooser
   margin-bottom: $margin-micro
   li 
     display:inline-block
-    border-bottom: 1px solid
     border-color: inherit
+    border-bottom: none
+    &:first-of-type:after 
+      content: ' /'
+    &:last-of-type:before 
+      content: '/ '
     &.active
-      border-bottom: none
+      border-bottom: 1px solid
+      &:after
+        content: ''
+      &:before
+        content: ''
     a 
       background: none
-    &.active:first-of-type:after 
-      content: ' /'
-    &.active:last-of-type:before 
-      content: '/ '
   
 .menu-item
   font-size: $font-size-h4

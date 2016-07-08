@@ -1195,20 +1195,26 @@ ul.language-chooser {
 }
 ul.language-chooser li {
   display: inline-block;
-  border-bottom: 1px solid;
   border-color: inherit;
+  border-bottom: none;
+}
+ul.language-chooser li:first-of-type:after {
+  content: ' /';
+}
+ul.language-chooser li:last-of-type:before {
+  content: '/ ';
 }
 ul.language-chooser li.active {
-  border-bottom: none;
+  border-bottom: 1px solid;
+}
+ul.language-chooser li.active:after {
+  content: '';
+}
+ul.language-chooser li.active:before {
+  content: '';
 }
 ul.language-chooser li a {
   background: none;
-}
-ul.language-chooser li.active:first-of-type:after {
-  content: ' /';
-}
-ul.language-chooser li.active:last-of-type:before {
-  content: '/ ';
 }
 .menu-item {
   font-size: 1.541986833892031rem;
