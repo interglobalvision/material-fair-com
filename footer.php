@@ -27,6 +27,58 @@
         <?php } ?>
           </div>
 
+          <div class="col col-l col-l-2">
+            <nav>
+              <ul>
+              <?php 
+                $page_id = get_id_by_slug('visitor-information');
+                if ($page_id) {
+              ?>
+                <li>
+                  <a class="border-underline" href="<?php echo get_permalink($page_id); ?>">
+                    <?php echo get_the_title($page_id); ?>
+                  </a>
+                </li>
+              <?php } ?>
+                <li>
+                  <a class="border-underline" href="<?php echo get_post_type_archive_link( 'exhibitor' ); ?>">
+                    <?php _e('[:en]Exhibitors[:es]Expositores'); ?>
+                  </a>
+                </li>
+                <li>
+                  <a class="border-underline" href="<?php echo get_post_type_archive_link( 'event' ); ?>">
+                    <?php _e('[:en]Program[:es]Programa'); ?>
+                  </a>
+                </li>
+                <li>
+                  <a class="border-underline" href="<?php echo get_post_type_archive_link( 'press' ); ?>">
+                    <?php _e('[:en]Press[:es]Prensa'); ?>
+                  </a>
+                </li>
+              <?php 
+                $page_id = get_id_by_slug('reading-material');
+                if ($page_id) {
+              ?>
+                <li>
+                  <a class="border-underline" href="<?php echo get_permalink($page_id); ?>">
+                    <?php echo get_the_title($page_id); ?>
+                  </a>
+                </li>
+              <?php 
+                }
+                $page_id = get_id_by_slug('partners');
+                if ($page_id) {
+              ?>
+                <li>
+                  <a class="border-underline" href="<?php echo get_permalink($page_id); ?>">
+                    <?php echo get_the_title($page_id); ?>
+                  </a>
+                </li>
+              <?php } ?>
+              </ul>
+            </nav>
+          </div>
+
         <?php if (!empty($address)) { ?>
 
           <div class="col col-l col-l-2">
@@ -68,7 +120,7 @@
 
         <?php } ?>
 
-          <div class="col col-l col-l-3 text-align-right">
+          <div class="col col-l col-l-1 flex-col align-end">
 
             <?php 
             if (!empty($facebook) || !empty($twitter) || !empty($instagram)) { 

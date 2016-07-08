@@ -1257,7 +1257,7 @@ ul.language-chooser li.active:last-of-type:before {
   margin-right: 36px;
 }
 .social-icon {
-  padding-left: 18px;
+  margin-bottom: 5.562305898748693px;
 }
 @media screen and (max-width: 1150px) {
   .container {
