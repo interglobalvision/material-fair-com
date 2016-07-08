@@ -73,6 +73,8 @@
 
   $fair_year = IGV_get_option('_igv_page_options', '_igv_current_fair_year');
 
+  $show_reading_material = IGV_get_option('_igv_site_options', '_igv_show_reading_material');
+
   $show_apply = false;
 
   if (!empty($apply_url) && !empty($apply_end) && ( time() <= $apply_end ) && !$publish_exhibitors ) { 
@@ -175,7 +177,8 @@
           </li>
         <?php 
           $page_id = get_id_by_slug('reading-material');
-          if ($page_id) {
+          if ($page_id && !empty($show_reading_material)) {
+            if ($show_reading_material == 'on') {
         ?>
           <li class="menu-item col col-l col-l-2 flex-col justify-center align-center font-yellow">
             <a href="<?php echo get_permalink($page_id); ?>">
@@ -183,6 +186,7 @@
             </a>
           </li>
         <?php 
+            }
           }
           $page_id = get_id_by_slug('partners');
           if ($page_id) {
