@@ -39,7 +39,9 @@ if (!empty($press_page_text) || !empty($press_page_image_id)) {
           <?php echo wp_get_attachment_image($press_page_image_id, 'col-6'); ?>
         </div>
 <?php 
-  } if (!empty($press_page_text)) { 
+  }
+
+  if (!empty($press_page_text)) { 
 ?>
         <div class="col col-l col-l-6">
           <div class="font-size-h3">
