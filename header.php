@@ -103,7 +103,7 @@
         <div class="col col-l col-l-5 flex-row"> 
         <?php } ?>
           <div class="col flex-col justify-center align-center text-align-center font-size-h4 section-yellow">
-            <?php echo (!empty($header_text) ? apply_filters( 'the_content', $header_text ) : ''); ?>
+            <?php echo !empty($header_text) ? apply_filters( 'the_content', $header_text ) : ''; ?>
           </div>
         </div>
         
@@ -138,7 +138,7 @@
           <div class="col flex-col justify-end align-center">
             <?php 
               $sponsor_logo_img = wp_get_attachment_image($sponsor_logo, 'sponsor');
-              echo (!empty($sponsor_url) ? '<a href="' . $sponsor_url . '">' . $sponsor_logo_img . '</a>' : $sponsor_logo_img); 
+              echo !empty($sponsor_url) ? '<a href="' . $sponsor_url . '">' . $sponsor_logo_img . '</a>' : $sponsor_logo_img; 
             ?>
           </div>
         <?php 

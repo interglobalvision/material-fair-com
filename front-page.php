@@ -18,7 +18,7 @@ $venue_address = IGV_get_option('_igv_visitor_options', '_igv_venue_address');
 
 // Exhibitors
 $current_year_id = IGV_get_option('_igv_site_options', '_igv_current_fair_year');
-$current_year = (!empty($current_year_id)) ? get_term($current_year_id)->slug : false;
+$current_year = !empty($current_year_id) ? get_term($current_year_id)->slug : false;
 $publish_exhibitors = IGV_get_option('_igv_page_options', '_igv_publish_exhibitors');
 
 $exhibitors_apply_text = IGV_get_option('_igv_page_options', '_igv_exhibitors_apply_text');
@@ -54,9 +54,9 @@ $partners = IGV_get_option('_igv_sponsors_options', '_igv_partners_group');
 if (!empty($splash_id)) { ?>
   <section id="front-splash" class="section">
     <?php 
-      echo (!empty($splash_link) ? '<a href="' . esc_url( $splash_link ) . '">' : ''); 
+      echo !empty($splash_link) ? '<a href="' . esc_url( $splash_link ) . '">' : ''; 
       echo wp_get_attachment_image($splash_id, 'splash', null, array('id' => 'splash-image'));
-      echo (!empty($splash_link) ? '</a>' : ''); 
+      echo !empty($splash_link) ? '</a>' : ''; 
     ?>
   </section>
 <?php } ?>
@@ -72,14 +72,14 @@ if (!empty($headline) || !empty($intro)) { ?>
     <div class="container">
       <div class="row">
         <div class="col col-l col-l-4">
-          <h2 class="text-align-center"><?php echo (!empty($headline) ? $headline : ''); ?></h2>
+          <h2 class="text-align-center"><?php echo !empty($headline) ? $headline : ''; ?></h2>
         </div>
         <div class="col col-l col-l-8">
           <div class="text-columns-2">
             <div class="font-size-h4">
-              <?php echo (!empty($intro) ? apply_filters( 'the_content', $intro ) : ''); ?>
+              <?php echo !empty($intro) ? apply_filters( 'the_content', $intro ) : ''; ?>
             </div>
-            <?php echo (!empty($organizers) ? apply_filters( 'the_content', $organizers ) : ''); ?>
+            <?php echo !empty($organizers) ? apply_filters( 'the_content', $organizers ) : ''; ?>
           </div>
         </div>
       </div>
@@ -257,7 +257,7 @@ if ( !empty($apply_end) && ( time() <= $apply_end ) && !$publish_exhibitors ) {
         <a class="col col-l col-l-3" href="<?php the_permalink(); ?>">
           <?php the_post_thumbnail('col-3-crop'); ?>
           <h3><?php the_title(); ?></h3>
-          <?php echo (!empty($city) ? '<span class="font-size-h4">' . $city[0] . '</span>' : ''); ?>
+          <?php echo !empty($city) ? '<span class="font-size-h4">' . $city[0] . '</span>' : ''; ?>
         </a>
 <?php
     }
@@ -389,7 +389,7 @@ if ( !$publish_program ) {
       if (has_post_thumbnail()) {
 ?>  
         <div class="col col-l col-l-6">
-          <?php echo (!empty($event_url) ? '<a href="' . esc_url($event_url[0]) . '">' . get_the_post_thumbnail() . '</a>' : get_the_post_thumbnail()); ?>
+          <?php echo !empty($event_url) ? '<a href="' . esc_url($event_url[0]) . '">' . get_the_post_thumbnail() . '</a>' : get_the_post_thumbnail(); ?>
           <div class="row">
             <div class="col col-l-4 flex-col justify-start align-center">
               <div class="font-size-h4"><?php _e(date('l', $event_start[0])); ?></div>
@@ -403,9 +403,11 @@ if ( !$publish_program ) {
               <?php if (!empty($event_artist)) { ?>
               <div class="font-size-h4"><?php echo $event_artist[0]; ?></div>
               <?php } ?>
-              <div class="font-size-h3 margin-bottom-tiny"><?php echo (!empty($event_url) ? '<a href="' . esc_url($event_url[0]) . '">' . get_the_title() . '</a>' : get_the_title()); ?></div>
+              <div class="font-size-h3 margin-bottom-tiny">
+                <?php echo !empty($event_url) ? '<a href="' . esc_url($event_url[0]) . '">' . get_the_title() . '</a>' : get_the_title(); ?>
+              </div>
               <?php the_content(); ?>
-              <?php echo (!empty($event_rsvp) ? $event_rsvp : ''); ?>
+              <?php echo !empty($event_rsvp) ? $event_rsvp : ''; ?>
             </div>
           </div>
         </div>  
@@ -529,7 +531,7 @@ if (!empty($partners)) {
           foreach ($partners as $partner) {  
             $partner_img = wp_get_attachment_image($partner['logo_id'], 'sponsor');
             echo '<div class="col col-l col-l-2 text-align-center">';
-            echo (!empty($partner['url']) ? '<a href="' . esc_url($partner['url']) . '">' . $partner_img . '</a>' : $partner_img);
+            echo !empty($partner['url']) ? '<a href="' . esc_url($partner['url']) . '">' . $partner_img . '</a>' : $partner_img;
             echo '</div>';
           } 
         ?>
