@@ -52,11 +52,13 @@
 
   $logo_id = IGV_get_option('_igv_social_options', '_igv_metadata_logo_id');
 
-  $venue = IGV_get_option('_igv_site_options', '_igv_venue_name');
+  $header_text = IGV_get_option('_igv_site_options', '_igv_header_text');
+
   $start_date = IGV_get_option('_igv_site_options', '_igv_fair_start');
   $end_date = IGV_get_option('_igv_site_options', '_igv_fair_end');
 
   $publish_exhibitors = IGV_get_option('_igv_page_options', '_igv_publish_exhibitors');
+
   $apply_url = IGV_get_option('_igv_site_options', '_igv_apply_url');
   $apply_end = IGV_get_option('_igv_site_options', '_igv_apply_end');
 
@@ -100,14 +102,14 @@
         <?php } else { ?>
         <div class="col col-l col-l-5 flex-row"> 
         <?php } ?>
-          <div class="col flex-col justify-center align-center section-yellow font-size-h4">
-            <div><?php echo $venue; ?></div>
+          <div class="col flex-col justify-center align-center text-align-center font-size-h4 section-yellow">
+            <?php echo (!empty($header_text) ? apply_filters( 'the_content', $header_text ) : ''); ?>
           </div>
         </div>
         
         <?php if ($show_apply) { ?>
         <div class="col col-l col-l-2 flex-row">
-          <a class="col flex-col justify-center align-center button font-size-h4" href="<?php echo esc_url($apply_url); ?>">
+          <a class="col flex-col justify-center align-center font-size-h4 button" href="<?php echo esc_url($apply_url); ?>">
             <?php _e('[:en]Apply![:es]Applicar!'); ?>
           </a>
         </div>
@@ -118,14 +120,14 @@
             <?php echo qtranxf_generateLanguageSelectCode('both'); ?>
             <?php 
               if (!empty($app_login_url) && !empty($app_login_text)) { 
-                echo '<a href="' . $app_login_url . '">';
+                echo '<a href="' . $app_login_url . '" class="border-underline margin-bottom-micro">';
                 echo $app_login_text;
                 echo '</a>';
               }
             ?>
             <?php 
               if (!empty($vip_login_url)) { 
-                echo '<a href="' . $vip_login_url . '">';
+                echo '<a href="' . $vip_login_url . '" class="border-underline margin-bottom-micro">';
                 echo __('[:en]VIP Login[:es]Sección VIP');
                 echo '</a>';
               }
@@ -150,23 +152,23 @@
           $page_id = get_id_by_slug('visitor-information');
           if ($page_id) {
         ?>
-          <li class="menu-item col col-l col-l-2 flex-col justify-center align-center">
+          <li class="menu-item col col-l col-l-2 flex-col justify-center align-center font-pink">
             <a href="<?php echo get_permalink($page_id); ?>">
               <?php echo get_the_title($page_id); ?>
             </a>
           </li>
         <?php } ?>
-          <li class="menu-item col col-l col-l-2 flex-col justify-center align-center">
+          <li class="menu-item col col-l col-l-2 flex-col justify-center align-center font-yellow">
             <a href="<?php echo get_post_type_archive_link( 'exhibitor' ); ?>">
               <?php _e('[:en]Exhibitors[:es]Expositores'); ?>
             </a>
           </li>
-          <li class="menu-item col col-l col-l-2 flex-col justify-center align-center">
+          <li class="menu-item col col-l col-l-2 flex-col justify-center align-center font-green">
             <a href="<?php echo get_post_type_archive_link( 'event' ); ?>">
               <?php _e('[:en]Program[:es]Programa'); ?>
             </a>
           </li>
-          <li class="menu-item col col-l col-l-2 flex-col justify-center align-center">
+          <li class="menu-item col col-l col-l-2 flex-col justify-center align-center font-pink">
             <a href="<?php echo get_post_type_archive_link( 'press' ); ?>">
               <?php _e('[:en]Press[:es]Prensa'); ?>
             </a>
@@ -175,7 +177,7 @@
           $page_id = get_id_by_slug('reading-material');
           if ($page_id) {
         ?>
-          <li class="menu-item col col-l col-l-2 flex-col justify-center align-center">
+          <li class="menu-item col col-l col-l-2 flex-col justify-center align-center font-yellow">
             <a href="<?php echo get_permalink($page_id); ?>">
               <?php echo get_the_title($page_id); ?>
             </a>
@@ -185,7 +187,7 @@
           $page_id = get_id_by_slug('partners');
           if ($page_id) {
         ?>
-          <li class="menu-item col col-l col-l-2 flex-col justify-center align-center">
+          <li class="menu-item col col-l col-l-2 flex-col justify-center align-center font-green">
             <a href="<?php echo get_permalink($page_id); ?>">
               <?php echo get_the_title($page_id); ?>
             </a>
