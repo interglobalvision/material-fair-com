@@ -128,10 +128,12 @@
               }
             ?>
             <?php 
-              if (!empty($vip_login_url)) { 
-                echo '<a href="' . $vip_login_url . '" class="border-underline margin-bottom-micro">';
-                echo __('[:en]VIP Login[:es]Sección VIP');
-                echo '</a>';
+              if (!empty($vip_login_url) && !empty($show_vip_login)) { 
+                if ($show_vip_login == 'on') {
+                  echo '<a href="' . $vip_login_url . '" class="border-underline margin-bottom-micro">';
+                  echo __('[:en]VIP Login[:es]Sección VIP');
+                  echo '</a>';
+                }
               }
             ?>
           </div>
