@@ -13,14 +13,6 @@ $metabox = array(
   'show_names' => true,
   'fields'     => array(
     array(
-      'name' => __( 'Venue Address', 'cmb2' ),
-      'id'   => $prefix . 'venue_address',
-      'type' => 'textarea',
-      'attributes' => array(
-        'class' => 'cmb2-qtranslate'
-      )
-    ),
-    array(
       'name' => __( 'Visitor Info Introduction Text', 'cmb2' ),
       'id'   => $prefix . 'visitor_info_page_text',
       'description' => 'Description of the fair'
@@ -36,6 +28,20 @@ $metabox = array(
       'desc' => __( '', 'cmb2' ),
       'id'   => $prefix . 'visitor_info_page_image',
       'type' => 'file',
+    ),
+    array(
+      'name' => __( 'Fair Venue Name', 'cmb2' ),
+      'desc' => __( 'Used sitewide', 'cmb2' ),
+      'id'   => $prefix . 'venue_name',
+      'type' => 'text',
+    ),
+    array(
+      'name' => __( 'Venue Address', 'cmb2' ),
+      'id'   => $prefix . 'venue_address',
+      'type' => 'textarea',
+      'attributes' => array(
+        'class' => 'cmb2-qtranslate'
+      )
     ),
     array(
       'name' => __( 'How to Arrive', 'cmb2' ),

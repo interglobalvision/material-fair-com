@@ -13,7 +13,7 @@ $schedule = IGV_get_option('_igv_visitor_options', '_igv_schedule');
 
 $tickets = IGV_get_option('_igv_visitor_options', '_igv_ticket_info');
 
-$venue_name = IGV_get_option('_igv_site_options', '_igv_venue_name');
+$venue_name = IGV_get_option('_igv_visitor_options', '_igv_venue_name');
 $venue_address = IGV_get_option('_igv_visitor_options', '_igv_venue_address');
 
 $how_to_arrive = IGV_get_option('_igv_visitor_options', '_igv_how_to_arrive');

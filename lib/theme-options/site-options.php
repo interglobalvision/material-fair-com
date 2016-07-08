@@ -39,12 +39,6 @@ $metabox = array(
       )
     ),
     array(
-      'name' => __( 'Fair Venue Name', 'cmb2' ),
-      'desc' => __( 'Used sitewide', 'cmb2' ),
-      'id'   => $prefix . 'venue_name',
-      'type' => 'text',
-    ),
-    array(
       'name' => __( 'Fair Start Date', 'cmb2' ),
       'desc' => __( '', 'cmb2' ),
       'id'   => $prefix . 'fair_start',
