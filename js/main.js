@@ -10,6 +10,9 @@ Site = {
       _this.onResize();
     });
 
+    if ($('body').hasClass('post-type-archive-press')) {
+      _this.Press.init();
+    }
   },
 
   onResize: function() {
@@ -24,6 +27,26 @@ Site = {
       string = string.replace(/ ([^ ]*)$/,'&nbsp;$1');
       $(this).html(string);
     });
+  },
+};
+
+Site.Press = {
+  init: function() {
+    var _this = this;
+
+    if ($('.swiper-slide').length) {
+      _this.photoGallery();
+    }
+  },
+
+  photoGallery: function() {
+    var mySwiper = new Swiper('.swiper-container', {
+      speed: 400,
+      spaceBetween: 100,
+      nextButton: '.swiper-button-next',
+      prevButton: '.swiper-button-prev',
+      loop: true,
+    }); 
   },
 };
 

@@ -32,5 +32,5 @@ function create_fair_year_tax() {
     'query_var'             => true,
   );
 
-  register_taxonomy( 'fair_year', array('exhibitor','press','committee','event'), $args );
+  register_taxonomy( 'fair_year', array('exhibitor','press','committee','event','photo_gallery'), $args );
 }

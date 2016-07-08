@@ -209,8 +209,6 @@ if ( !empty($apply_end) && time() <= $apply_end && !$publish_exhibitors && !empt
 // LINKS TO PAST EDITIONS WILL GO HERE
 ?>
 
-<?php // get_template_part('partials/pagination'); ?>
-
 <!-- end main-content -->
 
 </main>
