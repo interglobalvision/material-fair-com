@@ -276,6 +276,13 @@ html
 h1, h2
   color: $color-yellow
   
+.border-row 
+  border-top: 1px solid $color-yellow
+  &:last-of-type
+    border-bottom: 1px solid $color-yellow
+  p
+    margin-bottom: 0
+  
 .section
   width: 100%
   padding: $margin-small 0
@@ -289,6 +296,8 @@ h1, h2
     color: $color-white
   h1, h2
     color: inherit  
+  .border-row
+    border-color: $color-black
 
 img
   max-width: 100%
@@ -455,14 +464,6 @@ ul.language-chooser
   column-gap: $gutter
   
 // VISITOR INFO
-
-.schedule-row
-  border-top: 1px solid $color-yellow
-  padding: $margin-tiny 0
-  &:last-of-type
-    border-bottom: 1px solid $color-yellow
-  p
-    margin-bottom: 0
     
 .venue-map iframe
   width: 100%

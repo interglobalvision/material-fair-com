@@ -1569,6 +1569,15 @@ h1,
 h2 {
   color: #ffd923;
 }
+.border-row {
+  border-top: 1px solid #ffd923;
+}
+.border-row:last-of-type {
+  border-bottom: 1px solid #ffd923;
+}
+.border-row p {
+  margin-bottom: 0;
+}
 .section {
   width: 100%;
   padding: 36px 0;
@@ -1586,6 +1595,9 @@ h2 {
 .section-yellow h1,
 .section-yellow h2 {
   color: inherit;
+}
+.section-yellow .border-row {
+  border-color: #000;
 }
 img {
   max-width: 100%;
@@ -1756,16 +1768,6 @@ ul.language-chooser li a {
   -webkit-column-gap: 36px;
   -moz-column-gap: 36px;
   column-gap: 36px;
-}
-.schedule-row {
-  border-top: 1px solid #ffd923;
-  padding: 18px 0;
-}
-.schedule-row:last-of-type {
-  border-bottom: 1px solid #ffd923;
-}
-.schedule-row p {
-  margin-bottom: 0;
 }
 .venue-map iframe {
   width: 100%;
