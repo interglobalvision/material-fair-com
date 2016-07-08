@@ -21,8 +21,9 @@ $metabox = array(
       )
     ),
     array(
-      'name' => __( 'Fair Description', 'cmb2' ),
-      'id'   => $prefix . 'fair_description',
+      'name' => __( 'Visitor Info Introduction Text', 'cmb2' ),
+      'id'   => $prefix . 'visitor_info_page_text',
+      'description' => 'Description of the fair'
       'type' => 'wysiwyg',
       'options' => array( 
         'textarea_rows' => 10, 
@@ -31,9 +32,9 @@ $metabox = array(
       ),
     ),
     array(
-      'name' => __( 'Fair Image', 'cmb2' ),
+      'name' => __( 'Visitor Info Introduction Image', 'cmb2' ),
       'desc' => __( '', 'cmb2' ),
-      'id'   => $prefix . 'fair_image',
+      'id'   => $prefix . 'visitor_info_page_image',
       'type' => 'file',
     ),
     array(
