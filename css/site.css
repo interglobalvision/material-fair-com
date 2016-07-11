@@ -1522,6 +1522,12 @@ p {
 .font-capitalize {
   text-transform: capitalize;
 }
+.font-sans {
+  font-family: 'Akkurat Pro', 'Helvatica Neue', Helvetica, Arial, sans-serif;
+}
+.font-serif {
+  font-family: 'Stanley', 'Times New Roman', Times, Georgia, serif;
+}
 .text-overflow-ellipsis {
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -1602,6 +1608,9 @@ h2 {
 }
 .section-yellow .border-row {
   border-color: #000;
+}
+.pagination-button {
+  margin: 0 11.124611797497385px;
 }
 img {
   max-width: 100%;
@@ -1795,6 +1804,9 @@ ul.language-chooser li a {
 }
 .swiper-slide img {
   max-height: 440px;
+}
+#footer {
+  border-top-color: #000;
 }
 .lead-sponsor-logo {
   margin-right: 36px;
