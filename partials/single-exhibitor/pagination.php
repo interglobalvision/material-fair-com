@@ -1,6 +1,7 @@
 <?php
 $current_year_id = IGV_get_option('_igv_site_options', '_igv_current_fair_year');
 $current_year = (!empty($current_year_id)) ? get_term($current_year_id)->slug : false; 
+
 $current_post_id = $post->ID;
 ?>
 <section class="section section-yellow">
@@ -14,10 +15,20 @@ $current_post_id = $post->ID;
       </div>
       <div class="col col-l col-l-6 flex-row justify-end">
 <?php
+
+if ($current_year) {
+
 $args = array(
   'post_type'       =>  'exhibitor',
   'orderby'         =>  'title',
   'order'           =>  'ASC',
+  'tax_query'       => array(
+    array(
+      'taxonomy' => 'fair_year',
+      'field' => 'term_id',
+      'terms' => $current_year_id, // get posts with current year
+    )
+  ),
 );
 
 $query = new WP_Query ( $args );
@@ -63,6 +74,8 @@ if ( $query->have_posts() ) {
 } 
 
 wp_reset_postdata();
+
+}
 ?>
     </div>
   </div>
