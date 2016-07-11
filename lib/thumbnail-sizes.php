@@ -15,7 +15,7 @@ if( function_exists( 'add_image_size' ) ) {
   add_image_size( 'col-4-crop', 384, 230, true );
   add_image_size( 'col-6', 540, 9999, false );
   add_image_size( 'col-8', 770, 9999, false );
-  add_image_size( 'col-8-col-6', 770, 540, false );
+  add_image_size( 'col-8-4to3', 770, 577.5, false );
 
   add_image_size( 'name', 199, 299, true );
 }

@@ -21,7 +21,7 @@ if (!empty($works)) {
           <div class="font-size-h4"><?php echo apply_filters( 'the_content', $work['description'] ); ?></div>
         </div>
         <div class="col col-l col-l-8">
-          <?php echo wp_get_attachment_image($work['image_id'], 'col-8-col-6'); ?>
+          <?php echo wp_get_attachment_image($work['image_id'], 'col-8-4to3'); ?>
         </div>
       </div>
     <?php 
