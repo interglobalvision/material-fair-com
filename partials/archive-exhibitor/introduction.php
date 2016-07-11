@@ -4,6 +4,8 @@ $current_year = (!empty($current_year_id)) ? get_term($current_year_id)->slug : 
 // if we have the term ID, get the slug, 
 // otherwise set it false for later conditionals
 
+$publish_exhibitors = IGV_get_option('_igv_page_options', '_igv_publish_exhibitors');
+
 $exhibitors_page_text = IGV_get_option('_igv_page_options', '_igv_exhibitors_page_text');
 $exhibitors_page_image_id = IGV_get_option('_igv_page_options', '_igv_exhibitors_page_image_id');
 ?>

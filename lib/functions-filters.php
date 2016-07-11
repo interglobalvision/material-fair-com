@@ -28,6 +28,9 @@ add_filter( 'enter_title_here', 'year_title_text' );
 // Only return current year exhibitors for archive
 function exclude_past_exhibitors( $query ) {
   if ( $query->is_main_query() && is_post_type_archive('exhibitor') && !is_admin() ) {
+    $query->set( 'orderby', 'title' );
+    $query->set( 'order', 'ASC' );
+
     $current_year_id = IGV_get_option('_igv_site_options', '_igv_current_fair_year');
     $taxquery = array(
       array(
