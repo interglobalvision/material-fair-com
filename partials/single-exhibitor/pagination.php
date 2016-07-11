@@ -22,7 +22,8 @@ $args = array(
   'post_type'       =>  'exhibitor',
   'orderby'         =>  'title',
   'order'           =>  'ASC',
-  'tax_query'       => array(
+  'posts_per_page'  =>  -1,
+  'tax_query'       =>  array(
     array(
       'taxonomy' => 'fair_year',
       'field' => 'term_id',
