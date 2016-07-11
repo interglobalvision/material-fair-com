@@ -1595,6 +1595,7 @@ h2 {
 .section-yellow {
   background-color: #ffd923;
   color: #000;
+  border-color: #000;
 }
 .section-yellow .button,
 .section-yellow a.button {
@@ -1804,9 +1805,6 @@ ul.language-chooser li a {
 }
 .swiper-slide img {
   max-height: 440px;
-}
-#footer {
-  border-top-color: #000;
 }
 .lead-sponsor-logo {
   margin-right: 36px;
