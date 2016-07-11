@@ -16,47 +16,15 @@ get_header();
 if( have_posts() ) {
   while( have_posts() ) {
     the_post();
-
-    $stand = get_post_meta($post->ID, '_igv_exhibitor_stand', true); 
-    $staff = get_post_meta($post->ID, '_igv_exhibitor_staff', true); 
 ?>
 
     <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
-      <section class="section">
-        <div class="container">
+      <?php get_template_part('partials/single-exhibitor/basic-info'); ?>
 
-          <div class="row">
-            <div class="col col-l col-l-12">
-              <h1 class="u-inline-block"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h1>
-<?php 
-    if (!empty($stand)) { 
-?>
-              <span class="font-size-h2 font-sans">&emsp;#<?php echo $stand; ?></span>
-<?php 
-    }
-?>
-            </div>
-          </div>
+      <?php get_template_part('partials/single-exhibitor/artists'); ?>
 
-          <div class="row">
-            <div class="col col-l col-l-6">
-              <?php the_post_thumbnail('col-6'); ?>
-            </div>
-            <div class="col col-l col-l-6">
-              <?php the_content(); ?>
-
-              <?php if (!empty($staff)) {
-                foreach ($staff as $member) {
-                  echo $member['name'];
-                  echo $member['role'];
-                }
-              } ?>
-            </div>
-          </div>
-
-        </div>
-      </section>
+      <?php get_template_part('partials/single-exhibitor/featured-works'); ?>
 
     </article>
 
