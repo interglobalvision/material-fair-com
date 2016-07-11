@@ -9,6 +9,8 @@ if( function_exists( 'add_image_size' ) ) {
   add_image_size( 'opengraph', 1200, 630, true );
   add_image_size( 'sponsor', 300, 100, false );
   add_image_size( 'splash', 1440, 550, true );
+  add_image_size( 'featured-artwork', 770, 540, false );
+
   add_image_size( 'col-3-crop', 252, 175, true );
   add_image_size( 'col-3-square', 252, 252, true );
   add_image_size( 'col-4-crop', 384, 230, true );
