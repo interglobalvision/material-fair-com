@@ -34,9 +34,9 @@ if (!empty($partners)) {
           foreach ($partners as $partner) {  
             $partner_img = wp_get_attachment_image($partner['logo_id'], 'sponsor');
             if (is_front_page()) {
-              echo '<div class="col col-l col-l-2 text-align-center margin-bottom-tiny">';
+              echo '<div class="col col-l col-l-2 text-align-center margin-top-tiny margin-bottom-tiny">';
             } else {
-              echo '<div class="col col-l col-l-3 text-align-center margin-bottom-basic">';
+              echo '<div class="col col-l col-l-3 text-align-center margin-top-small margin-bottom-small">';
             }
             echo !empty($partner['url']) ? '<a target="_blank" rel="noopener noreferrer" href="' . esc_url($partner['url']) . '">' . $partner_img . '</a>' : $partner_img;
             echo '</div>';
