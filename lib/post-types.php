@@ -91,7 +91,7 @@ add_action( 'init', 'register_cpt_event' );
 function register_cpt_event() {
 
   $labels = array( 
-    'name' => _x( 'Events', 'event' ),
+    'name' => _x( 'Program', 'event' ),
     'singular_name' => _x( 'Event', 'event' ),
     'add_new' => _x( 'Add New', 'event' ),
     'add_new_item' => _x( 'Add New Event', 'event' ),
