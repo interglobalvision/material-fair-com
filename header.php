@@ -75,6 +75,8 @@
 
   $show_reading_material = IGV_get_option('_igv_site_options', '_igv_show_reading_material');
 
+  $partners = IGV_get_option('_igv_sponsors_options', '_igv_partners_group');
+
   $show_apply = false;
 
   if (!empty($apply_url) && !empty($apply_end) && ( time() <= $apply_end ) && !$publish_exhibitors ) { 
@@ -183,7 +185,7 @@
         <?php 
           }
           $page_id = get_id_by_slug('partners');
-          if ($page_id) {
+          if ($page_id && !empty($partners)) {
         ?>
           <li class="menu-item col col-l col-l-2 flex-col justify-center align-center font-green">
             <a href="<?php echo get_permalink($page_id); ?>">
