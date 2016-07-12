@@ -1,5 +1,8 @@
 <?php
 get_header();
+
+$publish_program = IGV_get_option('_igv_page_options', '_igv_publish_program');
+$publish_exhibitors = IGV_get_option('_igv_page_options', '_igv_publish_exhibitors');
 ?>
 
 <!-- main content -->
@@ -18,7 +21,7 @@ get_header();
 
 <?php get_template_part('partials/front-page/exhibitors'); ?>
 
-<?php get_template_part('partials/archive-event/highlights'); ?>
+<?php get_template_part('partials/front-page/program'); ?>
 
 <?php get_template_part('partials/front-page/partners'); ?>
 

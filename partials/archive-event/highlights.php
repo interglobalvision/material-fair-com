@@ -11,8 +11,7 @@ if ($publish_program == 'on') {
   $args = array (
     'post_type'       => 'event',
     'posts_per_page'  => '2',
-    'meta_key'        => '_igv_event_start',
-    'orderby'         => 'meta_value_num',
+    'orderby'         => 'rand',
     'meta_query'      => array( 
       array(
         'key' => '_igv_event_highlight',
@@ -39,13 +38,18 @@ if ($publish_program == 'on') {
 <section id="program-highlights" class="section">
   <div class="container">
     <div class="row">
-      <div class="col col-l col-l-12">
-        <h2>
-        <?php 
-          _e('[:en]Program Highlights[:es]Eventos destecados'); 
-        ?>
-        </h2>
+    <?php if (is_front_page()) { ?>
+      <div class="col col-l col-l-10">
+        <h2 class="text-align-left"><?php _e('[:en]Program Highlights[:es]Eventos destecados'); ?></h2>
       </div>
+      <div class="col col-l col-l-2">
+        <a class="button col flex-row align-center justify-center" href="<?php echo get_post_type_archive_link( 'event' ); ?>"><?php _e('[:en]See More[:es]Ver más'); ?></a>
+      </div>
+    <?php } else { ?>
+      <div class="col col-l col-l-12">
+        <h2 class="text-align-left"><?php _e('[:en]Program Highlights[:es]Eventos destecados'); ?></h2>
+      </div>
+    <?php } ?>
     </div>
     <div class="row">
 <?php 
