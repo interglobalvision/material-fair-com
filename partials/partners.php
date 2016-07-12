@@ -9,7 +9,7 @@ if (!empty($partners)) {
         <div class="col col-l col-l-12">
         <?php 
           echo is_front_page() ? '<h2 class="text-align-center">' : '<h1>';
-          _e('[:en]Partners[:es]Asociados'); 
+          _e('[:en]Sponsors & Partners[:es]Patrocinadores & Aliados'); 
           echo is_front_page() ? '</h2>' : '</h1>';
         ?>
         </div>
