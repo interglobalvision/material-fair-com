@@ -44,7 +44,8 @@ function hide_fair_year_fields() {
     }
 
     #side-sortables #fair_yeardiv .inside:after {
-      content: \'Fair Year is used to associate this content with a year of the fair. This content will be shown for any years selected here in its respective section (i.e Exhibitors, Press, or Program). Multiple years should only be selected for Exhibitors who participate for multiple years (i.e. Lodos or Parallel Oaxaca). Multiple years may be assigned to other content, but this will result in it appearing multiple times on the website.\'
+      content: \'NOTES: \A * Fair Year is used to associate this content with a year of the fair. \A * This content will be shown for any years assigned here, in its respective section (i.e Exhibitors, Press, or Program). \A * Multiple years should be assigned for Exhibitors who participate for multiple years (i.e. Lodos or Parallel Oaxaca). \A * Multiple years may be assigned to other content types, but this will result in it appearing multiple times on the website.\';
+      white-space: pre-wrap;
     }
   </style>';
 }
