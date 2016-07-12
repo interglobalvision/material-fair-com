@@ -20,11 +20,9 @@
         <div class="row">
 
           <div class="col col-l col-l-1 align-center">
-        <?php if (!empty($logo_id)) { ?>
-            <a href="<?php echo home_url(); ?>"><?php echo wp_get_attachment_image($logo_id, 'thumbnail'); ?></a>
-        <?php } else { ?>
-            <h1 class="col"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
-        <?php } ?>
+            <a href="<?php echo home_url(); ?>">
+              <img src="<?php bloginfo('stylesheet_directory'); ?>/img/dist/footer-logo.svg">
+            </a>
           </div>
 
           <div class="col col-l col-l-2">
@@ -79,49 +77,48 @@
             </nav>
           </div>
 
-        <?php if (!empty($address)) { ?>
-
           <div class="col col-l col-l-2">
-          <?php
-            echo '<h5 class="margin-bottom-micro">';
-            _e('Material Art Fair [:en](Office)[:es](Oficina)');
-            echo '</h5>';
+            <?php 
+              if (!empty($address)) { 
+                echo '<h5 class="margin-bottom-micro">';
+                _e('Material Art Fair [:en](Office)[:es](Oficina)');
+                echo '</h5>';
 
-            echo apply_filters( 'the_content', $address );
-          ?>
+                echo apply_filters( 'the_content', $address );
+              } 
+            ?>
           </div>
 
-        <?php } ?>
-
-        <?php if (!empty($email) || !empty($phone)) { ?>
-
           <div class="col col-l col-l-2">
-          <?php
-            echo '<h5 class="margin-bottom-micro">';
-            _e('[:en]Contact[:es]Contacto');
-            echo '</h5>';
+            <?php 
+              if (!empty($email) || !empty($phone)) { 
+                echo '<h5 class="margin-bottom-micro">';
+                _e('[:en]Contact[:es]Contacto');
+                echo '</h5>';
 
-            echo $email ? '<div class="margin-bottom-micro"><a href="mailto:' . $email . '">' . $email . '</a></div>' : '';
-            echo $phone ? '<a href="tel:' . $phone . '">' . $phone . '</a>' : ''; 
-          ?>
+                echo $email ? '<div class="margin-bottom-micro"><a href="mailto:' . $email . '">' . $email . '</a></div>' : '';
+                echo $phone ? '<a href="tel:' . $phone . '">' . $phone . '</a>' : ''; 
+              } 
+            ?>
           </div>
-
-        <?php } ?>
-
-        <?php if (!empty($mailchimp_url)) { ?>
 
           <div class="col col-l col-l-4">
+            <?php 
+              if (!empty($mailchimp_url)) { 
+            ?>
             <h5 class="margin-bottom-micro">Mailing List</h5>
             <form method="post" id="mailchimp-form" name="mailchimp-form">
               <input type="email" size="30" placeholder="email" value="" name="email">
               <input type="submit" value="Subscribe" name="subscribe">
             </form>
+            <?php 
+              } 
+            ?>
           </div>
 
-        <?php } ?>
+        
 
           <div class="col col-l col-l-1 flex-col align-end">
-
             <?php 
             if (!empty($facebook) || !empty($twitter) || !empty($instagram)) { 
               if (!empty($facebook)) { 
@@ -132,7 +129,6 @@
                 echo '<a href="https://www.instagram.com/' . $instagram . '" class="social-icon"><img src="' . get_stylesheet_directory_uri() . '/img/dist/instagram.svg"></a>'; 
               }
             } ?>
-
           </div>
 
         </div> <!-- END ROW -->
