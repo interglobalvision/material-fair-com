@@ -10,6 +10,8 @@ get_header();
 
 <?php get_template_part('partials/archive-event/highlights'); ?>
 
+<?php get_template_part('partials/archive-event/schedule'); ?>
+
 <!-- end main-content -->
 
 </main>
