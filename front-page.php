@@ -18,7 +18,7 @@ get_header();
 
 <?php get_template_part('partials/front-page/exhibitors'); ?>
 
-<?php get_template_part('partials/front-page/program'); ?>
+<?php get_template_part('partials/archive-event/highlights'); ?>
 
 <?php get_template_part('partials/front-page/partners'); ?>
 
