@@ -104,42 +104,8 @@ if ( !$publish_program ) {
     while ( $events->have_posts() ) {
       $events->the_post();
 
-      $event_start = get_post_meta($post->ID, '_igv_event_start', false);
-      $event_end = get_post_meta($post->ID, '_igv_event_end', false);
+      get_template_part('partials/event-highlight');
 
-      $event_artist = get_post_meta($post->ID, '_igv_event_artist', false);
-      $event_url = get_post_meta($post->ID, '_igv_event_url', false);
-      $event_location = get_post_meta($post->ID, '_igv_event_location', false);
-
-      $event_rsvp = get_post_meta($post->ID, '_igv_event_rsvp', false);
-
-      if (has_post_thumbnail()) {
-?>  
-        <div class="col col-l col-l-6">
-          <?php echo !empty($event_url) ? '<a href="' . esc_url($event_url[0]) . '">' . get_the_post_thumbnail() . '</a>' : get_the_post_thumbnail(); ?>
-          <div class="row">
-            <div class="col col-l-4 flex-col justify-start align-center">
-              <div class="font-size-h4"><?php _e(date('l', $event_start[0])); ?></div>
-              <div class="font-size-h3"><?php echo date('G', $event_start[0]) . ':' . date('i', $event_start[0]); ?></div>
-              <div class="font-size-h3">|</div>
-              <div class="font-size-h4"><?php _e(date('l', $event_end[0])); ?></div>
-              <div class="font-size-h3"><?php echo date('G', $event_end[0]) . ':' . date('i', $event_end[0]); ?></div>
-            </div>
-            <div class="col col-l-8">
-              <?php echo $event_location[0]; ?>
-              <?php if (!empty($event_artist)) { ?>
-              <div class="font-size-h4"><?php echo $event_artist[0]; ?></div>
-              <?php } ?>
-              <div class="font-size-h3 margin-bottom-tiny">
-                <?php echo !empty($event_url) ? '<a href="' . esc_url($event_url[0]) . '">' . get_the_title() . '</a>' : get_the_title(); ?>
-              </div>
-              <?php the_content(); ?>
-              <?php echo !empty($event_rsvp) ? $event_rsvp : ''; ?>
-            </div>
-          </div>
-        </div>  
-<?php 
-      }
     }
 ?>
       </div>
