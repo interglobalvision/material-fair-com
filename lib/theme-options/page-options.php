@@ -24,15 +24,6 @@ $metabox = array(
       'type' => 'checkbox',
     ),
     array(
-      'name' => __( 'Program Temporary Text', 'IGV' ),
-      'id'   => $prefix . 'program_temp_text',
-      'type' => 'wysiwyg',
-      'options' => array( 
-        'textarea_rows' => 6, 
-        'editor_class' => 'cmb2-qtranslate'
-      ),
-    ),
-    array(
       'name' => __( 'Program Introduction Image', 'IGV' ),
       'desc' => __( 'Appears next to introduction on main Exhibitors page.', 'cmb2' ),
       'id'   => $prefix . 'program_page_image',
