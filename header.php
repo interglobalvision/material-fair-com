@@ -100,7 +100,7 @@
         <?php } else { ?>
         <div class="col col-l col-l-5 flex-row"> 
         <?php } ?>
-          <div class="col flex-col justify-center align-center text-align-center font-size-h4 section-yellow">
+          <div class="col flex-col justify-center align-center text-align-center font-size-h4 <?php echo !empty($header_text) ? 'section-yellow' : ''; ?>">
             <?php echo !empty($header_text) ? apply_filters( 'the_content', $header_text ) : ''; ?>
           </div>
         </div>

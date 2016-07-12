@@ -8,36 +8,10 @@ $exhibitors_apply_text = IGV_get_option('_igv_page_options', '_igv_exhibitors_ap
 $apply_url = IGV_get_option('_igv_site_options', '_igv_apply_url');
 $apply_end = IGV_get_option('_igv_site_options', '_igv_apply_end');
 
-if ( !empty($apply_end) && ( time() <= $apply_end ) && !$publish_exhibitors ) { 
-  if (!empty($exhibitors_apply_text)) {
-?>
-  <section id="front-exhibitors" class="section">
-    <div class="container">
-      <div class="row">
-        <div class="col col-l col-l-12 text-align-center">
-          <h2><?php _e('[:en]Exhibitor applications are now open![:es]Solicitud de participación ya está abierta!'); ?></h2>
-        </div>
-      </div>
-      <div class="row justify-center">
-        <div class="col col-l col-l-8 text-align-center font-size-h3">
-          <?php echo apply_filters( 'the_content', $exhibitors_apply_text ); ?>
-        </div>
-      </div>
-<?php 
-    if (!empty($apply_url)) {  
-?>
-      <div class="row justify-center">
-        <a class="col col-l col-l-2 flex-row align-center justify-center button button-big" href="<?php echo esc_url($apply_url); ?>">
-          <?php _e( '[:en]Apply![:es]Applicar!' ); ?>
-        </a>
-      </div>
-<?php
-    }
-  } 
-?>
-    </div>
-  </section>
-<?php 
+if ( !empty($apply_end) && time() <= $apply_end && !$publish_exhibitors && !empty($exhibitors_apply_text) && !empty($apply_url) ) { 
+
+  get_template_part('partials/archive-exhibitor/apply');
+ 
 } elseif ( $publish_exhibitors && !empty($current_year_id)) {
 
   $args = array (
