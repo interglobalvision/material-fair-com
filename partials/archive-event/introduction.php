@@ -14,14 +14,14 @@ $program_page_image_id = IGV_get_option('_igv_page_options', '_igv_program_page_
   <div class="container">
     <div class="row">
       <div class="col col-l col-l-12">
-        <h1>
         <?php 
+          echo is_front_page() ? '<h2>' : '<h1>';
           _e('[:en]Program&nbsp;[:es]Programa&nbsp;'); 
-          echo $current_year && $publish_program ? $current_year : ''; 
+          echo $current_year && $publish_program && !is_front_page() ? $current_year : ''; 
           // add the current year to the heading if we have it, 
           // and the exhibitors are published.
+          echo is_front_page() ? '</h2>' : '</h1>';
         ?>
-        </h1>
       </div>
     </div>
 <?php 
