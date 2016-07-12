@@ -42,7 +42,7 @@ function exclude_past_exhibitors( $query ) {
 add_action( 'pre_get_posts', 'exclude_past_exhibitors' );
 
 
-// Only return non-highlight, current year exhibitors for archive
+// Only return non-highlight, current year press for archive
 function filter_press_posts( $query ) {
   if ( $query->is_main_query() && is_post_type_archive('press') && !is_admin() ) {
 
@@ -101,3 +101,43 @@ function filter_press_posts( $query ) {
   }
 }
 add_action( 'pre_get_posts', 'filter_press_posts' );
+
+// Only return current year events for archive, and order results by start date
+function filter_event_posts( $query ) {
+  if ( $query->is_main_query() && is_post_type_archive('event') && !is_admin() ) {
+
+    $current_year_id = IGV_get_option('_igv_site_options', '_igv_current_fair_year');
+
+    $query->set( 'meta_key', '_igv_event_start' );
+    $query->set( 'orderby', 'meta_value_num' );
+    $query->set( 'order', 'ASC' );
+
+
+    if (!empty($current_year_id)) {
+
+      //posts with current year
+      $taxquery = array(
+        array(
+          'taxonomy' => 'fair_year',
+          'field' => 'term_id',
+          'terms' => $current_year_id,
+        ),
+      );
+      //get non-highlight, current year posts
+      $args = array(
+        'post_type' => 'event',
+        'tax_query' => $taxquery,
+      );
+      $current_year_posts = get_posts($args);
+
+
+      //if there are more than 2 current posts
+      //exclude all others from query
+      if (count($current_year_posts) > 2) {
+        $query->set( 'tax_query', $taxquery );
+      }
+
+    }
+  }
+}
+add_action( 'pre_get_posts', 'filter_event_posts' );
