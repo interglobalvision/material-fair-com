@@ -1790,6 +1790,21 @@ ul.language-chooser li a {
       -ms-flex-positive: 1;
           flex-grow: 1;
 }
+.calendar-heading {
+  margin-bottom: 0;
+  padding-bottom: 18px;
+  cursor: pointer;
+}
+.calendar-heading .calendar-date:after {
+  content: '▼';
+}
+.calendar-heading.active .calendar-date:after {
+  content: '▲';
+}
+.calendar-events {
+  height: 0;
+  overflow: hidden;
+}
 .swiper-container {
   height: 500px;
 }

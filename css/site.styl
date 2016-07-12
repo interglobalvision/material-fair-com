@@ -481,6 +481,22 @@ ul.language-chooser
   max-height: 500px
   flex-grow: 1
   
+// PROGRAM
+
+.calendar-heading
+  margin-bottom: 0
+  padding-bottom: $margin-tiny
+  cursor: pointer
+  .calendar-date:after 
+    content: '▼'
+  &.active
+    .calendar-date:after 
+      content: '▲'
+
+.calendar-events 
+  height: 0
+  overflow: hidden
+  
 // PRESS
 
 .swiper-container
