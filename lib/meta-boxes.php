@@ -196,6 +196,20 @@ function igv_cmb_metaboxes() {
   ) );
 
   $event_metabox->add_field( array(
+    'name'     => __( 'Highlight', 'cmb2' ),
+    'desc'     => __( 'Appears on Front Page and Program page highlights', 'cmb2' ),
+    'id'       => $prefix . 'event_highlight',
+    'type'     => 'checkbox',
+  ) );
+
+  $event_metabox->add_field( array(
+    'name'     => __( 'VIP', 'cmb2' ),
+    'desc'     => __( 'Appears on VIP page', 'cmb2' ),
+    'id'       => $prefix . 'event_vip',
+    'type'     => 'checkbox',
+  ) );
+
+  $event_metabox->add_field( array(
     'name'     => __( 'Artist / Performer', 'cmb2' ),
     'desc'     => __( '', 'cmb2' ),
     'id'       => $prefix . 'event_artist',

@@ -28,20 +28,41 @@ function cmb2_get_term_options( $field ) {
   return $term_options;
 }
 
-add_filter( 'manage_press_posts_columns', 'add_press_highlight_column' );
-function add_press_highlight_column($columns) {
-  $columns['press_highlight'] = __( 'Highlight', 'IGV' );
+add_filter( 'manage_posts_columns', 'add_highlight_column' );
+function add_highlight_column($columns) {
+  if (get_post_type() == 'event') {
+    $columns['post_highlight'] = __( 'Highlight', 'IGV' );
+    $columns['event_vip'] = __( 'VIP', 'IGV' );
+  } elseif (get_post_type() == 'press') {
+    $columns['post_highlight'] = __( 'Highlight', 'IGV' );
+  }
   return $columns;
 }
 
-add_action( 'manage_press_posts_custom_column' , 'display_press_highlight_column', 10, 2 );
-function display_press_highlight_column( $column, $post_id ) {
-  switch ( $column ) {
-    case 'press_highlight' :
-    $highlight = get_post_meta( $post_id , '_igv_press_highlight' , false );
-    if ( !empty($highlight[0]) )
-      echo $highlight[0];
-    break;
+add_action( 'manage_posts_custom_column' , 'display_highlight_column', 10, 2 );
+function display_highlight_column( $column, $post_id ) {
+  if (get_post_type() == 'press') {
+    switch ( $column ) {
+      case 'post_highlight' :
+      $highlight = get_post_meta( $post_id , '_igv_press_highlight' , false );
+      if ( !empty($highlight[0]) )
+        echo $highlight[0];
+      break;
+    }
+  } elseif (get_post_type() == 'event') {
+    switch ( $column ) {
+      case 'post_highlight' :
+      $highlight = get_post_meta( $post_id , '_igv_event_highlight' , false );
+      if ( !empty($highlight[0]) )
+        echo $highlight[0];
+      break;
+
+      case 'event_vip' :
+      $vip = get_post_meta( $post_id , '_igv_event_vip' , false );
+      if ( !empty($vip[0]) )
+        echo $vip[0];
+      break;
+    }
   }
 }
 

@@ -13,6 +13,10 @@ Site = {
     if ($('body').hasClass('post-type-archive-press')) {
       _this.Press.init();
     }
+
+    if ($('body').hasClass('post-type-archive-event')) {
+      _this.Program.init();
+    }
   },
 
   onResize: function() {
@@ -47,6 +51,32 @@ Site.Press = {
       prevButton: '.swiper-button-prev',
       loop: true,
     }); 
+  },
+};
+
+Site.Program = {
+  init: function() {
+    var _this = this;
+
+    if ($('.calendar-day').length) {
+      _this.calendarAccordion();
+    }
+  },
+
+  calendarAccordion: function() {
+    $('.calendar-heading').on('click', function() {
+      var $events = $(this).next('.calendar-events');
+
+      if (!$(this).hasClass('active')) {
+        var height = $events.css('height','auto').outerHeight();
+        $events.css('height',0);
+        $events.stop().animate({'height':height},200);
+        $(this).addClass('active');
+      } else {
+        $events.stop().animate({'height':0},200);
+        $(this).removeClass('active');
+      }
+    })
   },
 };
 

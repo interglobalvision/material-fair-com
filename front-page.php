@@ -1,5 +1,8 @@
 <?php
 get_header();
+
+$publish_program = IGV_get_option('_igv_page_options', '_igv_publish_program');
+$publish_exhibitors = IGV_get_option('_igv_page_options', '_igv_publish_exhibitors');
 ?>
 
 <!-- main content -->

@@ -1,5 +1,5 @@
 @import "kouto-swiss"
-@import "helpers" 
+@import "helpers"
 @import "fonts"
 @import "swiper"
 
@@ -81,60 +81,60 @@ $color-pink = rgb(255, 123, 172)
   flex-direction: row
   flex-wrap: wrap
   padding-top: ($gutter / 2)
-  margin-bottom: ($gutter / 2) 
+  margin-bottom: ($gutter / 2)
   &.reverse
     flex-direction: row-reverse
-    
+
 // FLEX POSITIONING
 
 .flex-col
   display: flex
   flex-direction: column
-    
+
 .flex-row
   display: flex
   flex-direction: row
 
 .justify-start
   justify-content: flex-start
-  
+
 .justify-center
   justify-content: center
-  
+
 .justify-end
   justify-content: flex-end
-  
-.align-start 
+
+.align-start
   align-items: flex-start
-  
-.align-center 
+
+.align-center
   align-items: center
-  
+
 .align-end
   align-items: flex-end
-  
+
 // COLUMN SIZES & OFFSETS
-  
+
 .col
   box-sizing: border-box
   flex-grow: 1
   flex-basis: 0
   max-width: 100%
-  
+
 .col-s
   flex: 0 0 auto
   padding-right: ($gutter / 2)
   padding-left: ($gutter / 2)
-  
+
 for offset in 0..($cols - 1)
   .offset-s-{offset}
-    margin-left: ( 100% / $cols ) * offset 
+    margin-left: ( 100% / $cols ) * offset
 
 for col in 1..$cols
   .col-s-{col}
-    flex-basis: ( 100% / $cols ) * col 
-    max-width: ( 100% / $cols ) * col 
-    
+    flex-basis: ( 100% / $cols ) * col
+    max-width: ( 100% / $cols ) * col
+
 @media screen and (min-width: 601px)
 
   .col-m
@@ -144,12 +144,12 @@ for col in 1..$cols
 
   for offset in 0..($cols - 1)
     .offset-m-{offset}
-      margin-left: ( 100% / $cols ) * offset 
+      margin-left: ( 100% / $cols ) * offset
 
   for col in 1..$cols
     .col-m-{col}
-      flex-basis: ( 100% / $cols ) * col 
-      max-width: ( 100% / $cols ) * col 
+      flex-basis: ( 100% / $cols ) * col
+      max-width: ( 100% / $cols ) * col
 
 @media screen and (min-width: 993px)
 
@@ -160,12 +160,12 @@ for col in 1..$cols
 
   for offset in 0..($cols - 1)
     .offset-l-{offset}
-      margin-left: ( 100% / $cols ) * offset 
+      margin-left: ( 100% / $cols ) * offset
 
   for col in 1..$cols
     .col-l-{col}
-      flex-basis: ( 100% / $cols ) * col 
-      max-width: ( 100% / $cols ) * col 
+      flex-basis: ( 100% / $cols ) * col
+      max-width: ( 100% / $cols ) * col
 
 // ******************************************************
 
@@ -196,7 +196,7 @@ h2, .font-size-h2
 
 h3, .font-size-h3
   font-size: $font-size-h3
-  
+
 h4, .font-size-h4
   font-size: $font-size-h4
 
@@ -214,16 +214,16 @@ p
 .font-small-caps
   font-size: 0.85em
   text-transform: uppercase
-  
+
 .font-uppercase
   text-transform: uppercase
 
 .font-capitalize
   text-transform: capitalize
-  
-.font-sans 
+
+.font-sans
   font-family: $font-sans
-  
+
 .font-serif
   font-family: $font-serif
 
@@ -247,7 +247,7 @@ a,
 a:active,
 a:visited
   color: inherit
-  text-decoration: none 
+  text-decoration: none
 
 p
   a,
@@ -255,19 +255,19 @@ p
   a:visited
     border-bottom: 1px solid
     border-color: inherit
-    
-.border-underline 
+
+.border-underline
   border-bottom: 1px solid
   border-color: inherit
-  
+
   // FONT COLORS
-    
+
 .font-yellow
   color: $color-yellow
-  
+
 .font-green
   color: $color-green
-  
+
 .font-pink
   color: $color-pink
 
@@ -278,20 +278,21 @@ p
 html
   background-color: $color-black
   background-image: url('../img/dist/background.svg')
-  background-size: 200% 150% 
-  background-position: center
+  background-size: 3186.57px 4100.85px
+  background-repeat: repeat
+  background-position: center 0
   color: $color-white
-  
+
 h1, h2
   color: $color-yellow
-  
-.border-row 
+
+.border-row
   border-top: 1px solid $color-yellow
   &:last-of-type
     border-bottom: 1px solid $color-yellow
   p
     margin-bottom: 0
-  
+
 .section
   width: 100%
   padding: $margin-small 0
@@ -301,22 +302,22 @@ h1, h2
   background-color: $color-yellow
   color: $color-black
   border-color: $color-black
-  .button, a.button 
+  .button, a.button
     background-color: $color-black
     color: $color-white
     border: none
   h1, h2
-    color: inherit  
+    color: inherit
   .border-row
     border-color: $color-black
-    
+
 .pagination-button
-  margin: 0 $margin-micro 
+  margin: 0 $margin-micro
 
 img
   max-width: 100%
   height: auto
-  
+
 .button, a.button
   background-color: $color-pink
   color: $color-black
@@ -324,25 +325,25 @@ img
   text-transform: uppercase
   font-weight: 600
   border: 2px solid $color-black
-  
+
 a.button.button-big
   padding: $margin-small 0
   font-size: $font-size-h4
-  
+
 input
   border: 1px solid $color-black
   padding: $margin-micro
   -webkit-appearance: none
   background: none
   color: inherit
-  &:focus 
+  &:focus
     outline: none
-  &:-webkit-autofill 
+  &:-webkit-autofill
     -webkit-box-shadow: 0 0 0px 1000px $color-white inset !important //Hack kills autofill yellow
-    
+
 ::placeholder
   color: inherit !important
-  
+
 
 // ******************************************************
 
@@ -432,26 +433,26 @@ input
 
 // HEADER
 
-#header 
-  border-top: 0 
+#header
+  border-top: 0
   background-color: $color-black
-  p 
+  p
     margin-bottom: 0
   #header-logo
     width: 100%
     height: auto
-  .button 
+  .button
     border: none
-    
+
 ul.language-chooser
   margin-bottom: $margin-micro
-  li 
+  li
     display:inline-block
     border-color: inherit
     border-bottom: none
-    &:first-of-type:after 
+    &:first-of-type:after
       content: ' /'
-    &:last-of-type:before 
+    &:last-of-type:before
       content: '/ '
     &.active
       border-bottom: 1px solid
@@ -459,17 +460,17 @@ ul.language-chooser
         content: ''
       &:before
         content: ''
-    a 
+    a
       background: none
-  
+
 .menu-item
   font-size: $font-size-h4
   padding: 0
-  a 
+  a
     border-bottom: 1px solid
     border-color: inherit
 
-// FRONT PAGE 
+// FRONT PAGE
 
 #front-splash
   padding: 0
@@ -480,22 +481,38 @@ ul.language-chooser
   margin: 0 auto
   display: block
 
-.text-columns-2 
+.text-columns-2
   column-count: 2
   column-gap: $gutter
-  
+
 // VISITOR INFO
-    
+
 .venue-map iframe
   width: 100%
   max-height: 500px
   flex-grow: 1
-    
+
+// PROGRAM
+
+.calendar-heading
+  margin-bottom: 0
+  padding-bottom: $margin-tiny
+  cursor: pointer
+  .calendar-date:after
+    content: '▼'
+  &.active
+    .calendar-date:after
+      content: '▲'
+
+.calendar-events
+  height: 0
+  overflow: hidden
+
 // PRESS
 
 .swiper-container
   height: 500px
-  
+
 .swiper-slide img
   max-height: 440px // to fit the caption
 
@@ -503,7 +520,7 @@ ul.language-chooser
 
 .lead-sponsor-logo
   margin-right: $margin-small
-  
+
 .social-icon
   margin-bottom: ($margin-micro / 2)
 
