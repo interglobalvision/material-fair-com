@@ -1522,6 +1522,12 @@ p {
 .font-capitalize {
   text-transform: capitalize;
 }
+.font-sans {
+  font-family: 'Akkurat Pro', 'Helvatica Neue', Helvetica, Arial, sans-serif;
+}
+.font-serif {
+  font-family: 'Stanley', 'Times New Roman', Times, Georgia, serif;
+}
 .text-overflow-ellipsis {
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -1590,6 +1596,7 @@ h2 {
 .section-yellow {
   background-color: #ffd923;
   color: #000;
+  border-color: #000;
 }
 .section-yellow .button,
 .section-yellow a.button {
@@ -1603,6 +1610,9 @@ h2 {
 }
 .section-yellow .border-row {
   border-color: #000;
+}
+.pagination-button {
+  margin: 0 11.124611797497385px;
 }
 img {
   max-width: 100%;

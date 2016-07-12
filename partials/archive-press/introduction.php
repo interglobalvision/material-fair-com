@@ -10,7 +10,7 @@
         <div class="col col-l col-l-12">
           <h1>
           <?php 
-            _e('[:en]Press[:es]Prensa;'); 
+            _e('[:en]Press[:es]Prensa'); 
           ?>
           </h1>
         </div>

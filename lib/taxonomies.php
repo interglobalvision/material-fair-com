@@ -1,31 +1,28 @@
 <?php
-// hook into the init action and call create_book_taxonomies when it fires
-
-// create two taxonomies, genres and writers for the post type "book"
 add_action( 'init', 'create_fair_year_tax' );
 
 function create_fair_year_tax() {
   $labels = array(
-    'name'                       => _x( 'Years', 'taxonomy general name' ),
-    'singular_name'              => _x( 'Year', 'taxonomy singular name' ),
-    'search_items'               => __( 'Search Years' ),
-    'popular_items'              => __( 'Popular Years' ),
-    'all_items'                  => __( 'All Years' ),
+    'name'                       => _x( 'Fair Years', 'taxonomy general name' ),
+    'singular_name'              => _x( 'Fair Year', 'taxonomy singular name' ),
+    'search_items'               => __( 'Search Fair Years' ),
+    'popular_items'              => __( 'Popular Fair Years' ),
+    'all_items'                  => __( 'All Fair Years' ),
     'parent_item'                => null,
     'parent_item_colon'          => null,
-    'edit_item'                  => __( 'Edit Year' ),
-    'update_item'                => __( 'Update Year' ),
-    'add_new_item'               => __( 'Add New Year' ),
-    'new_item_name'              => __( 'New Year Name' ),
-    'separate_items_with_commas' => __( 'Separate years with commas' ),
-    'add_or_remove_items'        => __( 'Add or remove year' ),
-    'choose_from_most_used'      => __( 'Choose from the most used years' ),
-    'not_found'                  => __( 'No years found.' ),
-    'menu_name'                  => __( 'Years' ),
+    'edit_item'                  => __( 'Edit Fair Year' ),
+    'update_item'                => __( 'Update Fair Year' ),
+    'add_new_item'               => __( 'Add New Fair Year' ),
+    'new_item_name'              => __( 'New Fair Year Name' ),
+    'separate_items_with_commas' => __( 'Separate Fair Years with commas' ),
+    'add_or_remove_items'        => __( 'Add or remove Fair Year' ),
+    'choose_from_most_used'      => __( 'Choose from the most used Fair Years' ),
+    'not_found'                  => __( 'No Fair Years found.' ),
+    'menu_name'                  => __( 'Fair Years' ),
   );
 
   $args = array(
-    'hierarchical'          => false,
+    'hierarchical'          => true,
     'labels'                => $labels,
     'show_ui'               => true,
     'show_admin_column'     => true,
@@ -33,4 +30,22 @@ function create_fair_year_tax() {
   );
 
   register_taxonomy( 'fair_year', array('exhibitor','press','committee','event','photo_gallery'), $args );
+}
+
+add_action('admin_head', 'hide_fair_year_fields');
+
+function hide_fair_year_fields() {
+  echo '<style>
+    .taxonomy-fair_year .term-parent-wrap,
+    .taxonomy-fair_year .term-description-wrap,
+    #newfair_year_parent 
+    {
+      display: none !important
+    }
+
+    #side-sortables #fair_yeardiv .inside:after {
+      content: \'NOTES: \A * Fair Year is used to associate this content with a year of the fair. \A * This content will be shown for any years assigned here, in its respective section (i.e Exhibitors, Press, or Program). \A * Multiple years should be assigned for Exhibitors who participate for multiple years (i.e. Lodos or Parallel Oaxaca). \A * Multiple years may be assigned to other content types, but this will result in it appearing multiple times on the website.\';
+      white-space: pre-wrap;
+    }
+  </style>';
 }

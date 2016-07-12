@@ -127,24 +127,12 @@ function igv_cmb_metaboxes() {
     'object_types'  => array( 'exhibitor', ), // Post type
   ) );
 
-  $exhibitor_artists = $exhibitor_artists_metabox->add_field( array(
-    'id'          => $prefix . 'exhibitor_artists',
-    'type'        => 'group',
-    'description' => __( '', 'cmb2' ),
-    'options'     => array(
-      'group_title'   => __( 'Artist {#}', 'cmb2' ), // {#} gets replaced by row number
-      'add_button'    => __( 'Add Another Artist', 'cmb2' ),
-      'remove_button' => __( 'Remove Artist', 'cmb2' ),
-      'sortable'      => true, // beta
-      // 'closed'     => true, // true to have the groups closed by default
-    ),
-  ) );
-
-  $exhibitor_artists_metabox->add_group_field( $exhibitor_artists, array(
-    'name'        => __( 'Name', 'cmb2' ),
-    'description' => __( '', 'cmb2' ),
-    'id'          => 'name',
-    'type'        => 'text_medium',
+  $exhibitor_artists_metabox->add_field( array(
+    'name'     => __( '', 'cmb2' ),
+    'desc'     => __( '', 'cmb2' ),
+    'id'       => $prefix . 'exhibitor_artists_exhibiting',
+    'type'     => 'text',
+    'repeatable'     => true,
   ) );
 
     // EXHIBITOR FEATURED
@@ -178,14 +166,14 @@ function igv_cmb_metaboxes() {
   $exhibitor_featured_metabox->add_group_field( $exhibitor_featured, array(
     'name'        => __( 'Title, Year', 'cmb2' ),
     'description' => __( '', 'cmb2' ),
-    'id'          => 'name',
+    'id'          => 'title',
     'type'        => 'text_medium',
   ) );
 
   $exhibitor_featured_metabox->add_group_field( $exhibitor_featured, array(
     'name'        => __( 'Description', 'cmb2' ),
     'description' => __( 'Materials, Dimensions', 'cmb2' ),
-    'id'          => 'name',
+    'id'          => 'description',
     'type'        => 'textarea_small',
     'attributes' => array(
       'class' => 'cmb2-qtranslate'
