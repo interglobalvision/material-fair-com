@@ -1564,8 +1564,9 @@ p a:visited {
 html {
   background-color: #000;
   background-image: url("../img/dist/background.svg");
-  background-size: 200% 150%;
-  background-position: center;
+  background-size: 3186.57px 4100.85px;
+  background-repeat: repeat;
+  background-position: center 0;
   color: #fff;
 }
 h1,
