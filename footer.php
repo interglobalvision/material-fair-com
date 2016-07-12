@@ -1,5 +1,5 @@
     <footer id="footer" class="section section-yellow">
-    <?php 
+    <?php
       $logo_id = IGV_get_option('_igv_social_options', '_igv_metadata_logo_id');
 
       $address = IGV_get_option('_igv_site_options', '_igv_office_address');
@@ -20,17 +20,15 @@
         <div class="row">
 
           <div class="col col-l col-l-1 align-center">
-        <?php if (!empty($logo_id)) { ?>
-            <a href="<?php echo home_url(); ?>"><?php echo wp_get_attachment_image($logo_id, 'thumbnail'); ?></a>
-        <?php } else { ?>
-            <h1 class="col"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
-        <?php } ?>
+            <a href="<?php echo home_url(); ?>">
+              <img class="padding-top-micro" src="<?php bloginfo('stylesheet_directory'); ?>/img/dist/footer-logo.svg">
+            </a>
           </div>
 
           <div class="col col-l col-l-2">
             <nav>
               <ul>
-              <?php 
+              <?php
                 $page_id = get_id_by_slug('visitor-information');
                 if ($page_id) {
               ?>
@@ -55,7 +53,7 @@
                     <?php _e('[:en]Press[:es]Prensa'); ?>
                   </a>
                 </li>
-              <?php 
+              <?php
                 $page_id = get_id_by_slug('reading-material');
                 if ($page_id) {
               ?>
@@ -64,7 +62,7 @@
                     <?php echo get_the_title($page_id); ?>
                   </a>
                 </li>
-              <?php 
+              <?php
                 }
                 $page_id = get_id_by_slug('partners');
                 if ($page_id) {
@@ -79,60 +77,58 @@
             </nav>
           </div>
 
-        <?php if (!empty($address)) { ?>
-
           <div class="col col-l col-l-2">
-          <?php
-            echo '<h5 class="margin-bottom-micro">';
-            _e('Material Art Fair [:en](Office)[:es](Oficina)');
-            echo '</h5>';
+            <?php
+              if (!empty($address)) {
+                echo '<h5 class="margin-bottom-micro">';
+                _e('Material Art Fair [:en](Office)[:es](Oficina)');
+                echo '</h5>';
 
-            echo apply_filters( 'the_content', $address );
-          ?>
+                echo apply_filters( 'the_content', $address );
+              }
+            ?>
           </div>
 
-        <?php } ?>
-
-        <?php if (!empty($email) || !empty($phone)) { ?>
-
           <div class="col col-l col-l-2">
-          <?php
-            echo '<h5 class="margin-bottom-micro">';
-            _e('[:en]Contact[:es]Contacto');
-            echo '</h5>';
+            <?php
+              if (!empty($email) || !empty($phone)) {
+                echo '<h5 class="margin-bottom-micro">';
+                _e('[:en]Contact[:es]Contacto');
+                echo '</h5>';
 
-            echo $email ? '<div class="margin-bottom-micro"><a href="mailto:' . $email . '">' . $email . '</a></div>' : '';
-            echo $phone ? '<a href="tel:' . $phone . '">' . $phone . '</a>' : ''; 
-          ?>
+                echo $email ? '<div class="margin-bottom-micro"><a href="mailto:' . $email . '">' . $email . '</a></div>' : '';
+                echo $phone ? '<a href="tel:' . $phone . '">' . $phone . '</a>' : '';
+              }
+            ?>
           </div>
-
-        <?php } ?>
-
-        <?php if (!empty($mailchimp_url)) { ?>
 
           <div class="col col-l col-l-4">
+            <?php
+              if (!empty($mailchimp_url)) {
+            ?>
             <h5 class="margin-bottom-micro">Mailing List</h5>
             <form method="post" id="mailchimp-form" name="mailchimp-form">
               <input type="email" size="30" placeholder="email" value="" name="email">
               <input type="submit" value="Subscribe" name="subscribe">
             </form>
+            <?php
+              }
+            ?>
           </div>
 
-        <?php } ?>
+
 
           <div class="col col-l col-l-1 flex-col align-end">
-
-            <?php 
-            if (!empty($facebook) || !empty($twitter) || !empty($instagram)) { 
-              if (!empty($facebook)) { 
-                echo '<a href="' . $facebook . '" class="social-icon"><img src="' . get_stylesheet_directory_uri() . '/img/dist/facebook.svg"></a>'; 
+            <?php
+            if (!empty($facebook) || !empty($twitter) || !empty($instagram)) {
+              if (!empty($facebook)) {
+                echo '<a href="' . $facebook . '" class="social-icon"><img src="' . get_stylesheet_directory_uri() . '/img/dist/facebook.svg"></a>';
               } if (!empty($twitter)) {
-                echo '<a href="https://twitter.com/' . $twitter . '" class="social-icon"><img src="' . get_stylesheet_directory_uri() . '/img/dist/twitter.svg"></a>'; 
-              } if (!empty($instagram)) { 
-                echo '<a href="https://www.instagram.com/' . $instagram . '" class="social-icon"><img src="' . get_stylesheet_directory_uri() . '/img/dist/instagram.svg"></a>'; 
+                echo '<a href="https://twitter.com/' . $twitter . '" class="social-icon"><img src="' . get_stylesheet_directory_uri() . '/img/dist/twitter.svg"></a>';
+              } if (!empty($instagram)) {
+                echo '<a href="https://www.instagram.com/' . $instagram . '" class="social-icon"><img src="' . get_stylesheet_directory_uri() . '/img/dist/instagram.svg"></a>';
               }
             } ?>
-
           </div>
 
         </div> <!-- END ROW -->
@@ -142,12 +138,12 @@
         <div class="row">
           <div class="col col-l col-l-12 flex-row align-center">
           <?php foreach ($sponsors as $sponsor) { ?>
-          
-            <?php 
+
+            <?php
               $sponsor_img = wp_get_attachment_image($sponsor['logo_id'], 'sponsor', null, array( 'class' => 'lead-sponsor-logo' ));
-              echo !empty($sponsor['url']) ? '<a href="' . $sponsor['url'] . '">' . $sponsor_img . '</a>' : $sponsor_img; 
+              echo !empty($sponsor['url']) ? '<a href="' . $sponsor['url'] . '">' . $sponsor_img . '</a>' : $sponsor_img;
             ?>
-          
+
           <?php } ?>
           </div>
         </div>
