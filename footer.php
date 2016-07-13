@@ -14,6 +14,9 @@
       $facebook = IGV_get_option('_igv_social_options', '_igv_socialmedia_facebook_url');
       $twitter = IGV_get_option('_igv_social_options', '_igv_socialmedia_twitter');
       $instagram = IGV_get_option('_igv_social_options', '_igv_socialmedia_instagram');
+
+      $show_reading_material = IGV_get_option('_igv_site_options', '_igv_show_reading_material');
+      $partners = IGV_get_option('_igv_sponsors_options', '_igv_partners_group');
     ?>
       <div class="container">
 
@@ -55,7 +58,7 @@
                 </li>
               <?php
                 $page_id = get_id_by_slug('reading-material');
-                if ($page_id) {
+                if ($page_id && $show_reading_material == 'on') {
               ?>
                 <li>
                   <a class="border-underline" href="<?php echo get_permalink($page_id); ?>">
@@ -65,7 +68,7 @@
               <?php
                 }
                 $page_id = get_id_by_slug('partners');
-                if ($page_id) {
+                if ($page_id && !empty($partners)) {
               ?>
                 <li>
                   <a class="border-underline" href="<?php echo get_permalink($page_id); ?>">
