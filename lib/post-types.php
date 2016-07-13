@@ -195,7 +195,7 @@ function register_cpt_photo_gallery() {
     'labels' => $labels,
     'hierarchical' => false,
     
-    'supports' => array( 'title','editor' ),
+    'supports' => array( 'title','editor', 'thumbnail' ),
     
     'public' => true,
     'show_ui' => true,
