@@ -39,6 +39,12 @@ $metabox = array(
       )
     ),
     array(
+      'name' => __( 'Show Apply buttons', 'cmb2' ),
+      'desc' => __( '', 'cmb2' ),
+      'id'   => $prefix . 'show_apply',
+      'type' => 'checkbox',
+    ),
+    array(
       'name' => __( 'Apply URL', 'cmb2' ),
       'desc' => __( '', 'cmb2' ),
       'id'   => $prefix . 'apply_url',
