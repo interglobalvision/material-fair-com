@@ -19,7 +19,7 @@ $apply_end = IGV_get_option('_igv_site_options', '_igv_apply_end');
 // if the application hasn't ended and 
 // exhibitors are not published, 
 // show the Apply Now section
-if ( $publish_exhibitors == 'on' ) { 
+if ($publish_exhibitors == 'on') { 
 
   get_template_part('partials/archive-exhibitor/exhibitors');
 

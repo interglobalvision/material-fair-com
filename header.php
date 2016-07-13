@@ -71,8 +71,12 @@
 
   $partners = IGV_get_option('_igv_sponsors_options', '_igv_partners_group');
 
-  if (!empty($apply_url) && $publish_exhibitors != 'on' ) { 
-    $show_apply = true;
+  $show_apply = IGV_get_option('_igv_site_options', '_igv_show_apply');
+
+  $show_apply_button = false;
+
+  if (!empty($apply_url) && $publish_exhibitors != 'on' $show_apply == true) { 
+    $show_apply_button = true;
   }
   ?>
 </head>
@@ -89,21 +93,18 @@
           <img id="header-logo" src="<?php bloginfo('stylesheet_directory'); ?>/img/dist/header-logo.svg">
         </a>
 
-        <?php if ($show_apply) { ?>
-        <div class="col col-l col-l-3 flex-row"> 
-        <?php } else { ?>
-        <div class="col col-l col-l-5 flex-row"> 
-        <?php } ?>
-          <div class="col flex-col justify-center align-center text-align-center font-size-h4 <?php echo !empty($header_text) ? 'section-yellow' : ''; ?>">
-            <?php echo !empty($header_text) ? apply_filters( 'the_content', $header_text ) : ''; ?>
-          </div>
-        </div>
-        
-        <?php if ($show_apply) { ?>
+        <?php if ($show_apply_button) { ?>
+        <div class="col col-l col-l-3"></div>
         <div class="col col-l col-l-2 flex-row">
           <a class="col flex-col justify-center align-center font-size-h4 button" href="<?php echo esc_url($apply_url); ?>">
             <?php _e('[:en]Apply![:es]Applicar!'); ?>
           </a>
+        </div>
+        <?php } else { ?>
+        <div class="col col-l col-l-5 flex-row"> 
+          <div class="col flex-col justify-center align-center text-align-center font-size-h4 <?php echo !empty($header_text) ? 'section-yellow' : ''; ?>">
+            <?php echo !empty($header_text) ? apply_filters( 'the_content', $header_text ) : ''; ?>
+          </div>
         </div>
         <?php } ?>
 
