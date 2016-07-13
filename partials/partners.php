@@ -16,12 +16,18 @@ if (!empty($partners)) {
       </div>
       <?php 
         if (!is_front_page()) {
+          $partners_text = IGV_get_option('_igv_sponsors_options', '_igv_partners_page_text');
+
+          if(!empty($partners_text)) {
       ?>
       <div class="row">
         <div class="col col-l col-l-8 font-size-h3">
-      Material agradece el apoyo de los siguientes patrocinadores y colaboradores, sin los cuales esta feria no podría ser posible.
+          <?php echo $partners_text; ?>
         </div>
       </div>
+      <?php 
+          } 
+      ?>
     </div>
   </section>
   <section id="partners" class="section">
