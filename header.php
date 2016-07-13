@@ -54,18 +54,12 @@
 
   $header_text = IGV_get_option('_igv_site_options', '_igv_header_text');
 
-  $start_date = IGV_get_option('_igv_site_options', '_igv_fair_start');
-  $end_date = IGV_get_option('_igv_site_options', '_igv_fair_end');
-
   $publish_exhibitors = IGV_get_option('_igv_page_options', '_igv_publish_exhibitors');
-
   $apply_url = IGV_get_option('_igv_site_options', '_igv_apply_url');
-  $apply_end = IGV_get_option('_igv_site_options', '_igv_apply_end');
 
   $app_login_url = IGV_get_option('_igv_site_options', '_igv_app_login_url');
   $app_login_text = IGV_get_option('_igv_site_options', '_igv_app_login_text');
 
-  $vip_login_url = IGV_get_option('_igv_site_options', '_igv_vip_login_url');
   $show_vip_login = IGV_get_option('_igv_site_options', '_igv_show_vip_login');
 
   $sponsor_logo = IGV_get_option('_igv_sponsors_options', '_igv_primary_sponsor_logo_id');
@@ -77,9 +71,7 @@
 
   $partners = IGV_get_option('_igv_sponsors_options', '_igv_partners_group');
 
-  $show_apply = false;
-
-  if (!empty($apply_url) && !empty($apply_end) && ( time() <= $apply_end ) && !$publish_exhibitors ) { 
+  if (!empty($apply_url) && $publish_exhibitors != 'on' ) { 
     $show_apply = true;
   }
   ?>
@@ -126,8 +118,8 @@
               }
             ?>
             <?php 
-              if (!empty($vip_login_url) && $show_vip_login == 'on') { 
-                echo '<a href="' . $vip_login_url . '" class="border-underline margin-bottom-micro">';
+              if ($show_vip_login == 'on') { 
+                echo '<a href="#" class="border-underline margin-bottom-micro">';
                 echo __('[:en]VIP Login[:es]Sección VIP');
                 echo '</a>';
               }

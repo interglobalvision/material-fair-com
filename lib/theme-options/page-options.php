@@ -57,6 +57,15 @@ $metabox = array(
       'type' => 'checkbox',
     ),
     array(
+      'name' => __( 'Exhibitors Apply Heading', 'IGV' ),
+      'id'   => $prefix . 'exhibitors_apply_heading',
+      'desc' => __( 'To encourage exhibitors to apply.', 'cmb2' ),
+      'type' => 'textarea_small',
+      'attributes' => array(
+        'class' => 'cmb2-qtranslate'
+      )
+    ),
+    array(
       'name' => __( 'Exhibitors Apply Text', 'IGV' ),
       'id'   => $prefix . 'exhibitors_apply_text',
       'desc' => __( 'To encourage exhibitors to apply.', 'cmb2' ),
