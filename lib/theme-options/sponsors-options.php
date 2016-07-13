@@ -63,7 +63,7 @@ $metabox = array(
     ),
     array(
       'name' => __( 'Partners Introduction Text', 'IGV' ),
-      'id'   => $prefix . 'program_page_text',
+      'id'   => $prefix . 'partners_page_text',
       'type' => 'wysiwyg',
       'options' => array( 
         'textarea_rows' => 6, 
