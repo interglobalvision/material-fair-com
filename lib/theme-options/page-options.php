@@ -34,6 +34,7 @@ $metabox = array(
       'id'   => $prefix . 'program_page_text',
       'type' => 'wysiwyg',
       'options' => array( 
+        'media_buttons' => false,
         'textarea_rows' => 6, 
         'editor_class' => 'cmb2-qtranslate'
       ),
@@ -61,6 +62,7 @@ $metabox = array(
       'desc' => __( 'To encourage exhibitors to apply.', 'cmb2' ),
       'type' => 'wysiwyg',
       'options' => array( 
+        'media_buttons' => false,
         'textarea_rows' => 6, 
         'editor_class' => 'cmb2-qtranslate'
       ),
@@ -77,6 +79,7 @@ $metabox = array(
       'id'   => $prefix . 'exhibitors_page_text',
       'type' => 'wysiwyg',
       'options' => array( 
+        'media_buttons' => false,
         'textarea_rows' => 6, 
         'editor_class' => 'cmb2-qtranslate'
       ),
@@ -98,6 +101,7 @@ $metabox = array(
       'id'   => $prefix . 'press_page_text',
       'type' => 'wysiwyg',
       'options' => array( 
+        'media_buttons' => false,
         'textarea_rows' => 6, 
         'editor_class' => 'cmb2-qtranslate'
       ),
@@ -108,6 +112,7 @@ $metabox = array(
       'id'   => $prefix . 'press_accreditation_text',
       'type' => 'wysiwyg',
       'options' => array( 
+        'media_buttons' => false,
         'textarea_rows' => 4, 
         'editor_class' => 'cmb2-qtranslate'
       ),
