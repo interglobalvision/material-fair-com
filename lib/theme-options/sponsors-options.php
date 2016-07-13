@@ -15,7 +15,7 @@ $metabox = array(
   'fields'     => array(
     array(
       'name' => __( 'Primary Sponsor Logo', 'IGV' ),
-      'desc' => __( 'displayed in header', 'IGV' ),
+      'desc'       => __( 'White svg or png. Displayed in header', 'cmb2' ),
       'id'   => $prefix . 'primary_sponsor_logo',
       'type' => 'file',
     ),
@@ -44,6 +44,7 @@ $metabox = array(
       'fields'      => array(
         array(
           'name'       => __( 'Logo', 'cmb2' ),
+          'desc'       => __( 'Black svg or png. Displayed in footer.', 'cmb2' ),
           'id'         => 'logo',
           'type'       => 'file',
         ),
@@ -61,6 +62,15 @@ $metabox = array(
       'type' => 'title',
     ),
     array(
+      'name' => __( 'Partners Introduction Text', 'IGV' ),
+      'id'   => $prefix . 'program_page_text',
+      'type' => 'wysiwyg',
+      'options' => array( 
+        'textarea_rows' => 6, 
+        'editor_class' => 'cmb2-qtranslate'
+      ),
+    ),
+    array(
       'id'          => $prefix . 'partners_group',
       'type'        => 'group',
       'description' => __( '', 'cmb2' ),
@@ -74,6 +84,7 @@ $metabox = array(
       'fields'      => array(
         array(
           'name'       => __( 'Logo', 'cmb2' ),
+          'desc'       => __( 'White svg or png. Displayed on Front Page and Partners page.', 'cmb2' ),
           'id'         => 'logo',
           'type'       => 'file',
         ),
