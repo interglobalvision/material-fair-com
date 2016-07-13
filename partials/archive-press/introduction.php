@@ -21,9 +21,18 @@ if (!empty($press_page_text) || !empty($press_page_image_id)) {
       <div class="row">
 <?php 
   if (!empty($press_page_image_id)) {
+    $attachment = get_post( $press_page_image_id );
+    $caption = $attachment->post_excerpt;
+    $description = $attachment->post_content;
 ?>
         <div class="col col-l col-l-6">
           <?php echo wp_get_attachment_image($press_page_image_id, 'col-6'); ?>
+          <?php if (!empty($caption) || !empty($description)) { ?>
+          <div class="margin-top-micro text-align-center">
+            <div class="font-size-h4"><?php _e($description); ?></div>
+            <?php _e($caption); ?>
+          </div>
+          <?php } ?>
         </div>
 <?php 
   }

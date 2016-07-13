@@ -47,12 +47,12 @@ if ( !empty($apply_end) && time() <= $apply_end && !$publish_exhibitors && !empt
     while ( $exhibitors->have_posts() ) {
       $exhibitors->the_post();
 
-      $city = get_post_meta($post->ID, '_igv_exhibitor_city');
+      $city = get_post_meta($post->ID, '_igv_exhibitor_city', true);
 ?>
         <a class="col col-l col-l-3" href="<?php the_permalink(); ?>">
           <?php the_post_thumbnail('col-3-crop'); ?>
           <h3><?php the_title(); ?></h3>
-          <?php echo !empty($city) ? '<span class="font-size-h4">' . $city[0] . '</span>' : ''; ?>
+          <?php echo !empty($city) ? '<span class="font-size-h4">' . $city . '</span>' : ''; ?>
         </a>
 <?php
     }

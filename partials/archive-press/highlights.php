@@ -31,12 +31,10 @@ if ( $highlight_press->have_posts() ) {
     while( $highlight_press->have_posts() ) {
       $highlight_press->the_post();
 
-      $highlight_meta = get_post_meta($post->ID);
-
-      $publication = $highlight_meta['_igv_press_publication'][0];
-      $date = $highlight_meta['_igv_press_date'][0];
-      $author = $highlight_meta['_igv_press_author'][0];
-      $link = $highlight_meta['_igv_press_url'][0];
+      $publication = get_post_meta($post->ID, '_igv_press_publication', true);
+      $date = get_post_meta($post->ID, '_igv_press_date', true);
+      $author = get_post_meta($post->ID, '_igv_press_author', true);
+      $link = get_post_meta($post->ID, '_igv_press_url', true);
 
       if ($highlight_post == 0) { // Image first
 ?>

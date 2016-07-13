@@ -37,14 +37,14 @@
 <?php 
       }
 
-      $city = get_post_meta($post->ID, '_igv_exhibitor_city');
+      $city = get_post_meta($post->ID, '_igv_exhibitor_city', true);
 ?>
 
         <article <?php post_class('col col-l col-l-3'); ?> id="post-<?php the_ID(); ?>">
           <a href="<?php the_permalink() ?>">
             <?php the_post_thumbnail('col-3-crop'); ?>
             <h4><?php the_title(); ?></h4>
-            <?php echo !empty($city) ? '<span>' . $city[0] . '</span>' : ''; ?> 
+            <?php echo !empty($city) ? '<span>' . $city . '</span>' : ''; ?> 
           </a>
         </article>
 
