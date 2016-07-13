@@ -22,7 +22,24 @@ if (!empty($stand)) {
 
     <div class="row">
       <div class="col col-l col-l-6">
-        <?php the_post_thumbnail('col-6'); ?>
+      <?php 
+        if (has_post_thumbnail()) {
+          $attachment = get_post( get_post_thumbnail_id() );
+          $caption = $attachment->post_excerpt;
+          $description = $attachment->post_content;
+
+          the_post_thumbnail('col-6');
+
+          if (!empty($caption) || !empty($description)) { 
+      ?>
+        <div class="margin-top-micro text-align-center">
+          <div class="font-size-h4"><?php _e($description); ?></div>
+          <?php _e($caption); ?>
+        </div>
+      <?php 
+          } 
+        }
+      ?>
       </div>
       <div class="col col-l col-l-6">
         <div class="font-size-h4">
