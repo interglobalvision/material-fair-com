@@ -1,10 +1,11 @@
 <?php
 $exhibitors_apply_heading = IGV_get_option('_igv_page_options', '_igv_exhibitors_apply_heading');
 $exhibitors_apply_text = IGV_get_option('_igv_page_options', '_igv_exhibitors_apply_text');
+$publish_exhibitors = IGV_get_option('_igv_page_options', '_igv_publish_exhibitors');
 $apply_url = IGV_get_option('_igv_site_options', '_igv_apply_url');
 $show_apply = IGV_get_option('_igv_site_options', '_igv_show_apply');
 
-if (!empty($apply_url) && $show_apply = 'on') {
+if (!empty($apply_url) && $show_apply == 'on' && $publish_exhibitors != 'on') {
 ?>
   <section id="exhibitors-apply" class="section">
     <div class="container">

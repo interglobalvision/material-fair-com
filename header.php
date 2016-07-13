@@ -54,9 +54,6 @@
 
   $header_text = IGV_get_option('_igv_site_options', '_igv_header_text');
 
-  $publish_exhibitors = IGV_get_option('_igv_page_options', '_igv_publish_exhibitors');
-  $apply_url = IGV_get_option('_igv_site_options', '_igv_apply_url');
-
   $app_login_url = IGV_get_option('_igv_site_options', '_igv_app_login_url');
   $app_login_text = IGV_get_option('_igv_site_options', '_igv_app_login_text');
 
@@ -71,13 +68,9 @@
 
   $partners = IGV_get_option('_igv_sponsors_options', '_igv_partners_group');
 
+  $publish_exhibitors = IGV_get_option('_igv_page_options', '_igv_publish_exhibitors');
+  $apply_url = IGV_get_option('_igv_site_options', '_igv_apply_url');
   $show_apply = IGV_get_option('_igv_site_options', '_igv_show_apply');
-
-  $show_apply_button = false;
-
-  if (!empty($apply_url) && $publish_exhibitors != 'on' $show_apply == true) { 
-    $show_apply_button = true;
-  }
   ?>
 </head>
 <body <?php body_class(); ?>>
@@ -93,20 +86,30 @@
           <img id="header-logo" src="<?php bloginfo('stylesheet_directory'); ?>/img/dist/header-logo.svg">
         </a>
 
-        <?php if ($show_apply_button) { ?>
-        <div class="col col-l col-l-3"></div>
+        <?php 
+          if (!empty($apply_url) && $publish_exhibitors != 'on' && $show_apply == 'on') { 
+        ?>
+        <div class="col col-l col-l-3 flex-row"> 
+          <div class="col flex-col justify-center align-center text-align-center font-size-h4 <?php echo !empty($header_text) ? 'section-yellow' : ''; ?>">
+            <?php echo !empty($header_text) ? apply_filters( 'the_content', $header_text ) : ''; ?>
+          </div>
+        </div>
         <div class="col col-l col-l-2 flex-row">
           <a class="col flex-col justify-center align-center font-size-h4 button" href="<?php echo esc_url($apply_url); ?>">
             <?php _e('[:en]Apply![:es]Applicar!'); ?>
           </a>
         </div>
-        <?php } else { ?>
+        <?php 
+          } else { 
+        ?>
         <div class="col col-l col-l-5 flex-row"> 
           <div class="col flex-col justify-center align-center text-align-center font-size-h4 <?php echo !empty($header_text) ? 'section-yellow' : ''; ?>">
             <?php echo !empty($header_text) ? apply_filters( 'the_content', $header_text ) : ''; ?>
           </div>
         </div>
-        <?php } ?>
+        <?php 
+          } 
+        ?>
 
         <div class="col col-l col-l-2 flex-col">
           <div class="col flex-col justify-start align-end">
