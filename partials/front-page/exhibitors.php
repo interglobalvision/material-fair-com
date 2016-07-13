@@ -2,7 +2,7 @@
 $current_year_id = IGV_get_option('_igv_site_options', '_igv_current_fair_year');
 $publish_exhibitors = IGV_get_option('_igv_page_options', '_igv_publish_exhibitors');
 
-if ( $publish_exhibitors == 'on' && !empty($current_year_id)) {
+if ($publish_exhibitors == 'on' && !empty($current_year_id)) {
 
   $args = array (
     'post_type'       => 'exhibitor',
@@ -21,7 +21,7 @@ if ( $publish_exhibitors == 'on' && !empty($current_year_id)) {
       ),
     ),
   );
-  $exhibitors = new WP_Query( $args );
+  $exhibitors = new WP_Query($args);
 
   if ( $exhibitors->have_posts() ) {
 ?>
@@ -34,7 +34,7 @@ if ( $publish_exhibitors == 'on' && !empty($current_year_id)) {
       </div>
       <div class="row">
 <?php
-    while ( $exhibitors->have_posts() ) {
+    while ($exhibitors->have_posts()) {
       $exhibitors->the_post();
 
       $city = get_post_meta($post->ID, '_igv_exhibitor_city', true);
