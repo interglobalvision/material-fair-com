@@ -116,10 +116,12 @@ $metabox = array(
       'name' => __( 'Front Page Headline', 'cmb2' ),
       'desc' => __( '', 'cmb2' ),
       'id'   => $prefix . 'front_headline',
-      'type' => 'text',
-      'attributes' => array(
-        'class' => 'cmb2-qtranslate'
-      )
+      'type' => 'wysiwyg',
+      'options' => array( 
+        'textarea_rows' => 3, 
+        'editor_class' => 'cmb2-qtranslate',
+        'media_buttons' => false,
+      ),
     ),
     array(
       'name' => __( 'Front Page Description', 'cmb2' ),
