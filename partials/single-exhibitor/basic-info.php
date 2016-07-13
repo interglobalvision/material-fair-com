@@ -1,4 +1,5 @@
 <?php 
+$description = get_post_meta($post->ID, '_igv_exhibitor_description', true); 
 $stand = get_post_meta($post->ID, '_igv_exhibitor_stand', true); 
 $website = get_post_meta($post->ID, '_igv_exhibitor_url', true); 
 $address = get_post_meta($post->ID, '_igv_exhibitor_address', true); 
@@ -26,7 +27,9 @@ if (!empty($stand)) {
       <div class="col col-l col-l-6">
         <div class="font-size-h4">
           <?php 
-            the_content(); 
+            if (!empty($description)) {
+              echo apply_filters( 'the_content', $description );
+            } 
 
             if (!empty($website)) {
               echo '<p><a target="_blank" href="' . esc_url($website) . '">' . $website . '</a></p>';

@@ -48,6 +48,18 @@ function igv_cmb_metaboxes() {
   ) );
 
   $exhibitor_metabox->add_field( array(
+    'name'     => __( 'Brief description', 'cmb2' ),
+    'desc'     => __( 'Optional', 'cmb2' ),
+    'id'       => $prefix . 'exhibitor_description',
+    'type'    => 'wysiwyg',
+    'options' => array( 
+      'media_buttons' => false,
+      'textarea_rows' => 3, 
+      'editor_class' => 'cmb2-qtranslate'
+    )
+  ) );
+
+  $exhibitor_metabox->add_field( array(
     'name'     => __( 'Stand #', 'cmb2' ),
     'desc'     => __( '', 'cmb2' ),
     'id'       => $prefix . 'exhibitor_stand',
