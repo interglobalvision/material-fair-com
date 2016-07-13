@@ -30,9 +30,9 @@ if ( $press->have_posts() ) {
   while ( $press->have_posts() ) {
     $press->the_post();
 
-    $press_author = get_post_meta($post->ID, '_igv_press_author', false)[0];
-    $press_pub = get_post_meta($post->ID, '_igv_press_publication', false)[0];
-    $press_url = get_post_meta($post->ID, '_igv_press_url', false)[0];
+    $press_author = get_post_meta($post->ID, '_igv_press_author', true);
+    $press_pub = get_post_meta($post->ID, '_igv_press_publication', true);
+    $press_url = get_post_meta($post->ID, '_igv_press_url', true);
 
     if (!empty($press_url)) {
 ?>

@@ -13,12 +13,10 @@ if( have_posts() ) {
   while( have_posts() ) {
     the_post();
 
-    $press_meta = get_post_meta($post->ID);
-
-    $publication = $press_meta['_igv_press_publication'][0];
-    $date = $press_meta['_igv_press_date'][0];
-    $author = $press_meta['_igv_press_author'][0];
-    $link = $press_meta['_igv_press_url'][0];
+    $publication = get_post_meta($post->ID, '_igv_press_publication', true);
+    $date = get_post_meta($post->ID, '_igv_press_date', true);
+    $author = get_post_meta($post->ID, '_igv_press_author', true);
+    $link = get_post_meta($post->ID, '_igv_press_url', true);
 ?>
 
         <article <?php post_class('col col-l col-l-4 margin-bottom-small'); ?> id="post-<?php the_ID(); ?>">
