@@ -1828,6 +1828,12 @@ ul.language-chooser li a {
 .social-icon {
   margin-bottom: 5.562305898748693px;
 }
+.dude {
+  -webkit-animation: dance 1s infinite ease-in-out;
+  animation: dance 1s infinite ease-in-out;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+}
 @media screen and (max-width: 1150px) {
   .container {
     width: 993px;
@@ -1836,5 +1842,33 @@ ul.language-chooser li a {
 @media screen and (max-width: 993px) {
   .container {
     width: 96%;
+  }
+}
+@-webkit-keyframes dance {
+  0% {
+    -webkit-transform: rotateY(30deg) rotateZ(-20deg) translateY(10%);
+    transform: rotateY(30deg) rotateZ(-20deg) translateY(10%);
+  }
+  50% {
+    -webkit-transform: rotateY(-30deg) rotateZ(20deg) translateY(0%);
+    transform: rotateY(-30deg) rotateZ(20deg) translateY(0%);
+  }
+  100% {
+    -webkit-transform: rotateY(30deg) rotateZ(-20deg) translateY(10%);
+    transform: rotateY(30deg) rotateZ(-20deg) translateY(10%);
+  }
+}
+@keyframes dance {
+  0% {
+    -webkit-transform: rotateY(30deg) rotateZ(-20deg) translateY(10%);
+    transform: rotateY(30deg) rotateZ(-20deg) translateY(10%);
+  }
+  50% {
+    -webkit-transform: rotateY(-30deg) rotateZ(20deg) translateY(0%);
+    transform: rotateY(-30deg) rotateZ(20deg) translateY(0%);
+  }
+  100% {
+    -webkit-transform: rotateY(30deg) rotateZ(-20deg) translateY(10%);
+    transform: rotateY(30deg) rotateZ(-20deg) translateY(10%);
   }
 }
