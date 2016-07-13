@@ -6,7 +6,7 @@ get_header();
 
 <main id="main-content">
 
-<?php get_template_part('partials/archive-event/introduction'); ?>
+<?php get_template_part('partials/intro-section'); ?>
 
 <?php get_template_part('partials/archive-event/highlights'); ?>
 
