@@ -19,17 +19,15 @@ $apply_end = IGV_get_option('_igv_site_options', '_igv_apply_end');
 // if the application hasn't ended and 
 // exhibitors are not published, 
 // show the Apply Now section
-if ( !empty($apply_end) && time() <= $apply_end && !$publish_exhibitors && !empty($exhibitors_apply_text) && !empty($apply_url) ) { 
-
-  get_template_part('partials/archive-exhibitor/apply'); 
-
-// Otherwise if the exhibitors are published, 
-// show exhibitor list section
-} elseif ( $publish_exhibitors ) { 
+if ($publish_exhibitors == 'on') { 
 
   get_template_part('partials/archive-exhibitor/exhibitors');
 
-} 
+} else {
+
+  get_template_part('partials/archive-exhibitor/apply'); 
+
+}
 ?>
 
 <?php

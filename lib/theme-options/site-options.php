@@ -39,16 +39,10 @@ $metabox = array(
       )
     ),
     array(
-      'name' => __( 'Fair Start Date', 'cmb2' ),
+      'name' => __( 'Show Apply buttons', 'cmb2' ),
       'desc' => __( '', 'cmb2' ),
-      'id'   => $prefix . 'fair_start',
-      'type' => 'text_date_timestamp',
-    ),
-    array(
-      'name' => __( 'Fair End Date', 'cmb2' ),
-      'desc' => __( '', 'cmb2' ),
-      'id'   => $prefix . 'fair_end',
-      'type' => 'text_date_timestamp',
+      'id'   => $prefix . 'show_apply',
+      'type' => 'checkbox',
     ),
     array(
       'name' => __( 'Apply URL', 'cmb2' ),
@@ -57,25 +51,13 @@ $metabox = array(
       'type' => 'text_url',
     ),
     array(
-      'name' => __( 'Application Closed Date', 'cmb2' ),
-      'desc' => __( '', 'cmb2' ),
-      'id'   => $prefix . 'apply_end',
-      'type' => 'text_date_timestamp',
-    ),
-    array(
       'name' => __( 'Show VIP Login', 'cmb2' ),
       'desc' => __( '', 'cmb2' ),
       'id'   => $prefix . 'show_vip_login',
       'type' => 'checkbox',
     ),
     array(
-      'name' => __( 'VIP Login URL', 'cmb2' ),
-      'desc' => __( '', 'cmb2' ),
-      'id'   => $prefix . 'vip_login_url',
-      'type' => 'text_url',
-    ),
-    array(
-      'name' => __( 'App Login Button Text (English)', 'cmb2' ),
+      'name' => __( 'App Login Button Text', 'cmb2' ),
       'desc' => __( '', 'cmb2' ),
       'id'   => $prefix . 'app_login_text',
       'type' => 'text',

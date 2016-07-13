@@ -1,18 +1,8 @@
 <?php 
 $current_year_id = IGV_get_option('_igv_site_options', '_igv_current_fair_year');
-$current_year = !empty($current_year_id) ? get_term($current_year_id)->slug : false;
 $publish_exhibitors = IGV_get_option('_igv_page_options', '_igv_publish_exhibitors');
 
-$exhibitors_apply_text = IGV_get_option('_igv_page_options', '_igv_exhibitors_apply_text');
-
-$apply_url = IGV_get_option('_igv_site_options', '_igv_apply_url');
-$apply_end = IGV_get_option('_igv_site_options', '_igv_apply_end');
-
-if ( !empty($apply_end) && time() <= $apply_end && !$publish_exhibitors && !empty($exhibitors_apply_text) && !empty($apply_url) ) { 
-
-  get_template_part('partials/archive-exhibitor/apply');
- 
-} elseif ( $publish_exhibitors && !empty($current_year_id)) {
+if ($publish_exhibitors == 'on' && !empty($current_year_id)) {
 
   $args = array (
     'post_type'       => 'exhibitor',
@@ -31,7 +21,7 @@ if ( !empty($apply_end) && time() <= $apply_end && !$publish_exhibitors && !empt
       ),
     ),
   );
-  $exhibitors = new WP_Query( $args );
+  $exhibitors = new WP_Query($args);
 
   if ( $exhibitors->have_posts() ) {
 ?>
@@ -44,7 +34,7 @@ if ( !empty($apply_end) && time() <= $apply_end && !$publish_exhibitors && !empt
       </div>
       <div class="row">
 <?php
-    while ( $exhibitors->have_posts() ) {
+    while ($exhibitors->have_posts()) {
       $exhibitors->the_post();
 
       $city = get_post_meta($post->ID, '_igv_exhibitor_city', true);
@@ -67,5 +57,9 @@ if ( !empty($apply_end) && time() <= $apply_end && !$publish_exhibitors && !empt
   </section>
 <?php
   }
+} else {
+
+  get_template_part('partials/archive-exhibitor/apply');
+ 
 } 
 ?>
