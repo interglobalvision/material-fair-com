@@ -30,10 +30,19 @@ if (!empty($program_temp_text) || !empty($program_page_text) || !empty($program_
     <div class="row">
 <?php 
   if (!empty($program_page_image_id)) {
+    $attachment = get_post( $program_page_image_id );
+    $caption = $attachment->post_excerpt;
+    $description = $attachment->post_content;
 ?>
-      <div class="col col-l col-l-6">
-        <?php echo wp_get_attachment_image($program_page_image_id, 'col-6'); ?>
-      </div>
+        <div class="col col-l col-l-6">
+          <?php echo wp_get_attachment_image($program_page_image_id, 'col-6'); ?>
+          <?php if (!empty($caption) || !empty($description)) { ?>
+          <div class="margin-top-micro text-align-center">
+            <div class="font-size-h4"><?php _e($description); ?></div>
+            <?php _e($caption); ?>
+          </div>
+          <?php } ?>
+        </div>
 <?php 
   } if (!empty($program_page_text)) { 
 ?>

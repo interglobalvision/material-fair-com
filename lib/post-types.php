@@ -23,7 +23,7 @@ function register_cpt_exhibitor() {
     'labels' => $labels,
     'hierarchical' => false,
     
-    'supports' => array( 'title', 'editor', 'thumbnail' ),
+    'supports' => array( 'title', 'thumbnail' ),
     
     'public' => true,
     'show_ui' => true,
