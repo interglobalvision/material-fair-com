@@ -1,22 +1,19 @@
 <?php 
 
-$current_year_id = IGV_get_option('_igv_site_options', '_igv_current_fair_year');
-$current_year = !empty($current_year_id) ? get_term($current_year_id)->slug : false; 
+$fair_year_id = get_fair_year_id();
 
+if ($fair_year_id) {
 $args = array (
   'post_type' => 'photo_gallery',
   'numberposts' => '-1',
-);
-
-if (!empty($current_year_id)) {
-  $args['tax_query'] = array(
+  'tax_query' => array(
     array(
       'taxonomy' => 'fair_year',
       'field' => 'term_id',
-      'terms' => $current_year_id,
+      'terms' => $fair_year_id,
     ),
-  );
-}
+  ),
+);
 
 $photo_galleries = new WP_Query( $args );
 
@@ -52,5 +49,8 @@ if ( $photo_galleries->have_posts() ) {
     </div>
   </section>
 <?php
-  }
+}
+
+wp_reset_postdata();
+}
 ?>

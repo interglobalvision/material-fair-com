@@ -14,9 +14,7 @@ get_header();
 
 <?php get_template_part('partials/archive-press/photo-gallery'); ?>
 
-<?php
-// LINKS TO PAST EDITIONS WILL GO HERE
-?>
+<?php get_template_part('partials/past-years'); ?>
 
 <!-- end main-content -->
 

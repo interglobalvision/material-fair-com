@@ -1,8 +1,9 @@
 <?php 
+$fair_year_id = get_fair_year_id();
 $current_year_id = IGV_get_option('_igv_site_options', '_igv_current_fair_year');
 $publish_committee = IGV_get_option('_igv_page_options', '_igv_publish_committee');
 
-if ( $publish_committee && !empty($current_year_id)) {
+if (($current_year_id == get_fair_year_id() && $publish_committee == 'on') || $current_year_id != get_fair_year_id()) {
 
   $args = array (
     'post_type'       => 'committee',
@@ -11,7 +12,7 @@ if ( $publish_committee && !empty($current_year_id)) {
       array(
         'taxonomy' => 'fair_year',
         'field' => 'term_id',
-        'terms' => $current_year_id, // get posts with current year
+        'terms' => $fair_year_id, // get posts with current year
       )
     ),
     'orderby'         => 'title',

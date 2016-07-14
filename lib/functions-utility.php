@@ -56,3 +56,23 @@ function debug_page_request() {
   echo ' -->'.D4P_EOL;
 }
 
+// Gets the term ID for the fair year being viewed. 
+// If no current fair year set, or no fair_year query var, returns false
+// For use on Exhibitors, Program, and Press archive pages
+function get_fair_year_id() {
+  if (!empty(get_query_var('fair_year'))) {
+    $year = get_query_var('fair_year');
+    $year_term = get_term_by('slug', $year, 'fair_year');
+    
+    if ($year_term) {
+      $year_id = $year_term->term_id;
+    } else {
+      $year_id = false;
+    }
+  } elseif (!empty(IGV_get_option('_igv_site_options', '_igv_current_fair_year'))) {
+    $year_id = IGV_get_option('_igv_site_options', '_igv_current_fair_year');
+  } else {
+    $year_id = false;
+  }
+  return $year_id;
+}
