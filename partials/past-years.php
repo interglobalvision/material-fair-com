@@ -25,7 +25,7 @@ if (!empty($other_years)) {
   foreach ($other_years as $year) {
 ?>
       <a href="<?php echo get_post_type_archive_link($post_type) . '?fair_year=' . $year->slug; ?>" class="col col-l col-l-2 flex-row justify-center align-center">
-        <div class="button font-size-h2 font-sans"><?php echo $year->name; ?></div>
+        <div class="button font-size-h2 font-sans"><?php echo $year->slug; ?></div>
       </a>
 <?php
   }
