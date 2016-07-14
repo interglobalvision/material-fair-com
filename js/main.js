@@ -3,19 +3,26 @@
 
 Site = {
   mobileThreshold: 601,
+  $body: $('body'),
+  $mailchimpForm: $('#mailchimp-form'),
+
   init: function() {
     var _this = this;
-
+      
     $(window).resize(function(){
       _this.onResize();
     });
 
-    if ($('body').hasClass('post-type-archive-press')) {
+    if (Site.$body.hasClass('post-type-archive-press')) {
       _this.Press.init();
     }
 
-    if ($('body').hasClass('post-type-archive-event')) {
+    if (Site.$body.hasClass('post-type-archive-event')) {
       _this.Program.init();
+    }
+
+    if (Site.$mailchimpForm.length > 0 ) {
+      _this.Mailchimp.init();
     }
   },
 
@@ -32,6 +39,92 @@ Site = {
       $(this).html(string);
     });
   },
+};
+
+Site.Mailchimp = {
+  $submitButton: Site.$mailchimpForm.find('input[type="submit"]'),
+  $emailInput: Site.$mailchimpForm.find('input[type="email"]'),
+
+  init: function() {
+    var _this = this;
+      
+    _this.$submitButton.on('click', function (event) {
+      event.preventDefault();
+      _this.$submitButton.prop('disabled', true);
+
+      if (_this.validateEmail(_this.$emailInput.val())) { 
+        _this.mailchimpAjax(Site.$mailchimpForm); 
+      } else {
+        _this.printResponse('invalid-email');
+      }
+    });
+  },
+
+  validateEmail: function(email) {
+    var regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    var is_email = regex.test(email);
+
+    if (is_email) {
+      return true;
+    }
+    return false;
+  },
+
+  mailchimpAjax: function($form) {
+    var _this = this;
+
+    $.ajax({
+      type: $form.attr('method'),
+      url: $form.attr('action'),
+      data: $form.serialize(),
+      cache: false,
+      dataType: 'jsonp',
+      jsonp: 'c',
+      contentType: "application/json; charset=utf-8",
+      error: function(err) { 
+        _this.printResponse('server-error');
+      },
+      success: function(data) {
+        if (data.result != 'success') {
+          _this.printResponse('invalid-email');
+        } else {
+          _this.printResponse('success');
+        }
+      },
+    });
+  },
+
+  printResponse: function(code) {
+    var _this = this,
+      $responseElem = $('#mailchimp-response');
+
+    switch (code) {
+      case 'invalid-email':
+        if (currentLang == 'es') {
+          $responseElem.html('Tu correo está raro...inténtelo de nuevo');
+        } else {
+          $responseElem.html('Your email is weird...try again');
+        }
+        break;
+      case 'server-error':
+        if (currentLang == 'es') {
+          $responseElem.html('Se perece que el servidor no funciona :(');
+        } else {
+          $responseElem.html('Looks like the server is down :(');
+        }
+        break;
+      case 'success':
+        if (currentLang == 'es') {
+          $responseElem.html('¡Exito! Muchas gracias :)');
+        } else {
+          $responseElem.html('Success! Thanks a lot :)');
+        }
+        break;
+    }
+
+    _this.$submitButton.prop('disabled', false)
+    _this.$emailInput.val('');
+  }
 };
 
 Site.Press = {
