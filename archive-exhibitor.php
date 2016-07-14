@@ -11,7 +11,7 @@ $apply_end = IGV_get_option('_igv_site_options', '_igv_apply_end');
 
 <main id="main-content">
 
-<?php get_template_part('partials/archive-exhibitor/introduction'); ?>
+<?php get_template_part('partials/intro-section'); ?>
 
 <?php get_template_part('partials/archive-exhibitor/committee'); ?>
 
