@@ -110,10 +110,11 @@
               if (!empty($mailchimp_url)) {
             ?>
             <h5 class="margin-bottom-micro">Mailing List</h5>
-            <form method="post" id="mailchimp-form" name="mailchimp-form">
-              <input type="email" size="30" placeholder="email" value="" name="email">
+            <form method="get" id="mailchimp-form" name="mailchimp-form" action="<?php echo esc_url($mailchimp_url); ?>">
+              <input type="email" size="30" placeholder="email" value="" name="EMAIL">
               <input type="submit" value="Subscribe" name="subscribe">
             </form>
+            <div id="mailchimp-response" class="font-size-h4 margin-top-micro"></div>
             <?php
               }
             ?>
