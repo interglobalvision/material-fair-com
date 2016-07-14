@@ -101,14 +101,14 @@ Site.Mailchimp = {
     switch (code) {
       case 'invalid-email':
         if (currentLang == 'es') {
-          $responseElem.html('Tu correo está raro...inténtelo de nuevo');
+          $responseElem.html('Tu correo está raro...inténtalo de nuevo');
         } else {
           $responseElem.html('Your email is weird...try again');
         }
         break;
       case 'server-error':
         if (currentLang == 'es') {
-          $responseElem.html('Se perece que el servidor no funciona :(');
+          $responseElem.html('Parece que el servidor no funciona :(');
         } else {
           $responseElem.html('Looks like the server is down :(');
         }
