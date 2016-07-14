@@ -12,6 +12,8 @@ get_header();
 
 <?php get_template_part('partials/archive-event/schedule'); ?>
 
+<?php get_template_part('partials/past-years'); ?>
+
 <!-- end main-content -->
 
 </main>
