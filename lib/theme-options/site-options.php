@@ -154,9 +154,9 @@ $metabox = array(
     ),
     array(
       'name' => __( 'Mailchimp AJAX Request URL', 'cmb2' ),
-      'desc' => __( '', 'cmb2' ),
+      'desc' => __( 'http://xxxxx.us#.list-manage1.com/subscribe/post-json?u=xxxxx&id=xxxx', 'cmb2' ),
       'id'   => $prefix . 'mailchimp_url',
-      'type' => 'text_url',
+      'type' => 'textarea_small',
     ),
   )
 );
