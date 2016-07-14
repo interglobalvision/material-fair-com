@@ -1,12 +1,9 @@
 <?php
+$fair_year_id = get_fair_year_id();
 $current_year_id = IGV_get_option('_igv_site_options', '_igv_current_fair_year');
-$current_year = (!empty($current_year_id)) ? get_term($current_year_id)->slug : false; 
-// if we have the term ID, get the slug, 
-// otherwise set it false for later conditionals
-
 $publish_program = IGV_get_option('_igv_page_options', '_igv_publish_program');
 
-if ($publish_program == 'on') {
+if (($current_year_id == get_fair_year_id() && $publish_program == 'on') || $current_year_id != $fair_year_id) {
 
   $args = array (
     'post_type'       => 'event',
@@ -26,7 +23,7 @@ if ($publish_program == 'on') {
       array(
         'taxonomy' => 'fair_year',
         'field' => 'term_id',
-        'terms' => $current_year_id, // get posts with current year
+        'terms' => $fair_year_id, // get posts with current year
       )
     ),
   );
