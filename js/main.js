@@ -3,11 +3,11 @@
 
 Site = {
   mobileThreshold: 601,
-  $body: $('body');
+  $body: $('body'),
 
   init: function() {
     var _this = this;
-      
+
     $(window).resize(function(){
       _this.onResize();
     });
@@ -40,13 +40,18 @@ Site = {
 
 Site.Mailchimp = {
   $mailchimpForm: $('#mailchimp-form'),
-  $submitButton: this.$mailchimpForm.find('input[type="submit"]'),
-  $emailInput: this.$mailchimpForm.find('input[type="email"]'),
 
   init: function() {
     var _this = this;
-      
+
+    _this.$submitButton = this.$mailchimpForm.find('input[type="submit"]');
+    _this.$emailInput = this.$mailchimpForm.find('input[type="email"]');
+
+
     if (_this.$mailchimpForm.length) {
+
+      console.log('binding binding');
+
       _this.bindSubmit();
     }
   },
@@ -58,8 +63,8 @@ Site.Mailchimp = {
       event.preventDefault();
       _this.$submitButton.prop('disabled', true);
 
-      if (_this.validateEmail(_this.$emailInput.val())) { 
-        _this.mailchimpAjax(Site.$mailchimpForm); 
+      if (_this.validateEmail(_this.$emailInput.val())) {
+        _this.mailchimpAjax(_this.$mailchimpForm);
       } else {
         _this.printResponse('invalid-email');
       }
@@ -87,7 +92,7 @@ Site.Mailchimp = {
       dataType: 'jsonp',
       jsonp: 'c',
       contentType: "application/json; charset=utf-8",
-      error: function(err) { 
+      error: function(err) {
         _this.printResponse('server-error');
       },
       success: function(data) {
@@ -149,7 +154,7 @@ Site.Press = {
       nextButton: '.swiper-button-next',
       prevButton: '.swiper-button-prev',
       loop: true,
-    }); 
+    });
   },
 };
 
