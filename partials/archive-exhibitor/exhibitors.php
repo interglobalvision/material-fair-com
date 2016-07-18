@@ -1,5 +1,24 @@
 <?php 
-  if( have_posts() ) {
+// WP_Query arguments
+if (get_fair_year_id()) {
+
+$args = array (
+  'post_type' => array( 'exhibitor' ),
+  'order'     => 'ASC',
+  'orderby'   => 'title',
+  'tax_query' => array(
+    array(
+      'taxonomy' => 'fair_year',
+      'field' => 'term_id',
+      'terms' => get_fair_year_id(),
+    )
+  )
+);
+
+// The Query
+$query = new WP_Query( $args );
+
+  if( $query->have_posts() ) {
     //set section letter (#,A,B,C...) to null to start
     $section_letter = null;
 ?>
@@ -10,8 +29,8 @@
           <h2><?php _e('[:en]Exhibitors[:es]Expositores'); ?></h2>
         </div>
 <?php 
-    while( have_posts() ) {
-      the_post();
+    while( $query->have_posts() ) {
+      $query->the_post();
 
       $the_title = get_the_title();
       $first_letter = $the_title[0];
@@ -55,5 +74,9 @@
     </div>
   </section>
 <?php 
-  } 
+  }
+
+wp_reset_postdata(); 
+
+}
 ?>

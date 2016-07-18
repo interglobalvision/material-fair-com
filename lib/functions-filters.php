@@ -25,27 +25,6 @@ function year_title_text( $title ){
 }
 add_filter( 'enter_title_here', 'year_title_text' );
 
-// Only return current year exhibitors for archive
-function exclude_past_exhibitors( $query ) {
-  if ( $query->is_main_query() && is_post_type_archive('exhibitor') && !is_admin() ) {
-    $query->set( 'orderby', 'title' );
-    $query->set( 'order', 'ASC' );
-
-    if (get_fair_year_id()) {
-      $taxquery = array(
-        array(
-          'taxonomy' => 'fair_year',
-          'field' => 'term_id',
-          'terms' => get_fair_year_id(),
-        )
-      );
-      $query->set( 'tax_query', $taxquery );
-    }
-  }
-}
-add_action( 'pre_get_posts', 'exclude_past_exhibitors' );
-
-
 // Only return non-highlight, current year press for archive
 function filter_press_posts( $query ) {
   if ( $query->is_main_query() && is_post_type_archive('press') && !is_admin() ) {
