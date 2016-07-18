@@ -3,8 +3,7 @@
 
 Site = {
   mobileThreshold: 601,
-  $body: $('body'),
-  $mailchimpForm: $('#mailchimp-form'),
+  $body: $('body');
 
   init: function() {
     var _this = this;
@@ -21,9 +20,7 @@ Site = {
       _this.Program.init();
     }
 
-    if (Site.$mailchimpForm.length > 0 ) {
-      _this.Mailchimp.init();
-    }
+    _this.Mailchimp.init();
   },
 
   onResize: function() {
@@ -42,12 +39,21 @@ Site = {
 };
 
 Site.Mailchimp = {
-  $submitButton: Site.$mailchimpForm.find('input[type="submit"]'),
-  $emailInput: Site.$mailchimpForm.find('input[type="email"]'),
+  $mailchimpForm: $('#mailchimp-form'),
+  $submitButton: this.$mailchimpForm.find('input[type="submit"]'),
+  $emailInput: this.$mailchimpForm.find('input[type="email"]'),
 
   init: function() {
     var _this = this;
       
+    if (_this.$mailchimpForm.length) {
+      _this.bindSubmit();
+    }
+  },
+
+  bindSubmit: function() {
+    var _this = this;
+
     _this.$submitButton.on('click', function (event) {
       event.preventDefault();
       _this.$submitButton.prop('disabled', true);
