@@ -339,7 +339,9 @@ input
   &:focus
     outline: none
   &:-webkit-autofill
-    -webkit-box-shadow: 0 0 0px 1000px $color-white inset !important //Hack kills autofill yellow
+    -webkit-box-shadow: 0 0 0px 1000px $color-yellow inset !important //Hack kills autofill yellow
+  &:disabled 
+    opacity: 0.2
 
 ::placeholder
   color: inherit !important
