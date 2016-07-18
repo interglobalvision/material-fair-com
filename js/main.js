@@ -1,5 +1,5 @@
 /* jshint browser: true, devel: true, indent: 2, curly: true, eqeqeq: true, futurehostile: true, latedef: true, undef: true, unused: true */
-/* global $, jQuery, document, Site, Modernizr */
+/* global $, jQuery, document, Site, currentLang, Modernizr */
 
 Site = {
   mobileThreshold: 601,
@@ -49,9 +49,6 @@ Site.Mailchimp = {
 
 
     if (_this.$mailchimpForm.length) {
-
-      console.log('binding binding');
-
       _this.bindSubmit();
     }
   },
@@ -111,21 +108,21 @@ Site.Mailchimp = {
 
     switch (code) {
       case 'invalid-email':
-        if (currentLang == 'es') {
+        if (currentLang === 'es') {
           $responseElem.html('Tu correo está raro...inténtalo de nuevo');
         } else {
           $responseElem.html('Your email is weird...try again');
         }
         break;
       case 'server-error':
-        if (currentLang == 'es') {
+        if (currentLang === 'es') {
           $responseElem.html('Parece que el servidor no funciona :(');
         } else {
           $responseElem.html('Looks like the server is down :(');
         }
         break;
       case 'success':
-        if (currentLang == 'es') {
+        if (currentLang === 'es') {
           $responseElem.html('¡Exito! Muchas gracias :)');
         } else {
           $responseElem.html('Success! Thanks a lot :)');
@@ -133,7 +130,7 @@ Site.Mailchimp = {
         break;
     }
 
-    _this.$submitButton.prop('disabled', false)
+    _this.$submitButton.prop('disabled', false);
     _this.$emailInput.val('');
   }
 };
