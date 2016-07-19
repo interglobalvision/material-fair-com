@@ -2,9 +2,6 @@
 get_header();
 
 $publish_exhibitors = IGV_get_option('_igv_page_options', '_igv_publish_exhibitors');
-$exhibitors_apply_text = IGV_get_option('_igv_page_options', '_igv_exhibitors_apply_text');
-$apply_url = IGV_get_option('_igv_site_options', '_igv_apply_url');
-$apply_end = IGV_get_option('_igv_site_options', '_igv_apply_end');
 $current_year_id = IGV_get_option('_igv_site_options', '_igv_current_fair_year');
 $fair_year_id = get_fair_year_id();
 ?>
