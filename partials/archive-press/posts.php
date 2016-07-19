@@ -1,5 +1,30 @@
 <?php
-if( have_posts() ) {
+if (get_fair_year_id()) {
+
+  $current_year_id = IGV_get_option('_igv_site_options', '_igv_current_fair_year');
+  $fair_year_id = get_fair_year_id();
+
+  $args = array (
+    'post_type' => array('press'),
+    'post__not_in' => press_highlight_ids(false),
+    'posts_per_page' => -1,
+  );
+
+  if ($current_year_id == $fair_year_id && count_fair_year_press() < 3) {
+    $args['posts_per_page'] = 12;
+  } else {
+    $args['tax_query'] = array(
+      array(
+        'taxonomy' => 'fair_year',
+        'field' => 'term_id',
+        'terms' => $fair_year_id,
+      ),
+    );
+  }
+
+  $query = new WP_Query( $args );
+
+  if( $query->have_posts() ) {
 ?>
   <section id="press-posts" class="section">
     <div class="container">
@@ -10,20 +35,20 @@ if( have_posts() ) {
       </div>
       <div class="row">
 <?php 
-  while( have_posts() ) {
-    the_post();
+    while( $query->have_posts() ) {
+      $query->the_post();
 
-    $publication = get_post_meta($post->ID, '_igv_press_publication', true);
-    $date = get_post_meta($post->ID, '_igv_press_date', true);
-    $author = get_post_meta($post->ID, '_igv_press_author', true);
-    $link = get_post_meta($post->ID, '_igv_press_url', true);
+      $publication = get_post_meta($post->ID, '_igv_press_publication', true);
+      $date = get_post_meta($post->ID, '_igv_press_date', true);
+      $author = get_post_meta($post->ID, '_igv_press_author', true);
+      $link = get_post_meta($post->ID, '_igv_press_url', true);
 ?>
 
         <article <?php post_class('col col-l col-l-4 margin-bottom-small'); ?> id="post-<?php the_ID(); ?>">
           <a href="<?php echo $link; ?>" target="_blank">
             <?php the_post_thumbnail('col-4-crop'); ?>
 <?php 
-    if (!empty($publication)) {
+      if (!empty($publication)) {
 ?>
             <div class="font-size-h4"><?php echo $publication; ?></div>
 <?php 
@@ -48,5 +73,7 @@ if( have_posts() ) {
     </div>
   </section>
 <?php 
-} 
+  } 
+wp_reset_postdata(); 
+}
 ?>
