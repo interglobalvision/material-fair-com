@@ -1,22 +1,26 @@
 <?php
 if (get_fair_year_id()) {
 
-$args = array (
-  'post_type' => array( 'event' ),
-  'posts_per_page' => -1,
-  'order'     => 'ASC',
-  'orderby'   => 'meta_value_num',
-  'meta_key'  => '_igv_event_start',
-  'tax_query' => array(
-  array(
-    'taxonomy' => 'fair_year',
-    'field' => 'term_id',
-    'terms' => get_fair_year_id(),
-  ),
-),
-);
+  $fair_year_id = get_fair_year_id();
+  $fair_year = get_term($fair_year_id)->slug; 
+  $current_year_id = IGV_get_option('_igv_site_options', '_igv_current_fair_year');
 
-$query = new WP_Query( $args );
+  $args = array (
+    'post_type' => array( 'event' ),
+    'posts_per_page' => -1,
+    'order'     => 'ASC',
+    'orderby'   => 'meta_value_num',
+    'meta_key'  => '_igv_event_start',
+    'tax_query' => array(
+    array(
+      'taxonomy' => 'fair_year',
+      'field' => 'term_id',
+      'terms' => $fair_year_id,
+    ),
+  ),
+  );
+
+  $query = new WP_Query( $args );
 
   if( $query->have_posts() ) {
 ?>
@@ -24,7 +28,14 @@ $query = new WP_Query( $args );
   <div class="container">
     <div class="row">
       <div class="col col-l col-l-12">
-        <h2><?php _e('[:en]Schedule[:es]Calendario');?></h2>
+        <h2>
+          <?php 
+            _e('[:en]Schedule[:es]Calendario');
+            if ($fair_year_id != $current_year_id) {
+              echo ' ' . $fair_year; 
+            }
+          ?>
+        </h2>
 <?php
     $current_day = null;
 
