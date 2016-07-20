@@ -41,9 +41,16 @@ if (get_fair_year_id()) {
       $first_letter = $the_title[0];
       // the first letter of the title
 
-      $first_letter = !ctype_alpha($first_letter) ? '#' : $first_letter;
-      // if the first letter is not alphabetic, 
-      // set it to '#' for numbers and symbols
+      
+      if (!ctype_alpha($first_letter)) {
+        // if the first letter is not alphabetic, 
+        // set it to '#' for numbers and symbols
+        $first_letter = '#';
+      } else {
+        // otherwise make it uppercase
+        strtoupper($first_letter);
+      }
+      
 
       if ($first_letter !== $section_letter) {
         // if the first letter is not equal the current section letter
