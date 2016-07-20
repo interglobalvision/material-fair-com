@@ -3,6 +3,7 @@ if (get_fair_year_id()) {
 
 $args = array (
   'post_type' => array( 'event' ),
+  'posts_per_page' => -1,
   'order'     => 'ASC',
   'orderby'   => 'meta_value_num',
   'meta_key'  => '_igv_event_start',
@@ -19,7 +20,7 @@ $query = new WP_Query( $args );
 
   if( $query->have_posts() ) {
 ?>
-<section class="section section-yellow">
+<section class="section section-yellow padding-bottom-basic">
   <div class="container">
     <div class="row">
       <div class="col col-l col-l-12">
