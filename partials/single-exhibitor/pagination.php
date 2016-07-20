@@ -1,7 +1,9 @@
 <?php
 $current_year_id = IGV_get_option('_igv_site_options', '_igv_current_fair_year');
-$current_year = (!empty($current_year_id)) ? get_term($current_year_id)->slug : false; 
 
+if ($current_year_id == get_fair_year_id()) { 
+
+$current_year = get_term($current_year_id)->slug;
 $current_post_id = $post->ID;
 ?>
 <section class="section section-yellow">
@@ -10,14 +12,11 @@ $current_post_id = $post->ID;
       <div class="col col-l col-l-6">
         <h2 class="font-sans"><?php 
           _e('[:en]Exhibitors[:es]Expositores'); 
-          echo $current_year ? ' ' . $current_year : ''; 
+          echo ' ' . $current_year; 
         ?></h2>
       </div>
       <div class="col col-l col-l-6 flex-row justify-end">
 <?php
-
-if ($current_year) {
-
 $args = array(
   'post_type'       =>  'exhibitor',
   'orderby'         =>  'title',
@@ -46,12 +45,26 @@ if ( $query->have_posts() ) {
   $current_post_key = array_search($current_post_id, $id_array); // find key of current post in array
 
   if (array_key_exists( $current_post_key - 1, $id_array )) { // if current key - 1 exists in array
+
     $previous_post = get_post($id_array[($current_post_key - 1)]); //thats the previous post
-  } else {
+
+  } elseif ($query->found_posts > 2) { // if more than 2 posts, we loop the pagination
+
     $previous_post = get_post($id_array[count($id_array) - 1]); // otherwise we get the last post
+
   }
 
-  if (!empty( $previous_post )) { 
+  if (array_key_exists( $current_post_key + 1, $id_array )) { // if current key + 1 exists in array
+
+    $next_post = get_post($id_array[($current_post_key + 1)]); //thats the next post
+
+  } elseif ($query->found_posts > 2) { // if more than 2 posts, we loop the pagination
+
+    $next_post = get_post($id_array[0]); // otherwise we get the first post
+
+  }
+
+  if (!empty( $previous_post )) {
 ?>
         <a class="button pagination-button" href="<?php echo get_permalink( $previous_post->ID ); ?>">
           ◀ <?php _e($previous_post->post_title); ?>
@@ -59,11 +72,7 @@ if ( $query->have_posts() ) {
 <?php 
   }
 
-  if (array_key_exists( $current_post_key + 1, $id_array )) { // if current key + 1 exists in array
-    $next_post = get_post($id_array[($current_post_key + 1)]); //thats the next post
-  } else {
-    $next_post = get_post($id_array[0]); // otherwise we get the first post
-  }
+  
 
   if (!empty( $next_post )) { 
 ?>
@@ -76,8 +85,10 @@ if ( $query->have_posts() ) {
 
 wp_reset_postdata();
 
-}
 ?>
     </div>
   </div>
 </section>
+<?php 
+}
+?>

@@ -5,7 +5,7 @@ $fair_year_id = get_fair_year_id();
 if ($fair_year_id) {
 $args = array (
   'post_type' => 'photo_gallery',
-  'numberposts' => '-1',
+  'posts_per_page' => -1,
   'tax_query' => array(
     array(
       'taxonomy' => 'fair_year',

@@ -10,7 +10,13 @@ $fair_year_id = get_fair_year_id();
 
 <main id="main-content">
 
-<?php get_template_part('partials/intro-section'); ?>
+<?php 
+if ($current_year_id == $fair_year_id) {
+
+  get_template_part('partials/intro-section'); 
+
+}
+?>
 
 <?php get_template_part('partials/archive-exhibitor/committee'); ?>
 
