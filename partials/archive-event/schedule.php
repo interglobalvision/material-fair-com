@@ -20,7 +20,7 @@ $query = new WP_Query( $args );
 
   if( $query->have_posts() ) {
 ?>
-<section class="section section-yellow">
+<section class="section section-yellow padding-bottom-basic">
   <div class="container">
     <div class="row">
       <div class="col col-l col-l-12">
