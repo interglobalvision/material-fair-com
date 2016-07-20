@@ -48,7 +48,7 @@ if (get_fair_year_id()) {
         $first_letter = '#';
       } else {
         // otherwise make it uppercase
-        strtoupper($first_letter);
+        $first_letter = strtoupper($first_letter);
       }
       
 
