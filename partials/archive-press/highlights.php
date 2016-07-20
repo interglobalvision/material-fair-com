@@ -1,23 +1,38 @@
 <?php 
-$args = array (
-  'post_type'       => 'press',
-  'posts_per_page'  => '2',
-  'meta_key'        => '_igv_press_date',
-  'orderby'         => 'meta_value_num',
-  'meta_query'      => array( 
-    array(
-      'key' => '_igv_press_highlight',
-      'value' => 'on',
-    ),
-    array(
-      'key' => '_igv_press_url',
-    ),
-  ),
-);
-$highlight_press = new WP_Query( $args );
+if (get_fair_year_id()) {
 
-if ( $highlight_press->have_posts() ) { 
-  $highlight_post = 0;
+  $fair_year_id = get_fair_year_id();
+
+  $args = array (
+    'post_type'       => 'press',
+    'posts_per_page'  => '2',
+    'meta_key'        => '_igv_press_date',
+    'orderby'         => 'meta_value_num',
+    'meta_query'      => array( 
+      array(
+        'key' => '_igv_press_highlight',
+        'value' => 'on',
+      ),
+      array(
+        'key' => '_igv_press_url',
+      ),
+    ),
+  );
+
+  if (count(press_highlight_ids(true)) >= 2) {
+    $args['tax_query'] = array(
+      array(
+        'taxonomy' => 'fair_year',
+        'field' => 'term_id',
+        'terms' => $fair_year_id,
+      ),
+    );
+  }
+
+  $highlight_press = new WP_Query( $args );
+
+  if ( $highlight_press->have_posts() ) { 
+    $highlight_post = 0;
 ?>
   <section id="press-highlights" class="section">
     <div class="container">
@@ -114,4 +129,5 @@ if ( $highlight_press->have_posts() ) {
   }
 
   wp_reset_postdata();
+}
 ?>

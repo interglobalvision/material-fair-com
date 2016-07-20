@@ -76,3 +76,62 @@ function get_fair_year_id() {
   }
   return $year_id;
 }
+
+function press_highlight_ids($by_year) {
+  
+  $args = array(
+    'post_type' => 'press',
+    'numberposts' => 2,
+    'meta_query' => array( 
+      array(
+        'key' => '_igv_press_highlight',
+        'value' => 'on',
+      ),
+    ),
+  );
+
+  if ($by_year && get_fair_year_id()) {
+    $args['tax_query'] = array(
+      array(
+        'taxonomy' => 'fair_year',
+        'field' => 'term_id',
+        'terms' => get_fair_year_id(),
+      ),
+    );
+  }
+
+  //get highlight posts
+  $highlight_posts = get_posts($args);
+
+  //put hightlight post ids in array
+  $highlight_ids = array();
+  foreach ( $highlight_posts as $post ) {
+     $highlight_ids[] += $post->ID;
+  }
+
+  return $highlight_ids;
+}
+
+function count_fair_year_press() {
+  if (get_fair_year_id()) {
+
+    //get non-highlight, current year posts
+    $args = array(
+      'post_type' => 'press',
+      'tax_query' => array(
+        array(
+          'taxonomy' => 'fair_year',
+          'field' => 'term_id',
+          'terms' => get_fair_year_id(),
+        ),
+      ),
+      'post__not_in' => press_highlight_ids(true),
+    );
+
+    $fair_year_press = get_posts($args);
+
+    return count($fair_year_press);
+  } else {
+    return 0;
+  }
+}

@@ -1,10 +1,23 @@
 <?php
-$current_year_id = IGV_get_option('_igv_site_options', '_igv_current_fair_year');
-$publish_program = IGV_get_option('_igv_page_options', '_igv_publish_program');
+if (get_fair_year_id()) {
 
-if (($current_year_id == get_fair_year_id() && $publish_program == 'on') || $current_year_id != get_fair_year_id()) {
+$args = array (
+  'post_type' => array( 'event' ),
+  'order'     => 'ASC',
+  'orderby'   => 'meta_value_num',
+  'meta_key'  => '_igv_event_start',
+  'tax_query' => array(
+  array(
+    'taxonomy' => 'fair_year',
+    'field' => 'term_id',
+    'terms' => get_fair_year_id(),
+  ),
+),
+);
 
-  if( have_posts() ) {
+$query = new WP_Query( $args );
+
+  if( $query->have_posts() ) {
 ?>
 <section class="section section-yellow">
   <div class="container">
@@ -14,8 +27,8 @@ if (($current_year_id == get_fair_year_id() && $publish_program == 'on') || $cur
 <?php
     $current_day = null;
 
-    while( have_posts() ) {
-      the_post();
+    while( $query->have_posts() ) {
+      $query->the_post();
 
       $start = get_post_meta($post->ID, '_igv_event_start', true);
       $end = get_post_meta($post->ID, '_igv_event_end', true);
@@ -79,5 +92,6 @@ if (($current_year_id == get_fair_year_id() && $publish_program == 'on') || $cur
 </section>
 <?php 
   }
+  wp_reset_postdata(); 
 }
 ?>
