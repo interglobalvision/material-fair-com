@@ -17,7 +17,7 @@ add_filter( 'body_class', 'add_slug_body_class' );
 function committee_title_text( $title ){
   $screen = get_current_screen();
 
-  if  ( 'committee' == $screen->post_type ) {
+  if ( $screen->post_type == 'committee' ) {
     $title = 'Enter member name here';
   }
 
