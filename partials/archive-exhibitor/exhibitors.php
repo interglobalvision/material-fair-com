@@ -4,6 +4,7 @@ if (get_fair_year_id()) {
 
 $args = array (
   'post_type' => array( 'exhibitor' ),
+  'posts_per_page' => -1,
   'order'     => 'ASC',
   'orderby'   => 'title',
   'tax_query' => array(

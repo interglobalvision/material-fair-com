@@ -3,6 +3,7 @@ if (get_fair_year_id()) {
 
 $args = array (
   'post_type' => array( 'event' ),
+  'posts_per_page' => -1,
   'order'     => 'ASC',
   'orderby'   => 'meta_value_num',
   'meta_key'  => '_igv_event_start',
