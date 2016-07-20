@@ -39,7 +39,6 @@ if (is_post_type_archive('event') || is_front_page()) {
         <?php 
           echo is_front_page() ? '<h2>' : '<h1>';
           _e($title);
-          echo $current_year && $publish == 'on' && !is_front_page() ? '&nbsp;' . $current_year : ''; 
           // add the current year to the heading if we have it, 
           // and the exhibitors are published.
           echo is_front_page() ? '</h2>' : '</h1>';
