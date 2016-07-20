@@ -14,16 +14,16 @@ add_filter( 'body_class', 'add_slug_body_class' );
 
 // Replace 'Enter title here' text on 
 // Committee post type edit screen
-function year_title_text( $title ){
+function committee_title_text( $title ){
   $screen = get_current_screen();
 
-  if  ( 'committee' == $screen->post_type ) {
-    $title = 'Enter year here';
+  if ( $screen->post_type == 'committee' ) {
+    $title = 'Enter member name here';
   }
 
   return $title;
 }
-add_filter( 'enter_title_here', 'year_title_text' );
+add_filter( 'enter_title_here', 'committee_title_text' );
 
 // Extend get terms with post type parameter.
 function post_type_terms_clauses( $clauses, $taxonomy, $args ) {
