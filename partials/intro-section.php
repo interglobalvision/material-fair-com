@@ -35,7 +35,7 @@ if (is_post_type_archive('event') || is_front_page()) {
 <section class="section">
   <div class="container">
     <div class="row">
-      <div class="col col-l col-l-12">
+      <div class="col col-s col-s-12">
         <?php 
           echo is_front_page() ? '<h2>' : '<h1>';
           _e($title);
@@ -55,7 +55,7 @@ if (!empty($intro_text) || !empty($intro_image_id)) {
     $caption = $attachment->post_excerpt;
     $description = $attachment->post_content;
 ?>
-      <div class="col col-l col-l-6">
+      <div class="col col-s col-s-12 col-l col-l-6">
         <?php echo wp_get_attachment_image($intro_image_id, 'col-6'); ?>
         <?php if (!empty($caption) || !empty($description)) { ?>
         <div class="margin-top-micro text-align-center">
@@ -68,7 +68,7 @@ if (!empty($intro_text) || !empty($intro_image_id)) {
   } 
   if (!empty($intro_text)) { 
 ?>
-      <div class="col col-l col-l-6">
+      <div class="col col-s col-s-12 col-l col-l-6">
         <div class="font-size-h3">
           <?php echo apply_filters( 'the_content', $intro_text ); ?>
         </div>

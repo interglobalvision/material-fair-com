@@ -18,10 +18,10 @@ if ( $press->have_posts() ) {
   <section id="front-press" class="section">
     <div class="container">
       <div class="row">
-        <div class="col col-l col-l-10">
+        <div class="col col-s col-s-6 col-m col-m-9 col-l col-l-10">
           <h2 class="text-align-left"><?php _e('[:en]Press[:es]Prensa'); ?></h2>
         </div>
-        <div class="col col-l col-l-2">
+        <div class="col col-s col-s-6 col-m col-m-3 col-l col-l-2">
           <a class="button col flex-row align-center justify-center" href="<?php echo get_post_type_archive_link( 'press' ); ?>"><?php _e('[:en]See More[:es]Ver más'); ?></a>
         </div>
       </div>
@@ -36,7 +36,7 @@ if ( $press->have_posts() ) {
 
     if (!empty($press_url)) {
 ?>
-        <div class="col col-l col-l-4">
+        <div class="col col-s col-s-12 col-m col-m-4">
 <?php 
       if (!empty($press_pub)) {
 ?>

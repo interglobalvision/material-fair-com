@@ -28,7 +28,7 @@ if ($publish_exhibitors == 'on' && !empty($current_year_id)) {
   <section id="front-exhibitors" class="section">
     <div class="container">
       <div class="row">
-        <div class="col col-l col-l-12 text-align-center">
+        <div class="col col-s col-s-12 text-align-center">
           <h2><?php _e('[:en]Exhibitors[:es]Expositores'); ?></h2>
         </div>
       </div>
@@ -39,7 +39,7 @@ if ($publish_exhibitors == 'on' && !empty($current_year_id)) {
 
       $city = get_post_meta($post->ID, '_igv_exhibitor_city', true);
 ?>
-        <a class="col col-l col-l-3" href="<?php the_permalink(); ?>">
+        <a class="col col-s col-s-12 col-m col-m-6 col-l col-l-3" href="<?php the_permalink(); ?>">
           <?php the_post_thumbnail('col-3-crop'); ?>
           <h3><?php the_title(); ?></h3>
           <?php echo !empty($city) ? '<span class="font-size-h4">' . $city . '</span>' : ''; ?>
@@ -49,7 +49,7 @@ if ($publish_exhibitors == 'on' && !empty($current_year_id)) {
 ?>
       </div>
       <div class="row justify-center">
-        <a href="<?php echo get_post_type_archive_link( 'exhibitor' ); ?>" class="col col-l col-l-2 flex-row align-center justify-center button">
+        <a href="<?php echo get_post_type_archive_link( 'exhibitor' ); ?>" class="col col-m col-m-8 col-m col-m-4 col-l col-l-2 flex-row align-center justify-center button">
           <?php _e( '[:en]See More[:es]Ver más' ); ?>
         </a>
       </div>
