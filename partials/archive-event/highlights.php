@@ -1,35 +1,38 @@
 <?php
-$fair_year_id = get_fair_year_id();
-$current_year_id = IGV_get_option('_igv_site_options', '_igv_current_fair_year');
-$publish_program = IGV_get_option('_igv_page_options', '_igv_publish_program');
+if (get_fair_year_id()) {
 
-if (($current_year_id == get_fair_year_id() && $publish_program == 'on') || $current_year_id != $fair_year_id) {
+  $fair_year_id = get_fair_year_id();
+  $fair_year = get_term($fair_year_id)->slug; 
+  $current_year_id = IGV_get_option('_igv_site_options', '_igv_current_fair_year');
+  $publish_program = IGV_get_option('_igv_page_options', '_igv_publish_program');
 
-  $args = array (
-    'post_type'       => 'event',
-    'posts_per_page'  => '2',
-    'orderby'         => 'rand',
-    'meta_query'      => array( 
-      array(
-        'key' => '_igv_event_highlight',
-        'value' => 'on',
+  if (($current_year_id == $fair_year_id && $publish_program == 'on') || $current_year_id != $fair_year_id) {
+
+    $args = array (
+      'post_type'       => 'event',
+      'posts_per_page'  => '2',
+      'orderby'         => 'rand',
+      'meta_query'      => array( 
+        array(
+          'key' => '_igv_event_highlight',
+          'value' => 'on',
+        ),
+        array(
+          'key' => '_igv_event_vip',
+          'compare' => 'NOT EXISTS'
+        ),
       ),
-      array(
-        'key' => '_igv_event_vip',
-        'compare' => 'NOT EXISTS'
+      'tax_query'       => array(
+        array(
+          'taxonomy' => 'fair_year',
+          'field' => 'term_id',
+          'terms' => $fair_year_id, // get posts with current year
+        )
       ),
-    ),
-    'tax_query'       => array(
-      array(
-        'taxonomy' => 'fair_year',
-        'field' => 'term_id',
-        'terms' => $fair_year_id, // get posts with current year
-      )
-    ),
-  );
-  $highlight_events = new WP_Query( $args );
+    );
+    $highlight_events = new WP_Query( $args );
 
-  if( $highlight_events->have_posts() ) {
+    if( $highlight_events->have_posts() ) {
 ?>
 
 <section id="program-highlights" class="section">
@@ -44,23 +47,31 @@ if (($current_year_id == get_fair_year_id() && $publish_program == 'on') || $cur
       </div>
     <?php } else { ?>
       <div class="col col-l col-l-12">
-        <h2 class="text-align-left"><?php _e('[:en]Program Highlights[:es]Eventos destecados'); ?></h2>
+        <h2 class="text-align-left">
+          <?php 
+            _e('[:en]Program Highlights[:es]Eventos destecados'); 
+            if ($fair_year_id != $current_year_id) {
+              echo ' ' . $fair_year; 
+            }
+          ?>
+        </h2>
       </div>
     <?php } ?>
     </div>
     <div class="row">
 <?php 
-    while( $highlight_events->have_posts() ) {
-      $highlight_events->the_post();
-      
-      get_template_part('partials/event-highlight');
+      while( $highlight_events->have_posts() ) {
+        $highlight_events->the_post();
+        
+        get_template_part('partials/event-highlight');
 
-    }
+      }
 ?>
   </div>
 </section>
 
 <?php 
+    }
   }
 }
 ?>

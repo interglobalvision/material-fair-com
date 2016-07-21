@@ -31,7 +31,12 @@ if (get_fair_year_id()) {
     <div class="container">
       <div class="row">
         <div class="col col-l col-l-12 text-align-center">
-          <h2><?php _e('[:en]Exhibitors[:es]Expositores'); echo ' ' . $fair_year; ?></h2>
+          <h2>
+            <?php 
+              _e('[:en]Exhibitors[:es]Expositores');
+              echo ' ' . $fair_year; 
+            ?>
+           </h2>
         </div>
 <?php 
     while( $query->have_posts() ) {
