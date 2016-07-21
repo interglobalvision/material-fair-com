@@ -124,7 +124,7 @@ $color-pink = rgb(255, 123, 172)
 .col-s
   flex: 0 0 auto
   padding-right: ($gutter / 2)
-  padding-left: ($gutter / 2)
+  padding-left: ($gutter / 2)  
 
 for offset in 0..($cols - 1)
   .offset-s-{offset}
@@ -135,7 +135,7 @@ for col in 1..$cols
     flex-basis: ( 100% / $cols ) * col
     max-width: ( 100% / $cols ) * col
 
-@media screen and (min-width: 601px)
+@media screen and (min-width: 568px) // iphone5 width
 
   .col-m
     flex: 0 0 auto
@@ -151,7 +151,7 @@ for col in 1..$cols
       flex-basis: ( 100% / $cols ) * col
       max-width: ( 100% / $cols ) * col
 
-@media screen and (min-width: 993px)
+@media screen and (min-width: 952px) // tablet-landscape container
 
   .col-l
     flex: 0 0 auto
@@ -483,10 +483,6 @@ ul.language-chooser
   margin: 0 auto
   display: block
 
-.text-columns-2
-  column-count: 2
-  column-gap: $gutter
-
 // VISITOR INFO
 
 .venue-map iframe
@@ -542,12 +538,26 @@ ul.language-chooser
 
 // ******************************************************
 
+@media screen and (min-width: 568px) // iphone5 width
+
+  .text-columns-2
+    column-count: 2
+    column-gap: $gutter
+
 // MEDIA QUERIES
 
 @media screen and (max-width: $container)
 
-  @import "responsive/desktop-mid"
+  @import "responsive/tablet-landscape"
 
-@media screen and (max-width: 993px)
+@media screen and (max-width: 952px) // tablet-landscape container
 
-  @import "responsive/mobile"
+  @import "responsive/tablet-portrait"
+  
+@media screen and (max-width: 732px) // tablet-portrait container
+
+  @import "responsive/mobile-landscape"
+  
+@media screen and (max-width: 568px) // iphone5 width
+
+  @import "responsive/mobile-portrait"
