@@ -7,7 +7,7 @@ $staff = get_post_meta($post->ID, '_igv_exhibitor_staff', true);
 <section class="section">
   <div class="container">
     <div class="row">
-      <div class="col col-l col-l-12">
+      <div class="col col-s col-s-12">
         <h1 class="u-inline-block"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h1>
 <?php 
 if (!empty($stand)) { 
@@ -20,7 +20,7 @@ if (!empty($stand)) {
     </div>
 
     <div class="row">
-      <div class="col col-l col-l-6">
+      <div class="col col-s col-s-12 col-l col-l-6">
       <?php 
         if (has_post_thumbnail()) {
           $attachment = get_post( get_post_thumbnail_id() );
@@ -40,7 +40,7 @@ if (!empty($stand)) {
         }
       ?>
       </div>
-      <div class="col col-l col-l-6">
+      <div class="col col-s col-s-12 col-m col-m-6">
         <div class="font-size-h4">
           <?php 
             the_content();
