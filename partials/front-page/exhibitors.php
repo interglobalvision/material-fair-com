@@ -40,7 +40,7 @@ if ($publish_exhibitors == 'on' && !empty($current_year_id)) {
       $city = get_post_meta($post->ID, '_igv_exhibitor_city', true);
 ?>
         <a class="col col-s col-s-12 col-m col-m-6 col-l col-l-3" href="<?php the_permalink(); ?>">
-          <?php the_post_thumbnail('col-3-crop'); ?>
+          <?php the_post_thumbnail('col-6-crop'); ?>
           <h3><?php the_title(); ?></h3>
           <?php echo !empty($city) ? '<span class="font-size-h4">' . $city . '</span>' : ''; ?>
         </a>
