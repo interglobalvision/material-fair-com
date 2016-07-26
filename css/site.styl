@@ -88,12 +88,19 @@ $color-pink = rgb(255, 123, 172)
 // FLEX POSITIONING
 
 .flex-col
+  box-sizing: border-box
   display: flex
   flex-direction: column
+  &.reverse
+    flex-direction: column-reverse
 
 .flex-row
+  box-sizing: border-box
   display: flex
   flex-direction: row
+  flex-wrap: wrap
+  &.reverse
+    flex-direction: row-reverse
 
 .justify-start
   justify-content: flex-start
@@ -112,6 +119,15 @@ $color-pink = rgb(255, 123, 172)
 
 .align-end
   align-items: flex-end
+
+.align-content-start
+  align-content: flex-start
+    
+.align-content-center
+  align-content: center
+  
+.align-content-end
+  align-content: flex-end
 
 // COLUMN SIZES & OFFSETS
 
@@ -506,6 +522,13 @@ ul.language-chooser
   height: 0
   overflow: hidden
 
+.event-time, .event-times-divider 
+  display: inline-block
+  margin: 0 $margin-micro 0 0 
+  
+.event-times-divider
+  transform: rotate(90deg)
+
 // PRESS
 
 .swiper-container
@@ -543,6 +566,17 @@ ul.language-chooser
   .text-columns-2
     column-count: 2
     column-gap: $gutter
+  
+  .event-time, .event-times-divider 
+    display: block
+    margin: 0 0 $margin-micro 0
+    text-align: center 
+  
+  .event-times-divider
+    transform: rotate(0deg)
+    
+  .event-times-day
+    display: block
 
 // MEDIA QUERIES
 
