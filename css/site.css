@@ -1047,7 +1047,6 @@ th {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   padding-top: 18px;
-  margin-bottom: 18px;
 }
 .row.reverse {
   -webkit-box-orient: vertical;
@@ -1122,6 +1121,7 @@ th {
   -ms-flex-preferred-size: 0;
       flex-basis: 0;
   max-width: 100%;
+  margin-bottom: 18px;
 }
 .col-s {
   -ms-flex: 0 0 auto;
