@@ -23,6 +23,8 @@ $publish_exhibitors = IGV_get_option('_igv_page_options', '_igv_publish_exhibito
 
 <?php get_template_part('partials/front-page/program'); ?>
 
+<?php get_template_part('partials/front-page/press'); ?>
+
 <?php get_template_part('partials/partners'); ?>
 
 <!-- end main-content -->
