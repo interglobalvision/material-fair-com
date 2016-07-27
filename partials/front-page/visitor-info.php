@@ -33,7 +33,7 @@ if (!empty($schedule) || ( !empty($venue_name) && !empty($venue_address) )  || !
           ?>
           <div class="flex-row border-row padding-top-micro">
             <div class="col col-s col-s-6 font-size-h4">
-              <?php _e( date('l, j F Y', $day['date']) ); ?>
+              <?php _e( date('l, j M Y', $day['date']) ); ?>
             </div>
             <div class="col col-s col-s-6">
               <span class="font-size-h4"><?php echo apply_filters( 'the_content', $day['schedule'] ); ?></span>
