@@ -142,51 +142,52 @@
         ?>
         </div>
       </div>
-      <nav>
-        <ul class="row justify-center desktop-only">
+
+      <nav id="main-menu">
+        <ul class="row justify-center">
         <?php 
           $page_id = get_id_by_slug('visitor-information');
           if ($page_id) {
         ?>
-          <li class="menu-item col col-l col-l-2 flex-col justify-center align-center font-pink">
-            <a href="<?php echo get_permalink($page_id); ?>">
+          <li class="menu-item col col-s col-s-12 col-m col-m-4 col-l col-l-2 flex-col justify-center text-align-center font-pink">
+            <div><a class="border-underline" href="<?php echo get_permalink($page_id); ?>">
               <?php echo get_the_title($page_id); ?>
-            </a>
+            </a></div>
           </li>
         <?php } ?>
-          <li class="menu-item col col-l col-l-2 flex-col justify-center align-center font-yellow">
-            <a href="<?php echo get_post_type_archive_link( 'exhibitor' ); ?>">
+          <li class="menu-item col col-s col-s-12 col-m col-m-4 col-l col-l-2 flex-col justify-center text-align-center font-yellow">
+            <div><a class="border-underline" href="<?php echo get_post_type_archive_link( 'exhibitor' ); ?>">
               <?php _e('[:en]Exhibitors[:es]Expositores'); ?>
-            </a>
+            </a></div>
           </li>
-          <li class="menu-item col col-l col-l-2 flex-col justify-center align-center font-green">
-            <a href="<?php echo get_post_type_archive_link( 'event' ); ?>">
+          <li class="menu-item col col-s col-s-12 col-m col-m-4 col-l col-l-2 flex-col justify-center text-align-center font-green">
+            <div><a class="border-underline" href="<?php echo get_post_type_archive_link( 'event' ); ?>">
               <?php _e('[:en]Program[:es]Programa'); ?>
-            </a>
+            </a></div>
           </li>
-          <li class="menu-item col col-l col-l-2 flex-col justify-center align-center font-pink">
-            <a href="<?php echo get_post_type_archive_link( 'press' ); ?>">
+          <li class="menu-item col col-s col-s-12 col-m col-m-4 col-l col-l-2 flex-col justify-center text-align-center font-pink">
+            <div><a class="border-underline" href="<?php echo get_post_type_archive_link( 'press' ); ?>">
               <?php _e('[:en]Press[:es]Prensa'); ?>
-            </a>
+            </a></div>
           </li>
         <?php 
           $page_id = get_id_by_slug('reading-material');
           if ($page_id && $show_reading_material == 'on') {
         ?>
-          <li class="menu-item col col-l col-l-2 flex-col justify-center align-center font-yellow">
-            <a href="<?php echo get_permalink($page_id); ?>">
+          <li class="menu-item col col-s col-s-12 col-m col-m-4 col-l col-l-2 flex-col justify-center text-align-center font-yellow">
+            <div><a class="border-underline" href="<?php echo get_permalink($page_id); ?>">
               <?php echo get_the_title($page_id); ?>
-            </a>
+            </a></div>
           </li>
         <?php 
           }
           $page_id = get_id_by_slug('partners');
           if ($page_id && !empty($partners)) {
         ?>
-          <li class="menu-item col col-l col-l-2 flex-col justify-center align-center font-green">
-            <a href="<?php echo get_permalink($page_id); ?>">
+          <li class="menu-item col col-s col-s-12 col-m col-m-4 col-l col-l-2 flex-col justify-center text-align-center font-green">
+            <div><a class="border-underline" href="<?php echo get_permalink($page_id); ?>">
               <?php echo get_the_title($page_id); ?>
-            </a>
+            </a></div>
           </li>
         <?php } ?>
         </ul>

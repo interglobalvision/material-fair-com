@@ -1,7 +1,10 @@
 //copy styles from site.styl
 
 $cols = 12
-$gutter = 36px
+$gutter = 32px 
+
+.mobile-only
+  display: none
 
 .container
   width: 952px
@@ -22,3 +25,17 @@ for col in 1..$cols
   .col-l-{col}
     flex-basis: ( 100% / $cols ) * col
     max-width: ( 100% / $cols ) * col
+    
+#main-menu
+  position: relative
+  height: auto
+  width: auto
+  top: auto
+  left: auto
+  background-color: none
+  border-bottom: none
+  padding: 0
+
+.menu-item
+  &.col 
+    margin-bottom: ( $gutter / 2 )
