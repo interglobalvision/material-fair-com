@@ -9,13 +9,13 @@ $current_post_id = $post->ID;
 <section class="section section-yellow">
   <div class="container">
     <div class="row">
-      <div class="col col-l col-l-6">
+      <div class="col col-s col-s-12 col-l col-l-6">
         <h2 class="font-sans"><?php 
           _e('[:en]Exhibitors[:es]Expositores'); 
           echo ' ' . $current_year; 
         ?></h2>
       </div>
-      <div class="col col-l col-l-6 flex-row justify-end">
+      <div class="col col-s col-s-12 col-l col-l-6 flex-row justify-end">
 <?php
 $args = array(
   'post_type'       =>  'exhibitor',

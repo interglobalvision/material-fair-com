@@ -40,7 +40,7 @@ if (!empty($stand)) {
         }
       ?>
       </div>
-      <div class="col col-s col-s-12 col-m col-m-6">
+      <div class="col col-s col-s-12 col-l col-l-6">
         <div class="font-size-h4">
           <?php 
             the_content();
