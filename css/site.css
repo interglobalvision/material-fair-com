@@ -1055,6 +1055,7 @@ th {
   flex-direction: row-reverse;
 }
 .flex-col {
+  box-sizing: border-box;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1063,7 +1064,14 @@ th {
   -ms-flex-direction: column;
   flex-direction: column;
 }
+.flex-col.reverse {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -ms-flex-direction: column-reverse;
+  flex-direction: column-reverse;
+}
 .flex-row {
+  box-sizing: border-box;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1071,6 +1079,14 @@ th {
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
   flex-direction: row;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.flex-row.reverse {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
 }
 .justify-start {
   -ms-justify-content: flex-start;
@@ -1110,6 +1126,21 @@ th {
   -ms-flex-align: end;
       -ms-grid-row-align: flex-end;
       align-items: flex-end;
+}
+.align-content-start {
+  -ms-align-content: flex-start;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+}
+.align-content-center {
+  -ms-align-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+.align-content-end {
+  -ms-align-content: flex-end;
+  -ms-flex-line-pack: end;
+      align-content: flex-end;
 }
 .col {
   box-sizing: border-box;
@@ -1813,6 +1844,15 @@ ul.language-chooser li a {
   height: 0;
   overflow: hidden;
 }
+.event-time,
+.event-times-divider {
+  display: inline-block;
+  margin: 0 11.124611797497385px 0 0;
+}
+.event-times-divider {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
 .swiper-container {
   height: 500px;
 }
@@ -1839,6 +1879,19 @@ ul.language-chooser li a {
     -webkit-column-gap: 36px;
     -moz-column-gap: 36px;
     column-gap: 36px;
+  }
+  .event-time,
+  .event-times-divider {
+    display: block;
+    margin: 0 0 11.124611797497385px 0;
+    text-align: center;
+  }
+  .event-times-divider {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  .event-times-day {
+    display: block;
   }
 }
 @media screen and (max-width: 1150px) {
