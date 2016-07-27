@@ -50,7 +50,7 @@ $venue_map = IGV_get_option('_igv_visitor_options', '_igv_venue_map');
           <h2 class="margin-bottom-tiny"><?php _e('[:en]Venue[:es]Sede'); ?></h2>
           <div class="font-size-h3">
             <div class="margin-bottom-tiny"><?php echo $venue_name; ?></div>
-            <?php echo $venue_address; ?>
+            <?php echo apply_filters( 'the_content', $venue_address ); ?>
           </div>
         </div>
 <?php 
