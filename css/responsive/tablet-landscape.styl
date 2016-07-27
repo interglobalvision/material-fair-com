@@ -26,7 +26,10 @@ for col in 1..$cols
     flex-basis: ( 100% / $cols ) * col
     max-width: ( 100% / $cols ) * col
     
-#main-menu
+#header
+  margin-top: 0
+    
+#header-menu
   position: relative
   height: auto
   width: auto
@@ -34,7 +37,10 @@ for col in 1..$cols
   left: auto
   background-color: none
   border-bottom: none
-  padding: 0
+  
+#main-menu 
+  height: auto
+  padding-botton: 0
 
 .menu-item
   &.col 

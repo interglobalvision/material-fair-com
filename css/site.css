@@ -1531,6 +1531,7 @@ input:disabled {
   padding-bottom: 140px;
 }
 #header {
+  margin-top: 56px;
   border-top: 0;
   background-color: #000;
 }
@@ -1543,6 +1544,9 @@ input:disabled {
 }
 #header .button {
   border: none;
+}
+#header-primary .col {
+  margin-bottom: 0;
 }
 ul.language-chooser {
   margin-bottom: 8.652475842497966px;
@@ -1570,7 +1574,7 @@ ul.language-chooser li.active:before {
 ul.language-chooser li a {
   background: none;
 }
-#main-menu {
+#header-menu {
   position: fixed;
   height: auto;
   width: 100%;
@@ -1578,7 +1582,11 @@ ul.language-chooser li a {
   left: 0;
   background-color: #000;
   border-bottom: 1px solid #ff7bac;
-  padding: 28px 0;
+  overflow: hidden;
+}
+#main-menu {
+  height: 0;
+  padding-botton: 14px;
 }
 .menu-item {
   font-size: 1.541986833892031rem;
@@ -1603,6 +1611,7 @@ ul.language-chooser li a {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+  border: 8.652475842497966px solid #ffd923 !important;
 }
 .calendar-heading {
   margin-bottom: 0;
@@ -1922,7 +1931,10 @@ ul.language-chooser li a {
         flex-basis: 100%;
     max-width: 100%;
   }
-  #main-menu {
+  #header {
+    margin-top: 0;
+  }
+  #header-menu {
     position: relative;
     height: auto;
     width: auto;
@@ -1930,7 +1942,10 @@ ul.language-chooser li a {
     left: auto;
     background-color: none;
     border-bottom: none;
-    padding: 0;
+  }
+  #main-menu {
+    height: auto;
+    padding-botton: 0;
   }
   .menu-item.col {
     margin-bottom: 16px;

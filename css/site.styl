@@ -419,6 +419,7 @@ input
 // HEADER
 
 #header
+  margin-top: $margin-basic
   border-top: 0
   background-color: $color-black
   p
@@ -428,6 +429,10 @@ input
     height: auto
   .button
     border: none
+    
+#header-primary
+  .col
+    margin-bottom: 0
 
 ul.language-chooser
   margin-bottom: $margin-micro
@@ -447,8 +452,8 @@ ul.language-chooser
         content: ''
     a
       background: none
-      
-#main-menu
+
+#header-menu
   position: fixed
   height: auto
   width: 100%
@@ -456,7 +461,11 @@ ul.language-chooser
   left: 0
   background-color: $color-black
   border-bottom: 1px solid $color-pink
-  padding: $margin-small 0
+  overflow: hidden
+  
+#main-menu 
+  height: 0
+  padding-botton: $margin-tiny
 
 .menu-item
   font-size: $font-size-h4
@@ -481,6 +490,7 @@ ul.language-chooser
   width: 100%
   max-height: 500px
   flex-grow: 1
+  border: $margin-micro solid $color-yellow !important
 
 // PROGRAM
 

@@ -81,116 +81,130 @@
   <!-- start content -->
   <header id="header" class="section">
     <div class="container">
-      <div class="row font-uppercase">
-        <a class="col col-s col-s-12 col-m col-m-6 col-l col-l-5" href="<?php echo home_url(); ?>">
-          <img id="header-logo" src="<?php bloginfo('stylesheet_directory'); ?>/img/dist/header-logo.svg">
-        </a>
-
-        <?php 
-          if (!empty($apply_url) && $publish_exhibitors != 'on' && $show_apply == 'on') { 
-        ?>
-        <div class="col col-s col-s-12 col-m col-m-4 col-l col-l-3 flex-row"> 
-          <div class="col flex-col justify-center align-center text-align-center font-size-h4 <?php echo !empty($header_text) ? 'section-yellow' : ''; ?>">
-            <?php echo !empty($header_text) ? apply_filters( 'the_content', $header_text ) : ''; ?>
-          </div>
-        </div>
-        <div class="col col-s col-s-12 col-m col-m-2 col-l col-l-2 flex-row">
-          <a class="col flex-col justify-center align-center font-size-h4 button" href="<?php echo esc_url($apply_url); ?>">
-            <?php _e('[:en]Apply![:es]Applicar!'); ?>
+      <div id="header-primary">
+        <div class="row font-uppercase">
+          <a class="col col-s col-s-12 col-m col-m-6 col-l col-l-6 desktop-only" href="<?php echo home_url(); ?>">
+            <img id="header-logo" height="100%" src="<?php bloginfo('stylesheet_directory'); ?>/img/dist/header-logo.svg">
           </a>
-        </div>
-        <?php 
-          } else { 
-        ?>
-        <div class="col col-s col-s-12 col-m col-m-6 col-l col-l-5 flex-row"> 
-          <div class="col flex-col justify-center align-center text-align-center font-size-h4 <?php echo !empty($header_text) ? 'section-yellow' : ''; ?>">
-            <?php echo !empty($header_text) ? apply_filters( 'the_content', $header_text ) : ''; ?>
-          </div>
-        </div>
-        <?php 
-          } 
-        ?>
 
-        <div class="col col-s col-s-2 flex-col desktop-only">
-          <div class="col flex-col justify-start align-end">
-            <?php echo qtranxf_generateLanguageSelectCode('both'); ?>
-            <?php 
-              if (!empty($app_login_url) && !empty($app_login_text)) { 
-                echo '<a href="' . $app_login_url . '" class="border-underline margin-bottom-micro">';
-                echo $app_login_text;
-                echo '</a>';
-              }
-            ?>
-            <?php 
-              if ($show_vip_login == 'on') { 
-                echo '<a href="#" class="border-underline margin-bottom-micro">';
-                echo __('[:en]VIP Login[:es]Sección VIP');
-                echo '</a>';
-              }
-            ?>
+          <?php 
+            if (!empty($apply_url) && $publish_exhibitors != 'on' && $show_apply == 'on') { 
+          ?>
+          <div class="col col-s col-s-12 col-m col-m-4 col-l col-l-3 flex-row"> 
+            <div class="col flex-col justify-center align-center text-align-center font-size-h4 padding-bottom-micro padding-top-micro <?php echo !empty($header_text) ? 'section-yellow' : ''; ?>">
+              <?php echo !empty($header_text) ? apply_filters( 'the_content', $header_text ) : ''; ?>
+            </div>
           </div>
-        <?php if (!empty($sponsor_logo)) { 
-        ?>
-          <div class="col flex-col justify-end align-center">
-            <?php 
-              $sponsor_logo_img = wp_get_attachment_image($sponsor_logo, 'sponsor');
-              echo !empty($sponsor_url) ? '<a href="' . $sponsor_url . '">' . $sponsor_logo_img . '</a>' : $sponsor_logo_img; 
-            ?>
+          <div class="col col-s col-s-12 col-m col-m-2 col-l col-l-2 flex-row">
+            <a class="col flex-col justify-center align-center font-size-h4 button" href="<?php echo esc_url($apply_url); ?>">
+              <?php _e('[:en]Apply![:es]Applicar!'); ?>
+            </a>
           </div>
-        <?php 
-          } 
-        ?>
+          <?php 
+            } else { 
+          ?>
+          <div class="col col-s col-s-12 col-m col-m-6 col-l col-l-4 flex-row"> 
+            <div class="col flex-col justify-center align-center text-align-center font-size-h4 padding-bottom-micro padding-top-micro <?php echo !empty($header_text) ? 'section-yellow' : ''; ?>">
+              <?php echo !empty($header_text) ? apply_filters( 'the_content', $header_text ) : ''; ?>
+            </div>
+          </div>
+          <?php 
+            } 
+          ?>
+
+          <div class="col col-s col-s-2 flex-col desktop-only">
+            <div class="col flex-col justify-start align-end">
+              <?php echo qtranxf_generateLanguageSelectCode('both'); ?>
+              <?php 
+                if (!empty($app_login_url) && !empty($app_login_text)) { 
+                  echo '<a href="' . $app_login_url . '" class="border-underline margin-bottom-micro">';
+                  echo $app_login_text;
+                  echo '</a>';
+                }
+              ?>
+              <?php 
+                if ($show_vip_login == 'on') { 
+                  echo '<a href="#" class="border-underline margin-bottom-micro">';
+                  echo __('[:en]VIP Login[:es]Sección VIP');
+                  echo '</a>';
+                }
+              ?>
+            </div>
+          <?php if (!empty($sponsor_logo)) { 
+          ?>
+            <div class="col flex-col justify-end align-center">
+              <?php 
+                $sponsor_logo_img = wp_get_attachment_image($sponsor_logo, 'sponsor');
+                echo !empty($sponsor_url) ? '<a href="' . $sponsor_url . '">' . $sponsor_logo_img . '</a>' : $sponsor_logo_img; 
+              ?>
+            </div>
+          <?php 
+            } 
+          ?>
+          </div>
         </div>
       </div>
 
-      <nav id="main-menu">
-        <ul class="row justify-center">
-        <?php 
-          $page_id = get_id_by_slug('visitor-information');
-          if ($page_id) {
-        ?>
-          <li class="menu-item col col-s col-s-12 col-m col-m-4 col-l col-l-2 flex-col justify-center text-align-center font-pink">
-            <div><a class="border-underline" href="<?php echo get_permalink($page_id); ?>">
-              <?php echo get_the_title($page_id); ?>
-            </a></div>
-          </li>
-        <?php } ?>
-          <li class="menu-item col col-s col-s-12 col-m col-m-4 col-l col-l-2 flex-col justify-center text-align-center font-yellow">
-            <div><a class="border-underline" href="<?php echo get_post_type_archive_link( 'exhibitor' ); ?>">
-              <?php _e('[:en]Exhibitors[:es]Expositores'); ?>
-            </a></div>
-          </li>
-          <li class="menu-item col col-s col-s-12 col-m col-m-4 col-l col-l-2 flex-col justify-center text-align-center font-green">
-            <div><a class="border-underline" href="<?php echo get_post_type_archive_link( 'event' ); ?>">
-              <?php _e('[:en]Program[:es]Programa'); ?>
-            </a></div>
-          </li>
-          <li class="menu-item col col-s col-s-12 col-m col-m-4 col-l col-l-2 flex-col justify-center text-align-center font-pink">
-            <div><a class="border-underline" href="<?php echo get_post_type_archive_link( 'press' ); ?>">
-              <?php _e('[:en]Press[:es]Prensa'); ?>
-            </a></div>
-          </li>
-        <?php 
-          $page_id = get_id_by_slug('reading-material');
-          if ($page_id && $show_reading_material == 'on') {
-        ?>
-          <li class="menu-item col col-s col-s-12 col-m col-m-4 col-l col-l-2 flex-col justify-center text-align-center font-yellow">
-            <div><a class="border-underline" href="<?php echo get_permalink($page_id); ?>">
-              <?php echo get_the_title($page_id); ?>
-            </a></div>
-          </li>
-        <?php 
-          }
-          $page_id = get_id_by_slug('partners');
-          if ($page_id && !empty($partners)) {
-        ?>
-          <li class="menu-item col col-s col-s-12 col-m col-m-4 col-l col-l-2 flex-col justify-center text-align-center font-green">
-            <div><a class="border-underline" href="<?php echo get_permalink($page_id); ?>">
-              <?php echo get_the_title($page_id); ?>
-            </a></div>
-          </li>
-        <?php } ?>
-        </ul>
-      </nav>
+      <div id="header-menu">
+        <div class="row mobile-only">
+          <div class="col col-s col-s-10">
+            <a href="<?php echo home_url(); ?>">
+              <h1 class="font-size-h3 font-uppercase">Material Art Fair</h1>
+            </a>
+          </div>
+          <div class="col col-s col-s-2 text-align-right js-menu-toggle font-size-h4">
+            <div class="menu-toggle">▼</div>
+          </div>
+        </div>
+        <nav id="main-menu">
+          <ul class="row justify-center">
+          <?php 
+            $page_id = get_id_by_slug('visitor-information');
+            if ($page_id) {
+          ?>
+            <li class="menu-item col col-s col-s-12 col-m col-m-4 col-l col-l-2 flex-col justify-center text-align-center font-pink">
+              <div><a class="border-underline" href="<?php echo get_permalink($page_id); ?>">
+                <?php echo get_the_title($page_id); ?>
+              </a></div>
+            </li>
+          <?php } ?>
+            <li class="menu-item col col-s col-s-12 col-m col-m-4 col-l col-l-2 flex-col justify-center text-align-center font-yellow">
+              <div><a class="border-underline" href="<?php echo get_post_type_archive_link( 'exhibitor' ); ?>">
+                <?php _e('[:en]Exhibitors[:es]Expositores'); ?>
+              </a></div>
+            </li>
+            <li class="menu-item col col-s col-s-12 col-m col-m-4 col-l col-l-2 flex-col justify-center text-align-center font-green">
+              <div><a class="border-underline" href="<?php echo get_post_type_archive_link( 'event' ); ?>">
+                <?php _e('[:en]Program[:es]Programa'); ?>
+              </a></div>
+            </li>
+            <li class="menu-item col col-s col-s-12 col-m col-m-4 col-l col-l-2 flex-col justify-center text-align-center font-pink">
+              <div><a class="border-underline" href="<?php echo get_post_type_archive_link( 'press' ); ?>">
+                <?php _e('[:en]Press[:es]Prensa'); ?>
+              </a></div>
+            </li>
+          <?php 
+            $page_id = get_id_by_slug('reading-material');
+            if ($page_id && $show_reading_material == 'on') {
+          ?>
+            <li class="menu-item col col-s col-s-12 col-m col-m-4 col-l col-l-2 flex-col justify-center text-align-center font-yellow">
+              <div><a class="border-underline" href="<?php echo get_permalink($page_id); ?>">
+                <?php echo get_the_title($page_id); ?>
+              </a></div>
+            </li>
+          <?php 
+            }
+            $page_id = get_id_by_slug('partners');
+            if ($page_id && !empty($partners)) {
+          ?>
+            <li class="menu-item col col-s col-s-12 col-m col-m-4 col-l col-l-2 flex-col justify-center text-align-center font-green">
+              <div><a class="border-underline" href="<?php echo get_permalink($page_id); ?>">
+                <?php echo get_the_title($page_id); ?>
+              </a></div>
+            </li>
+          <?php } ?>
+          </ul>
+        </nav>
+      </div>
     </div>
   </header>
