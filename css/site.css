@@ -1894,6 +1894,16 @@ ul.language-chooser li a {
     display: block;
   }
 }
+@media screen and (max-width: 952px) {
+  .desktop-only {
+    display: none;
+  }
+}
+@media screen and (min-width: 952px) {
+  .mobile-only {
+    display: none;
+  }
+}
 @media screen and (max-width: 1150px) {
   .container {
     width: 952px;
