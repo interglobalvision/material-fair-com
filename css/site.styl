@@ -311,8 +311,8 @@ h1, h2
   .border-row
     border-color: $color-black
 
-.pagination-button
-  margin: 0 $margin-micro
+.pagination-container
+  justify-content: space-between
 
 img
   max-width: 100%
@@ -543,7 +543,14 @@ ul.language-chooser
   .text-columns-2
     column-count: 2
     column-gap: $gutter
-
+    
+@media screen and (min-width: 952px) // tablet-landscape container
+  .pagination-container
+    justify-content: flex-end
+  
+  .pagination-button
+    margin: 0 $margin-micro
+    
 // MEDIA QUERIES
 
 @media screen and (max-width: $container)

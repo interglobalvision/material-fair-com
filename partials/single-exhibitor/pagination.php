@@ -15,7 +15,7 @@ $current_post_id = $post->ID;
           echo ' ' . $current_year; 
         ?></h2>
       </div>
-      <div class="col col-s col-s-12 col-l col-l-6 flex-row justify-end">
+      <div class="col col-s col-s-12 col-l col-l-6 flex-row pagination-container">
 <?php
 $args = array(
   'post_type'       =>  'exhibitor',
