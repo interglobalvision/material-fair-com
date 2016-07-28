@@ -303,12 +303,19 @@ h1, h2
   color: $color-yellow
 
 .border-row
+  margin-left: $margin-tiny
+  margin-right: $margin-tiny
   border-top: 1px solid $color-yellow
   &:last-of-type
     border-bottom: 1px solid $color-yellow
   p
     margin-bottom: 0
-
+  .col
+    &:first-of-type
+      padding-left: 0
+    &:last-of-type
+      padding-right: 0
+  
 .section
   width: 100%
   padding: $margin-small 0

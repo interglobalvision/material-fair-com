@@ -1611,6 +1611,8 @@ h2 {
   color: #ffd923;
 }
 .border-row {
+  margin-left: 18px;
+  margin-right: 18px;
   border-top: 1px solid #ffd923;
 }
 .border-row:last-of-type {
@@ -1618,6 +1620,12 @@ h2 {
 }
 .border-row p {
   margin-bottom: 0;
+}
+.border-row .col:first-of-type {
+  padding-left: 0;
+}
+.border-row .col:last-of-type {
+  padding-right: 0;
 }
 .section {
   width: 100%;
