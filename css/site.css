@@ -85,6 +85,9 @@ ul.u-inline-list li {
       -ms-flex-pack: center;
           justify-content: center;
 }
+.u-no-p-breaks p {
+  margin-bottom: 0;
+}
 @font-face {
   font-family: 'Akkurat Pro';
   src: url("fonts/AkkuratPro-Italic.eot");
@@ -1379,15 +1382,12 @@ h2 {
   color: #ffd923;
 }
 .border-row {
-  margin-left: 18px;
-  margin-right: 18px;
+  margin-left: 14px;
+  margin-right: 14px;
   border-top: 1px solid #ffd923;
 }
 .border-row:last-of-type {
   border-bottom: 1px solid #ffd923;
-}
-.border-row p {
-  margin-bottom: 0;
 }
 .border-row .col:first-of-type {
   padding-left: 0;
