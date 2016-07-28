@@ -25,7 +25,7 @@ $venue_map = IGV_get_option('_igv_visitor_options', '_igv_venue_map');
       foreach ($schedule as $day) { 
         if (!empty($day['schedule']) && !empty($day['date'])) {
 ?>
-          <div class="flex-row border-row padding-top-tiny padding-bottom-tiny">
+          <div class="flex-row border-row padding-top-tiny padding-bottom-tiny u-no-breaks">
             <div class="col col-l col-l-6">
               <?php _e( date('l, j F Y', $day['date']) ); ?>
             </div>
