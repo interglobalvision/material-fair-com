@@ -83,28 +83,28 @@
     <div class="container">
       <div id="header-primary">
         <div class="row font-uppercase">
-          <a class="col col-s col-s-12 col-m col-m-6 col-l col-l-6 desktop-only" href="<?php echo home_url(); ?>">
+          <a class="col col-s col-s-5 desktop-only" href="<?php echo home_url(); ?>">
             <img id="header-logo" height="100%" src="<?php bloginfo('stylesheet_directory'); ?>/img/dist/header-logo.svg">
           </a>
 
           <?php 
             if (!empty($apply_url) && $publish_exhibitors != 'on' && $show_apply == 'on') { 
           ?>
-          <div class="col col-s col-s-12 col-m col-m-4 col-l col-l-3 flex-row"> 
-            <div class="col flex-col justify-center align-center text-align-center font-size-h4 padding-bottom-micro padding-top-micro <?php echo !empty($header_text) ? 'section-yellow' : ''; ?>">
+          <div class="col col-s col-s-12 col-m col-m-5 col-l col-l-3 flex-row"> 
+            <div class="col flex-col justify-center align-center text-align-center font-size-h4 padding-bottom-tiny padding-top-tiny <?php echo !empty($header_text) ? 'section-yellow' : ''; ?>">
               <?php echo !empty($header_text) ? apply_filters( 'the_content', $header_text ) : ''; ?>
             </div>
           </div>
-          <div class="col col-s col-s-12 col-m col-m-2 col-l col-l-2 flex-row">
-            <a class="col flex-col justify-center align-center font-size-h4 button" href="<?php echo esc_url($apply_url); ?>">
+          <div class="col col-s col-s-6 col-m col-m-4 col-l col-l-2 flex-row">
+            <a class="col flex-col justify-center align-center font-size-h4 button button-big" href="<?php echo esc_url($apply_url); ?>">
               <?php _e('[:en]Apply![:es]Applicar!'); ?>
             </a>
           </div>
           <?php 
             } else { 
           ?>
-          <div class="col col-s col-s-12 col-m col-m-6 col-l col-l-4 flex-row"> 
-            <div class="col flex-col justify-center align-center text-align-center font-size-h4 padding-bottom-micro padding-top-micro <?php echo !empty($header_text) ? 'section-yellow' : ''; ?>">
+          <div class="col col-s col-s-12 col-m col-m-9 col-l col-l-5 flex-row"> 
+            <div class="col flex-col justify-center align-center text-align-center font-size-h4 padding-bottom-tiny padding-top-tiny <?php echo !empty($header_text) ? 'section-yellow' : ''; ?>">
               <?php echo !empty($header_text) ? apply_filters( 'the_content', $header_text ) : ''; ?>
             </div>
           </div>
@@ -112,9 +112,29 @@
             } 
           ?>
 
-          <div class="col col-s col-s-2 flex-col desktop-only">
-            <div class="col flex-col justify-start align-end">
-              <?php echo qtranxf_generateLanguageSelectCode('both'); ?>
+          <?php if (!empty($sponsor_logo)) { ?>
+            <div class="col col-s col-s-6 col-m col-m-3 mobile-only flex-row justify-center align-center">
+            <?php if (!empty($sponsor_url)) { ?>
+              <a class="col flex-col justify-center align-center" target="_blank" rel="noopener noreferrer" href="<?php echo esc_url($sponsor_url); ?>">
+                <?php echo wp_get_attachment_image($sponsor_logo, 'sponsor'); ?>
+              </a>
+            <?php 
+              } else {
+            ?>
+              <div class="col flex-col justify-center align-center">
+                <?php echo wp_get_attachment_image($sponsor_logo, 'sponsor'); ?>
+              </div>
+            <?php 
+              } 
+            ?>
+            </div>
+          <?php 
+            } 
+          ?>
+
+          <div class="col col-l col-l-2 flex-col desktop-only">
+            <div class="col flex-col align-end">
+              <div class="margin-bottom-micro"><?php echo qtranxf_generateLanguageSelectCode('both'); ?></div>
               <?php 
                 if (!empty($app_login_url) && !empty($app_login_text)) { 
                   echo '<a href="' . $app_login_url . '" class="border-underline margin-bottom-micro">';
@@ -146,13 +166,13 @@
       </div>
 
       <div id="header-menu">
-        <div class="row mobile-only">
-          <div class="col col-s col-s-10">
+        <div id="header-mobile" class="row mobile-only">
+          <div class="col col-s col-s-10 col-m col-m-11">
             <a href="<?php echo home_url(); ?>">
-              <h1 class="font-size-h3 font-uppercase">Material Art Fair</h1>
+              <h1 class="font-uppercase">Material Art Fair</h1>
             </a>
           </div>
-          <div class="col col-s col-s-2 text-align-right js-menu-toggle font-size-h4">
+          <div class="col col-s col-s-2 col-m col-m-1 text-align-center js-menu-trigger u-pointer">
             <div class="menu-toggle">▼</div>
           </div>
         </div>
@@ -201,6 +221,28 @@
               <div><a class="border-underline" href="<?php echo get_permalink($page_id); ?>">
                 <?php echo get_the_title($page_id); ?>
               </a></div>
+            </li>
+
+            <li class="mobile-only col col-s col-s-12 col-m col-m-4 text-align-center padding-bottom-tiny">
+              <?php echo qtranxf_generateLanguageSelectCode('both'); ?>
+            </li>
+            <li class="mobile-only col col-s col-s-12 col-m col-m-4 text-align-center padding-bottom-tiny">
+              <?php 
+                if ($show_vip_login == 'on') { 
+                  echo '<a href="#" class="border-underline margin-bottom-micro">';
+                  echo __('[:en]VIP Login[:es]Sección VIP');
+                  echo '</a>';
+                }
+              ?>
+            </li>
+            <li class="mobile-only col col-s col-s-12 col-m col-m-4 text-align-center padding-bottom-tiny">
+              <?php 
+                if (!empty($app_login_url) && !empty($app_login_text)) { 
+                  echo '<a href="' . $app_login_url . '" class="border-underline margin-bottom-micro">';
+                  echo $app_login_text;
+                  echo '</a>';
+                }
+              ?>
             </li>
           <?php } ?>
           </ul>

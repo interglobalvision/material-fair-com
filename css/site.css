@@ -1063,6 +1063,8 @@ th {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 .flex-col.reverse {
   -webkit-box-orient: horizontal;
@@ -1531,7 +1533,7 @@ input:disabled {
   padding-bottom: 140px;
 }
 #header {
-  margin-top: 56px;
+  margin-top: 53px;
   border-top: 0;
   background-color: #000;
 }
@@ -1544,12 +1546,6 @@ input:disabled {
 }
 #header .button {
   border: none;
-}
-#header-primary .col {
-  margin-bottom: 0;
-}
-ul.language-chooser {
-  margin-bottom: 8.652475842497966px;
 }
 ul.language-chooser li {
   display: inline-block;
@@ -1583,13 +1579,39 @@ ul.language-chooser li a {
   background-color: #000;
   border-bottom: 1px solid #ff7bac;
   overflow: hidden;
+  z-index: 9999;
+}
+#header-mobile {
+  font-size: 21px;
+  padding-bottom: 14px;
+  padding-top: 14px;
+}
+#header-mobile .col {
+  margin-bottom: 0;
+}
+#header-mobile h1 {
+  font-size: inherit;
+}
+#header-mobile .menu-toggle {
+  font-size: 18px;
+  line-height: 1.2em;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: transform 400ms ease-in-out;
+  -webkit-transition: -webkit-transform 400ms ease-in-out;
+  transition: -webkit-transform 400ms ease-in-out;
+  transition: transform 400ms ease-in-out;
+  transition: transform 400ms ease-in-out, -webkit-transform 400ms ease-in-out;
+}
+#header-mobile .menu-toggle.open {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 #main-menu {
-  height: 0;
-  padding-botton: 14px;
+  display: none;
+  border-top: 1px solid #ff7bac;
 }
 .menu-item {
-  font-size: 1.541986833892031rem;
   padding: 0;
 }
 .menu-item.col {
@@ -1779,6 +1801,9 @@ ul.language-chooser li a {
         flex-basis: 100%;
     max-width: 100%;
   }
+  .menu-item {
+    font-size: 1.541986833892031rem;
+  }
   .text-columns-2 {
     -webkit-column-count: 2;
     -moz-column-count: 2;
@@ -1934,6 +1959,9 @@ ul.language-chooser li a {
   #header {
     margin-top: 0;
   }
+  #header-primary .col {
+    margin-bottom: 0;
+  }
   #header-menu {
     position: relative;
     height: auto;
@@ -1944,8 +1972,7 @@ ul.language-chooser li a {
     border-bottom: none;
   }
   #main-menu {
-    height: auto;
-    padding-botton: 0;
+    display: block;
   }
   .menu-item.col {
     margin-bottom: 16px;

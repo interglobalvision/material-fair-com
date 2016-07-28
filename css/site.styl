@@ -89,6 +89,7 @@ $color-pink = rgb(255, 123, 172)
   box-sizing: border-box
   display: flex
   flex-direction: column
+  flex-wrap: wrap
   &.reverse
     flex-direction: column-reverse
 
@@ -419,7 +420,7 @@ input
 // HEADER
 
 #header
-  margin-top: $margin-basic
+  margin-top: 53px // height of #header-mobile
   border-top: 0
   background-color: $color-black
   p
@@ -429,13 +430,8 @@ input
     height: auto
   .button
     border: none
-    
-#header-primary
-  .col
-    margin-bottom: 0
 
 ul.language-chooser
-  margin-bottom: $margin-micro
   li
     display:inline-block
     border-color: inherit
@@ -462,13 +458,29 @@ ul.language-chooser
   background-color: $color-black
   border-bottom: 1px solid $color-pink
   overflow: hidden
+  z-index: 9999
+  
+#header-mobile
+  font-size: 21px
+  padding-bottom: 14px
+  padding-top: 14px
+  .col 
+    margin-bottom: 0 
+  h1 
+    font-size: inherit
+  .menu-toggle
+    font-size: 18px
+    line-height: 1.2em
+    transform: rotate(0deg)
+    transition: transform 400ms ease-in-out
+    &.open
+      transform: rotate(180deg)
   
 #main-menu 
-  height: 0
-  padding-botton: $margin-tiny
+  display: none
+  border-top: 1px solid $color-pink
 
 .menu-item
-  font-size: $font-size-h4
   padding: 0
   &.col 
     margin-bottom: $margin-small
