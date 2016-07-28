@@ -29,10 +29,9 @@ normalize()
 // ******************************************************
 
 // VARIABLES
-
+ 
 $cols = 12
-$gutter = 36px
-$container = 1150px
+$gutter = 28px
 
 $golden-ratio = 1.61803398875
 
@@ -72,7 +71,7 @@ $color-pink = rgb(255, 123, 172)
 
 .container
   margin: 0 auto
-  width: $container
+  width: 96%
 
 .row
   box-sizing: border-box
@@ -80,7 +79,7 @@ $color-pink = rgb(255, 123, 172)
   flex: 0 1 auto
   flex-direction: row
   flex-wrap: wrap
-  padding-top: ($gutter / 2)
+  padding-top: ($gutter / 2) 
   &.reverse
     flex-direction: row-reverse
 
@@ -90,6 +89,7 @@ $color-pink = rgb(255, 123, 172)
   box-sizing: border-box
   display: flex
   flex-direction: column
+  flex-wrap: wrap
   &.reverse
     flex-direction: column-reverse
 
@@ -150,38 +150,6 @@ for col in 1..$cols
   .col-s-{col}
     flex-basis: ( 100% / $cols ) * col
     max-width: ( 100% / $cols ) * col
-
-@media screen and (min-width: 568px) // iphone5 width
-
-  .col-m
-    flex: 0 0 auto
-    padding-right: ($gutter / 2)
-    padding-left: ($gutter / 2)
-
-  for offset in 0..($cols - 1)
-    .offset-m-{offset}
-      margin-left: ( 100% / $cols ) * offset
-
-  for col in 1..$cols
-    .col-m-{col}
-      flex-basis: ( 100% / $cols ) * col
-      max-width: ( 100% / $cols ) * col
-
-@media screen and (min-width: 952px) // tablet-landscape container
-
-  .col-l
-    flex: 0 0 auto
-    padding-right: ($gutter / 2)
-    padding-left: ($gutter / 2)
-
-  for offset in 0..($cols - 1)
-    .offset-l-{offset}
-      margin-left: ( 100% / $cols ) * offset
-
-  for col in 1..$cols
-    .col-l-{col}
-      flex-basis: ( 100% / $cols ) * col
-      max-width: ( 100% / $cols ) * col
 
 // ******************************************************
 
@@ -303,10 +271,18 @@ h1, h2
   color: $color-yellow
 
 .border-row
+  margin-left: $margin-tiny
+  margin-right: $margin-tiny
   border-top: 1px solid $color-yellow
   &:last-of-type
     border-bottom: 1px solid $color-yellow
 
+  .col
+    &:first-of-type
+      padding-left: 0
+    &:last-of-type
+      padding-right: 0
+  
 .section
   width: 100%
   padding: $margin-small 0
@@ -450,6 +426,7 @@ input
 // HEADER
 
 #header
+  margin-top: 53px // height of #header-mobile
   border-top: 0
   background-color: $color-black
   p
@@ -461,7 +438,6 @@ input
     border: none
 
 ul.language-chooser
-  margin-bottom: $margin-micro
   li
     display:inline-block
     border-color: inherit
@@ -479,12 +455,41 @@ ul.language-chooser
     a
       background: none
 
+#header-menu
+  position: fixed
+  height: auto
+  width: 100%
+  top: 0
+  left: 0
+  background-color: $color-black
+  border-bottom: 1px solid $color-pink
+  overflow: hidden
+  z-index: 9999
+  
+#header-mobile
+  font-size: 21px
+  padding-bottom: 14px
+  padding-top: 14px
+  .col 
+    margin-bottom: 0 
+  h1 
+    font-size: inherit
+  .menu-toggle
+    font-size: 18px
+    line-height: 1.2em
+    transform: rotate(0deg)
+    transition: transform 400ms ease-in-out
+    &.open
+      transform: rotate(180deg)
+  
+#main-menu 
+  display: none
+  border-top: 1px solid $color-pink
+
 .menu-item
-  font-size: $font-size-h4
   padding: 0
-  a
-    border-bottom: 1px solid
-    border-color: inherit
+  &.col 
+    margin-bottom: $margin-small
 
 // FRONT PAGE
 
@@ -503,6 +508,7 @@ ul.language-chooser
   width: 100%
   max-height: 500px
   flex-grow: 1
+  border: $margin-micro solid $color-yellow !important
 
 // PROGRAM
 
@@ -559,37 +565,23 @@ ul.language-chooser
 
 // ******************************************************
 
+@media screen and (max-width: 952px) 
+  .desktop-only
+    display: none
+
 @media screen and (min-width: 568px) // iphone5 width
 
-  .text-columns-2
-    column-count: 2
-    column-gap: $gutter
-  
-  .event-time, .event-times-divider 
-    display: block
-    margin: 0 0 $margin-micro 0
-    text-align: center 
-  
-  .event-times-divider
-    transform: rotate(0deg)
-    
-  .event-times-day
-    display: block
-
-// MEDIA QUERIES
-
-@media screen and (max-width: $container)
-
-  @import "responsive/tablet-landscape"
-
-@media screen and (max-width: 952px) // tablet-landscape container
-
-  @import "responsive/tablet-portrait"
-  
-@media screen and (max-width: 732px) // tablet-portrait container
-
   @import "responsive/mobile-landscape"
+    
+@media screen and (min-width: 712px) 
   
-@media screen and (max-width: 568px) // iphone5 width
+  @import "responsive/tablet-portrait"
+    
+@media screen and (min-width: 952px) 
+  
+  @import "responsive/tablet-landscape"
+    
+@media screen and (min-width: 1150px) // desktop 
+  
+  @import "responsive/desktop"
 
-  @import "responsive/mobile-portrait"
