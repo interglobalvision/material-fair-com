@@ -21,11 +21,15 @@ Site = {
     }
 
     _this.Mailchimp.init();
+
+    $('.js-menu-trigger').on('click', function() {
+      $('#main-menu').slideToggle(400);
+      $('.menu-toggle').toggleClass('open');
+    });
   },
 
   onResize: function() {
     var _this = this;
-
   },
 
   fixWidows: function() {
@@ -36,6 +40,7 @@ Site = {
       $(this).html(string);
     });
   },
+
 };
 
 Site.Mailchimp = {
