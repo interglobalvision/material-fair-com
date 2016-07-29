@@ -1981,6 +1981,7 @@ ul.language-chooser li a {
   }
   #main-menu {
     display: block;
+    border-top: none;
   }
   .menu-item.col {
     margin-bottom: 16px;
