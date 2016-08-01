@@ -1,4 +1,38 @@
 //copy styles from site.styl
+$cols = 12
+$gutter = 30px 
 
-.container
-  width: 96%
+.col
+  margin-bottom: ($gutter / 2)
+  
+.col-m
+  flex: 0 0 auto
+  padding-right: ($gutter / 2)
+  padding-left: ($gutter / 2)
+
+for offset in 0..($cols - 1)
+  .offset-m-{offset}
+    margin-left: ( 100% / $cols ) * offset
+
+for col in 1..$cols
+  .col-m-{col}
+    flex-basis: ( 100% / $cols ) * col
+    max-width: ( 100% / $cols ) * col
+    
+.menu-item
+  font-size: $font-size-h4
+
+.text-columns-2
+  column-count: 2
+  column-gap: $gutter
+
+.event-time, .event-times-divider 
+  display: block
+  margin: 0 0 $margin-micro 0
+  text-align: center 
+
+.event-times-divider
+  transform: rotate(0deg)
+  
+.event-times-day
+  display: block

@@ -39,10 +39,10 @@ if (get_fair_year_id()) {
   <div class="container">
     <div class="row">
     <?php if (is_front_page()) { ?>
-      <div class="col col-l col-l-10">
+      <div class="col col-s col-s-6 col-m col-m-9 col-l col-l-10">
         <h2 class="text-align-left"><?php _e('[:en]Program Highlights[:es]Eventos destecados'); ?></h2>
       </div>
-      <div class="col col-l col-l-2">
+      <div class="col col-s col-s-6 col-m col-m-3 col-l col-l-2">
         <a class="button col flex-row align-center justify-center" href="<?php echo get_post_type_archive_link( 'event' ); ?>"><?php _e('[:en]See More[:es]Ver más'); ?></a>
       </div>
     <?php } else { ?>
