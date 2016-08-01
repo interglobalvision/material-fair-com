@@ -9,13 +9,13 @@ $current_post_id = $post->ID;
 <section class="section section-yellow">
   <div class="container">
     <div class="row">
-      <div class="col col-l col-l-6">
+      <div class="col col-s col-s-12 col-l col-l-6">
         <h2 class="font-sans"><?php 
           _e('[:en]Exhibitors[:es]Expositores'); 
           echo ' ' . $current_year; 
         ?></h2>
       </div>
-      <div class="col col-l col-l-6 flex-row justify-end">
+      <div class="col col-s col-s-12 col-l col-l-6 flex-row pagination-container">
 <?php
 $args = array(
   'post_type'       =>  'exhibitor',
@@ -66,8 +66,8 @@ if ( $query->have_posts() ) {
 
   if (!empty( $previous_post )) {
 ?>
-        <a class="button pagination-button" href="<?php echo get_permalink( $previous_post->ID ); ?>">
-          ◀ <?php _e($previous_post->post_title); ?>
+        <a class="button pagination-button flex-row align-center" href="<?php echo get_permalink( $previous_post->ID ); ?>">
+          <div>◀&nbsp;</div><div><?php _e($previous_post->post_title); ?></div>
         </a>
 <?php 
   }
@@ -76,8 +76,8 @@ if ( $query->have_posts() ) {
 
   if (!empty( $next_post )) { 
 ?>
-        <a class="button pagination-button" href="<?php echo get_permalink( $next_post->ID ); ?>">
-          <?php _e($next_post->post_title); ?> ▶
+        <a class="button pagination-button flex-row align-center" href="<?php echo get_permalink( $next_post->ID ); ?>">
+          <div><?php _e($next_post->post_title); ?></div><div>&nbsp;▶</div>
         </a>
 <?php 
   }

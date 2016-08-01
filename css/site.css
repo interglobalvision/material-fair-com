@@ -1418,8 +1418,11 @@ h2 {
 .section-yellow .border-row {
   border-color: #000;
 }
-.pagination-button {
-  margin: 0 8.652475842497966px;
+.pagination-container {
+  -ms-justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 img {
   max-width: 100%;
@@ -1985,6 +1988,15 @@ ul.language-chooser li a {
   }
   .menu-item.col {
     margin-bottom: 16px;
+  }
+  .pagination-container {
+    -ms-justify-content: flex-end;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  .pagination-button {
+    margin: 0 8.652475842497966px;
   }
 }
 @media screen and (min-width: 1150px) {

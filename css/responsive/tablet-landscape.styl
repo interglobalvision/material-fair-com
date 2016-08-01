@@ -1,17 +1,17 @@
 //copy styles from site.styl
 
 $cols = 12
-$gutter = 32px 
+$gutter = 32px
 
 .mobile-only
   display: none
 
 .container
   width: 952px
-  
+
 .col
   margin-bottom: ($gutter / 2)
-  
+
 .col-l
   flex: 0 0 auto
   padding-right: ($gutter / 2)
@@ -25,14 +25,14 @@ for col in 1..$cols
   .col-l-{col}
     flex-basis: ( 100% / $cols ) * col
     max-width: ( 100% / $cols ) * col
-    
+
 #header
   margin-top: 0
-  
+
 #header-primary
   .col
     margin-bottom: 0
-    
+
 #header-menu
   position: relative
   height: auto
@@ -41,11 +41,17 @@ for col in 1..$cols
   left: auto
   background-color: none
   border-bottom: none
-  
-#main-menu 
+
+#main-menu
   display: block
   border-top: none
 
 .menu-item
-  &.col 
+  &.col
     margin-bottom: ( $gutter / 2 )
+
+.pagination-container
+  justify-content: flex-end
+
+.pagination-button
+  margin: 0 $margin-micro
