@@ -36,7 +36,7 @@ if (get_fair_year_id()) {
   if ( $highlight_press->have_posts() ) { 
     $highlight_post = 0;
 ?>
-  <section id="press-highlights" class="section">
+  <section id="press-highlights" class="section section-yellow">
     <div class="container">
       <div class="row">
         <div class="col col-l col-l-12 text-align-center">
