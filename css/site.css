@@ -1552,6 +1552,9 @@ input:disabled {
   margin-bottom: 0;
 }
 #header #header-logo {
+  line-height: 0;
+}
+#header #header-logo img {
   width: 100%;
   height: auto;
 }

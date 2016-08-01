@@ -83,8 +83,8 @@
     <div class="container">
       <div id="header-primary">
         <div class="row font-uppercase">
-          <a class="col col-s col-s-5 desktop-only" href="<?php echo home_url(); ?>">
-            <img id="header-logo" height="100%" src="<?php bloginfo('stylesheet_directory'); ?>/img/dist/header-logo.svg">
+          <a class="col col-s col-s-5 desktop-only" href="<?php echo home_url(); ?>" id="header-logo" >
+            <img src="<?php bloginfo('stylesheet_directory'); ?>/img/dist/header-logo.svg">
           </a>
 
           <?php 
