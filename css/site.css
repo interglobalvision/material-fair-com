@@ -1689,6 +1689,9 @@ ul.language-chooser li a {
           flex: 1 1 auto;
   margin-right: 8.652475842497966px;
 }
+#mailchimp-response {
+  margin-left: 8.652475842497966px;
+}
 #social-icon-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1697,6 +1700,10 @@ ul.language-chooser li a {
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-align: end;
+  -ms-align-items: flex-end;
+  -ms-flex-align: end;
+      align-items: flex-end;
 }
 .social-icon {
   display: -webkit-box;
