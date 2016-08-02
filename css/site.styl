@@ -42,7 +42,7 @@ $margin-basic = ($gutter * 2)
 $margin-mid = ($gutter * 3.5)
 $margin-large = ($gutter * 5)
 
-$font-size-basic = 13px
+$font-size-basic = 11px
 $font-size-larger = 1.3rem
 $font-size-h4 = golden-ratio(1rem , 0.9)
 $font-size-h3 = golden-ratio(1rem , 1.7)
@@ -544,12 +544,28 @@ ul.language-chooser
   max-height: 440px // to fit the caption
 
 // FOOTER
+#footer-logo
+  max-width: 47px
 
 .lead-sponsor-logo
   margin-right: $margin-small
+  margin-bottom: $margin-small
+  
+#mailchimp-email
+  flex: 1 1 auto
+  margin-right: $margin-micro
+  
+#mailchimp-response
+  margin-left: $margin-micro
 
+#social-icon-container
+  display: flex 
+  flex-direction: row
+  align-items: flex-end
+  
 .social-icon
-  margin-bottom: ($margin-micro / 2)
+  display: flex
+  justify-content: center
 
 // 404
 
