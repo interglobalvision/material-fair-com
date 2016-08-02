@@ -18,7 +18,7 @@ $venue_map = IGV_get_option('_igv_visitor_options', '_igv_venue_map');
 ?>
       <div class="row">
         <div class="col col-l col-l-12">
-          <h2 class="margin-bottom-tiny"><?php _e('[:en]Schedule[:es]Horario'); ?></h2>
+          <h2 class="margin-bottom-tiny"><?php _e('[:en]Schedule[:es]Horarios'); ?></h2>
         </div>
         <div class="col col-l-12 font-size-h3">
 <?php 
@@ -79,7 +79,7 @@ $venue_map = IGV_get_option('_igv_visitor_options', '_igv_venue_map');
       if ( !empty($how_to_arrive) ) {
 ?> 
         <div class="col col-l col-l-6 font-size-h3">
-          <h2 class="margin-bottom-tiny"><?php _e('[:en]How to arrive[:es]Como llegar'); ?></h2>
+          <h2 class="margin-bottom-tiny"><?php _e('[:en]How to arrive[:es]Cómo llegar'); ?></h2>
           <?php echo apply_filters( 'the_content', $how_to_arrive ); ?>
         </div>
 <?php 
