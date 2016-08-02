@@ -21,7 +21,7 @@ if (get_fair_year_id()) {
     ),
   );
 
-  if (count(press_highlight_ids(true)) >= 2) {
+  if (count(press_highlight_ids(true)) >= 2 || $current_year_id != $fair_year_id) {
     $args['tax_query'] = array(
       array(
         'taxonomy' => 'fair_year',
