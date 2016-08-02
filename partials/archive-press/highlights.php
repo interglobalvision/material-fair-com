@@ -79,9 +79,18 @@ if (get_fair_year_id()) {
 ?>
               <h3 class="font-size-h2 margin-bottom-micro">"<?php the_title(); ?>"</h3>
 <?php 
-        if (!empty($author)) {
+        if (!empty($author) || !empty($date)) {
 ?>
-              <div class="font-size-h4"><?php _e('[:en]by[:es]por'); echo ' ' . $author; ?></div>
+              <div class="font-size-h4">
+                <?php 
+                  if (!empty($author)) {
+                    _e('[:en]by[:es]por'); 
+                    echo ' ' . $author;
+                  }
+                ?> 
+                <?php echo (!empty($date) && !empty($author) ? ' | ' : '' ); ?>
+                <?php _e(!empty($date) ? date('j F Y', $date) : '' ); ?>
+              </div>
 <?php 
         }
 ?>
