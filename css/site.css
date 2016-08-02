@@ -1066,8 +1066,6 @@ th {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
 }
 .flex-col.reverse {
   -webkit-box-orient: horizontal;
