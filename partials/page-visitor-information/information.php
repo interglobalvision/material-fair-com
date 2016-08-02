@@ -27,7 +27,12 @@ $venue_map = IGV_get_option('_igv_visitor_options', '_igv_venue_map');
 ?>
           <div class="flex-row border-row padding-top-tiny padding-bottom-tiny u-no-p-breaks">
             <div class="col col-l col-l-6">
-              <?php _e( date('l, j F Y', $day['date']) ); ?>
+              <?php 
+                _e(date('l', $day['date']));
+                echo ', ' . date('j ', $day['date']);
+                _e(date('F', $day['date']));
+                echo date(' Y', $day['date']);
+              ?>
             </div>
             <div class="col col-l col-l-6">
               <?php echo apply_filters( 'the_content', $day['schedule'] ); ?>
