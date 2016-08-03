@@ -97,7 +97,7 @@
           </div>
           <div class="col col-s col-s-6 col-m col-m-4 col-l col-l-2 flex-row">
             <a class="col flex-col justify-center align-center font-size-h4 button button-big" href="<?php echo esc_url($apply_url); ?>">
-              <?php _e('[:en]Apply![:es]Applicar!'); ?>
+              <?php _e('[:en]Apply![:es]¡Aplica!'); ?>
             </a>
           </div>
           <?php 

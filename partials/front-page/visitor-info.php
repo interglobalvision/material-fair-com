@@ -26,14 +26,19 @@ if (!empty($schedule) || ( !empty($venue_name) && !empty($venue_address) )  || !
       <div class="row">
       <?php if (!empty($schedule)) { ?>
         <div class="col col-s-12 col-l-6">
-          <h3 class="col-s margin-bottom-tiny"><?php _e('[:en]Schedule[:es]Horario'); ?></h3>
+          <h3 class="col-s margin-bottom-tiny"><?php _e('[:en]Schedule[:es]Horarios'); ?></h3>
           <?php 
             foreach ($schedule as $day) { 
               if (!empty($day['schedule']) && !empty($day['date'])) {
           ?>
           <div class="flex-row border-row padding-top-micro u-no-p-breaks">
             <div class="col col-s col-s-6 font-size-h4">
-              <?php _e( date('l, j M Y', $day['date']) ); ?>
+              <?php
+                _e(date('l', $day['date']));
+                echo ', ' . date('j ', $day['date']);
+                _e(date('F', $day['date']));
+                echo date(' Y', $day['date']);
+              ?>
             </div>
             <div class="col col-s col-s-6">
               <span class="font-size-h4"><?php echo apply_filters( 'the_content', $day['schedule'] ); ?></span>

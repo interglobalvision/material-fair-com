@@ -31,7 +31,7 @@ if (!empty($apply_url) && $show_apply == 'on' && $publish_exhibitors != 'on') {
     ?>
       <div class="row justify-center">
         <a class="col col-l col-l-2 flex-row align-center justify-center button button-big" href="<?php echo esc_url($apply_url); ?>">
-          <?php _e( '[:en]Apply[:es]Applicar' ); ?>
+          <?php _e( '[:en]Apply![:es]¡Aplica!' ); ?>
         </a>
       </div>
     </div>
