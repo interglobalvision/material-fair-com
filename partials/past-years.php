@@ -18,7 +18,7 @@ if (!empty($other_years) && !empty($current_year_id)) {
   <div class="container">
     <div class="row">
       <div class="col col-l col-l-12">
-        <h2><?php _e('[:en]Other Editions[:es]Otras ediciónes'); ?></h2>
+        <h2><?php _e('[:en]Other Editions[:es]Otras ediciones'); ?></h2>
       </div>
     </div>
     <div class="row"> 
