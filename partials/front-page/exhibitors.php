@@ -49,7 +49,7 @@ if ($publish_exhibitors == 'on' && !empty($current_year_id)) {
 ?>
       </div>
       <div class="row justify-center">
-        <a href="<?php echo get_post_type_archive_link( 'exhibitor' ); ?>" class="col col-m col-m-8 col-m col-m-4 col-l col-l-2 flex-row align-center justify-center button">
+        <a href="<?php echo get_post_type_archive_link( 'exhibitor' ); ?>" class="col col-m col-m-8 col-m col-m-4 col-l col-l-2 flex-row align-center justify-center button button-yellow">
           <?php _e( '[:en]See More[:es]Ver más' ); ?>
         </a>
       </div>
