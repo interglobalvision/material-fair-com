@@ -30,7 +30,7 @@ if (get_fair_year_id()) {
   <section id="exhibitors-list" class="section">
     <div class="container">
       <div class="row">
-        <div class="col col-l col-l-12 text-align-center">
+        <div class="col col-s col-s-12 text-align-center">
           <h2>
             <?php 
               _e('[:en]Exhibitors[:es]Expositores');
@@ -65,7 +65,7 @@ if (get_fair_year_id()) {
 ?>
       </div>
       <div class="row">
-        <div class="col col-l col-l-12">
+        <div class="col col-s col-s-12">
           <h3><?php echo $section_letter; ?></h3>
         </div>
       </div>
@@ -79,7 +79,7 @@ if (get_fair_year_id()) {
       if ($fair_year_id != $current_year_id) {
 ?>
 
-        <article <?php post_class('col col-l col-l-6 margin-bottom-micro'); ?> id="post-<?php the_ID(); ?>">
+        <article <?php post_class('col col-s col-s-12 col-l col-l-6 margin-bottom-micro'); ?> id="post-<?php the_ID(); ?>">
         <?php if (!empty($link)) { ?>
           <a href="<?php echo esc_url($link); ?>" target="_blank" rel="noopener noreferrer">
             <h4 class="font-sans u-inline-block font-size-h3 border-underline"><?php the_title(); ?></h4>
@@ -94,7 +94,7 @@ if (get_fair_year_id()) {
     } else {
 ?>
 
-        <article <?php post_class('col col-l col-l-3'); ?> id="post-<?php the_ID(); ?>">
+        <article <?php post_class('col col-s col-s-6 col-m col-m-4 col-l col-l-3'); ?> id="post-<?php the_ID(); ?>">
           <a href="<?php the_permalink() ?>">
             <?php the_post_thumbnail('col-3-crop'); ?>
             <h4><?php the_title(); ?></h4>

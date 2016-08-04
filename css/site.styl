@@ -31,7 +31,7 @@ normalize()
 // VARIABLES
 
 $cols = 12
-$gutter = 28px
+$gutter = 24px
 
 $golden-ratio = 1.61803398875
 
@@ -44,7 +44,7 @@ $margin-large = ($gutter * 5)
 
 $font-size-basic = 11px
 $font-size-larger = 1.3rem
-$font-size-h4 = golden-ratio(1rem , 0.9)
+$font-size-h4 = golden-ratio(1rem , 0.7)
 $font-size-h3 = golden-ratio(1rem , 1.5)
 $font-size-h2 = golden-ratio(1rem , 2)
 $font-size-h1 = golden-ratio(1rem , 2.5)
@@ -299,6 +299,10 @@ h1, h2
     color: inherit
   .border-row
     border-color: $color-black
+    
+.pagination-section
+  .col
+    margin-bottom: ($gutter / 2)
 
 .pagination-container
   justify-content: space-between

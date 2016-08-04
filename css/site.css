@@ -1049,7 +1049,7 @@ th {
   flex-direction: row;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  padding-top: 14px;
+  padding-top: 12px;
 }
 .row.reverse {
   -webkit-box-orient: vertical;
@@ -1155,14 +1155,14 @@ th {
   -ms-flex-preferred-size: 0;
       flex-basis: 0;
   max-width: 100%;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 .col-s {
   -ms-flex: 0 0 auto;
   -webkit-box-flex: 0;
           flex: 0 0 auto;
-  padding-right: 14px;
-  padding-left: 14px;
+  padding-right: 12px;
+  padding-left: 12px;
 }
 .offset-s-0 {
   margin-left: 0%;
@@ -1301,7 +1301,7 @@ h3,
 }
 h4,
 .font-size-h4 {
-  font-size: 1.541986833892031rem;
+  font-size: 1.400505962399693rem;
 }
 p {
   margin-bottom: 1rem;
@@ -1380,8 +1380,8 @@ h2 {
   color: #ffd923;
 }
 .border-row {
-  margin-left: 14px;
-  margin-right: 14px;
+  margin-left: 12px;
+  margin-right: 12px;
   border-top: 1px solid #ffd923;
 }
 .border-row:last-of-type {
@@ -1395,7 +1395,7 @@ h2 {
 }
 .section {
   width: 100%;
-  padding: 28px 0;
+  padding: 24px 0;
   border-top: 1px solid #ffd923;
 }
 .section-yellow {
@@ -1416,6 +1416,9 @@ h2 {
 .section-yellow .border-row {
   border-color: #000;
 }
+.pagination-section .col {
+  margin-bottom: 12px;
+}
 .pagination-container {
   -ms-justify-content: space-between;
   -webkit-box-pack: justify;
@@ -1430,15 +1433,15 @@ img {
 a.button {
   background-color: #ff7bac;
   color: #000;
-  padding: 14px;
+  padding: 12px;
   text-transform: uppercase;
   font-weight: 600;
   border: 2px solid #000;
 }
 .button.button-big,
 a.button.button-big {
-  padding: 28px 0;
-  font-size: 1.541986833892031rem;
+  padding: 24px 0;
+  font-size: 1.400505962399693rem;
 }
 .button.button-yellow,
 a.button.button-yellow {
@@ -1446,7 +1449,7 @@ a.button.button-yellow {
 }
 input {
   border: 1px solid #000;
-  padding: 8.652475842497966px;
+  padding: 7.416407864998257px;
   -webkit-appearance: none;
   background: none;
   color: inherit;
@@ -1475,76 +1478,76 @@ input:disabled {
   color: inherit !important;
 }
 .margin-top-micro {
-  margin-top: 8.652475842497966px;
+  margin-top: 7.416407864998257px;
 }
 .margin-top-tiny {
-  margin-top: 14px;
+  margin-top: 12px;
 }
 .margin-top-small {
-  margin-top: 28px;
+  margin-top: 24px;
 }
 .margin-top-basic {
-  margin-top: 56px;
+  margin-top: 48px;
 }
 .margin-top-mid {
-  margin-top: 98px;
+  margin-top: 84px;
 }
 .margin-top-large {
-  margin-top: 140px;
+  margin-top: 120px;
 }
 .margin-bottom-micro {
-  margin-bottom: 8.652475842497966px;
+  margin-bottom: 7.416407864998257px;
 }
 .margin-bottom-tiny {
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 .margin-bottom-small {
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 .margin-bottom-basic {
-  margin-bottom: 56px;
+  margin-bottom: 48px;
 }
 .margin-bottom-mid {
-  margin-bottom: 98px;
+  margin-bottom: 84px;
 }
 .margin-bottom-large {
-  margin-bottom: 140px;
+  margin-bottom: 120px;
 }
 .padding-top-micro {
-  padding-top: 8.652475842497966px;
+  padding-top: 7.416407864998257px;
 }
 .padding-top-tiny {
-  padding-top: 14px;
+  padding-top: 12px;
 }
 .padding-top-small {
-  padding-top: 28px;
+  padding-top: 24px;
 }
 .padding-top-basic {
-  padding-top: 56px;
+  padding-top: 48px;
 }
 .padding-top-mid {
-  padding-top: 98px;
+  padding-top: 84px;
 }
 .padding-top-large {
-  padding-top: 140px;
+  padding-top: 120px;
 }
 .padding-bottom-micro {
-  padding-bottom: 8.652475842497966px;
+  padding-bottom: 7.416407864998257px;
 }
 .padding-bottom-tiny {
-  padding-bottom: 14px;
+  padding-bottom: 12px;
 }
 .padding-bottom-small {
-  padding-bottom: 28px;
+  padding-bottom: 24px;
 }
 .padding-bottom-basic {
-  padding-bottom: 56px;
+  padding-bottom: 48px;
 }
 .padding-bottom-mid {
-  padding-bottom: 98px;
+  padding-bottom: 84px;
 }
 .padding-bottom-large {
-  padding-bottom: 140px;
+  padding-bottom: 120px;
 }
 #header {
   margin-top: 53px;
@@ -1632,7 +1635,7 @@ ul.language-chooser li a {
   padding: 0;
 }
 .menu-item.col {
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 #front-splash {
   padding: 0;
@@ -1650,11 +1653,11 @@ ul.language-chooser li a {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  border: 8.652475842497966px solid #ffd923 !important;
+  border: 7.416407864998257px solid #ffd923 !important;
 }
 .calendar-heading {
   margin-bottom: 0;
-  padding-bottom: 14px;
+  padding-bottom: 12px;
   cursor: pointer;
 }
 .calendar-heading .calendar-date:after {
@@ -1670,7 +1673,7 @@ ul.language-chooser li a {
 .event-time,
 .event-times-divider {
   display: inline-block;
-  margin: 0 8.652475842497966px 0 0;
+  margin: 0 7.416407864998257px 0 0;
 }
 .event-times-divider {
   -webkit-transform: rotate(90deg);
@@ -1686,17 +1689,17 @@ ul.language-chooser li a {
   max-width: 47px;
 }
 .lead-sponsor-logo {
-  margin-right: 28px;
-  margin-bottom: 28px;
+  margin-right: 24px;
+  margin-bottom: 24px;
 }
 #mailchimp-email {
   -ms-flex: 1 1 auto;
   -webkit-box-flex: 1;
           flex: 1 1 auto;
-  margin-right: 8.652475842497966px;
+  margin-right: 7.416407864998257px;
 }
 #mailchimp-response {
-  margin-left: 8.652475842497966px;
+  margin-left: 7.416407864998257px;
 }
 #social-icon-container {
   display: -webkit-box;
@@ -1733,86 +1736,86 @@ ul.language-chooser li a {
 }
 @media screen and (min-width: 568px) {
   .margin-top-micro {
-    margin-top: 9.270509831247821px;
+    margin-top: 8.034441853748111px;
   }
   .margin-top-tiny {
-    margin-top: 15px;
+    margin-top: 13px;
   }
   .margin-top-small {
-    margin-top: 30px;
+    margin-top: 26px;
   }
   .margin-top-basic {
-    margin-top: 60px;
+    margin-top: 52px;
   }
   .margin-top-mid {
-    margin-top: 105px;
+    margin-top: 91px;
   }
   .margin-top-large {
-    margin-top: 150px;
+    margin-top: 130px;
   }
   .margin-bottom-micro {
-    margin-bottom: 9.270509831247821px;
+    margin-bottom: 8.034441853748111px;
   }
   .margin-bottom-tiny {
-    margin-bottom: 15px;
+    margin-bottom: 13px;
   }
   .margin-bottom-small {
-    margin-bottom: 30px;
+    margin-bottom: 26px;
   }
   .margin-bottom-basic {
-    margin-bottom: 60px;
+    margin-bottom: 52px;
   }
   .margin-bottom-mid {
-    margin-bottom: 105px;
+    margin-bottom: 91px;
   }
   .margin-bottom-large {
-    margin-bottom: 150px;
+    margin-bottom: 130px;
   }
   .padding-top-micro {
-    padding-top: 9.270509831247821px;
+    padding-top: 8.034441853748111px;
   }
   .padding-top-tiny {
-    padding-top: 15px;
+    padding-top: 13px;
   }
   .padding-top-small {
-    padding-top: 30px;
+    padding-top: 26px;
   }
   .padding-top-basic {
-    padding-top: 60px;
+    padding-top: 52px;
   }
   .padding-top-mid {
-    padding-top: 105px;
+    padding-top: 91px;
   }
   .padding-top-large {
-    padding-top: 150px;
+    padding-top: 130px;
   }
   .padding-bottom-micro {
-    padding-bottom: 9.270509831247821px;
+    padding-bottom: 8.034441853748111px;
   }
   .padding-bottom-tiny {
-    padding-bottom: 15px;
+    padding-bottom: 13px;
   }
   .padding-bottom-small {
-    padding-bottom: 30px;
+    padding-bottom: 26px;
   }
   .padding-bottom-basic {
-    padding-bottom: 60px;
+    padding-bottom: 52px;
   }
   .padding-bottom-mid {
-    padding-bottom: 105px;
+    padding-bottom: 91px;
   }
   .padding-bottom-large {
-    padding-bottom: 150px;
+    padding-bottom: 130px;
   }
   .col {
-    margin-bottom: 15px;
+    margin-bottom: 13px;
   }
   .col-m {
     -ms-flex: 0 0 auto;
     -webkit-box-flex: 0;
             flex: 0 0 auto;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 13px;
+    padding-left: 13px;
   }
   .offset-m-0 {
     margin-left: 0%;
@@ -1923,20 +1926,20 @@ ul.language-chooser li a {
     max-width: 100%;
   }
   .menu-item {
-    font-size: 1.541986833892031rem;
+    font-size: 1.400505962399693rem;
   }
   .text-columns-2 {
     -webkit-column-count: 2;
     -moz-column-count: 2;
     column-count: 2;
-    -webkit-column-gap: 30px;
-    -moz-column-gap: 30px;
-    column-gap: 30px;
+    -webkit-column-gap: 26px;
+    -moz-column-gap: 26px;
+    column-gap: 26px;
   }
   .event-time,
   .event-times-divider {
     display: block;
-    margin: 0 0 9.270509831247821px 0;
+    margin: 0 0 8.034441853748111px 0;
     text-align: center;
   }
   .event-times-divider {
@@ -1946,6 +1949,9 @@ ul.language-chooser li a {
   .event-times-day {
     display: block;
   }
+  .pagination-section .col {
+    margin-bottom: 13px;
+  }
 }
 @media screen and (min-width: 712px) {
   .container {
@@ -1954,76 +1960,76 @@ ul.language-chooser li a {
 }
 @media screen and (min-width: 952px) {
   .margin-top-micro {
-    margin-top: 9.888543819997675px;
+    margin-top: 8.652475842497966px;
   }
   .margin-top-tiny {
-    margin-top: 16px;
+    margin-top: 14px;
   }
   .margin-top-small {
-    margin-top: 32px;
+    margin-top: 28px;
   }
   .margin-top-basic {
-    margin-top: 64px;
+    margin-top: 56px;
   }
   .margin-top-mid {
-    margin-top: 112px;
+    margin-top: 98px;
   }
   .margin-top-large {
-    margin-top: 160px;
+    margin-top: 140px;
   }
   .margin-bottom-micro {
-    margin-bottom: 9.888543819997675px;
+    margin-bottom: 8.652475842497966px;
   }
   .margin-bottom-tiny {
-    margin-bottom: 16px;
+    margin-bottom: 14px;
   }
   .margin-bottom-small {
-    margin-bottom: 32px;
+    margin-bottom: 28px;
   }
   .margin-bottom-basic {
-    margin-bottom: 64px;
+    margin-bottom: 56px;
   }
   .margin-bottom-mid {
-    margin-bottom: 112px;
+    margin-bottom: 98px;
   }
   .margin-bottom-large {
-    margin-bottom: 160px;
+    margin-bottom: 140px;
   }
   .padding-top-micro {
-    padding-top: 9.888543819997675px;
+    padding-top: 8.652475842497966px;
   }
   .padding-top-tiny {
-    padding-top: 16px;
+    padding-top: 14px;
   }
   .padding-top-small {
-    padding-top: 32px;
+    padding-top: 28px;
   }
   .padding-top-basic {
-    padding-top: 64px;
+    padding-top: 56px;
   }
   .padding-top-mid {
-    padding-top: 112px;
+    padding-top: 98px;
   }
   .padding-top-large {
-    padding-top: 160px;
+    padding-top: 140px;
   }
   .padding-bottom-micro {
-    padding-bottom: 9.888543819997675px;
+    padding-bottom: 8.652475842497966px;
   }
   .padding-bottom-tiny {
-    padding-bottom: 16px;
+    padding-bottom: 14px;
   }
   .padding-bottom-small {
-    padding-bottom: 32px;
+    padding-bottom: 28px;
   }
   .padding-bottom-basic {
-    padding-bottom: 64px;
+    padding-bottom: 56px;
   }
   .padding-bottom-mid {
-    padding-bottom: 112px;
+    padding-bottom: 98px;
   }
   .padding-bottom-large {
-    padding-bottom: 160px;
+    padding-bottom: 140px;
   }
   .mobile-only {
     display: none;
@@ -2032,14 +2038,14 @@ ul.language-chooser li a {
     width: 952px;
   }
   .col {
-    margin-bottom: 32px;
+    margin-bottom: 28px;
   }
   .col-l {
     -ms-flex: 0 0 auto;
     -webkit-box-flex: 0;
             flex: 0 0 auto;
-    padding-right: 16px;
-    padding-left: 16px;
+    padding-right: 14px;
+    padding-left: 14px;
   }
   .offset-l-0 {
     margin-left: 0%;
@@ -2169,7 +2175,11 @@ ul.language-chooser li a {
     border-top: none;
   }
   .menu-item.col {
-    margin-bottom: 16px;
+    margin-bottom: 14px;
+    margin-top: 14px;
+  }
+  .pagination-section .col {
+    margin-bottom: 14px;
   }
   .pagination-container {
     -ms-justify-content: flex-end;
@@ -2178,7 +2188,7 @@ ul.language-chooser li a {
             justify-content: flex-end;
   }
   .pagination-button {
-    margin: 0 9.888543819997675px;
+    margin: 0 8.652475842497966px;
   }
   #social-icon-container {
     -webkit-box-orient: horizontal;
@@ -2187,7 +2197,7 @@ ul.language-chooser li a {
     flex-direction: column;
   }
   .social-icon {
-    margin-bottom: 4.944271909998838px;
+    margin-bottom: 4.326237921248983px;
   }
 }
 @media screen and (min-width: 1150px) {
@@ -2207,7 +2217,7 @@ ul.language-chooser li a {
   }
   h1,
   .font-size-h1 {
-    font-size: 4.663706972827746rem;
+    font-size: 3.330015792890114rem;
     line-height: 1.15;
     margin: 0;
     font-family: 'Stanley', 'Times New Roman', Times, Georgia, serif;
@@ -2215,18 +2225,24 @@ ul.language-chooser li a {
   }
   h2,
   .font-size-h2 {
-    font-size: 3.330015792890114rem;
+    font-size: 2.882389970845331rem;
     line-height: 1.15;
     font-family: 'Stanley', 'Times New Roman', Times, Georgia, serif;
     font-weight: bold;
   }
   h3,
   .font-size-h3 {
-    font-size: 2.266018647162703rem;
+    font-size: 2.058106176075472rem;
   }
   h4,
   .font-size-h4 {
-    font-size: 1.541986833892031rem;
+    font-size: 1.400505962399693rem;
+  }
+  .menu-item {
+    font-size: 1.400505962399693rem;
+  }
+  .pagination-section .col {
+    margin-bottom: 16px;
   }
 }
 @-webkit-keyframes dance {
