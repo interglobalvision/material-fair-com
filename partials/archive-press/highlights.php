@@ -89,7 +89,13 @@ if (get_fair_year_id()) {
                   }
                 ?> 
                 <?php echo (!empty($date) && !empty($author) ? ' | ' : '' ); ?>
-                <?php _e(!empty($date) ? date('j F Y', $date) : '' ); ?>
+                <?php 
+                  if(!empty($date)) {
+                    echo date('j ', $date);
+                    _e(date('F', $date));
+                    echo date(' Y', $date);
+                  }
+                ?>
               </div>
 <?php 
         }
@@ -122,7 +128,13 @@ if (get_fair_year_id()) {
                   }
                 ?> 
                 <?php echo (!empty($date) && !empty($author) ? ' | ' : '' ); ?>
-                <?php _e(!empty($date) ? date('j F Y', $date) : '' ); ?>
+                <?php 
+                  if(!empty($date)) {
+                    echo date('j ', $date);
+                    _e(date('F', $date));
+                    echo date(' Y', $date);
+                  }
+                ?>
               </div>
 <?php 
         }
