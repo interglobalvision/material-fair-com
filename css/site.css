@@ -1323,10 +1323,10 @@ p {
   text-transform: capitalize;
 }
 .font-sans {
-  font-family: 'Akkurat Pro', 'Helvatica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Akkurat Pro', 'Helvatica Neue', Helvetica, Arial, sans-serif !important;
 }
 .font-serif {
-  font-family: 'Stanley', 'Times New Roman', Times, Georgia, serif;
+  font-family: 'Stanley', 'Times New Roman', Times, Georgia, serif !important;
 }
 .text-overflow-ellipsis {
   white-space: nowrap;
