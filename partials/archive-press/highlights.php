@@ -21,7 +21,7 @@ if (get_fair_year_id()) {
     ),
   );
 
-  if (count(press_highlight_ids(true)) >= 2) {
+  if (count(press_highlight_ids(true)) >= 2 || $current_year_id != $fair_year_id) {
     $args['tax_query'] = array(
       array(
         'taxonomy' => 'fair_year',
@@ -79,9 +79,24 @@ if (get_fair_year_id()) {
 ?>
               <h3 class="font-size-h2 margin-bottom-micro">"<?php the_title(); ?>"</h3>
 <?php 
-        if (!empty($author)) {
+        if (!empty($author) || !empty($date)) {
 ?>
-              <div class="font-size-h4"><?php _e('[:en]by[:es]por'); echo ' ' . $author; ?></div>
+              <div class="font-size-h4">
+                <?php 
+                  if (!empty($author)) {
+                    _e('[:en]by[:es]por'); 
+                    echo ' ' . $author;
+                  }
+                ?> 
+                <?php echo (!empty($date) && !empty($author) ? ' | ' : '' ); ?>
+                <?php 
+                  if(!empty($date)) {
+                    echo date('j ', $date);
+                    _e(date('F', $date));
+                    echo date(' Y', $date);
+                  }
+                ?>
+              </div>
 <?php 
         }
 ?>
@@ -113,7 +128,13 @@ if (get_fair_year_id()) {
                   }
                 ?> 
                 <?php echo (!empty($date) && !empty($author) ? ' | ' : '' ); ?>
-                <?php _e(!empty($date) ? date('j F Y', $date) : '' ); ?>
+                <?php 
+                  if(!empty($date)) {
+                    echo date('j ', $date);
+                    _e(date('F', $date));
+                    echo date(' Y', $date);
+                  }
+                ?>
               </div>
 <?php 
         }

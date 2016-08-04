@@ -3,7 +3,7 @@ if (get_fair_year_id()) {
 
   $current_year_id = IGV_get_option('_igv_site_options', '_igv_current_fair_year');
   $fair_year_id = get_fair_year_id();
-  $fair_year = get_term($fair_year_id)->slug; 
+  $fair_year = get_term($fair_year_id)->slug;
 
   $args = array (
     'post_type' => array('press'),
@@ -31,8 +31,8 @@ if (get_fair_year_id()) {
     <div class="container">
       <div class="row">
         <div class="col col-l col-l-12">
-          <h2><?php 
-            _e('[:en]Selected Coverage[:es]Prensa seleccionada'); 
+          <h2><?php
+            _e('[:en]Selected Coverage[:es]Prensa seleccionada');
             if ($fair_year_id != $current_year_id) {
               echo ' ' . $fair_year;
             }
@@ -40,7 +40,7 @@ if (get_fair_year_id()) {
         </div>
       </div>
       <div class="row">
-<?php 
+<?php
     while( $query->have_posts() ) {
       $query->the_post();
 
@@ -53,22 +53,28 @@ if (get_fair_year_id()) {
         <article <?php post_class('col col-l col-l-4 margin-bottom-small'); ?> id="post-<?php the_ID(); ?>">
           <a href="<?php echo $link; ?>" target="_blank">
             <?php the_post_thumbnail('col-4-crop'); ?>
-<?php 
+<?php
       if (!empty($publication)) {
 ?>
             <div class="font-size-h4"><?php echo $publication; ?></div>
-<?php 
+<?php
     }
 ?>
             <h3><?php the_title(); ?></h3>
-            <?php 
+            <?php
               if (!empty($author)) {
-                _e('[:en]by[:es]por'); 
+                _e('[:en]by[:es]por');
                 echo ' ' . $author;
               }
-            ?> 
+            ?>
             <?php echo (!empty($date) && !empty($author) ? ' | ' : '' ); ?>
-            <?php _e(!empty($date) ? date('j F Y', $date) : '' ); ?>
+            <?php
+              if(!empty($date)) {
+                echo date('j ', $date);
+                _e(date('F', $date));
+                echo date(' Y', $date);
+              }
+            ?>
           </a>
         </article>
 
@@ -78,8 +84,8 @@ if (get_fair_year_id()) {
       </div>
     </div>
   </section>
-<?php 
-  } 
-wp_reset_postdata(); 
+<?php
+  }
+wp_reset_postdata();
 }
 ?>
