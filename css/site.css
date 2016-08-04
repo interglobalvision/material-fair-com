@@ -1416,6 +1416,9 @@ h2 {
 .section-yellow .border-row {
   border-color: #000;
 }
+.pagination-section .col {
+  margin-bottom: 12px;
+}
 .pagination-container {
   -ms-justify-content: space-between;
   -webkit-box-pack: justify;
@@ -1941,6 +1944,9 @@ ul.language-chooser li a {
   .event-times-day {
     display: block;
   }
+  .pagination-section .col {
+    margin-bottom: 13px;
+  }
 }
 @media screen and (min-width: 712px) {
   .container {
@@ -2167,6 +2173,9 @@ ul.language-chooser li a {
     margin-bottom: 14px;
     margin-top: 14px;
   }
+  .pagination-section .col {
+    margin-bottom: 14px;
+  }
   .pagination-container {
     -ms-justify-content: flex-end;
     -webkit-box-pack: end;
@@ -2226,6 +2235,9 @@ ul.language-chooser li a {
   }
   .menu-item {
     font-size: 1.400505962399693rem;
+  }
+  .pagination-section .col {
+    margin-bottom: 16px;
   }
 }
 @-webkit-keyframes dance {

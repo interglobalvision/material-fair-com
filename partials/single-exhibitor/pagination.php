@@ -6,7 +6,7 @@ if ($current_year_id == get_fair_year_id()) {
 $current_year = get_term($current_year_id)->slug;
 $current_post_id = $post->ID;
 ?>
-<section class="section section-yellow">
+<section class="section section-yellow pagination-section">
   <div class="container">
     <div class="row">
       <div class="col col-s col-s-12 col-l col-l-6">
