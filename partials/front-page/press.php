@@ -22,7 +22,7 @@ if ( $press->have_posts() ) {
           <h2 class="text-align-left"><?php _e('[:en]Press[:es]Prensa'); ?></h2>
         </div>
         <div class="col col-s col-s-6 col-m col-m-3 col-l col-l-2">
-          <a class="button col flex-row align-center justify-center" href="<?php echo get_post_type_archive_link( 'press' ); ?>"><?php _e('[:en]See More[:es]Ver más'); ?></a>
+          <a class="col flex-row align-center justify-center button button-yellow" href="<?php echo get_post_type_archive_link( 'press' ); ?>"><?php _e('[:en]See More[:es]Ver más'); ?></a>
         </div>
       </div>
       <div class="row">

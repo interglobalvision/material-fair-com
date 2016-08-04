@@ -1438,9 +1438,14 @@ a.button {
   font-weight: 600;
   border: 2px solid #000;
 }
+.button.button-big,
 a.button.button-big {
   padding: 24px 0;
   font-size: 1.400505962399693rem;
+}
+.button.button-yellow,
+a.button.button-yellow {
+  background-color: #ffd923;
 }
 input {
   border: 1px solid #000;

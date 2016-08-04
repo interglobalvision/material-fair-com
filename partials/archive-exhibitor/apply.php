@@ -17,7 +17,7 @@ if (!empty($apply_url) && $show_apply == 'on' && $publish_exhibitors != 'on') {
           <h2><?php echo $exhibitors_apply_heading; ?></h2>
         </div>
       </div>
-    <?php 
+    <?php
       }
       if (!empty($exhibitors_apply_text)) {
     ?>
@@ -26,16 +26,16 @@ if (!empty($apply_url) && $show_apply == 'on' && $publish_exhibitors != 'on') {
           <?php echo apply_filters( 'the_content', $exhibitors_apply_text ); ?>
         </div>
       </div>
-    <?php 
+    <?php
       }
     ?>
       <div class="row justify-center">
-        <a class="col col-s col-s-12 col-m col-m-3 col-l col-l-2 flex-row align-center justify-center button button-big" href="<?php echo esc_url($apply_url); ?>">
+        <a class="col col-l col-l-2 flex-row align-center justify-center button button-big button-yellow" href="<?php echo esc_url($apply_url); ?>">
           <?php _e( '[:en]Apply![:es]¡Aplica!' ); ?>
         </a>
       </div>
     </div>
   </section>
-<?php 
+<?php
 }
 ?>
