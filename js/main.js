@@ -150,12 +150,31 @@ Site.Press = {
   },
 
   photoGallery: function() {
+    var _this = this;
+
     var mySwiper = new Swiper('.swiper-container', {
       speed: 400,
       spaceBetween: 100,
       nextButton: '.swiper-button-next',
       prevButton: '.swiper-button-prev',
       loop: true,
+    });
+
+    _this.sizePhotoSlides();
+  },
+
+  sizePhotoSlides: function() {
+    var sliderHeight = $('.swiper-container').height();
+
+    console.log(sliderHeight);
+
+    $('.swiper-slide').each(function() {
+      //console.log($(this));
+      if ($(this).find('.slide-caption').length) {
+        var maxImgHeight = sliderHeight - $(this).find('.slide-caption').outerHeight();
+
+        $(this).find('img').css('max-height', maxImgHeight + 'px');
+      }
     });
   },
 };
