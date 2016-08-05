@@ -57,17 +57,13 @@ if (get_fair_year_id()) {
     </div>
     <div class="calendar-day border-row">
       <div class="row calendar-heading">
-        <div class="col col-s col-s-5">
-          <h3 class="u-inline-block"><?php _e(date('l', $start)); ?></h3>
-        </div>
-        <div class="col col-s col-s-7 text-align-right">
-          <span class="font-size-h3 calendar-date"><?php 
-            _e(date('j', $start)); 
-            echo '&nbsp;';
-            _e(date('F', $start)); 
-            echo '&nbsp;' . date('Y', $start);
-          ?>
-        </div>
+        <h3 class="u-inline-block"><?php _e(date('l', $start)); ?></h3>
+        <span class="font-size-h3 calendar-date"><?php 
+          _e(date('j', $start)); 
+          echo '&nbsp;';
+          _e(date('F', $start)); 
+          echo '&nbsp;' . date('Y', $start);
+        ?>
       </div>
       <div class="calendar-events">
 <?php 

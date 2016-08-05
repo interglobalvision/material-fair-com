@@ -7,7 +7,7 @@ $url = get_post_meta($post->ID, '_igv_event_url', true);
 ?>
 <div class="col col-s col-s-12 col-l col-l-6 flex-row">
   <?php echo !empty($url) ? '<a href="' . $url . '" target="_blank" rel="noopener noreferrer" class="col col-s col-s-12">' : ''; ?>
-  <?php the_post_thumbnail('col-6-crop'); ?>
+  <?php the_post_thumbnail('col-6-crop', array('class' => 'margin-bottom-micro')); ?>
   <?php echo !empty($url) ? '</a>' : ''; ?>
   <div class="col col-s-12 col-m-4 font-size-h4">
     <?php 
