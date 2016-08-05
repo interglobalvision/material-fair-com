@@ -1274,7 +1274,7 @@ th {
 }
 html {
   font-family: 'Akkurat Pro', 'Helvatica Neue', Helvetica, Arial, sans-serif;
-  font-size: 11px;
+  font-size: 14px;
   letter-spacing: 0.001em;
 }
 body {
@@ -1282,7 +1282,7 @@ body {
 }
 h1,
 .font-size-h1 {
-  font-size: 3.330015792890114rem;
+  font-size: 2.617924rem;
   line-height: 1.15;
   margin: 0;
   font-family: 'Stanley', 'Times New Roman', Times, Georgia, serif;
@@ -1290,18 +1290,18 @@ h1,
 }
 h2,
 .font-size-h2 {
-  font-size: 2.617924rem;
+  font-size: 2.058106176075472rem;
   line-height: 1.15;
   font-family: 'Stanley', 'Times New Roman', Times, Georgia, serif;
   font-weight: bold;
 }
 h3,
 .font-size-h3 {
-  font-size: 2.058106176075472rem;
+  font-size: 1.469544744064506rem;
 }
 h4,
 .font-size-h4 {
-  font-size: 1.400505962399693rem;
+  font-size: 1.272006289292628rem;
 }
 p {
   margin-bottom: 1rem;
@@ -1441,11 +1441,15 @@ a.button {
 .button.button-big,
 a.button.button-big {
   padding: 24px 0;
-  font-size: 1.400505962399693rem;
+  font-size: 1.272006289292628rem;
 }
 .button.button-yellow,
 a.button.button-yellow {
   background-color: #ffd923;
+}
+.button.button-margin-right,
+a.button.button-margin-right {
+  margin-right: 12px;
 }
 input {
   border: 1px solid #000;
@@ -1656,9 +1660,15 @@ ul.language-chooser li a {
   border: 7.416407864998257px solid #ffd923 !important;
 }
 .calendar-heading {
-  margin-bottom: 0;
-  padding-bottom: 12px;
+  padding: 24px 0;
   cursor: pointer;
+  -ms-justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.calendar-heading .col {
+  margin-bottom: 0;
 }
 .calendar-heading .calendar-date:after {
   content: '▼';
@@ -1926,7 +1936,7 @@ ul.language-chooser li a {
     max-width: 100%;
   }
   .menu-item {
-    font-size: 1.400505962399693rem;
+    font-size: 1.272006289292628rem;
   }
   .text-columns-2 {
     -webkit-column-count: 2;
@@ -2225,7 +2235,7 @@ ul.language-chooser li a {
   }
   h2,
   .font-size-h2 {
-    font-size: 2.882389970845331rem;
+    font-size: 2.617924rem;
     line-height: 1.15;
     font-family: 'Stanley', 'Times New Roman', Times, Georgia, serif;
     font-weight: bold;

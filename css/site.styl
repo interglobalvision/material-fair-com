@@ -42,12 +42,12 @@ $margin-basic = ($gutter * 2)
 $margin-mid = ($gutter * 3.5)
 $margin-large = ($gutter * 5)
 
-$font-size-basic = 11px
+$font-size-basic = 14px
 $font-size-larger = 1.3rem
-$font-size-h4 = golden-ratio(1rem , 0.7)
-$font-size-h3 = golden-ratio(1rem , 1.5)
-$font-size-h2 = golden-ratio(1rem , 2)
-$font-size-h1 = golden-ratio(1rem , 2.5)
+$font-size-h4 = golden-ratio(1rem , 0.5)
+$font-size-h3 = golden-ratio(1rem , 0.8)
+$font-size-h2 = golden-ratio(1rem , 1.5)
+$font-size-h1 = golden-ratio(1rem , 2)
 
 $font-leading-basic = 1.35
 $font-leading-tighter = 1.15
@@ -323,6 +323,8 @@ img
     font-size: $font-size-h4
   &.button-yellow
     background-color: $color-yellow
+  &.button-margin-right
+    margin-right: $margin-tiny
 
 input
   border: 1px solid $color-black
@@ -519,9 +521,11 @@ ul.language-chooser
 // PROGRAM
 
 .calendar-heading
-  margin-bottom: 0
-  padding-bottom: $margin-tiny
+  padding: $margin-small 0
   cursor: pointer
+  justify-content: space-between
+  .col 
+    margin-bottom: 0
   .calendar-date:after
     content: '▼'
   &.active

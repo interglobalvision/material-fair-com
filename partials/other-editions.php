@@ -17,31 +17,29 @@ if (!empty($other_years) && !empty($current_year_id)) {
 <section class="section">
   <div class="container">
     <div class="row">
-      <div class="col col-l col-l-12">
+      <div class="col col-s col-s-12">
         <h2><?php _e('[:en]Other Editions[:es]Otras ediciones'); ?></h2>
       </div>
     </div>
     <div class="row"> 
+      <div class="col col-s col-s-12">
 <?php
   foreach ($other_years as $year) {
     $current_year_slug = get_term($current_year_id)->slug; 
     $this_slug = $year->slug;
+?>
+        <a class="button font-size-h2 font-sans button-margin-right" href="<?php
+          if ($this_slug == $current_year_slug) { // go to main archive page
+            echo get_post_type_archive_link($post_type);
+          } else { // go to past year archive page
+            echo get_post_type_archive_link($post_type) . '?fair_year=' . $year->slug;
+          }
+        ?>"><?php echo $year->slug; ?></a>
 
-    if ($this_slug == $current_year_slug) { // go to main archive page
-?>
-      <a class="col col-l col-l-2 flex-row justify-center align-center" href="<?php echo get_post_type_archive_link($post_type); ?>">
-<?php 
-    } else { // go to past year archive page
-?>
-      <a class="col col-l col-l-2 flex-row justify-center align-center" href="<?php echo get_post_type_archive_link($post_type) . '?fair_year=' . $year->slug; ?>" >
-<?php 
-    }
-?>
-        <div class="button font-size-h2 font-sans"><?php echo $year->slug; ?></div>
-      </a>
 <?php
   }
 ?>
+      </div>
     </div>
   </div>
 </section>
