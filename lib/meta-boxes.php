@@ -272,6 +272,20 @@ function igv_cmb_metaboxes() {
   ) );
 
   $press_metabox->add_field( array(
+    'name'     => __( 'English', 'cmb2' ),
+    'desc'     => __( 'Appears on English site', 'cmb2' ),
+    'id'       => $prefix . 'press_lang_en',
+    'type'     => 'checkbox',
+  ) );
+
+  $press_metabox->add_field( array(
+    'name'     => __( 'Español', 'cmb2' ),
+    'desc'     => __( 'Appears on Español site', 'cmb2' ),
+    'id'       => $prefix . 'press_lang_es',
+    'type'     => 'checkbox',
+  ) );
+
+  $press_metabox->add_field( array(
     'name'     => __( 'Author', 'cmb2' ),
     'desc'     => __( '', 'cmb2' ),
     'id'       => $prefix . 'press_author',

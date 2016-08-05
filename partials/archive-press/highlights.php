@@ -4,6 +4,8 @@ if (get_fair_year_id()) {
   $current_year_id = IGV_get_option('_igv_site_options', '_igv_current_fair_year');
   $fair_year_id = get_fair_year_id();
   $fair_year = get_term($fair_year_id)->slug; 
+  $current_lang = qtranxf_getLanguage();
+  $other_lang = $current_lang == 'en' ? 'es' : 'en';
 
   $args = array (
     'post_type'       => 'press',
@@ -11,12 +13,29 @@ if (get_fair_year_id()) {
     'meta_key'        => '_igv_press_date',
     'orderby'         => 'meta_value_num',
     'meta_query'      => array( 
+      'relation' => 'AND',
       array(
         'key' => '_igv_press_highlight',
         'value' => 'on',
       ),
       array(
-        'key' => '_igv_press_url',
+        'relation' => 'OR',
+        array(
+          'key'     => '_igv_press_lang_' . $current_lang,
+          'value'   => 'on',
+          'compare' => '=',
+        ),
+        array(
+          'relation' => 'AND',
+          array(
+            'key' => '_igv_press_lang_' . $current_lang,
+            'compare' => 'NOT EXISTS',
+          ),
+          array(
+            'key' => '_igv_press_lang_' . $other_lang,
+            'compare' => 'NOT EXISTS',
+          ),
+        ),
       ),
     ),
   );
@@ -69,8 +88,13 @@ if (get_fair_year_id()) {
             </a>
           </div>
           <div <?php post_class('col col-l col-l-6'); ?> id="post-<?php the_ID(); ?>">
-            <a href="<?php echo esc_url($link); ?>" target="_blank">
 <?php 
+        if (!empty($link)) {
+?>
+            <a<?php echo !empty($link) ? ' href="' . esc_url($link) . '" target="_blank">' : '>'; ?>
+<?php 
+        }
+
         if (!empty($publication)) {
 ?>
               <div class="font-size-h3 margin-bottom-micro"><?php echo $publication; ?></div>
