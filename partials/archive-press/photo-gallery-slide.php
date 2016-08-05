@@ -11,7 +11,7 @@ if ( get_post_gallery($post->ID) ) {
 ?>
   <div class="swiper-slide flex-col justify-center align-center">
     <img src="<?php echo wp_get_attachment_image_src($gid, 'col-8')[0]; ?>">
-    <div class="margin-top-tiny text-align-center">
+    <div class="padding-top-tiny text-align-center slide-caption">
       <div class="font-size-h4"><?php _e($description); ?></div>
       <?php _e($caption); ?>
     </div>
