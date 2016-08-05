@@ -4,6 +4,7 @@ if (get_fair_year_id()) {
   $current_year_id = IGV_get_option('_igv_site_options', '_igv_current_fair_year');
   $fair_year_id = get_fair_year_id();
   $fair_year = get_term($fair_year_id)->slug; 
+  $current_lang = qtranxf_getLanguage();
 
   $args = array (
     'post_type'       => 'press',
@@ -17,6 +18,11 @@ if (get_fair_year_id()) {
       ),
       array(
         'key' => '_igv_press_url',
+      ),
+      array(
+        'key'     => '_igv_press_lang_' . $current_lang,
+        'value'   => 'on',
+        'compare' => '=',
       ),
     ),
   );

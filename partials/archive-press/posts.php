@@ -4,11 +4,19 @@ if (get_fair_year_id()) {
   $current_year_id = IGV_get_option('_igv_site_options', '_igv_current_fair_year');
   $fair_year_id = get_fair_year_id();
   $fair_year = get_term($fair_year_id)->slug;
+  $current_lang = qtranxf_getLanguage();
 
   $args = array (
     'post_type' => array('press'),
     'post__not_in' => press_highlight_ids(false),
     'posts_per_page' => -1,
+    'meta_query' => array(
+      array(
+        'key'     => '_igv_press_lang_' . $current_lang,
+        'value'   => 'on',
+        'compare' => '=',
+      ),
+    ),
   );
 
   if ($current_year_id == $fair_year_id && count_fair_year_press() < 3) {
