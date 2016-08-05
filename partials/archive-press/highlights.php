@@ -58,7 +58,7 @@ if (get_fair_year_id()) {
   <section id="press-highlights" class="section section-yellow">
     <div class="container">
       <div class="row">
-        <div class="col col-l col-l-12 text-align-center">
+        <div class="col col-s col-s-12 col-m col-l text-align-center">
           <h2>
             <?php 
               _e('[:en]Highlights[:es]Destacados');
@@ -81,13 +81,13 @@ if (get_fair_year_id()) {
 
       if ($highlight_post == 0) { // Image first
 ?>
-        <div class="col col-l-12 flex-row align-center">
-          <div <?php post_class('col col-l col-l-6'); ?> id="post-<?php the_ID(); ?>">
+        <div class="col col-s-12 flex-row align-center">
+          <div <?php post_class('col col-s col-s-6'); ?> id="post-<?php the_ID(); ?>">
             <a href="<?php echo esc_url($link); ?>" target="_blank">
-              <?php the_post_thumbnail('col-6'); ?>
+              <?php the_post_thumbnail('col-6-crop'); ?>
             </a>
           </div>
-          <div <?php post_class('col col-l col-l-6'); ?> id="post-<?php the_ID(); ?>">
+          <div <?php post_class('col col-s col-s-6'); ?> id="post-<?php the_ID(); ?>">
 <?php 
         if (!empty($link)) {
 ?>
@@ -130,8 +130,8 @@ if (get_fair_year_id()) {
 <?php
       } else { // Text first
 ?>
-        <div class="col col-l-12 flex-row align-center">
-          <div <?php post_class('col col-l col-l-6'); ?> id="post-<?php the_ID(); ?>">
+        <div class="col col-s-12 flex-row align-center">
+          <div <?php post_class('col col-s col-s-6'); ?> id="post-<?php the_ID(); ?>">
             <a href="<?php echo esc_url($link); ?>" target="_blank">
 <?php 
         if (!empty($publication)) {
@@ -165,9 +165,9 @@ if (get_fair_year_id()) {
 ?>
             </a>
           </div>
-          <div <?php post_class('col col-l col-l-6'); ?> id="post-<?php the_ID(); ?>">
+          <div <?php post_class('col col-s col-s-6'); ?> id="post-<?php the_ID(); ?>">
             <a href="<?php echo esc_url($link); ?>" target="_blank">
-              <?php the_post_thumbnail('col-6'); ?>
+              <?php the_post_thumbnail('col-6-crop'); ?>
             </a>
           </div>
         </div>
