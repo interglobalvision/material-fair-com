@@ -21,7 +21,7 @@ if ($current_year_id == $fair_year_id) {
 
 <?php get_template_part('partials/archive-event/schedule'); ?>
 
-<?php get_template_part('partials/past-years'); ?>
+<?php get_template_part('partials/other-editions'); ?>
 
 <!-- end main-content -->
 

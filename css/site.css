@@ -1447,6 +1447,10 @@ a.button.button-big {
 a.button.button-yellow {
   background-color: #ffd923;
 }
+.button.button-margin-right,
+a.button.button-margin-right {
+  margin-right: 12px;
+}
 input {
   border: 1px solid #000;
   padding: 7.416407864998257px;

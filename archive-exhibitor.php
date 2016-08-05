@@ -35,7 +35,7 @@ if (($current_year_id == $fair_year_id && $publish_exhibitors == 'on') || $curre
 }
 ?>
 
-<?php get_template_part('partials/past-years'); ?>
+<?php get_template_part('partials/other-editions'); ?>
 
 <!-- end main-content -->
 
