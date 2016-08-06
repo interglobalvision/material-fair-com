@@ -166,18 +166,21 @@
       </div>
 
       <div id="header-menu">
-        <div id="header-mobile" class="row mobile-only">
+        <div id="header-mobile" class="row mobile-only js-menu-trigger u-pointer">
           <div class="col col-s col-s-10 col-m col-m-11">
-            <a href="<?php echo home_url(); ?>">
-              <h1 class="font-uppercase">Material Art Fair</h1>
-            </a>
+            <h1 class="font-uppercase">Material Art Fair</h1>
           </div>
-          <div class="col col-s col-s-2 col-m col-m-1 text-align-center js-menu-trigger u-pointer">
+          <div class="col col-s col-s-2 col-m col-m-1 text-align-center">
             <div class="menu-toggle">▼</div>
           </div>
         </div>
         <nav id="main-menu">
-          <ul class="row justify-center">
+          <ul class="row justify-start">
+            <li class="menu-item mobile-only col col-s col-s-12 col-m col-m-4 col-l col-l-2 flex-col justify-center text-align-center font-green">
+              <div><a class="border-underline" href="<?php echo home_url(); ?>">
+                Material Art Fair
+              </a></div>
+            </li>
           <?php 
             $page_id = get_id_by_slug('visitor-information');
             if ($page_id) {
@@ -222,7 +225,9 @@
                 <?php echo get_the_title($page_id); ?>
               </a></div>
             </li>
-
+          <?php } ?>
+          </ul>
+           <ul class="row justify-start">
             <li class="mobile-only col col-s col-s-12 col-m col-m-4 text-align-center padding-bottom-tiny">
               <?php echo qtranxf_generateLanguageSelectCode('both'); ?>
             </li>
@@ -244,7 +249,6 @@
                 }
               ?>
             </li>
-          <?php } ?>
           </ul>
         </nav>
       </div>
