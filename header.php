@@ -90,12 +90,12 @@
           <?php 
             if (!empty($apply_url) && $publish_exhibitors != 'on' && $show_apply == 'on') { 
           ?>
-          <div class="col col-s col-s-12 col-m col-m-5 col-l col-l-3 flex-row"> 
+          <div class="col col-s col-s-12 col-m <?php echo !empty($sponsor_logo) ? 'col-m-5' : 'col-m-8'; ?> col-l col-l-3 flex-row"> 
             <div class="col flex-col justify-center align-center text-align-center font-size-h4 padding-bottom-tiny padding-top-tiny <?php echo !empty($header_text) ? 'section-yellow' : ''; ?>">
               <?php echo !empty($header_text) ? apply_filters( 'the_content', $header_text ) : ''; ?>
             </div>
           </div>
-          <div class="col col-s col-s-6 col-m col-m-4 col-l col-l-2 flex-row">
+          <div class="col col-s <?php echo !empty($sponsor_logo) ? 'col-s-6' : 'col-s-12'; ?> col-m col-m-4 col-l col-l-2 flex-row">
             <a class="col flex-col justify-center align-center font-size-h4 button button-big" href="<?php echo esc_url($apply_url); ?>">
               <?php _e('[:en]Apply![:es]¡Aplica!'); ?>
             </a>
