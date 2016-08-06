@@ -178,7 +178,7 @@
           <ul class="row justify-start">
             <li class="menu-item mobile-only col col-s col-s-12 col-m col-m-4 col-l col-l-2 flex-col justify-center text-align-center font-green">
               <div><a class="border-underline" href="<?php echo home_url(); ?>">
-                Material Art Fair
+                <?php _e('[:en]Home[:es]Inicio'); ?>
               </a></div>
             </li>
           <?php 
