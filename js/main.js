@@ -171,9 +171,11 @@ Site.Press = {
     $('.swiper-slide').each(function() {
       //console.log($(this));
       if ($(this).find('.slide-caption').length) {
-        var maxImgHeight = sliderHeight - $(this).find('.slide-caption').outerHeight();
+        var maxImgHeight = sliderHeight - $(this).find('.slide-caption').outerHeight(true);
 
         $(this).find('img').css('max-height', maxImgHeight + 'px');
+      } else {
+        $(this).find('img').css('max-height', sliderHeight + 'px');
       }
     });
   },
