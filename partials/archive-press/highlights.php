@@ -53,7 +53,6 @@ if (get_fair_year_id()) {
   $highlight_press = new WP_Query( $args );
 
   if ( $highlight_press->have_posts() ) { 
-    $highlight_post = 0;
 ?>
   <section id="press-highlights" class="section section-yellow">
     <div class="container">
@@ -78,16 +77,14 @@ if (get_fair_year_id()) {
       $date = get_post_meta($post->ID, '_igv_press_date', true);
       $author = get_post_meta($post->ID, '_igv_press_author', true);
       $link = get_post_meta($post->ID, '_igv_press_url', true);
-
-      if ($highlight_post == 0) { // Image first
 ?>
-        <div class="col col-s-12 flex-row align-center">
-          <div <?php post_class('col col-s col-s-6'); ?> id="post-<?php the_ID(); ?>">
+        <div class="col col-s-12 flex-row align-center press-highlight">
+          <div <?php post_class('col col-s col-s-12 col-m col-m-6 col-l'); ?> id="post-<?php the_ID(); ?>">
             <a href="<?php echo esc_url($link); ?>" target="_blank">
               <?php the_post_thumbnail('col-6-crop'); ?>
             </a>
           </div>
-          <div <?php post_class('col col-s col-s-6'); ?> id="post-<?php the_ID(); ?>">
+          <div <?php post_class('col col-s col-s-12 col-m col-m-6 col-l press-highlight'); ?> id="post-<?php the_ID(); ?>">
 <?php 
         if (!empty($link)) {
 ?>
@@ -127,53 +124,7 @@ if (get_fair_year_id()) {
             </a>
           </div>
         </div>
-<?php
-      } else { // Text first
-?>
-        <div class="col col-s-12 flex-row align-center">
-          <div <?php post_class('col col-s col-s-6'); ?> id="post-<?php the_ID(); ?>">
-            <a href="<?php echo esc_url($link); ?>" target="_blank">
 <?php 
-        if (!empty($publication)) {
-?>
-              <div class="font-size-h3 margin-bottom-micro"><?php echo $publication; ?></div>
-<?php 
-        }
-?>
-              <h3 class="font-size-h2 margin-bottom-micro">"<?php the_title(); ?>"</h3>
-<?php 
-        if (!empty($author) || !empty($date)) {
-?>
-              <div class="font-size-h4">
-                <?php 
-                  if (!empty($author)) {
-                    _e('[:en]by[:es]por'); 
-                    echo ' ' . $author;
-                  }
-                ?> 
-                <?php echo (!empty($date) && !empty($author) ? ' | ' : '' ); ?>
-                <?php 
-                  if(!empty($date)) {
-                    echo date('j ', $date);
-                    _e(date('F', $date));
-                    echo date(' Y', $date);
-                  }
-                ?>
-              </div>
-<?php 
-        }
-?>
-            </a>
-          </div>
-          <div <?php post_class('col col-s col-s-6'); ?> id="post-<?php the_ID(); ?>">
-            <a href="<?php echo esc_url($link); ?>" target="_blank">
-              <?php the_post_thumbnail('col-6-crop'); ?>
-            </a>
-          </div>
-        </div>
-<?php 
-      }
-      $highlight_post++;
     }
 ?>
       </div>
