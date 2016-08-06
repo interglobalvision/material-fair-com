@@ -5,9 +5,5 @@ if ( $publish_program == 'on' ) {
 
   get_template_part('partials/archive-event/highlights');
 
-} else {
-
-  get_template_part('partials/intro-section');
-
 }
 ?>
