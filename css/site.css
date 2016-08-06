@@ -1274,7 +1274,7 @@ th {
 }
 html {
   font-family: 'Akkurat Pro', 'Helvatica Neue', Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   letter-spacing: 0.001em;
 }
 body {
@@ -1290,14 +1290,14 @@ h1,
 }
 h2,
 .font-size-h2 {
-  font-size: 2.058106176075472rem;
+  font-size: 2.377723395896371rem;
   line-height: 1.15;
   font-family: 'Stanley', 'Times New Roman', Times, Georgia, serif;
   font-weight: bold;
 }
 h3,
 .font-size-h3 {
-  font-size: 1.469544744064506rem;
+  font-size: 1.618rem;
 }
 h4,
 .font-size-h4 {
@@ -2235,7 +2235,7 @@ ul.language-chooser li a {
   }
   h2,
   .font-size-h2 {
-    font-size: 2.617924rem;
+    font-size: 2.882389970845331rem;
     line-height: 1.15;
     font-family: 'Stanley', 'Times New Roman', Times, Georgia, serif;
     font-weight: bold;

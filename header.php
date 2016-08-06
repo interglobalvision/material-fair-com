@@ -132,21 +132,30 @@
             } 
           ?>
 
-          <div class="col col-l col-l-2 flex-col desktop-only">
+          <div class="col col-l col-l-2 flex-col desktop-only text-align-right">
             <div class="col flex-col align-end">
               <div class="margin-bottom-micro"><?php echo qtranxf_generateLanguageSelectCode('both'); ?></div>
               <?php 
                 if (!empty($app_login_url) && !empty($app_login_text)) { 
-                  echo '<a href="' . $app_login_url . '" class="border-underline margin-bottom-micro">';
-                  echo $app_login_text;
-                  echo '</a>';
+              ?>
+              <div class="margin-bottom-micro">
+                <a href="' . $app_login_url . '" class="border-underline">
+                  <?php echo $app_login_text; ?>
+                </a>
+              </div>
+              <?php
                 }
               ?>
+              <div>
               <?php 
                 if ($show_vip_login == 'on') { 
-                  echo '<a href="#" class="border-underline margin-bottom-micro">';
-                  echo __('[:en]VIP Login[:es]Sección VIP');
-                  echo '</a>';
+              ?>
+              <div class="margin-bottom-micro">
+                <a href="#" class="border-underline">
+                  <?php echo __('[:en]VIP Login[:es]Sección VIP'); ?>
+                </a>
+              </div>
+              <?php
                 }
               ?>
             </div>
