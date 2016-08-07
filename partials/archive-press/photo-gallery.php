@@ -39,7 +39,7 @@ if (get_fair_year_id()) {
       <div class="row justify-center align-center">
         <div class="col col-l col-l-10">
           <div class="swiper-container">
-            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-prev button button-yellow"></div>
             <div class="swiper-wrapper">
 <?php 
     while ($photo_galleries->have_posts()) {
@@ -50,7 +50,7 @@ if (get_fair_year_id()) {
     }
 ?>
             </div>
-            <div class="swiper-button-next"></div>
+            <div class="swiper-button-next button button-yellow"></div>
           </div>
         </div>
       </div>

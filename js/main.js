@@ -1,5 +1,5 @@
 /* jshint browser: true, devel: true, indent: 2, curly: true, eqeqeq: true, futurehostile: true, latedef: true, undef: true, unused: true */
-/* global $, jQuery, document, Site, currentLang, Modernizr */
+/* global $, jQuery, document, Site, currentLang, Swiper, Modernizr */
 
 Site = {
   mobileThreshold: 601,
@@ -150,12 +150,30 @@ Site.Press = {
   },
 
   photoGallery: function() {
-    var mySwiper = new Swiper('.swiper-container', {
+    var _this = this;
+
+    _this.mySwiper = new Swiper('.swiper-container', {
       speed: 400,
       spaceBetween: 100,
       nextButton: '.swiper-button-next',
       prevButton: '.swiper-button-prev',
       loop: true,
+    });
+
+    _this.sizePhotoSlides();
+  },
+
+  sizePhotoSlides: function() {
+    var sliderHeight = $('.swiper-container').height();
+
+    $('.swiper-slide').each(function() {
+      if ($(this).find('.slide-caption').length) {
+        var maxImgHeight = sliderHeight - $(this).find('.slide-caption').outerHeight(true);
+
+        $(this).find('img').css('max-height', maxImgHeight + 'px');
+      } else {
+        $(this).find('img').css('max-height', sliderHeight + 'px');
+      }
     });
   },
 };
