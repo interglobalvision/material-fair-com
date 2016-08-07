@@ -22,13 +22,13 @@ if (!empty($other_years) && !empty($current_year_id)) {
       </div>
     </div>
     <div class="row"> 
-      <div class="col col-s col-s-12">
+      <div class="col col-s col-s-12 flex-row">
 <?php
   foreach ($other_years as $year) {
     $current_year_slug = get_term($current_year_id)->slug; 
     $this_slug = $year->slug;
 ?>
-        <a class="button font-size-h2 font-sans button-margin-right" href="<?php
+        <a class="button font-size-h2 font-sans button-margin-right margin-bottom-tiny" href="<?php
           if ($this_slug == $current_year_slug) { // go to main archive page
             echo get_post_type_archive_link($post_type);
           } else { // go to past year archive page

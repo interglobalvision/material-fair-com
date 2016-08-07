@@ -51,7 +51,7 @@ if (get_fair_year_id()) {
   <section id="press-posts" class="section">
     <div class="container">
       <div class="row">
-        <div class="col col-l col-l-12">
+        <div class="col col-s col-s-12 col-m col-l">
           <h2><?php
             _e('[:en]Selected Coverage[:es]Prensa seleccionada');
             if ($fair_year_id != $current_year_id) {
@@ -71,9 +71,9 @@ if (get_fair_year_id()) {
       $link = get_post_meta($post->ID, '_igv_press_url', true);
 ?>
 
-        <article <?php post_class('col col-l col-l-4 margin-bottom-small'); ?> id="post-<?php the_ID(); ?>">
+        <article <?php post_class('col col-s col-s-12 col-m col-m-6 col-l col-l-4 margin-bottom-small'); ?> id="post-<?php the_ID(); ?>">
           <a<?php echo !empty($link) ? ' href="' . esc_url($link) . '" target="_blank">' : '>'; ?>
-            <?php the_post_thumbnail('col-4-crop'); ?>
+            <?php the_post_thumbnail('col-6-crop'); ?>
 <?php
       if (!empty($publication)) {
 ?>
