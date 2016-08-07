@@ -166,10 +166,7 @@ Site.Press = {
   sizePhotoSlides: function() {
     var sliderHeight = $('.swiper-container').height();
 
-    console.log(sliderHeight);
-
     $('.swiper-slide').each(function() {
-      //console.log($(this));
       if ($(this).find('.slide-caption').length) {
         var maxImgHeight = sliderHeight - $(this).find('.slide-caption').outerHeight(true);
 
