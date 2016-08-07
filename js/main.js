@@ -1,5 +1,5 @@
 /* jshint browser: true, devel: true, indent: 2, curly: true, eqeqeq: true, futurehostile: true, latedef: true, undef: true, unused: true */
-/* global $, jQuery, document, Site, currentLang, Modernizr */
+/* global $, jQuery, document, Site, currentLang, Swiper, Modernizr */
 
 Site = {
   mobileThreshold: 601,
@@ -152,7 +152,7 @@ Site.Press = {
   photoGallery: function() {
     var _this = this;
 
-    var mySwiper = new Swiper('.swiper-container', {
+    _this.mySwiper = new Swiper('.swiper-container', {
       speed: 400,
       spaceBetween: 100,
       nextButton: '.swiper-button-next',
