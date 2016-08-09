@@ -158,6 +158,7 @@ html
   font-family: $font-sans
   font-size: $font-size-basic
   letter-spacing: $font-tracking-basic
+  color: $color-white
 
 body
   line-height: $font-leading-basic
@@ -209,7 +210,7 @@ p
 
 .font-serif
   font-family: $font-serif !important
- 
+
   // TEXT RULES
 
 .text-overflow-ellipsis
@@ -261,10 +262,9 @@ p
 html
   background-color: $color-black
   background-image: url('../img/dist/background.svg')
-  background-size: 3186.57px 4100.85px
-  background-repeat: repeat
+  background-size: cover
+  background-repeat: no-repeat
   background-position: center 0
-  color: $color-white
 
 h1, h2
   color: $color-yellow
@@ -299,7 +299,7 @@ h1, h2
     color: inherit
   .border-row
     border-color: $color-black
-    
+
 .pagination-section
   .col
     margin-bottom: ($gutter / 2)
@@ -439,7 +439,7 @@ input
     margin-bottom: 0
   #header-logo
     line-height: 0
-    img 
+    img
       width: 100%
       height: auto
   .button
@@ -524,7 +524,7 @@ ul.language-chooser
   padding: $margin-small 0
   cursor: pointer
   justify-content: space-between
-  .col 
+  .col
     margin-bottom: 0
   .calendar-date:after
     content: '▼'
@@ -574,19 +574,19 @@ ul.language-chooser
 .lead-sponsor-logo
   margin-right: $margin-small
   margin-bottom: $margin-small
-  
+
 #mailchimp-email
   flex: 1 1 auto
   margin-right: $margin-micro
-  
+
 #mailchimp-response
   margin-left: $margin-micro
 
 #social-icon-container
-  display: flex 
+  display: flex
   flex-direction: row
   align-items: flex-end
-  
+
 .social-icon
   display: flex
   justify-content: center

@@ -1276,6 +1276,7 @@ html {
   font-family: 'Akkurat Pro', 'Helvatica Neue', Helvetica, Arial, sans-serif;
   font-size: 14px;
   letter-spacing: 0.001em;
+  color: #fff;
 }
 body {
   line-height: 1.35;
@@ -1370,10 +1371,9 @@ p a:visited {
 html {
   background-color: #000;
   background-image: url("../img/dist/background.svg");
-  background-size: 3186.57px 4100.85px;
-  background-repeat: repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
   background-position: center 0;
-  color: #fff;
 }
 h1,
 h2 {
