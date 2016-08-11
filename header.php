@@ -48,7 +48,7 @@
   <?php if (is_singular() && pings_open(get_queried_object())) { ?>
   <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
   <?php } ?>
-  <?php wp_head(); 
+  <?php wp_head();
 
   $logo_id = IGV_get_option('_igv_social_options', '_igv_metadata_logo_id');
 
@@ -87,10 +87,10 @@
             <img src="<?php bloginfo('stylesheet_directory'); ?>/img/dist/header-logo.svg">
           </a>
 
-          <?php 
-            if (!empty($apply_url) && $publish_exhibitors != 'on' && $show_apply == 'on') { 
+          <?php
+            if (!empty($apply_url) && $publish_exhibitors != 'on' && $show_apply == 'on') {
           ?>
-          <div class="col col-s col-s-12 col-m <?php echo !empty($sponsor_logo) ? 'col-m-5' : 'col-m-8'; ?> col-l col-l-3 flex-row"> 
+          <div class="col col-s col-s-12 col-m <?php echo !empty($sponsor_logo) ? 'col-m-5' : 'col-m-8'; ?> col-l col-l-3 flex-row">
             <div class="col flex-col justify-center align-center text-align-center font-size-h4 padding-bottom-tiny padding-top-tiny <?php echo !empty($header_text) ? 'section-yellow' : ''; ?>">
               <?php echo !empty($header_text) ? apply_filters( 'the_content', $header_text ) : ''; ?>
             </div>
@@ -100,16 +100,16 @@
               <?php _e('[:en]Apply![:es]¡Aplica!'); ?>
             </a>
           </div>
-          <?php 
-            } else { 
+          <?php
+            } else {
           ?>
-          <div class="col col-s col-s-12 col-m col-m-9 col-l col-l-5 flex-row"> 
+          <div class="col col-s col-s-12 col-m col-m-9 col-l col-l-5 flex-row">
             <div class="col flex-col justify-center align-center text-align-center font-size-h4 padding-bottom-tiny padding-top-tiny <?php echo !empty($header_text) ? 'section-yellow' : ''; ?>">
               <?php echo !empty($header_text) ? apply_filters( 'the_content', $header_text ) : ''; ?>
             </div>
           </div>
-          <?php 
-            } 
+          <?php
+            }
           ?>
 
           <?php if (!empty($sponsor_logo)) { ?>
@@ -118,28 +118,28 @@
               <a class="col flex-col justify-center align-center" target="_blank" rel="noopener noreferrer" href="<?php echo esc_url($sponsor_url); ?>">
                 <?php echo wp_get_attachment_image($sponsor_logo, 'sponsor'); ?>
               </a>
-            <?php 
+            <?php
               } else {
             ?>
               <div class="col flex-col justify-center align-center">
                 <?php echo wp_get_attachment_image($sponsor_logo, 'sponsor'); ?>
               </div>
-            <?php 
-              } 
+            <?php
+              }
             ?>
             </div>
-          <?php 
-            } 
+          <?php
+            }
           ?>
 
           <div class="col col-l col-l-2 flex-col desktop-only text-align-right">
             <div class="col flex-col align-end">
               <div class="margin-bottom-micro"><?php echo qtranxf_generateLanguageSelectCode('both'); ?></div>
-              <?php 
-                if (!empty($app_login_url) && !empty($app_login_text)) { 
+              <?php
+                if (!empty($app_login_url) && !empty($app_login_text)) {
               ?>
               <div class="margin-bottom-micro">
-                <a href="' . $app_login_url . '" class="border-underline">
+                <a href="<?php echo $app_login_url; ?>" class="border-underline">
                   <?php echo $app_login_text; ?>
                 </a>
               </div>
@@ -147,8 +147,8 @@
                 }
               ?>
               <div>
-              <?php 
-                if ($show_vip_login == 'on') { 
+              <?php
+                if ($show_vip_login == 'on') {
               ?>
               <div class="margin-bottom-micro">
                 <a href="#" class="border-underline">
@@ -159,16 +159,16 @@
                 }
               ?>
             </div>
-          <?php if (!empty($sponsor_logo)) { 
+          <?php if (!empty($sponsor_logo)) {
           ?>
             <div class="col flex-col justify-end align-center">
-              <?php 
+              <?php
                 $sponsor_logo_img = wp_get_attachment_image($sponsor_logo, 'sponsor');
-                echo !empty($sponsor_url) ? '<a href="' . $sponsor_url . '">' . $sponsor_logo_img . '</a>' : $sponsor_logo_img; 
+                echo !empty($sponsor_url) ? '<a href="' . $sponsor_url . '">' . $sponsor_logo_img . '</a>' : $sponsor_logo_img;
               ?>
             </div>
-          <?php 
-            } 
+          <?php
+            }
           ?>
           </div>
         </div>
@@ -190,7 +190,7 @@
                 <?php _e('[:en]Home[:es]Inicio'); ?>
               </a></div>
             </li>
-          <?php 
+          <?php
             $page_id = get_id_by_slug('visitor-information');
             if ($page_id) {
           ?>
@@ -215,7 +215,7 @@
                 <?php _e('[:en]Press[:es]Prensa'); ?>
               </a></div>
             </li>
-          <?php 
+          <?php
             $page_id = get_id_by_slug('reading-material');
             if ($page_id && $show_reading_material == 'on') {
           ?>
@@ -224,7 +224,7 @@
                 <?php echo get_the_title($page_id); ?>
               </a></div>
             </li>
-          <?php 
+          <?php
             }
             $page_id = get_id_by_slug('partners');
             if ($page_id && !empty($partners)) {
@@ -241,8 +241,8 @@
               <?php echo qtranxf_generateLanguageSelectCode('both'); ?>
             </li>
             <li class="mobile-only col col-s col-s-12 col-m col-m-4 text-align-center padding-bottom-tiny">
-              <?php 
-                if ($show_vip_login == 'on') { 
+              <?php
+                if ($show_vip_login == 'on') {
                   echo '<a href="#" class="border-underline margin-bottom-micro">';
                   echo __('[:en]VIP Login[:es]Sección VIP');
                   echo '</a>';
@@ -250,8 +250,8 @@
               ?>
             </li>
             <li class="mobile-only col col-s col-s-12 col-m col-m-4 text-align-center padding-bottom-tiny">
-              <?php 
-                if (!empty($app_login_url) && !empty($app_login_text)) { 
+              <?php
+                if (!empty($app_login_url) && !empty($app_login_text)) {
                   echo '<a href="' . $app_login_url . '" class="border-underline margin-bottom-micro">';
                   echo $app_login_text;
                   echo '</a>';
