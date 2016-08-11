@@ -90,12 +90,12 @@
           <?php 
             if (!empty($apply_url) && $publish_exhibitors != 'on' && $show_apply == 'on') { 
           ?>
-          <div class="col col-s col-s-12 col-m col-m-5 col-l col-l-3 flex-row"> 
+          <div class="col col-s col-s-12 col-m <?php echo !empty($sponsor_logo) ? 'col-m-5' : 'col-m-8'; ?> col-l col-l-3 flex-row"> 
             <div class="col flex-col justify-center align-center text-align-center font-size-h4 padding-bottom-tiny padding-top-tiny <?php echo !empty($header_text) ? 'section-yellow' : ''; ?>">
               <?php echo !empty($header_text) ? apply_filters( 'the_content', $header_text ) : ''; ?>
             </div>
           </div>
-          <div class="col col-s col-s-6 col-m col-m-4 col-l col-l-2 flex-row">
+          <div class="col col-s <?php echo !empty($sponsor_logo) ? 'col-s-6' : 'col-s-12'; ?> col-m col-m-4 col-l col-l-2 flex-row">
             <a class="col flex-col justify-center align-center font-size-h4 button button-big" href="<?php echo esc_url($apply_url); ?>">
               <?php _e('[:en]Apply![:es]¡Aplica!'); ?>
             </a>
@@ -132,21 +132,30 @@
             } 
           ?>
 
-          <div class="col col-l col-l-2 flex-col desktop-only">
+          <div class="col col-l col-l-2 flex-col desktop-only text-align-right">
             <div class="col flex-col align-end">
               <div class="margin-bottom-micro"><?php echo qtranxf_generateLanguageSelectCode('both'); ?></div>
               <?php 
                 if (!empty($app_login_url) && !empty($app_login_text)) { 
-                  echo '<a href="' . $app_login_url . '" class="border-underline margin-bottom-micro">';
-                  echo $app_login_text;
-                  echo '</a>';
+              ?>
+              <div class="margin-bottom-micro">
+                <a href="' . $app_login_url . '" class="border-underline">
+                  <?php echo $app_login_text; ?>
+                </a>
+              </div>
+              <?php
                 }
               ?>
+              <div>
               <?php 
                 if ($show_vip_login == 'on') { 
-                  echo '<a href="#" class="border-underline margin-bottom-micro">';
-                  echo __('[:en]VIP Login[:es]Sección VIP');
-                  echo '</a>';
+              ?>
+              <div class="margin-bottom-micro">
+                <a href="#" class="border-underline">
+                  <?php echo __('[:en]VIP Login[:es]Sección VIP'); ?>
+                </a>
+              </div>
+              <?php
                 }
               ?>
             </div>
@@ -166,18 +175,21 @@
       </div>
 
       <div id="header-menu">
-        <div id="header-mobile" class="row mobile-only">
+        <div id="header-mobile" class="row mobile-only js-menu-trigger u-pointer">
           <div class="col col-s col-s-10 col-m col-m-11">
-            <a href="<?php echo home_url(); ?>">
-              <h1 class="font-uppercase">Material Art Fair</h1>
-            </a>
+            <h1 class="font-uppercase">Material Art Fair</h1>
           </div>
-          <div class="col col-s col-s-2 col-m col-m-1 text-align-center js-menu-trigger u-pointer">
+          <div class="col col-s col-s-2 col-m col-m-1 text-align-center">
             <div class="menu-toggle">▼</div>
           </div>
         </div>
         <nav id="main-menu">
-          <ul class="row justify-center">
+          <ul class="row justify-start">
+            <li class="menu-item mobile-only col col-s col-s-12 col-m col-m-4 col-l col-l-2 flex-col justify-center text-align-center font-green">
+              <div><a class="border-underline" href="<?php echo home_url(); ?>">
+                <?php _e('[:en]Home[:es]Inicio'); ?>
+              </a></div>
+            </li>
           <?php 
             $page_id = get_id_by_slug('visitor-information');
             if ($page_id) {
@@ -222,7 +234,9 @@
                 <?php echo get_the_title($page_id); ?>
               </a></div>
             </li>
-
+          <?php } ?>
+          </ul>
+           <ul class="row justify-start">
             <li class="mobile-only col col-s col-s-12 col-m col-m-4 text-align-center padding-bottom-tiny">
               <?php echo qtranxf_generateLanguageSelectCode('both'); ?>
             </li>
@@ -244,7 +258,6 @@
                 }
               ?>
             </li>
-          <?php } ?>
           </ul>
         </nav>
       </div>
