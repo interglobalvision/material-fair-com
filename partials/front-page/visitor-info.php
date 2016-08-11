@@ -31,8 +31,8 @@ if (!empty($schedule) || ( !empty($venue_name) && !empty($venue_address) )  || !
             foreach ($schedule as $day) { 
               if (!empty($day['schedule']) && !empty($day['date'])) {
           ?>
-          <div class="flex-row border-row padding-top-micro u-no-p-breaks">
-            <div class="col col-s col-s-6 font-size-h4">
+          <div class="flex-row border-row padding-top-tiny u-no-p-breaks">
+            <div class="col col-s col-s-6 col-m col-l font-size-h4">
               <?php
                 _e(date('l', $day['date']));
                 echo ', ' . date('j ', $day['date']);
@@ -40,7 +40,7 @@ if (!empty($schedule) || ( !empty($venue_name) && !empty($venue_address) )  || !
                 echo date(' Y', $day['date']);
               ?>
             </div>
-            <div class="col col-s col-s-6">
+            <div class="col col-s col-s-6 col-m col-l">
               <span class="font-size-h4"><?php echo apply_filters( 'the_content', $day['schedule'] ); ?></span>
             </div>
           </div>
