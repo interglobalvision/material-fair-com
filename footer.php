@@ -139,7 +139,7 @@
         <?php if (!empty($sponsors)) { ?>
 
         <div class="row">
-          <div class="col col-l col-l-12 flex-row align-center justify-center lead-sponsor-container">
+          <div class="col col-s col-s-12 col-m col-m-12 col-l col-l-12 flex-row align-center justify-center lead-sponsor-container">
           <?php foreach ($sponsors as $sponsor) { ?>
 
             <?php
@@ -154,7 +154,7 @@
         <?php } ?>
 
         <div class="row">
-          <div class="col col-s">
+          <div class="col col-s col-s-12 col-m col-m-12 col-l col-l-12">
             <span class="font-small-caps">&copy; <?php echo get_the_date('Y'); ?> Feria de Arte Material México SA de CV</span>
           </div>
         </div>

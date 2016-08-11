@@ -51,7 +51,7 @@ if (get_fair_year_id()) {
   <section id="press-posts" class="section">
     <div class="container">
       <div class="row">
-        <div class="col col-s col-s-12 col-m col-l">
+        <div class="col col-s col-s-12 col-m col-m-12 col-l col-l-12">
           <h2><?php
             _e('[:en]Selected Coverage[:es]Prensa seleccionada');
             if ($fair_year_id != $current_year_id) {

@@ -6,7 +6,7 @@ if (!empty($partners)) {
   <section id="partners" class="section">
     <div class="container">
       <div class="row">
-        <div class="col col-s col-s-12">
+        <div class="col col-s col-s-12 col-m col-m-12 col-l col-l-12">
         <?php 
           echo is_front_page() ? '<h2 class="text-align-center">' : '<h1>';
           _e('[:en]Sponsors & Partners[:es]Patrocinadores & Aliados'); 
@@ -21,7 +21,7 @@ if (!empty($partners)) {
           if(!empty($partners_text)) {
       ?>
       <div class="row">
-        <div class="col col-s col-s-12 col-l col-l-8 font-size-h3">
+        <div class="col col-s col-s-12 col-m col-m-12 col-l col-l-8 font-size-h3">
           <?php echo $partners_text; ?>
         </div>
       </div>

@@ -57,7 +57,7 @@ if (get_fair_year_id()) {
   <section id="press-highlights" class="section section-yellow">
     <div class="container">
       <div class="row">
-        <div class="col col-s col-s-12 col-m col-l text-align-center">
+        <div class="col col-s col-s-12 col-m col-m-12 col-l col-l-12 text-align-center">
           <h2>
             <?php 
               _e('[:en]Highlights[:es]Destacados');
@@ -79,12 +79,12 @@ if (get_fair_year_id()) {
       $link = get_post_meta($post->ID, '_igv_press_url', true);
 ?>
         <div class="col col-s-12 flex-row align-center press-highlight">
-          <div <?php post_class('col col-s col-s-12 col-m col-m-6 col-l'); ?> id="post-<?php the_ID(); ?>">
+          <div <?php post_class('col col-s col-s-12 col-m col-m-6 col-l col-l-6'); ?> id="post-<?php the_ID(); ?>">
             <a href="<?php echo esc_url($link); ?>" target="_blank">
               <?php the_post_thumbnail('col-6-crop'); ?>
             </a>
           </div>
-          <div <?php post_class('col col-s col-s-12 col-m col-m-6 col-l press-highlight'); ?> id="post-<?php the_ID(); ?>">
+          <div <?php post_class('col col-s col-s-12 col-m col-m-6 col-l col-l-6 press-highlight'); ?> id="post-<?php the_ID(); ?>">
 <?php 
         if (!empty($link)) {
 ?>

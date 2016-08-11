@@ -28,7 +28,7 @@ if ($publish_exhibitors == 'on' && !empty($current_year_id)) {
   <section id="front-exhibitors" class="section">
     <div class="container">
       <div class="row">
-        <div class="col col-s col-s-12 text-align-center">
+        <div class="col col-s col-s-12 col-m col-m-12 col-l col-l-12 text-align-center">
           <h2><?php _e('[:en]Exhibitors[:es]Expositores'); ?></h2>
         </div>
       </div>

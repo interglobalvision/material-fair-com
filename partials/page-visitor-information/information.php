@@ -17,10 +17,10 @@ $venue_map = IGV_get_option('_igv_visitor_options', '_igv_venue_map');
     if ( !empty($schedule) ) {
 ?>
       <div class="row">
-        <div class="col col-s col-s-12 col-m col-l">
+        <div class="col col-s col-s-12 col-m col-m-12 col-l col-l-12">
           <h2 class="margin-bottom-tiny"><?php _e('[:en]Schedule[:es]Horarios'); ?></h2>
         </div>
-        <div class="col col-s-12 font-size-h3">
+        <div class="col col-s-12 col-m col-m-12 col-l col-l-12 font-size-h3">
 <?php 
       foreach ($schedule as $day) { 
         if (!empty($day['schedule']) && !empty($day['date'])) {

@@ -5,7 +5,7 @@ $artist = get_post_meta($post->ID, '_igv_event_artist', true);
 $location = get_post_meta($post->ID, '_igv_event_location', true);
 $url = get_post_meta($post->ID, '_igv_event_url', true); 
 ?>
-<div class="col col-s col-s-12 col-l col-l-6 flex-row">
+<div class="col col-s col-s-12 col-m col-m-12 col-l col-l-6 flex-row">
   <?php echo !empty($url) ? '<a href="' . $url . '" target="_blank" rel="noopener noreferrer" class="col col-s col-s-12">' : ''; ?>
   <?php the_post_thumbnail('col-6-crop'); ?>
   <?php echo !empty($url) ? '</a>' : ''; ?>
@@ -16,7 +16,7 @@ $url = get_post_meta($post->ID, '_igv_event_url', true);
       } 
     ?>
   </div>
-  <div class="col col-s-12 col-m-8">
+  <div class="col col-s-12 col-m-8 col-l-8">
     <span class="font-size-h4">
       <?php 
         echo !empty($url) ? '<a href="' . $url . '" target="_blank" rel="noopener noreferrer">' : ''; 

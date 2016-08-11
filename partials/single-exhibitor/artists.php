@@ -7,7 +7,7 @@ if (!empty($artists)) {
 <section class="section section-yellow">
   <div class="container">
     <div class="row">
-      <div class="col col-s col-s-12">
+      <div class="col col-s col-s-12 col-m col-m-12 col-l col-l-12">
         <h2><?php _e('[:en]Exhibiting Artists[:es]Artistas presentando'); ?></h2>
       </div>
     </div>
@@ -15,7 +15,7 @@ if (!empty($artists)) {
       <?php 
         foreach ($artists as $artist) {
       ?>
-      <div class="col col-s col-s-12 col-m col-m-6 font-size-h3 margin-bottom-micro">
+      <div class="col col-s col-s-12 col-m col-m-6 col-l col-l-6 font-size-h3 margin-bottom-micro">
       <?php echo $artist; ?>
       </div>
       <?php 

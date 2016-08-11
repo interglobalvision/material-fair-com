@@ -27,7 +27,7 @@ if (get_fair_year_id()) {
 <section class="section section-yellow padding-bottom-basic">
   <div class="container">
     <div class="row">
-      <div class="col col-s col-s-12">
+      <div class="col col-s col-s-12 col-m col-m-12 col-l col-l-12">
         <h2>
           <?php 
             _e('[:en]Schedule[:es]Calendario');
@@ -71,13 +71,13 @@ if (get_fair_year_id()) {
       }
 ?>  
       <div class="row">
-        <div class="col col-s col-s-6 col-l col-l-2 font-size-h4 text-align-center">
+        <div class="col col-s col-s-6 col-m col-m-6 col-l col-l-2 font-size-h4 text-align-center">
           <?php get_template_part('partials/event-times'); ?>
         </div>
-        <div class="col col-s col-s-6 col-l col-l-4">
+        <div class="col col-s col-s-6 col-m col-m-6 col-l col-l-4">
           <?php the_post_thumbnail('col-6-crop'); ?>
         </div>
-        <div class="col col-s col-s-12 col-l col-l-6">
+        <div class="col col-s col-s-12 col-m col-m-12 col-l col-l-6">
           <span class="font-size-h4">
           <?php 
             echo !empty($url) ? '<a href="' . $url . '" target="_blank" rel="noopener noreferrer">' : ''; 
