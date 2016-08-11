@@ -111,7 +111,7 @@
             ?>
             <h5 class="margin-bottom-micro">Mailing List<span id="mailchimp-response" class="margin-left-micro"></span></h5>
             <form method="get" id="mailchimp-form" class="flex-row" name="mailchimp-form" action="<?php echo esc_url($mailchimp_url); ?>">
-              <input id="mailchimp-email" type="email" size="30" placeholder="email" value="" name="EMAIL">
+              <input id="mailchimp-email" type="email" placeholder="email" value="" name="EMAIL">
               <input type="submit" value="Subscribe" name="subscribe">
             </form>
             <?php
