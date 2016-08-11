@@ -46,7 +46,7 @@ if (get_fair_year_id()) {
         <a class="col flex-row align-center justify-center button button-yellow" href="<?php echo get_post_type_archive_link( 'event' ); ?>"><?php _e('[:en]See More[:es]Ver más'); ?></a>
       </div>
     <?php } else { ?>
-      <div class="col col-s col-s-12">
+      <div class="col col-s col-s-12 col-m col-m-12 col-l col-l-12">
         <h2 class="text-align-left">
           <?php 
             _e('[:en]Program Highlights[:es]Eventos destecados'); 

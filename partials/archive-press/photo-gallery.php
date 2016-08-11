@@ -24,7 +24,7 @@ if (get_fair_year_id()) {
   <section id="press-photo-gallery" class="section">
     <div class="container">
       <div class="row">
-        <div class="col col-l col-l-12 text-align-center">
+        <div class="col col-s col-s-12 col-m col-m-12 col-l col-l-12 text-align-center">
           <h2>
             <?php 
               _e('[:en]Photos[:es]Fotos');
@@ -37,7 +37,7 @@ if (get_fair_year_id()) {
     </div>
     <div class="container">
       <div class="row justify-center align-center">
-        <div class="col col-l col-l-10">
+        <div class="col col-s col-s-10 col-m col-m-10 col-l col-l-10">
           <div class="swiper-container">
             <div class="swiper-button-prev button button-yellow"></div>
             <div class="swiper-wrapper">

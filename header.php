@@ -81,7 +81,7 @@
     <div class="container">
       <div id="header-primary">
         <div class="row font-uppercase">
-          <a class="col col-s col-s-5 desktop-only" href="<?php echo home_url(); ?>" id="header-logo" >
+          <a class="col col-s col-s-5 col-m col-m-5 col-l col-l-5 desktop-only" href="<?php echo home_url(); ?>" id="header-logo" >
             <img src="<?php bloginfo('stylesheet_directory'); ?>/img/dist/header-logo.svg">
           </a>
 
@@ -111,7 +111,7 @@
           ?>
 
           <?php if (!empty($sponsor_logo)) { ?>
-            <div class="col col-s col-s-6 col-m col-m-3 mobile-only flex-row justify-center align-center">
+            <div class="col col-s col-s-6 col-m col-m-3 col-l col-l-3 mobile-only flex-row justify-center align-center">
             <?php if (!empty($sponsor_url)) { ?>
               <a class="col flex-col justify-center align-center" target="_blank" rel="noopener noreferrer" href="<?php echo esc_url($sponsor_url); ?>">
                 <?php echo wp_get_attachment_image($sponsor_logo, 'sponsor'); ?>
@@ -130,7 +130,7 @@
             }
           ?>
 
-          <div class="col col-l col-l-2 flex-col desktop-only text-align-right">
+          <div class="col col-s col-s-2 col-m col-m-2 col-l col-l-2 flex-col desktop-only text-align-right">
             <div class="col flex-col align-end">
               <div class="margin-bottom-micro"><?php echo qtranxf_generateLanguageSelectCode('both'); ?></div>
               <?php
@@ -174,10 +174,10 @@
 
       <div id="header-menu">
         <div id="header-mobile" class="row mobile-only js-menu-trigger u-pointer">
-          <div class="col col-s col-s-10 col-m col-m-11">
+          <div class="col col-s col-s-10 col-m col-m-11 col-l col-l-11">
             <h1 class="font-uppercase">Material Art Fair</h1>
           </div>
-          <div class="col col-s col-s-2 col-m col-m-1 text-align-center">
+          <div class="col col-s col-s-2 col-m col-m-1 col-l col-l-1 text-align-center">
             <div class="menu-toggle">▼</div>
           </div>
         </div>
@@ -235,7 +235,7 @@
           <?php } ?>
           </ul>
            <ul class="row justify-start">
-            <li class="mobile-only col col-s col-s-12 col-m col-m-4 text-align-center padding-bottom-tiny">
+            <li class="mobile-only col col-s col-s-12 col-m col-m-4 col-l col-l-4 text-align-center padding-bottom-tiny">
               <?php echo qtranxf_generateLanguageSelectCode('both'); ?>
             </li>
             <li class="mobile-only col col-s col-s-12 col-m col-m-4 text-align-center padding-bottom-tiny">
@@ -247,7 +247,7 @@
                 }
               ?>
             </li>
-            <li class="mobile-only col col-s col-s-12 col-m col-m-4 text-align-center padding-bottom-tiny">
+            <li class="mobile-only col col-s col-s-12 col-m col-m-4 col-l col-l-4 text-align-center padding-bottom-tiny">
               <?php
                 if (!empty($app_login_url) && !empty($app_login_text)) {
                   echo '<a href="' . $app_login_url . '" class="border-underline margin-bottom-micro">';

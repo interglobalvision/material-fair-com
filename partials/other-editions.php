@@ -17,12 +17,12 @@ if (!empty($other_years) && !empty($current_year_id)) {
 <section class="section">
   <div class="container">
     <div class="row">
-      <div class="col col-s col-s-12">
+      <div class="col col-s col-s-12 col-m col-m-12 col-l col-l-12">
         <h2><?php _e('[:en]Other Editions[:es]Otras ediciones'); ?></h2>
       </div>
     </div>
     <div class="row"> 
-      <div class="col col-s col-s-12 flex-row">
+      <div class="col col-s col-s-12 col-m col-m-12 col-l col-l-12 flex-row">
 <?php
   foreach ($other_years as $year) {
     $current_year_slug = get_term($current_year_id)->slug; 

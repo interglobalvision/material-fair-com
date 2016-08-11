@@ -36,7 +36,7 @@ if ( $press->have_posts() ) {
 
     if (!empty($press_url)) {
 ?>
-        <div class="col col-s col-s-12 col-m col-m-4">
+        <div class="col col-s col-s-12 col-m col-m-4 col-l col-l-4">
 <?php 
       if (!empty($press_pub)) {
 ?>
