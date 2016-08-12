@@ -112,16 +112,38 @@ for col in 1..$cols
     flex-basis: ( 100% / $cols ) * col
     max-width: ( 100% / $cols ) * col
     
-.menu-item
-  font-size: $font-size-h4
+// ******************************************************
 
 .text-columns-2
   column-count: 2
   column-gap: $gutter
-  
-.press-highlight:nth-of-type(2)
-  flex-direction: row-reverse
 
+.menu-item
+  font-size: $font-size-h4
+  &.col
+    margin-bottom: $margin-small
+
+// FRONT PAGE
+
+#front-splash
+  padding: 0
+
+#splash-image
+  width: 100%
+  max-width: 1440px
+  margin: 0 auto
+  display: block
+
+// VISITOR INFO
+
+.venue-map iframe
+  border-width: $margin-micro !important
+
+// PROGRAM
+
+.calendar-heading
+  padding: $margin-small 0
+  
 .event-time, .event-times-divider 
   display: block
   margin: 0 0 $margin-micro 0
@@ -132,10 +154,26 @@ for col in 1..$cols
   
 .event-times-day
   display: block
+
+// PRESS
+
+.press-highlight:nth-of-type(2)
+  flex-direction: row-reverse
+
+.swiper-container
+  height: 500px
   
-.pagination-section
-  .col
-    margin-bottom: ($gutter / 2)
-    
 .swiper-button-prev, .swiper-button-next
   padding: $margin-tiny * 1.5
+
+// FOOTER
+
+.lead-sponsor-logo
+  margin-right: $margin-small
+  margin-bottom: $margin-small
+
+#mailchimp-email
+  margin-right: $margin-micro
+
+#mailchimp-response
+  margin-left: $margin-micro
