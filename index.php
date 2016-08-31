@@ -18,7 +18,9 @@ if ($highlight->have_posts()) {
     <div class="container">
       <div class="row">
         <article <?php post_class('col col-s col-s-12 col-m col-l'); ?> id="post-<?php the_ID(); ?>">
-          Highlight
+
+          <?php get_template_part('index/highlight'); ?>
+
         </article>
       </div>
     </div>
@@ -40,7 +42,7 @@ if( have_posts() ) {
 ?>
       <article <?php post_class('col col-s col-s-12 col-m col-m-6 col-l margin-bottom-small'); ?> id="post-<?php the_ID(); ?>">
 
-        <?php get_template_part('index/feed-post'); ?>
+        <?php get_template_part('index/post'); ?>
 
       </article>
 <?php
