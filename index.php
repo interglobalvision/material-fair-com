@@ -5,7 +5,7 @@ get_header();
 <main id="main-content">
 
 <?php 
-$args = (
+$args = array(
   'posts_per_page' => 1,
 );
 
