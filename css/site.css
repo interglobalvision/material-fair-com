@@ -1711,6 +1711,16 @@ ul.language-chooser li a {
 .swiper-button-next {
   background-image: url("../img/dist/right_triangle.svg");
 }
+.highlight-holder {
+  position: relative;
+}
+.highlight-image {
+  vertical-align: bottom;
+}
+.highlight-details {
+  position: absolute;
+  bottom: 0;
+}
 #footer-logo {
   max-width: 47px;
 }
@@ -1951,9 +1961,6 @@ ul.language-chooser li a {
         flex-basis: 100%;
     max-width: 100%;
   }
-  .menu-item {
-    font-size: 1.272006289292628rem;
-  }
   .text-columns-2 {
     -webkit-column-count: 2;
     -moz-column-count: 2;
@@ -1962,11 +1969,26 @@ ul.language-chooser li a {
     -moz-column-gap: 26px;
     column-gap: 26px;
   }
-  .press-highlight:nth-of-type(2) {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: reverse;
-    -ms-flex-direction: row-reverse;
-    flex-direction: row-reverse;
+  .menu-item {
+    font-size: 1.272006289292628rem;
+  }
+  .menu-item.col {
+    margin-bottom: 26px;
+  }
+  #front-splash {
+    padding: 0;
+  }
+  #splash-image {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    display: block;
+  }
+  .venue-map iframe {
+    border-width: 8.034441853748111px !important;
+  }
+  .calendar-heading {
+    padding: 26px 0;
   }
   .event-time,
   .event-times-divider {
@@ -1981,12 +2003,28 @@ ul.language-chooser li a {
   .event-times-day {
     display: block;
   }
-  .pagination-section .col {
-    margin-bottom: 13px;
+  .press-highlight:nth-of-type(2) {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+  }
+  .swiper-container {
+    height: 500px;
   }
   .swiper-button-prev,
   .swiper-button-next {
     padding: 19.5px;
+  }
+  .lead-sponsor-logo {
+    margin-right: 26px;
+    margin-bottom: 26px;
+  }
+  #mailchimp-email {
+    margin-right: 8.034441853748111px;
+  }
+  #mailchimp-response {
+    margin-left: 8.034441853748111px;
   }
 }
 @media screen and (min-width: 712px) {
@@ -2191,6 +2229,18 @@ ul.language-chooser li a {
         flex-basis: 100%;
     max-width: 100%;
   }
+  .pagination-section .col {
+    margin-bottom: 14px;
+  }
+  .pagination-container {
+    -ms-justify-content: flex-end;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  .pagination-button {
+    margin: 0 8.652475842497966px;
+  }
   #header {
     margin-top: 0;
   }
@@ -2214,21 +2264,56 @@ ul.language-chooser li a {
     margin-bottom: 14px;
     margin-top: 14px;
   }
-  .pagination-section .col {
-    margin-bottom: 14px;
+  #front-splash {
+    padding: 0;
   }
-  .pagination-container {
-    -ms-justify-content: flex-end;
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
+  #splash-image {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    display: block;
   }
-  .pagination-button {
-    margin: 0 8.652475842497966px;
+  .venue-map iframe {
+    border-width: 8.652475842497966px !important;
+  }
+  .calendar-heading {
+    padding: 28px 0;
+  }
+  .event-time,
+  .event-times-divider {
+    display: block;
+    margin: 0 0 8.652475842497966px 0;
+    text-align: center;
+  }
+  .event-times-divider {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  .event-times-day {
+    display: block;
+  }
+  .press-highlight:nth-of-type(2) {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+  }
+  .swiper-container {
+    height: 500px;
   }
   .swiper-button-prev,
   .swiper-button-next {
     padding: 28px;
+  }
+  .lead-sponsor-logo {
+    margin-right: 28px;
+    margin-bottom: 28px;
+  }
+  #mailchimp-email {
+    margin-right: 8.652475842497966px;
+  }
+  #mailchimp-response {
+    margin-left: 8.652475842497966px;
   }
   #social-icon-container {
     -webkit-box-orient: horizontal;
@@ -2278,11 +2363,145 @@ ul.language-chooser li a {
   .font-size-h4 {
     font-size: 1.400505962399693rem;
   }
-  .menu-item {
-    font-size: 1.400505962399693rem;
+  .border-row {
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+  .section {
+    padding: 24px 0;
   }
   .pagination-section .col {
     margin-bottom: 16px;
+  }
+  .button,
+  a.button {
+    padding: 12px;
+  }
+  .button.button-big,
+  a.button.button-big {
+    padding: 24px 0;
+    font-size: 1.400505962399693rem;
+  }
+  .button.button-margin-right,
+  a.button.button-margin-right {
+    margin-right: 12px;
+  }
+  input {
+    padding: 7.416407864998257px;
+  }
+  .margin-top-micro {
+    margin-top: 7.416407864998257px;
+  }
+  .margin-top-tiny {
+    margin-top: 12px;
+  }
+  .margin-top-small {
+    margin-top: 24px;
+  }
+  .margin-top-basic {
+    margin-top: 48px;
+  }
+  .margin-top-mid {
+    margin-top: 84px;
+  }
+  .margin-top-large {
+    margin-top: 120px;
+  }
+  .margin-bottom-micro {
+    margin-bottom: 7.416407864998257px;
+  }
+  .margin-bottom-tiny {
+    margin-bottom: 12px;
+  }
+  .margin-bottom-small {
+    margin-bottom: 24px;
+  }
+  .margin-bottom-basic {
+    margin-bottom: 48px;
+  }
+  .margin-bottom-mid {
+    margin-bottom: 84px;
+  }
+  .margin-bottom-large {
+    margin-bottom: 120px;
+  }
+  .padding-top-micro {
+    padding-top: 7.416407864998257px;
+  }
+  .padding-top-tiny {
+    padding-top: 12px;
+  }
+  .padding-top-small {
+    padding-top: 24px;
+  }
+  .padding-top-basic {
+    padding-top: 48px;
+  }
+  .padding-top-mid {
+    padding-top: 84px;
+  }
+  .padding-top-large {
+    padding-top: 120px;
+  }
+  .padding-bottom-micro {
+    padding-bottom: 7.416407864998257px;
+  }
+  .padding-bottom-tiny {
+    padding-bottom: 12px;
+  }
+  .padding-bottom-small {
+    padding-bottom: 24px;
+  }
+  .padding-bottom-basic {
+    padding-bottom: 48px;
+  }
+  .padding-bottom-mid {
+    padding-bottom: 84px;
+  }
+  .padding-bottom-large {
+    padding-bottom: 120px;
+  }
+  .menu-item {
+    font-size: 1.400505962399693rem;
+  }
+  .menu-item.col {
+    margin-bottom: 24px;
+  }
+  #front-splash {
+    padding: 0;
+  }
+  #splash-image {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    display: block;
+  }
+  .venue-map iframe {
+    border-width: 7.416407864998257px !important;
+  }
+  .calendar-heading {
+    padding: 24px 0;
+  }
+  .event-time,
+  .event-times-divider {
+    margin: 0 7.416407864998257px 0 0;
+  }
+  .swiper-container {
+    height: 500px;
+  }
+  .swiper-button-prev,
+  .swiper-button-next {
+    padding: 12px;
+  }
+  .lead-sponsor-logo {
+    margin-right: 24px;
+    margin-bottom: 24px;
+  }
+  #mailchimp-email {
+    margin-right: 7.416407864998257px;
+  }
+  #mailchimp-response {
+    margin-left: 7.416407864998257px;
   }
 }
 @-webkit-keyframes dance {
