@@ -49,3 +49,36 @@ function hide_fair_year_fields() {
     }
   </style>';
 }
+
+add_action( 'init', 'create_post_author_tax' );
+
+function create_post_author_tax() {
+  $labels = array(
+    'name'                       => _x( 'Authors', 'taxonomy general name' ),
+    'singular_name'              => _x( 'Author', 'taxonomy singular name' ),
+    'search_items'               => __( 'Search Authors' ),
+    'popular_items'              => __( 'Popular Authors' ),
+    'all_items'                  => __( 'All Authors' ),
+    'parent_item'                => null,
+    'parent_item_colon'          => null,
+    'edit_item'                  => __( 'Edit Author' ),
+    'update_item'                => __( 'Update Author' ),
+    'add_new_item'               => __( 'Add New Author' ),
+    'new_item_name'              => __( 'New Author Name' ),
+    'separate_items_with_commas' => __( 'Separate Authors with commas' ),
+    'add_or_remove_items'        => __( 'Add or remove Author' ),
+    'choose_from_most_used'      => __( 'Choose from the most used Authors' ),
+    'not_found'                  => __( 'No Authors found.' ),
+    'menu_name'                  => __( 'Authors' ),
+  );
+
+  $args = array(
+    'hierarchical'          => true,
+    'labels'                => $labels,
+    'show_ui'               => true,
+    'show_admin_column'     => true,
+    'query_var'             => true,
+  );
+
+  register_taxonomy( 'post_author', array('post'), $args );
+}
