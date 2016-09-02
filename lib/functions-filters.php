@@ -51,3 +51,21 @@ function post_type_terms_clauses( $clauses, $taxonomy, $args ) {
 }
 
 add_filter( 'terms_clauses', 'post_type_terms_clauses', 10, 3 );
+
+// Filter Post (Reading Material) First Highlight
+function filter_post_highlight($query) {
+  if (!is_admin() && $query->is_main_query()) {
+    //die;
+    $args = array(
+      'posts_per_page'   => 1,
+      'meta_key'         => '_igv_post_highlight',
+      'meta_value'       => 'on',
+    );
+    $highlight_array = get_posts($args);
+    
+    $query->set( 'post__not_in', array($highlight_array[0]->ID,));
+  }
+}
+
+add_action('pre_get_posts','filter_post_highlight');
+
