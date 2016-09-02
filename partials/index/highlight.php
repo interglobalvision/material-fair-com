@@ -10,7 +10,7 @@
   </a>
 
   <div class="row highlight-details">
-    <div class="col-s col-s-10 col-m col-m-8 col-l section-yellow padding-top-small padding-bottom-small">
+    <div class="col-s col-s-12 col-m col-m-10 col-l col-l-8 section-yellow padding-top-small padding-bottom-small">
       <div class="margin-bottom-micro">
         <?php get_template_part('partials/index/post-details'); ?>
       </div>

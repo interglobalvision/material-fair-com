@@ -1711,16 +1711,6 @@ ul.language-chooser li a {
 .swiper-button-next {
   background-image: url("../img/dist/right_triangle.svg");
 }
-.highlight-holder {
-  position: relative;
-}
-.highlight-image {
-  vertical-align: bottom;
-}
-.highlight-details {
-  position: absolute;
-  bottom: 0;
-}
 #footer-logo {
   max-width: 47px;
 }
@@ -1758,6 +1748,17 @@ ul.language-chooser li a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+.highlight-holder {
+  position: relative;
+}
+.highlight-image {
+  vertical-align: bottom;
+}
+.highlight-details {
+  width: 100%;
+  padding-top: 0;
+  margin-left: -12px;
 }
 .dude {
   -webkit-animation: dance 1s infinite ease-in-out;
@@ -2015,6 +2016,10 @@ ul.language-chooser li a {
   .swiper-button-prev,
   .swiper-button-next {
     padding: 19.5px;
+  }
+  .highlight-details {
+    position: absolute;
+    bottom: 0;
   }
   .lead-sponsor-logo {
     margin-right: 26px;
