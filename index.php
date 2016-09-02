@@ -5,7 +5,6 @@ get_header();
 <main id="main-content">
 
 <?php 
-/*
 if (!is_paged()) {
   $args = array(
     'posts_per_page' => 1,
@@ -14,7 +13,7 @@ if (!is_paged()) {
   $highlight = new WP_Query($args);
   if ($highlight->have_posts()) {
     while ($highlight->have_posts()) {
-      the_post();
+      $highlight->the_post();
 ?>
   <section class="section">
     <div class="container">
@@ -22,7 +21,7 @@ if (!is_paged()) {
         <article <?php post_class('col col-s col-s-12 col-m col-l'); ?> id="post-<?php the_ID(); ?>">
 
           <?php get_template_part('partials/index/highlight'); ?>
-
+          
         </article>
       </div>
     </div>
@@ -31,8 +30,12 @@ if (!is_paged()) {
     }
     wp_reset_postdata();
   }
-}*/
+}
 ?>
+
+  <section class="section section-yellow">
+    <?php get_template_part('partials/pagination'); ?>
+  </section>
 
   <section id="posts" class="section">
     <div class="container">
@@ -60,7 +63,9 @@ if( have_posts() ) {
     </div>
   </section>
 
+  <section class="section section-yellow">
     <?php get_template_part('partials/pagination'); ?>
+  </section>
 
 </main>
 
