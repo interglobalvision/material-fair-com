@@ -5,7 +5,7 @@ get_header();
 <main id="main-content">
 
 <?php 
-if (!is_paged()) {
+if (!is_paged() && !is_category()) {
   $args = array(
     'posts_per_page' => 1,
   );
