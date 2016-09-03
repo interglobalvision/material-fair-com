@@ -4,6 +4,12 @@ get_header();
 
 <main id="main-content">
 
+  <section class="section section-yellow">
+    <div class="container">
+      <?php get_template_part('partials/index/pagination'); ?>
+    </div>
+  </section>
+
 <?php 
 if (!is_paged() && !is_category()) {
   $args = array(
@@ -33,10 +39,6 @@ if (!is_paged() && !is_category()) {
 }
 ?>
 
-  <section class="section section-yellow">
-    <?php get_template_part('partials/pagination'); ?>
-  </section>
-
   <section id="posts" class="section">
     <div class="container">
       <div class="row">
@@ -64,7 +66,9 @@ if( have_posts() ) {
   </section>
 
   <section class="section section-yellow">
-    <?php get_template_part('partials/pagination'); ?>
+    <div class="container">
+      <?php get_template_part('partials/index/pagination'); ?>
+    </div>
   </section>
 
 </main>
