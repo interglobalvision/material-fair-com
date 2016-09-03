@@ -14,6 +14,8 @@ get_header();
 if (!is_paged() && !is_category()) {
   $args = array(
     'posts_per_page' => 1,
+    'meta_key' => '_igv_post_highlight',
+    'meta_value' => 'on'
   );
 
   $highlight = new WP_Query($args);
