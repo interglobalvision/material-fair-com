@@ -1,6 +1,18 @@
 <div class="row"> 
-  <div class="col col-s col-s-12 col-m col-m-4 col-l col-l-4 margin-bottom-tiny">
-    <h2>Reading Material</h2>
+  <div class="col col-s col-s-12 col-m col-m-4 col-l col-l-4 margin-bottom-tiny font-size-h3">
+<?php
+$page_id = get_id_by_slug('reading-material');
+?>
+    <h2>
+      <a<?php echo $page_id ? ' href="' . get_permalink($page_id) . '"' : ''; ?>>Reading Material</a>
+    </h2>
+<?php
+if (is_category()) {
+?>
+    <?php single_cat_title(); ?>
+<?php
+}
+?>
   </div>
 
   <div class="col col-s col-s-12 col-m col-m-4 col-l col-l-4 margin-bottom-tiny font-size-h3">
@@ -14,7 +26,7 @@ if ($cats && array_values($cats)[0]->slug !== 'uncategorized'){
   $cat_string = '';
 
   foreach ($cats as $cat) {
-    $cat_string .= '<a href="' . get_term_link($cat->term_id) . '">' . $cat->name . '</a>, ';
+    $cat_string .= '<a class="border-underline" href="' . get_term_link($cat->term_id) . '">' . $cat->name . '</a>, ';
   }
 
   echo rtrim($cat_string, ', ');
