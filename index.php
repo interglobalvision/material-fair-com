@@ -24,7 +24,7 @@ if (!is_paged() && !is_category()) {
   <section class="section">
     <div class="container">
       <div class="row">
-        <article <?php post_class('col col-s col-s-12 col-m col-l'); ?> id="post-<?php the_ID(); ?>">
+        <article <?php post_class('col col-s col-s-12 col-m col-l-12 col-l col-l-12'); ?> id="post-<?php the_ID(); ?>">
 
           <?php get_template_part('partials/index/highlight'); ?>
           
@@ -48,7 +48,7 @@ if( have_posts() ) {
   while( have_posts() ) {
     the_post();
 ?>
-      <article <?php post_class('col col-s col-s-12 col-m col-m-6 col-l margin-bottom-small'); ?> id="post-<?php the_ID(); ?>">
+      <article <?php post_class('col col-s col-s-12 col-m col-m-6 col-l col-l-6 margin-bottom-small'); ?> id="post-<?php the_ID(); ?>">
 
         <?php get_template_part('partials/index/post'); ?>
 
