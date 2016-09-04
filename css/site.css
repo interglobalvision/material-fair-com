@@ -1758,7 +1758,6 @@ ul.language-chooser li a {
 .highlight-details {
   width: 100%;
   padding-top: 0;
-  margin-left: -12px;
 }
 .dude {
   -webkit-animation: dance 1s infinite ease-in-out;
@@ -1843,6 +1842,9 @@ ul.language-chooser li a {
   }
   .padding-bottom-large {
     padding-bottom: 130px;
+  }
+  .row {
+    padding-top: 13px;
   }
   .col {
     margin-bottom: 13px;
@@ -2019,7 +2021,8 @@ ul.language-chooser li a {
   }
   .highlight-details {
     position: absolute;
-    bottom: 0;
+    top: 0;
+    padding-top: 0 !important;
   }
   .lead-sponsor-logo {
     margin-right: 26px;
@@ -2116,8 +2119,11 @@ ul.language-chooser li a {
   .container {
     width: 952px;
   }
+  .row {
+    padding-top: 14px;
+  }
   .col {
-    margin-bottom: 28px;
+    margin-bottom: 14px;
   }
   .col-l {
     -ms-flex: 0 0 auto;
@@ -2336,6 +2342,12 @@ ul.language-chooser li a {
   }
   .mobile-only {
     display: none;
+  }
+  .row {
+    padding-top: 16px;
+  }
+  .col {
+    margin-bottom: 16px;
   }
   html {
     font-family: 'Akkurat Pro', 'Helvatica Neue', Helvetica, Arial, sans-serif;

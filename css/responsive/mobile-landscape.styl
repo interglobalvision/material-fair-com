@@ -95,6 +95,9 @@ $margin-large = ($gutter * 5)
   
 // ******************************************************
 
+.row
+  padding-top: ($gutter / 2)
+  
 .col
   margin-bottom: ($gutter / 2)
   
@@ -171,7 +174,8 @@ for col in 1..$cols
   
 .highlight-details 
   position: absolute
-  bottom: 0
+  top: 0
+  padding-top: 0 !important
 
 // FOOTER
 

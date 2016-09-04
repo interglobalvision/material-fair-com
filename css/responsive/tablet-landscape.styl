@@ -102,13 +102,16 @@ $margin-large = ($gutter * 5)
 .container
   width: 952px
 
+.row
+  padding-top: ($gutter / 2)
+  
 .col
-  margin-bottom: $gutter
+  margin-bottom: ($gutter / 2)
 
 .col-l
   flex: 0 0 auto
   padding-right: ($gutter / 2)
-  padding-left: ($gutter / 2)
+  padding-left: ($gutter / 2) 
 
 for offset in 0..($cols - 1)
   .offset-l-{offset}
