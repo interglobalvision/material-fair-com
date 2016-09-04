@@ -35,25 +35,27 @@ if ($cats && array_values($cats)[0]->slug !== 'uncategorized'){
   </div>
 
 <?php
-if( get_next_posts_link() || get_previous_posts_link() ) {
+if (get_next_posts_link() || get_previous_posts_link()) {
 ?>
-  <div class="col col-s col-s-12 col-m col-m-4 col-l col-l-4 margin-bottom-tiny">
+  <div class="col col-s col-s-12 col-m col-m-4 col-l col-l-4 margin-bottom-tiny flex-row pagination-container align-start">
   <!-- post pagination -->
-    <nav id="pagination">
 <?php
-$previous = get_previous_posts_link('Newer');
-$next = get_next_posts_link('Older');
-if ($previous) {
-  echo $previous;
-}
-if ($previous && $next) {
-  echo ' &mdash; ';
-}
-if ($next) {
-  echo $next;
-}
+  if (get_previous_posts_link()) {
 ?>
-    </nav>
+    <a class="button pagination-button flex-row align-center" href="<?php previous_posts(); ?>">
+      <div>◀&nbsp;</div><div><?php _e('[:es]Anterior[:en]Previous'); ?></div>
+    </a>
+<?php
+  }
+
+  if (get_next_posts_link()) {
+?>
+    <a class="button pagination-button flex-row align-center" href="<?php next_posts(); ?>">
+      <div><?php _e('[:es]Siguiente[:en]Next'); ?></div><div>&nbsp;▶</div>
+    </a>
+<?php
+  }
+?>
   </div>
 <?php
 }
