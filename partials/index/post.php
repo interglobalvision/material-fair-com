@@ -8,6 +8,4 @@
   <h3 class="margin-bottom-micro"><?php the_title(); ?></h3>
 </a>
 
-<div class="margin-bottom-micro">
-  <?php get_template_part('partials/index/post-details'); ?>
-</div>
+<?php get_template_part('partials/index/post-details'); ?>
