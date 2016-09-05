@@ -35,7 +35,7 @@ if (!is_paged() && !is_category()) {
 }
 ?>
 
-  <section class="section section-yellow">
+  <section class="section section-pink">
     <div class="container">
       <?php get_template_part('partials/index/pagination'); ?>
     </div>
@@ -67,7 +67,7 @@ if( have_posts() ) {
     </div>
   </section>
 
-  <section class="section section-yellow">
+  <section class="section section-pink">
     <div class="container">
       <?php get_template_part('partials/index/pagination'); ?>
     </div>
