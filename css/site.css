@@ -1398,23 +1398,37 @@ h2 {
   padding: 24px 0;
   border-top: 1px solid #ffd923;
 }
-.section-yellow {
-  background-color: #ffd923;
+.section-yellow,
+.section-pink {
   color: #000;
   border-color: #000;
 }
 .section-yellow .button,
-.section-yellow a.button {
+.section-pink .button,
+.section-yellow a.button,
+.section-pink a.button {
   background-color: #000;
   color: #fff;
   border: none;
 }
 .section-yellow h1,
-.section-yellow h2 {
+.section-pink h1,
+.section-yellow h2,
+.section-pink h2 {
   color: inherit;
 }
-.section-yellow .border-row {
+.section-yellow .border-row,
+.section-pink .border-row {
   border-color: #000;
+}
+.section-yellow {
+  background-color: #ffd923;
+}
+.section-pink {
+  background-color: #ff7bac;
+}
+.section-black-trans {
+  background-color: rgba(0,0,0,0.8);
 }
 .pagination-section .col {
   margin-bottom: 12px;

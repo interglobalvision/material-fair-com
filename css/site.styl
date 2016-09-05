@@ -60,6 +60,7 @@ $font-sans = 'Akkurat Pro', 'Helvatica Neue', Helvetica, Arial, sans-serif
 $font-serif = 'Stanley', 'Times New Roman', Times, Georgia, serif
 
 $color-black = rgb(0, 0, 0)
+$color-black-trans = rgba(0, 0, 0, 0.8)
 $color-white = rgb(255, 255, 255)
 $color-yellow = rgb(255, 217, 35)
 $color-green = rgb(0, 152, 112)
@@ -287,8 +288,7 @@ h1, h2
   padding: $margin-small 0
   border-top: 1px solid $color-yellow
 
-.section-yellow
-  background-color: $color-yellow
+.section-yellow, .section-pink 
   color: $color-black
   border-color: $color-black
   .button, a.button
@@ -299,7 +299,16 @@ h1, h2
     color: inherit
   .border-row
     border-color: $color-black
-
+    
+.section-yellow
+  background-color: $color-yellow
+  
+.section-pink
+  background-color: $color-pink
+  
+.section-black-trans
+  background-color: $color-black-trans
+  
 .pagination-section
   .col
     margin-bottom: ($gutter / 2)
