@@ -53,7 +53,7 @@ if ($show_previous || $show_next) {
       $adjacent_post = get_adjacent_post(false, '', true);
       $post_link = get_permalink($adjacent_post);
     } else {
-      $post_link = previous_posts(false);
+      $post_link = previous_posts(0, false);
     }
 ?>
     <a class="button pagination-button flex-row align-center" href="<?php echo $post_link; ?>">
@@ -67,7 +67,7 @@ if ($show_previous || $show_next) {
       $adjacent_post = get_adjacent_post(false, '', false);
       $post_link = get_permalink($adjacent_post);
     } else {
-      $post_link = next_posts(false);
+      $post_link = next_posts(0, false);
     }
 ?>
     <a class="button pagination-button flex-row align-center" href="<?php echo $post_link; ?>">
