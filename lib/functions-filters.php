@@ -54,7 +54,7 @@ add_filter( 'terms_clauses', 'post_type_terms_clauses', 10, 3 );
 
 // Filter Post (Reading Material) First Highlight
 function filter_post_highlight($query) {
-  if (!is_admin() && $query->is_main_query() && !is_category()) {
+  if (!is_admin() && is_home() && $query->is_main_query() && !is_category()) {
     //die;
     $args = array(
       'posts_per_page'   => 1,
