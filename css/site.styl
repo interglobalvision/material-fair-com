@@ -60,6 +60,7 @@ $font-sans = 'Akkurat Pro', 'Helvatica Neue', Helvetica, Arial, sans-serif
 $font-serif = 'Stanley', 'Times New Roman', Times, Georgia, serif
 
 $color-black = rgb(0, 0, 0)
+$color-black-trans = rgba(0, 0, 0, 0.8)
 $color-white = rgb(255, 255, 255)
 $color-yellow = rgb(255, 217, 35)
 $color-green = rgb(0, 152, 112)
@@ -287,8 +288,7 @@ h1, h2
   padding: $margin-small 0
   border-top: 1px solid $color-yellow
 
-.section-yellow
-  background-color: $color-yellow
+.section-yellow, .section-pink 
   color: $color-black
   border-color: $color-black
   .button, a.button
@@ -299,7 +299,16 @@ h1, h2
     color: inherit
   .border-row
     border-color: $color-black
-
+    
+.section-yellow
+  background-color: $color-yellow
+  
+.section-pink
+  background-color: $color-pink
+  
+.section-black-trans
+  background-color: $color-black-trans
+  
 .pagination-section
   .col
     margin-bottom: ($gutter / 2)
@@ -565,9 +574,9 @@ ul.language-chooser
 
 .swiper-button-next
   background-image: url('../img/dist/right_triangle.svg')
-  
 
 // FOOTER
+
 #footer-logo
   max-width: 47px
 
@@ -590,6 +599,18 @@ ul.language-chooser
 .social-icon
   display: flex
   justify-content: center
+  
+// READING MATERIAL
+
+.highlight-holder
+  position: relative
+  
+.highlight-image
+  vertical-align: bottom
+  
+.highlight-details 
+  width: 100%
+  padding-top: 0
 
 // 404
 
