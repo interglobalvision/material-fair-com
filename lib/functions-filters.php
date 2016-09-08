@@ -63,7 +63,7 @@ function filter_post_highlight($query) {
     );
     $highlight_array = get_posts($args);
     
-    $query->set( 'post__not_in', array($highlight_array[0]->ID,));
+    $query->set( 'post__not_in', array_merge($query->query_vars['post__not_in'], array($highlight_array[0]->ID)));
   }
 }
 
