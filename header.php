@@ -56,6 +56,8 @@
   $app_login_text = IGV_get_option('_igv_site_options', '_igv_app_login_text');
 
   $show_vip_login = IGV_get_option('_igv_site_options', '_igv_show_vip_login');
+  $vip_link = IGV_get_option('_igv_site_options', '_igv_vip_link');
+  $vip_link_text = IGV_get_option('_igv_site_options', '_igv_vip_link_text');
 
   $sponsor_logo = IGV_get_option('_igv_sponsors_options', '_igv_primary_sponsor_logo_id');
   $sponsor_url = IGV_get_option('_igv_sponsors_options', '_igv_primary_sponsor_url');
@@ -146,11 +148,11 @@
               ?>
               <div>
               <?php
-                if ($show_vip_login == 'on') {
+                if ($show_vip_login == 'on' && !empty($vip_link) && !empty($vip_link_text)) {
               ?>
               <div class="margin-bottom-micro">
-                <a href="#" class="border-underline">
-                  <?php echo __('[:en]VIP Login[:es]Sección VIP'); ?>
+                <a href="<?php echo $vip_link; ?>" class="border-underline">
+                  <?php echo __($vip_link_text); ?>
                 </a>
               </div>
               <?php
@@ -240,10 +242,12 @@
             </li>
             <li class="mobile-only col col-s col-s-12 col-m col-m-4 text-align-center padding-bottom-tiny">
               <?php
-                if ($show_vip_login == 'on') {
-                  echo '<a href="#" class="border-underline margin-bottom-micro">';
-                  echo __('[:en]VIP Login[:es]Sección VIP');
-                  echo '</a>';
+                if ($show_vip_login == 'on' && !empty($vip_link) && !empty($vip_link_text)) {
+              ?>
+                <a href="<?php echo $vip_link; ?>" class="border-underline margin-bottom-micro">
+                  <?php echo __($vip_link_text); ?>
+                </a>
+              <?php
                 }
               ?>
             </li>

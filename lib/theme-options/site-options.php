@@ -57,6 +57,18 @@ $metabox = array(
       'type' => 'checkbox',
     ),
     array(
+      'name' => __( 'VIP link', 'cmb2' ),
+      'desc' => __( '', 'cmb2' ),
+      'id'   => $prefix . 'vip_link',
+      'type' => 'text_url',
+    ),
+    array(
+      'name' => __( 'VIP link text', 'cmb2' ),
+      'desc' => __( '', 'cmb2' ),
+      'id'   => $prefix . 'vip_link_text',
+      'type' => 'text',
+    ),
+    array(
       'name' => __( 'App Login Button Text', 'cmb2' ),
       'desc' => __( '', 'cmb2' ),
       'id'   => $prefix . 'app_login_text',
