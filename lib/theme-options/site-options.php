@@ -67,6 +67,9 @@ $metabox = array(
       'desc' => __( '', 'cmb2' ),
       'id'   => $prefix . 'vip_link_text',
       'type' => 'text',
+      'attributes' => array(
+        'class' => 'cmb2-qtranslate'
+      )
     ),
     array(
       'name' => __( 'App Login Button Text', 'cmb2' ),
