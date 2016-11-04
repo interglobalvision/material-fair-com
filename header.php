@@ -148,7 +148,7 @@
               ?>
               <div>
               <?php
-                if ($show_vip_login == 'on') {
+                if ($show_vip_login == 'on' && !empty($vip_link) && !empty($vip_link_text)) {
               ?>
               <div class="margin-bottom-micro">
                 <a href="<?php echo $vip_link; ?>" class="border-underline">
@@ -242,11 +242,12 @@
             </li>
             <li class="mobile-only col col-s col-s-12 col-m col-m-4 text-align-center padding-bottom-tiny">
               <?php
-                if ($show_vip_login == 'on') {
-                  echo '<a href="#" class="border-underline margin-bottom-micro">';
-                  echo __($vip_link_text);
-                  echo $vip_link_text;
-                  echo '</a>';
+                if ($show_vip_login == 'on' && !empty($vip_link) && !empty($vip_link_text)) {
+              ?>
+                <a href="<?php echo $vip_link; ?>" class="border-underline margin-bottom-micro">
+                  <?php echo __($vip_link_text); ?>
+                </a>
+              <?php
                 }
               ?>
             </li>
