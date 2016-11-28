@@ -50,6 +50,39 @@ function hide_fair_year_fields() {
   </style>';
 }
 
+add_action( 'init', 'create_booth_level_tax' );
+
+function create_booth_level_tax() {
+  $labels = array(
+    'name'                       => _x( 'Booth Levels', 'taxonomy general name' ),
+    'singular_name'              => _x( 'Booth Level', 'taxonomy singular name' ),
+    'search_items'               => __( 'Search Booth Levels' ),
+    'popular_items'              => __( 'Popular Booth Levels' ),
+    'all_items'                  => __( 'All Booth Levels' ),
+    'parent_item'                => null,
+    'parent_item_colon'          => null,
+    'edit_item'                  => __( 'Edit Booth Level' ),
+    'update_item'                => __( 'Update Booth Level' ),
+    'add_new_item'               => __( 'Add New Booth Level' ),
+    'new_item_name'              => __( 'New Booth Level Name' ),
+    'separate_items_with_commas' => __( 'Separate Booth Levels with commas' ),
+    'add_or_remove_items'        => __( 'Add or remove Booth Level' ),
+    'choose_from_most_used'      => __( 'Choose from the most used Booth Levels' ),
+    'not_found'                  => __( 'No Booth Levels found.' ),
+    'menu_name'                  => __( 'Booth Level' ),
+  );
+
+  $args = array(
+    'hierarchical'          => true,
+    'labels'                => $labels,
+    'show_ui'               => true,
+    'show_admin_column'     => true,
+    'query_var'             => true,
+  );
+
+  register_taxonomy( 'booth_level', array('exhibitor'), $args );
+}
+
 add_action( 'init', 'create_post_author_tax' );
 
 function create_post_author_tax() {
