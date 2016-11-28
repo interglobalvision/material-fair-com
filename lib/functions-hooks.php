@@ -7,7 +7,7 @@ function add_year_tax_children( $term_id, $tt_id, $taxonomy ){
 
   if ($parent_term->parent === 0) {
     $parent_slug = $parent_term->slug;
-    $terms = array('Gallery', 'Project');
+    $terms = array('Exhibitor', 'Project');
 
     foreach ($terms as $term) {
       wp_insert_term( 
