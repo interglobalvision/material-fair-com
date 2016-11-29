@@ -32,6 +32,7 @@
 
       $city = get_post_meta($post->ID, '_igv_exhibitor_city', true);
       $link = get_post_meta($post->ID, '_igv_exhibitor_url', true);
+      $offsite_link = IGV_get_option('_igv_page_options', '_igv_exhibitor_archive_offsite_link');
 
       if ($fair_year_id != $current_year_id) {
 ?>
@@ -52,7 +53,7 @@
 ?>
 
         <article <?php post_class('col col-s col-s-6 col-m col-m-4 col-l col-l-3'); ?> id="post-<?php the_ID(); ?>">
-          <a href="<?php the_permalink() ?>">
+          <a href="<?php echo !empty($link) && $offsite_link == 'on' ? esc_url($link) : get_the_permalink(); ?>">
             <?php the_post_thumbnail('col-3-crop'); ?>
             <h4><?php the_title(); ?></h4>
             <?php echo !empty($city) ? '<span>' . $city . '</span>' : ''; ?> 
