@@ -57,6 +57,12 @@ $metabox = array(
       'type' => 'checkbox',
     ),
     array(
+      'name' => __('Exhibitors Archive Link Offsite', 'cmb2'),
+      'desc' => __('link to exhibitor website from archive items?', 'cmb2'),
+      'id'   => $prefix . 'exhibitor_archive_offsite_link',
+      'type' => 'checkbox',
+    ),
+    array(
       'name' => __('Exhibitors Apply Heading', 'IGV'),
       'id'   => $prefix . 'exhibitors_apply_heading',
       'desc' => __('To encourage exhibitors to apply.', 'cmb2'),
