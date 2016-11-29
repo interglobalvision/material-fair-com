@@ -53,11 +53,29 @@
 ?>
 
         <article <?php post_class('col col-s col-s-6 col-m col-m-4 col-l col-l-3'); ?> id="post-<?php the_ID(); ?>">
-          <a href="<?php echo !empty($link) && $offsite_link == 'on' ? esc_url($link) : get_the_permalink(); ?>">
+<?php 
+      if ($offsite_link == 'on') {
+        if (!empty($link)) {
+?>
+          <a href="<?php echo esc_url($link); ?>">
+<?php 
+        }
+      } else {
+?>
+          <a href="<?php the_permalink(); ?>">
+<?php
+      }
+?>
             <?php the_post_thumbnail('col-3-crop'); ?>
             <h4><?php the_title(); ?></h4>
             <?php echo !empty($city) ? '<span>' . $city . '</span>' : ''; ?> 
+<?php 
+      if (($offsite_link == 'on' && !empty($link)) || ($offsite_link == '' || empty($offsite_link))) {
+?> 
           </a>
+<?php 
+      }
+?>
         </article>
 
 <?php
