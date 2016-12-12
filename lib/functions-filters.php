@@ -69,14 +69,34 @@ function filter_post_highlight($query) {
 
 add_action('pre_get_posts','filter_post_highlight');
 
+// Set VIP password cookie to single session (for debugging only)
+function custom_password_cookie_expiry( $expires ) {
+    return 0;  // Make it a session cookie
+}
+//add_filter( 'post_password_expires', 'custom_password_cookie_expiry' );
+
 // Custom password protected form
-function my_password_form() {
+function custom_password_form() {
   global $post;
+
   $label = 'pwbox-'.( empty( $post->ID ) ? rand() : $post->ID );
-  $o = '<form class="post-password-form" action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" method="post"><input name="post_password" id="' . $label . '" type="password" size="20" maxlength="20" placeholder="' . esc_attr__( "[:en]Password[:es]Contraseña[:]" ) . '" /><input type="submit" name="Submit" value="' . esc_attr__( "[:en]Submit[:es]Enviar[:]" ) . '" />
+  $intro = IGV_get_option('_igv_page_options', '_igv_vip_intro_not_logged_in');
+
+  $form = $intro . '<form class="post-password-form" action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" method="post"><input name="post_password" id="' . $label . '" type="password" size="20" maxlength="20" placeholder="' . esc_attr__( "[:en]Password[:es]Contraseña[:]" ) . '" /><input type="submit" name="Submit" value="' . esc_attr__( "[:en]Submit[:es]Enviar[:]" ) . '" />
   </form>
   ';
-  return $o;
+
+  if (wp_get_referer() == get_permalink() || isset ( $_COOKIE[ 'wp-postpass_' . COOKIEHASH ] ) ) {
+    // Translate and escape.
+    $msg = __( '[:en]Sorry, your password is wrong.[:es]Disculpe, tu contraseña no es correcto.[:]');
+
+    // We have a cookie, but it doesn’t match the password.
+    $msg = "<p class='custom-password-message'>$msg</p>";
+
+    return $msg . $form;
+  }
+
+  return $form;
 }
-add_filter( 'the_password_form', 'my_password_form' );
+add_filter( 'the_password_form', 'custom_password_form' );
 
