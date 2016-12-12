@@ -69,3 +69,14 @@ function filter_post_highlight($query) {
 
 add_action('pre_get_posts','filter_post_highlight');
 
+// Custom password protected form
+function my_password_form() {
+  global $post;
+  $label = 'pwbox-'.( empty( $post->ID ) ? rand() : $post->ID );
+  $o = '<form class="post-password-form" action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" method="post"><input name="post_password" id="' . $label . '" type="password" size="20" maxlength="20" placeholder="' . esc_attr__( "[:en]Password[:es]Contraseña[:]" ) . '" /><input type="submit" name="Submit" value="' . esc_attr__( "[:en]Submit[:es]Enviar[:]" ) . '" />
+  </form>
+  ';
+  return $o;
+}
+add_filter( 'the_password_form', 'my_password_form' );
+
