@@ -10,6 +10,9 @@ $margin-basic = ($gutter * 2)
 $margin-mid = ($gutter * 3.5)
 $margin-large = ($gutter * 5)
 
+$header-height = 296px
+$footer-height = 395px
+
 // ******************************************************
 
 // MARGINS AND PADDING
@@ -134,6 +137,9 @@ for col in 1..$cols
   margin: 0 $margin-micro
   
 // ****************************************************** 
+
+#main-content 
+  min-height: calc('100vh - ' + ($header-height + $footer-height))
 
 #header
   margin-top: 0

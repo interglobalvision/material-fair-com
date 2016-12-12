@@ -1,4 +1,10 @@
 //copy styles from site.styl
 
+$header-height = 254px
+$footer-height = 496px
+
+#main-content 
+  min-height: calc('100vh - ' + ($header-height + $footer-height))
+  
 .container
   width: 712px
