@@ -350,5 +350,68 @@ function igv_cmb_metaboxes() {
     )
   ) );
 
+/*
+  $vip_metabox->add_field( array(
+    'name'    => __( 'VIP Accomodations', 'cmb2' ),
+    'desc'    => __( '', 'cmb2' ),
+    'id'      => $prefix . 'vip',
+    'type'    => 'wysiwyg',
+    'options' => array( 
+      'media_buttons' => false,
+      'textarea_rows' => 6, 
+      'editor_class' => 'cmb2-qtranslate'
+    )
+  ) );
+*/
+
+  $vip_hotels = $vip_metabox->add_field( array(
+    'name'    => __( 'VIP Accomodations', 'cmb2' ),
+    'id'          => $prefix . 'vip_hotels',
+    'type'        => 'group',
+    'description' => __( '', 'cmb2' ),
+    'options'     => array(
+      'group_title'   => __( 'Hotel {#}', 'cmb2' ), // {#} gets replaced by row number
+      'add_button'    => __( 'Add Another Hotel', 'cmb2' ),
+      'remove_button' => __( 'Remove Hotel', 'cmb2' ),
+      'sortable'      => true, // beta
+      // 'closed'     => true, // true to have the groups closed by default
+    ),
+  ) );
+
+  $vip_metabox->add_group_field( $vip_hotels, array(
+    'name' => __( 'Image', 'cmb2' ),
+    'id'   => 'image',
+    'type' => 'file',
+  ) );
+
+  $vip_metabox->add_group_field( $vip_hotels, array(
+    'name'     => __( 'Hotel Name', 'cmb2' ),
+    'id'       => 'name',
+    'type'     => 'text_medium',
+    'attributes' => array(
+      'class' => 'cmb2-qtranslate'
+    )
+  ) );
+
+  $vip_metabox->add_group_field( $vip_hotels, array(
+    'name'    => __( 'Hotel Text English', 'cmb2' ),
+    'id'      => 'text_en',
+    'type'    => 'wysiwyg',
+    'options' => array( 
+      'media_buttons' => false,
+      'textarea_rows' => 6, 
+    )
+  ) );
+
+  $vip_metabox->add_group_field( $vip_hotels, array(
+    'name'    => __( 'Hotel Text Español', 'cmb2' ),
+    'id'      => 'text_es',
+    'type'    => 'wysiwyg',
+    'options' => array( 
+      'media_buttons' => false,
+      'textarea_rows' => 6, 
+    )
+  ) );
+
 }
 ?>
