@@ -16,7 +16,7 @@ Site = {
       _this.Press.init();
     }
 
-    if (Site.$body.hasClass('post-type-archive-event')) {
+    if (Site.$body.hasClass('post-type-archive-event') || Site.$body.hasClass('page-vip')) {
       _this.Program.init();
     }
 
