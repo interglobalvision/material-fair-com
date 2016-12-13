@@ -1465,7 +1465,7 @@ a.button {
 }
 .button.button-big,
 a.button.button-big {
-  padding: 24px 0;
+  padding: 24px 12px;
   font-size: 1.272006289292628rem;
 }
 .button.button-yellow,
@@ -1475,6 +1475,10 @@ a.button.button-yellow {
 .button.button-margin-right,
 a.button.button-margin-right {
   margin-right: 12px;
+}
+.button:focus,
+a.button:focus {
+  outline: none;
 }
 input,
 select,
@@ -1524,6 +1528,7 @@ textarea:disabled {
 .gform_wrapper select[type=submit],
 .gform_wrapper textarea[type=submit] {
   width: auto;
+  font-size: 1.618rem;
 }
 .gform_wrapper label {
   display: block;
@@ -1824,11 +1829,21 @@ ul.language-chooser li a {
 .post-password-form input[type=submit]:hover {
   background-color: #ffd923;
 }
-.wrong-password {
+.wrong-password,
+.gform_confirmation_message {
   background-color: #ffd923;
   padding: 12px;
   color: #000;
   border: 1px solid #000;
+}
+.gform_confirmation_message {
+  font-size: 1.272006289292628rem;
+}
+#vip-rsvp-form-container {
+  display: none;
+}
+.gform_ajax_spinner {
+  display: none !important;
 }
 .dude {
   -webkit-animation: dance 1s infinite ease-in-out;
@@ -2120,6 +2135,13 @@ ul.language-chooser li a {
     color: #000;
     margin-top: 0;
     width: auto;
+  }
+  .wrong-password,
+  .gform_confirmation_message {
+    padding: 13px;
+  }
+  .gform_confirmation_message {
+    font-size: 1.272006289292628rem;
   }
 }
 @media screen and (min-width: 712px) {
@@ -2428,6 +2450,16 @@ ul.language-chooser li a {
   .social-icon {
     margin-bottom: 4.326237921248983px;
   }
+  .post-password-form input[name=post_password] {
+    margin-right: 28px;
+  }
+  .wrong-password,
+  .gform_confirmation_message {
+    padding: 14px;
+  }
+  .gform_confirmation_message {
+    font-size: 1.272006289292628rem;
+  }
 }
 @media screen and (min-width: 1150px) {
   .container {
@@ -2489,7 +2521,7 @@ ul.language-chooser li a {
   }
   .button.button-big,
   a.button.button-big {
-    padding: 24px 0;
+    padding: 24px 12px;
     font-size: 1.400505962399693rem;
   }
   .button.button-margin-right,
@@ -2615,6 +2647,16 @@ ul.language-chooser li a {
   }
   #mailchimp-response {
     margin-left: 7.416407864998257px;
+  }
+  .post-password-form input[name=post_password] {
+    margin-right: 24px;
+  }
+  .wrong-password,
+  .gform_confirmation_message {
+    padding: 12px;
+  }
+  .gform_confirmation_message {
+    font-size: 1.400505962399693rem;
   }
 }
 @-webkit-keyframes dance {

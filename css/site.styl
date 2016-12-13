@@ -338,12 +338,14 @@ img
   font-weight: 600
   border: 2px solid $color-black
   &.button-big
-    padding: $margin-small 0
+    padding: $margin-small $margin-tiny
     font-size: $font-size-h4
   &.button-yellow
     background-color: $color-yellow
   &.button-margin-right
     margin-right: $margin-tiny
+  &:focus
+    outline: none
 
 input, select, textarea
   border: 1px solid $color-white
@@ -366,12 +368,12 @@ input, select, textarea
     width: 100% 
     &[type=submit]
       width: auto
+      font-size: $font-size-h3
     margin-bottom: $margin-small
   label 
     display: block
     margin-bottom: $margin-tiny
     text-transform: uppercase
-
 
 // ******************************************************
 
@@ -663,11 +665,20 @@ ul.language-chooser
       &:hover 
         background-color: $color-yellow
         
-.wrong-password 
+.wrong-password, .gform_confirmation_message 
   background-color: $color-yellow 
   padding: $margin-tiny
   color: $color-black
   border: 1px solid $color-black
+  
+.gform_confirmation_message 
+  font-size: $font-size-h4
+  
+#vip-rsvp-form-container 
+  display: none
+  
+.gform_ajax_spinner
+  display: none!important
   
 // ******************************************************
 

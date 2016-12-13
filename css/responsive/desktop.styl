@@ -78,7 +78,7 @@ h4, .font-size-h4
 .button, a.button
   padding: $margin-tiny
   &.button-big
-    padding: $margin-small 0
+    padding: $margin-small $margin-tiny
     font-size: $font-size-h4
   &.button-margin-right
     margin-right: $margin-tiny
@@ -179,6 +179,8 @@ input
   font-size: $font-size-h4
   &.col
     margin-bottom: $margin-small
+    
+// ******************************************************
 
 // FRONT PAGE
 
@@ -195,6 +197,8 @@ input
 
 .venue-map iframe
   border-width: $margin-micro !important
+  
+// ******************************************************
 
 // PROGRAM
 
@@ -203,6 +207,8 @@ input
 
 .event-time, .event-times-divider
   margin: 0 $margin-micro 0 0
+  
+// ******************************************************
 
 // PRESS
 
@@ -211,6 +217,8 @@ input
   
 .swiper-button-prev, .swiper-button-next
   padding: $margin-tiny
+  
+// ******************************************************
 
 // FOOTER
 
@@ -223,4 +231,19 @@ input
 
 #mailchimp-response
   margin-left: $margin-micro
+  
+// ******************************************************
+
+// VIP 
+  
+.post-password-form
+  input 
+    &[name=post_password]
+      margin-right: $margin-small
+      
+.wrong-password, .gform_confirmation_message 
+  padding: $margin-tiny
+  
+.gform_confirmation_message 
+  font-size: $font-size-h4
     
