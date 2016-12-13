@@ -1424,6 +1424,10 @@ h2 {
 .section-pink .border-row {
   border-color: #000;
 }
+.section-yellow + .section,
+.section-pink + .section {
+  border-color: #000;
+}
 .section-yellow {
   background-color: #ffd923;
 }
