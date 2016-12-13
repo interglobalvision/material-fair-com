@@ -13,7 +13,7 @@ if (!empty($partners)) {
           } elseif (is_front_page()) {
             echo '<h2 class="text-align-center">' . __('[:en]Sponsors & Partners[:es]Patrocinadores & Aliados') . '</h2>';
           } else {
-            echo '<h2>' . __('[:en]Sponsors & Partners[:es]Patrocinadores & Aliados') . '</h2>';
+            echo '<h2>' . __('[:en]Sponsors[:es]Patrocinadores') . '</h2>';
           }
         ?>
         </div>
