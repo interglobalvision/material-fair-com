@@ -46,6 +46,8 @@ if( have_posts() ) {
       get_template_part('partials/page-vip/vip-hotels');
 
       get_template_part('partials/archive-event/schedule');
+
+      get_template_part('partials/partners'); 
     }
   }
 }
