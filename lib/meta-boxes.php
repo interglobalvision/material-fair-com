@@ -218,7 +218,14 @@ function igv_cmb_metaboxes() {
   ) );
 
   $event_metabox->add_field( array(
-    'name'     => __( 'VIP', 'cmb2' ),
+    'name'     => __( 'Public Event', 'cmb2' ),
+    'desc'     => __( 'Appears on Program page', 'cmb2' ),
+    'id'       => $prefix . 'event_public',
+    'type'     => 'checkbox',
+  ) );
+
+  $event_metabox->add_field( array(
+    'name'     => __( 'VIP Event', 'cmb2' ),
     'desc'     => __( 'Appears on VIP page', 'cmb2' ),
     'id'       => $prefix . 'event_vip',
     'type'     => 'checkbox',

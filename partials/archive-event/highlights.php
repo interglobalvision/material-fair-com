@@ -17,10 +17,6 @@ if (get_fair_year_id()) {
           'key' => '_igv_event_highlight',
           'value' => 'on',
         ),
-        array(
-          'key' => '_igv_event_vip',
-          'compare' => 'NOT EXISTS'
-        ),
       ),
       'tax_query'       => array(
         array(

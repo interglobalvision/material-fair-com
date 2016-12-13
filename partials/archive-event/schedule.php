@@ -28,6 +28,14 @@ if (get_fair_year_id()) {
         'compare' => '=',
       ),
     );
+  } else {
+    $args['meta_query'] = array (
+      array (
+        'key' => '_igv_event_public',
+        'value' => 'on',
+        'compare' => '=',
+      ),
+    );
   }
 
   $query = new WP_Query( $args );
@@ -40,9 +48,14 @@ if (get_fair_year_id()) {
       <div class="col col-s col-s-12 col-m col-m-12 col-l col-l-12">
         <h2>
           <?php 
-            _e('[:en]Schedule[:es]Calendario');
-            if ($fair_year_id != $current_year_id) {
+            if (is_page('vip')) {
+              _e('[:en]VIP Program[:es]Programa VIP');
               echo ' ' . $fair_year; 
+            } else {
+              _e('[:en]Schedule[:es]Calendario');
+              if ($fair_year_id != $current_year_id) {
+                echo ' ' . $fair_year; 
+              }
             }
           ?>
         </h2>
