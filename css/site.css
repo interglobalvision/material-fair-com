@@ -1428,6 +1428,10 @@ h2 {
 .section-pink + .section {
   border-color: #000;
 }
+.section-yellow input,
+.section-pink input {
+  border-color: #000;
+}
 .section-yellow {
   background-color: #ffd923;
 }
@@ -1472,20 +1476,28 @@ a.button.button-yellow {
 a.button.button-margin-right {
   margin-right: 12px;
 }
-input {
-  border: 1px solid #000;
+input,
+select,
+textarea {
+  border: 1px solid #fff;
   padding: 7.416407864998257px;
   -webkit-appearance: none;
   background: none;
   color: inherit;
 }
-input:focus {
+input:focus,
+select:focus,
+textarea:focus {
   outline: none;
 }
-input:-webkit-autofill {
+input:-webkit-autofill,
+select:-webkit-autofill,
+textarea:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px #ffd923 inset !important;
 }
-input:disabled {
+input:disabled,
+select:disabled,
+textarea:disabled {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
   filter: alpha(opacity=20);
   opacity: 0.2;
@@ -1501,6 +1513,22 @@ input:disabled {
 }
 ::placeholder {
   color: inherit !important;
+}
+.gform_wrapper input,
+.gform_wrapper select,
+.gform_wrapper textarea {
+  width: 100%;
+  margin-bottom: 24px;
+}
+.gform_wrapper input[type=submit],
+.gform_wrapper select[type=submit],
+.gform_wrapper textarea[type=submit] {
+  width: auto;
+}
+.gform_wrapper label {
+  display: block;
+  margin-bottom: 12px;
+  text-transform: uppercase;
 }
 .margin-top-micro {
   margin-top: 7.416407864998257px;

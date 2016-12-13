@@ -307,6 +307,8 @@ h1, h2
     border-color: $color-black
   & + .section
     border-color: $color-black
+  input 
+    border-color: $color-black
     
 .section-yellow
   background-color: $color-yellow
@@ -343,8 +345,8 @@ img
   &.button-margin-right
     margin-right: $margin-tiny
 
-input
-  border: 1px solid $color-black
+input, select, textarea
+  border: 1px solid $color-white
   padding: $margin-micro
   -webkit-appearance: none
   background: none
@@ -358,6 +360,17 @@ input
 
 ::placeholder
   color: inherit !important
+  
+.gform_wrapper
+  input, select, textarea
+    width: 100% 
+    &[type=submit]
+      width: auto
+    margin-bottom: $margin-small
+  label 
+    display: block
+    margin-bottom: $margin-tiny
+    text-transform: uppercase
 
 
 // ******************************************************
