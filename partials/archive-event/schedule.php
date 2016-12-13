@@ -12,13 +12,23 @@ if (get_fair_year_id()) {
     'orderby'   => 'meta_value_num',
     'meta_key'  => '_igv_event_start',
     'tax_query' => array(
-    array(
-      'taxonomy' => 'fair_year',
-      'field' => 'term_id',
-      'terms' => $fair_year_id,
+      array(
+        'taxonomy' => 'fair_year',
+        'field' => 'term_id',
+        'terms' => $fair_year_id,
+      ),
     ),
-  ),
   );
+
+  if (is_page('vip')) {
+    $args['meta_query'] = array (
+      array (
+        'key' => '_igv_event_vip',
+        'value' => 'on',
+        'compare' => '=',
+      ),
+    );
+  }
 
   $query = new WP_Query( $args );
 
