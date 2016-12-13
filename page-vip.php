@@ -19,7 +19,7 @@ if( have_posts() ) {
     <div class="container">
       <div class="row">
         <div class="col col-s col-s-12 col-m col-m-12 col-l col-l-12">
-          <h1>VIP</h1>
+          <h1><?php the_title(); ?></h1>
         </div>
       </div>
       <div class="row">
