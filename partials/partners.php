@@ -8,15 +8,23 @@ if (!empty($partners)) {
       <div class="row">
         <div class="col col-s col-s-12 col-m col-m-12 col-l col-l-12">
         <?php 
-          echo is_front_page() ? '<h2 class="text-align-center">' : '<h1>';
-          _e('[:en]Sponsors & Partners[:es]Patrocinadores & Aliados'); 
-          echo is_front_page() ? '</h2>' : '</h1>';
+          if (is_page('partners')) {
+            echo '<h1>' . __('[:en]Sponsors & Partners[:es]Patrocinadores & Aliados') . '</h1>';
+          } elseif (is_front_page()) {
+            echo '<h2 class="text-align-center">' . __('[:en]Sponsors & Partners[:es]Patrocinadores & Aliados') . '</h2>';
+          } else {
+            echo '<h2>' . __('[:en]Sponsors & Partners[:es]Patrocinadores & Aliados') . '</h2>';
+          }
         ?>
         </div>
       </div>
       <?php 
         if (!is_front_page()) {
-          $partners_text = IGV_get_option('_igv_sponsors_options', '_igv_partners_page_text');
+          if (is_page('vip')) {
+            $partners_text = get_post_meta($post->ID, '_igv_vip_sponsors_text', true);
+          } else {
+            $partners_text = IGV_get_option('_igv_sponsors_options', '_igv_partners_page_text');
+          }
 
           if(!empty($partners_text)) {
       ?>
@@ -26,13 +34,15 @@ if (!empty($partners)) {
         </div>
       </div>
       <?php 
-          } 
+          }
+          if (is_page('partners')) { 
       ?>
     </div>
   </section>
   <section id="partners" class="section">
     <div class="container">
       <?php
+          }
         }
       ?>
       <div class="row justify-center align-center">
