@@ -3,7 +3,7 @@ $contacts = get_post_meta($post->ID, '_igv_vip_contacts', true);
 
 if (!empty($contacts)) {
 ?>
-<section id="vip-hotels" class="section">
+<section id="vip-contacts" class="section">
   <div class="container">
     <div class="row">
       <div class="col col-s col-s-12 col-m col-m-12 col-l col-l-12">
