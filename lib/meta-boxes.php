@@ -329,5 +329,26 @@ function igv_cmb_metaboxes() {
     // 'timezone_meta_key' => $prefix . 'timezone', // Optionally make this field honor the timezone selected in the select_timezone specified above
   ) );
 
+// VIP
+  
+  $vip_metabox = new_cmb2_box( array(
+    'id'            => $prefix . 'vip_metabox',
+    'title'         => __( 'VIP Options', 'cmb2' ),
+    'object_types' => array( 'page' ), // post type
+    'show_on'      => array( 'key' => 'id', 'value' => array( get_id_by_slug('vip'), ) ),
+  ) );
+
+  $vip_metabox->add_field( array(
+    'name'    => __( 'VIP login page text', 'cmb2' ),
+    'desc'    => __( '', 'cmb2' ),
+    'id'      => $prefix . 'vip_login_intro',
+    'type'    => 'wysiwyg',
+    'options' => array( 
+      'media_buttons' => false,
+      'textarea_rows' => 6, 
+      'editor_class' => 'cmb2-qtranslate'
+    )
+  ) );
+
 }
 ?>
