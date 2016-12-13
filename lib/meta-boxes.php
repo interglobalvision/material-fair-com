@@ -357,20 +357,6 @@ function igv_cmb_metaboxes() {
     )
   ) );
 
-/*
-  $vip_metabox->add_field( array(
-    'name'    => __( 'VIP Accomodations', 'cmb2' ),
-    'desc'    => __( '', 'cmb2' ),
-    'id'      => $prefix . 'vip',
-    'type'    => 'wysiwyg',
-    'options' => array( 
-      'media_buttons' => false,
-      'textarea_rows' => 6, 
-      'editor_class' => 'cmb2-qtranslate'
-    )
-  ) );
-*/
-
   $vip_hotels = $vip_metabox->add_field( array(
     'name'    => __( 'VIP Accomodations', 'cmb2' ),
     'id'          => $prefix . 'vip_hotels',
@@ -417,6 +403,54 @@ function igv_cmb_metaboxes() {
     'options' => array( 
       'media_buttons' => false,
       'textarea_rows' => 6, 
+    )
+  ) );
+
+  $vip_metabox->add_field( array(
+    'name'    => __( 'Museums', 'cmb2' ),
+    'desc'    => __( 'VIP Recommendations', 'cmb2' ),
+    'id'      => $prefix . 'vip_museums',
+    'type'    => 'wysiwyg',
+    'options' => array( 
+      'media_buttons' => false,
+      'textarea_rows' => 6, 
+      'editor_class' => 'cmb2-qtranslate'
+    )
+  ) );
+
+  $vip_metabox->add_field( array(
+    'name'    => __( 'Galleries / Project Spaces', 'cmb2' ),
+    'desc'    => __( 'VIP Recommendations', 'cmb2' ),
+    'id'      => $prefix . 'vip_galleries',
+    'type'    => 'wysiwyg',
+    'options' => array( 
+      'media_buttons' => false,
+      'textarea_rows' => 6, 
+      'editor_class' => 'cmb2-qtranslate'
+    )
+  ) );
+
+  $vip_metabox->add_field( array(
+    'name'    => __( 'Restaurants / Bars', 'cmb2' ),
+    'desc'    => __( 'VIP Recommendations', 'cmb2' ),
+    'id'      => $prefix . 'vip_restaurants',
+    'type'    => 'wysiwyg',
+    'options' => array( 
+      'media_buttons' => false,
+      'textarea_rows' => 6, 
+      'editor_class' => 'cmb2-qtranslate'
+    )
+  ) );
+
+  $vip_metabox->add_field( array(
+    'name'    => __( 'Other', 'cmb2' ),
+    'desc'    => __( 'VIP Recommendations', 'cmb2' ),
+    'id'      => $prefix . 'vip_other',
+    'type'    => 'wysiwyg',
+    'options' => array( 
+      'media_buttons' => false,
+      'textarea_rows' => 6, 
+      'editor_class' => 'cmb2-qtranslate'
     )
   ) );
 
