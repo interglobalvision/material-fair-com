@@ -20,6 +20,10 @@ Site = {
       _this.Program.init();
     }
 
+    if (Site.$body.hasClass('page-vip')) {
+      _this.Vip.init();
+    }
+
     _this.Mailchimp.init();
 
     $('.js-menu-trigger').on('click', function() {
@@ -203,6 +207,21 @@ Site.Program = {
     })
   },
 };
+
+Site.Vip = {
+  init: function() {
+    var _this = this;
+
+    _this.bindShowRsvp();
+  },
+
+  bindShowRsvp: function() {
+    $('#show-vip-rsvp').on('click', function() {
+      $('#vip-rsvp-text-container').hide(200);
+      $('#vip-rsvp-form-container').show(200);
+    })
+  },
+}
 
 jQuery(document).ready(function () {
   'use strict';
