@@ -103,8 +103,6 @@ function vip_password_form($form) {
 
 add_filter( 'the_password_form', 'vip_password_form' );
 
-function trim_protected_title($title) {
-  $title = preg_replace('#Protected:#', '', $title);
-  return $title;
-}
-add_filter('the_title', 'trim_protected_title');
+// Gravity Forms
+// disable scrollto on confirmation
+add_filter( 'gform_confirmation_anchor', '__return_false' );
