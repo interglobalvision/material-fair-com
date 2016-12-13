@@ -44,6 +44,8 @@ if( have_posts() ) {
 <?php 
     if (!post_password_required()) {
       get_template_part('partials/page-vip/vip-hotels');
+
+      get_template_part('partials/archive-event/schedule');
     }
   }
 }
