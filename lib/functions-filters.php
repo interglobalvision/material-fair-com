@@ -89,7 +89,7 @@ function vip_password_form($form) {
 
     if (wp_get_referer() == get_permalink() || isset ( $_COOKIE[ 'wp-postpass_' . COOKIEHASH ] ) ) {
       // Translate and escape.
-      $msg = __( '[:en]Sorry, your password is incorrect.[:es]Perdón, tu contraseña no es correcto.[:]');
+      $msg = __( '[:en]Incorrect Password[:es]Contraseña Incorrecta[:]');
 
       // We have a cookie, but it doesn’t match the password.
       $msg = "<p class='wrong-password margin-bottom-small'>$msg</p>";
@@ -102,3 +102,9 @@ function vip_password_form($form) {
 }
 
 add_filter( 'the_password_form', 'vip_password_form' );
+
+function trim_protected_title($title) {
+  $title = preg_replace('#Protected:#', '', $title);
+  return $title;
+}
+add_filter('the_title', 'trim_protected_title');
