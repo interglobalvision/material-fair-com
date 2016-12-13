@@ -1781,13 +1781,22 @@ ul.language-chooser li a {
 }
 .post-password-form input[name=post_password] {
   margin-right: 24px;
+  width: 100%;
 }
 .post-password-form input[type=submit] {
   background-color: #fff;
   color: #000;
+  margin-top: 12px;
+  width: 100%;
 }
 .post-password-form input[type=submit]:hover {
   background-color: #ffd923;
+}
+.wrong-password {
+  background-color: #ffd923;
+  padding: 12px;
+  color: #000;
+  border: 1px solid #000;
 }
 .dude {
   -webkit-animation: dance 1s infinite ease-in-out;
@@ -2066,6 +2075,19 @@ ul.language-chooser li a {
   }
   #mailchimp-response {
     margin-left: 8.034441853748111px;
+  }
+  .post-password-form input {
+    border-color: #fff;
+  }
+  .post-password-form input[name=post_password] {
+    margin-right: 26px;
+    width: auto;
+  }
+  .post-password-form input[type=submit] {
+    background-color: #fff;
+    color: #000;
+    margin-top: 0;
+    width: auto;
   }
 }
 @media screen and (min-width: 712px) {

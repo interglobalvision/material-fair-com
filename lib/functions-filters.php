@@ -98,9 +98,9 @@ function vip_password_form($form) {
       $msg = __( '[:en]Sorry, your password is incorrect.[:es]Perdón, tu contraseña no es correcto.[:]');
 
       // We have a cookie, but it doesn’t match the password.
-      $msg = "<p class='custom-password-message margin-top-small'>$msg</p>";
+      $msg = "<p class='wrong-password margin-bottom-small'>$msg</p>";
 
-      return $form . $msg;
+      return $msg . $form;
     }
   }
 

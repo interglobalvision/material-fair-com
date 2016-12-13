@@ -132,6 +132,8 @@ for col in 1..$cols
   &.col
     margin-bottom: $margin-small
 
+// ******************************************************
+
 // FRONT PAGE
 
 #front-splash
@@ -143,10 +145,14 @@ for col in 1..$cols
   margin: 0 auto
   display: block
 
+// ******************************************************
+
 // VISITOR INFO
 
 .venue-map iframe
   border-width: $margin-micro !important
+
+// ******************************************************
 
 // PROGRAM
 
@@ -164,6 +170,8 @@ for col in 1..$cols
 .event-times-day
   display: block
 
+// ******************************************************
+
 // PRESS
 
 .press-highlight:nth-of-type(2)
@@ -174,7 +182,8 @@ for col in 1..$cols
   
 .swiper-button-prev, .swiper-button-next
   padding: $margin-tiny * 1.5
-  
+
+// ******************************************************
   
 // READING MATERIAL
   
@@ -182,6 +191,8 @@ for col in 1..$cols
   position: absolute
   top: 0
   padding-top: 0 !important
+
+// ******************************************************
 
 // FOOTER
 
@@ -194,3 +205,19 @@ for col in 1..$cols
 
 #mailchimp-response
   margin-left: $margin-micro
+  
+// ******************************************************
+
+// VIP 
+  
+.post-password-form
+  input 
+    border-color: $color-white
+    &[name=post_password]
+      margin-right: $margin-small
+      width: auto
+    &[type=submit]
+      background-color: $color-white 
+      color: $color-black
+      margin-top: 0
+      width: auto
