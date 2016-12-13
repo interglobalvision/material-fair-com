@@ -69,12 +69,6 @@ function filter_post_highlight($query) {
 
 add_action('pre_get_posts','filter_post_highlight');
 
-// Set VIP password cookie to single session (for debugging only)
-function vip_password_cookie_expiry( $expires ) {
-    return 0;  // Make it a session cookie
-}
-//add_filter( 'post_password_expires', 'vip_password_cookie_expiry' );
-
 // VIP password protected form
 function vip_password_form($form) {
   global $post;
@@ -106,5 +100,5 @@ function vip_password_form($form) {
 
   return $form;
 }
-add_filter( 'the_password_form', 'vip_password_form' );
 
+add_filter( 'the_password_form', 'vip_password_form' );
