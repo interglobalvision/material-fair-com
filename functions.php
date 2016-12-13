@@ -74,6 +74,11 @@ function composer_autoload() {
 }
 add_action( 'init', 'composer_autoload', 10 );
 
+function gravityforms_qtranslate() {
+  require_once( 'lib/qtranslate-support-for-gravityforms.php' );
+}
+add_action( 'init', 'gravityforms_qtranslate', 12 );
+
 // Add custom functions
 
 get_template_part( 'lib/functions-misc' );
