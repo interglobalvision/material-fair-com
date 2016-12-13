@@ -24,16 +24,16 @@ if( have_posts() ) {
       </div>
       <div class="row">
 <?php 
-    if (has_post_thumbnail() && !post_password_required()) {
+    if (has_post_thumbnail()) {
 ?>
         <div class="<?php echo $colClasses; ?>">
-          <?php the_post_thumbnail(); ?>
+          <?php the_post_thumbnail('col-6'); ?>
         </div>
 <?php
     }
 ?>
         <div class="<?php echo $colClasses; ?>">
-          <div class="font-size-h3">
+          <div class="<?php echo has_post_thumbnail() ? 'font-size-h4' : 'font-size-h3'; ?>">
             <?php the_content(); ?>
           </div>
         </div>
