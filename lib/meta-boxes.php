@@ -454,5 +454,17 @@ function igv_cmb_metaboxes() {
     )
   ) );
 
+  $vip_metabox->add_field( array(
+    'name'    => __( 'Sponsors', 'cmb2' ),
+    'desc'    => __( 'VIP Sponsors', 'cmb2' ),
+    'id'      => $prefix . 'vip_sponsors_text',
+    'type'    => 'wysiwyg',
+    'options' => array( 
+      'media_buttons' => false,
+      'textarea_rows' => 3, 
+      'editor_class' => 'cmb2-qtranslate'
+    )
+  ) );
+
 }
 ?>
