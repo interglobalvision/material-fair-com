@@ -466,5 +466,18 @@ function igv_cmb_metaboxes() {
     )
   ) );
 
+
+  $vip_metabox->add_field( array(
+    'name'    => __( 'Contacts', 'cmb2' ),
+    'desc'    => __( 'VIP Contacts', 'cmb2' ),
+    'id'      => $prefix . 'vip_contacts',
+    'type'    => 'wysiwyg',
+    'options' => array( 
+      'media_buttons' => false,
+      'textarea_rows' => 6, 
+      'editor_class' => 'cmb2-qtranslate'
+    )
+  ) );
+
 }
 ?>
