@@ -357,6 +357,18 @@ function igv_cmb_metaboxes() {
     )
   ) );
 
+  $vip_metabox->add_field( array(
+    'name'    => __( 'VIP RSVP text', 'cmb2' ),
+    'desc'    => __( '', 'cmb2' ),
+    'id'      => $prefix . 'vip_rsvp_text',
+    'type'    => 'wysiwyg',
+    'options' => array( 
+      'media_buttons' => false,
+      'textarea_rows' => 3, 
+      'editor_class' => 'cmb2-qtranslate'
+    )
+  ) );
+
   $vip_hotels = $vip_metabox->add_field( array(
     'name'    => __( 'VIP Accomodations', 'cmb2' ),
     'id'          => $prefix . 'vip_hotels',
