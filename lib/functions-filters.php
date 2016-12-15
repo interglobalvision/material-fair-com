@@ -108,7 +108,7 @@ add_filter( 'the_password_form', 'vip_password_form' );
 add_filter( 'gform_confirmation_anchor', '__return_false' );
 
 // populate hidden language field
-add_filter( 'gform_field_value_language', 'populate_language' );
 function populate_language( $value ) {
   return qtranxf_getLanguage() === 'es' ? 'Español' : 'English';
 }
+add_filter( 'gform_field_value_language', 'populate_language' );
