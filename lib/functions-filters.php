@@ -69,3 +69,40 @@ function filter_post_highlight($query) {
 
 add_action('pre_get_posts','filter_post_highlight');
 
+// VIP password protected form
+function vip_password_form($form) {
+  global $post;
+
+  if (is_page('vip')) {
+    $label = 'pwbox-'.( empty( $post->ID ) ? rand() : $post->ID );
+    $intro = get_post_meta($post->ID, '_igv_vip_login_intro', true);
+    $form = '';
+
+    if (!empty($intro)) {
+      $intro = apply_filters('the_content', $intro);
+      $form .= $intro;
+    }
+
+    $form .= '<form class="post-password-form margin-top-basic" action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" method="post"><input name="post_password" id="' . $label . '" type="password" size="20" maxlength="20" placeholder="' . esc_attr__( "[:en]Password[:es]Contraseña[:]" ) . '" /><input type="submit" name="Submit" value="' . esc_attr__( "[:en]Submit[:es]Enviar[:]" ) . '" />
+    </form>
+    ';
+
+    if (wp_get_referer() == get_permalink() || isset ( $_COOKIE[ 'wp-postpass_' . COOKIEHASH ] ) ) {
+      // Translate and escape.
+      $msg = __( '[:en]Incorrect Password[:es]Contraseña Incorrecta[:]');
+
+      // We have a cookie, but it doesn’t match the password.
+      $msg = "<p class='wrong-password margin-bottom-small'>$msg</p>";
+
+      return $msg . $form;
+    }
+  }
+
+  return $form;
+}
+
+add_filter( 'the_password_form', 'vip_password_form' );
+
+// Gravity Forms
+// disable scrollto on confirmation
+add_filter( 'gform_confirmation_anchor', '__return_false' );

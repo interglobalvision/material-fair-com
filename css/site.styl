@@ -66,6 +66,9 @@ $color-yellow = rgb(255, 217, 35)
 $color-green = rgb(0, 152, 112)
 $color-pink = rgb(255, 123, 172)
 
+$header-height = 300px
+$footer-height = 732px
+
 // ******************************************************
 
 // GRID
@@ -269,6 +272,9 @@ html
 
 h1, h2
   color: $color-yellow
+  
+#main-content 
+  min-height: calc('100vh - ' + ($header-height + $footer-height))
 
 .border-row
   margin-left: $margin-tiny
@@ -299,6 +305,10 @@ h1, h2
     color: inherit
   .border-row
     border-color: $color-black
+  & + .section
+    border-color: $color-black
+  input 
+    border-color: $color-black
     
 .section-yellow
   background-color: $color-yellow
@@ -328,15 +338,17 @@ img
   font-weight: 600
   border: 2px solid $color-black
   &.button-big
-    padding: $margin-small 0
+    padding: $margin-small $margin-tiny
     font-size: $font-size-h4
   &.button-yellow
     background-color: $color-yellow
   &.button-margin-right
     margin-right: $margin-tiny
+  &:focus
+    outline: none
 
-input
-  border: 1px solid $color-black
+input, select, textarea
+  border: 1px solid $color-white
   padding: $margin-micro
   -webkit-appearance: none
   background: none
@@ -350,7 +362,18 @@ input
 
 ::placeholder
   color: inherit !important
-
+  
+.gform_wrapper
+  input, select, textarea
+    width: 100% 
+    &[type=submit]
+      width: auto
+      font-size: $font-size-h3
+    margin-bottom: $margin-small
+  label 
+    display: block
+    margin-bottom: $margin-tiny
+    text-transform: uppercase
 
 // ******************************************************
 
@@ -507,6 +530,8 @@ ul.language-chooser
   padding: 0
   &.col
     margin-bottom: $margin-small
+    
+// ******************************************************
 
 // FRONT PAGE
 
@@ -518,6 +543,8 @@ ul.language-chooser
   max-width: 1440px
   margin: 0 auto
   display: block
+  
+// ******************************************************
 
 // VISITOR INFO
 
@@ -526,6 +553,8 @@ ul.language-chooser
   max-height: 500px
   flex-grow: 1
   border: $margin-micro solid $color-yellow !important
+  
+// ******************************************************
 
 // PROGRAM
 
@@ -551,6 +580,8 @@ ul.language-chooser
 
 .event-times-divider
   transform: rotate(90deg)
+  
+// ******************************************************
 
 // PRESS
 
@@ -574,6 +605,8 @@ ul.language-chooser
 
 .swiper-button-next
   background-image: url('../img/dist/right_triangle.svg')
+  
+// ******************************************************
 
 // FOOTER
 
@@ -600,6 +633,8 @@ ul.language-chooser
   display: flex
   justify-content: center
   
+// ******************************************************
+  
 // READING MATERIAL
 
 .highlight-holder
@@ -611,6 +646,41 @@ ul.language-chooser
 .highlight-details 
   width: 100%
   padding-top: 0
+  
+// ******************************************************
+
+// VIP 
+
+.post-password-form
+  input 
+    border-color: $color-white
+    &[name=post_password]
+      margin-right: $margin-small
+      width: 100%
+    &[type=submit]
+      background-color: $color-white 
+      color: $color-black
+      margin-top: $margin-tiny
+      width: 100%
+      &:hover 
+        background-color: $color-yellow
+        
+.wrong-password, .gform_confirmation_message 
+  background-color: $color-yellow 
+  padding: $margin-tiny
+  color: $color-black
+  border: 1px solid $color-black
+  
+.gform_confirmation_message 
+  font-size: $font-size-h4
+  
+#vip-rsvp-form-container 
+  display: none
+  
+.gform_ajax_spinner
+  display: none!important
+  
+// ******************************************************
 
 // 404
 

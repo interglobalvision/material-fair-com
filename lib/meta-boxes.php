@@ -218,7 +218,14 @@ function igv_cmb_metaboxes() {
   ) );
 
   $event_metabox->add_field( array(
-    'name'     => __( 'VIP', 'cmb2' ),
+    'name'     => __( 'Public Event', 'cmb2' ),
+    'desc'     => __( 'Appears on Program page', 'cmb2' ),
+    'id'       => $prefix . 'event_public',
+    'type'     => 'checkbox',
+  ) );
+
+  $event_metabox->add_field( array(
+    'name'     => __( 'VIP Event', 'cmb2' ),
     'desc'     => __( 'Appears on VIP page', 'cmb2' ),
     'id'       => $prefix . 'event_vip',
     'type'     => 'checkbox',
@@ -327,6 +334,161 @@ function igv_cmb_metaboxes() {
     'id'   => $prefix . 'press_date',
     'type' => 'text_date_timestamp',
     // 'timezone_meta_key' => $prefix . 'timezone', // Optionally make this field honor the timezone selected in the select_timezone specified above
+  ) );
+
+// VIP
+  
+  $vip_metabox = new_cmb2_box( array(
+    'id'            => $prefix . 'vip_metabox',
+    'title'         => __( 'VIP Options', 'cmb2' ),
+    'object_types' => array( 'page' ), // post type
+    'show_on'      => array( 'key' => 'id', 'value' => array( get_id_by_slug('vip'), ) ),
+  ) );
+
+  $vip_metabox->add_field( array(
+    'name'    => __( 'VIP login page text', 'cmb2' ),
+    'desc'    => __( '', 'cmb2' ),
+    'id'      => $prefix . 'vip_login_intro',
+    'type'    => 'wysiwyg',
+    'options' => array( 
+      'media_buttons' => false,
+      'textarea_rows' => 6, 
+      'editor_class' => 'cmb2-qtranslate'
+    )
+  ) );
+
+  $vip_metabox->add_field( array(
+    'name'    => __( 'VIP RSVP text', 'cmb2' ),
+    'desc'    => __( '', 'cmb2' ),
+    'id'      => $prefix . 'vip_rsvp_text',
+    'type'    => 'wysiwyg',
+    'options' => array( 
+      'media_buttons' => false,
+      'textarea_rows' => 3, 
+      'editor_class' => 'cmb2-qtranslate'
+    )
+  ) );
+
+  $vip_hotels = $vip_metabox->add_field( array(
+    'name'    => __( 'VIP Accomodations', 'cmb2' ),
+    'id'          => $prefix . 'vip_hotels',
+    'type'        => 'group',
+    'description' => __( '', 'cmb2' ),
+    'options'     => array(
+      'group_title'   => __( 'Hotel {#}', 'cmb2' ), // {#} gets replaced by row number
+      'add_button'    => __( 'Add Another Hotel', 'cmb2' ),
+      'remove_button' => __( 'Remove Hotel', 'cmb2' ),
+      'sortable'      => true, // beta
+      // 'closed'     => true, // true to have the groups closed by default
+    ),
+  ) );
+
+  $vip_metabox->add_group_field( $vip_hotels, array(
+    'name' => __( 'Image', 'cmb2' ),
+    'id'   => 'image',
+    'type' => 'file',
+  ) );
+
+  $vip_metabox->add_group_field( $vip_hotels, array(
+    'name'     => __( 'Hotel Name', 'cmb2' ),
+    'id'       => 'name',
+    'type'     => 'text_medium',
+    'attributes' => array(
+      'class' => 'cmb2-qtranslate'
+    )
+  ) );
+
+  $vip_metabox->add_group_field( $vip_hotels, array(
+    'name'    => __( 'Hotel Text English', 'cmb2' ),
+    'id'      => 'text_en',
+    'type'    => 'wysiwyg',
+    'options' => array( 
+      'media_buttons' => false,
+      'textarea_rows' => 6, 
+    )
+  ) );
+
+  $vip_metabox->add_group_field( $vip_hotels, array(
+    'name'    => __( 'Hotel Text Español', 'cmb2' ),
+    'id'      => 'text_es',
+    'type'    => 'wysiwyg',
+    'options' => array( 
+      'media_buttons' => false,
+      'textarea_rows' => 6, 
+    )
+  ) );
+
+  $vip_metabox->add_field( array(
+    'name'    => __( 'Museums', 'cmb2' ),
+    'desc'    => __( 'VIP Recommendations', 'cmb2' ),
+    'id'      => $prefix . 'vip_museums',
+    'type'    => 'wysiwyg',
+    'options' => array( 
+      'media_buttons' => false,
+      'textarea_rows' => 6, 
+      'editor_class' => 'cmb2-qtranslate'
+    )
+  ) );
+
+  $vip_metabox->add_field( array(
+    'name'    => __( 'Galleries / Project Spaces', 'cmb2' ),
+    'desc'    => __( 'VIP Recommendations', 'cmb2' ),
+    'id'      => $prefix . 'vip_galleries',
+    'type'    => 'wysiwyg',
+    'options' => array( 
+      'media_buttons' => false,
+      'textarea_rows' => 6, 
+      'editor_class' => 'cmb2-qtranslate'
+    )
+  ) );
+
+  $vip_metabox->add_field( array(
+    'name'    => __( 'Restaurants / Bars', 'cmb2' ),
+    'desc'    => __( 'VIP Recommendations', 'cmb2' ),
+    'id'      => $prefix . 'vip_restaurants',
+    'type'    => 'wysiwyg',
+    'options' => array( 
+      'media_buttons' => false,
+      'textarea_rows' => 6, 
+      'editor_class' => 'cmb2-qtranslate'
+    )
+  ) );
+
+  $vip_metabox->add_field( array(
+    'name'    => __( 'Other', 'cmb2' ),
+    'desc'    => __( 'VIP Recommendations', 'cmb2' ),
+    'id'      => $prefix . 'vip_other',
+    'type'    => 'wysiwyg',
+    'options' => array( 
+      'media_buttons' => false,
+      'textarea_rows' => 6, 
+      'editor_class' => 'cmb2-qtranslate'
+    )
+  ) );
+
+  $vip_metabox->add_field( array(
+    'name'    => __( 'Sponsors', 'cmb2' ),
+    'desc'    => __( 'VIP Sponsors', 'cmb2' ),
+    'id'      => $prefix . 'vip_sponsors_text',
+    'type'    => 'wysiwyg',
+    'options' => array( 
+      'media_buttons' => false,
+      'textarea_rows' => 3, 
+      'editor_class' => 'cmb2-qtranslate'
+    )
+  ) );
+
+
+  $vip_metabox->add_field( array(
+    'name'    => __( 'Contacts', 'cmb2' ),
+    'desc'    => __( 'VIP Contacts', 'cmb2' ),
+    'id'      => $prefix . 'vip_contacts',
+    'type'    => 'wysiwyg',
+    'options' => array( 
+      'media_buttons' => false,
+      'textarea_rows' => 6, 
+      'editor_class' => 'cmb2-qtranslate'
+    )
   ) );
 
 }

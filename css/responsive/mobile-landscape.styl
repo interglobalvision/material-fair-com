@@ -9,6 +9,9 @@ $margin-basic = ($gutter * 2)
 $margin-mid = ($gutter * 3.5)
 $margin-large = ($gutter * 5)
 
+$header-height = 254px
+$footer-height = 548px
+
 // ******************************************************
 
 // MARGINS AND PADDING
@@ -117,6 +120,9 @@ for col in 1..$cols
     
 // ******************************************************
 
+#main-content 
+  min-height: calc('100vh - ' + ($header-height + $footer-height))
+
 .text-columns-2
   column-count: 2
   column-gap: $gutter
@@ -125,6 +131,8 @@ for col in 1..$cols
   font-size: $font-size-h4
   &.col
     margin-bottom: $margin-small
+
+// ******************************************************
 
 // FRONT PAGE
 
@@ -137,10 +145,14 @@ for col in 1..$cols
   margin: 0 auto
   display: block
 
+// ******************************************************
+
 // VISITOR INFO
 
 .venue-map iframe
   border-width: $margin-micro !important
+
+// ******************************************************
 
 // PROGRAM
 
@@ -158,6 +170,8 @@ for col in 1..$cols
 .event-times-day
   display: block
 
+// ******************************************************
+
 // PRESS
 
 .press-highlight:nth-of-type(2)
@@ -168,7 +182,8 @@ for col in 1..$cols
   
 .swiper-button-prev, .swiper-button-next
   padding: $margin-tiny * 1.5
-  
+
+// ******************************************************
   
 // READING MATERIAL
   
@@ -176,6 +191,8 @@ for col in 1..$cols
   position: absolute
   top: 0
   padding-top: 0 !important
+
+// ******************************************************
 
 // FOOTER
 
@@ -188,3 +205,25 @@ for col in 1..$cols
 
 #mailchimp-response
   margin-left: $margin-micro
+  
+// ******************************************************
+
+// VIP 
+  
+.post-password-form
+  input 
+    border-color: $color-white
+    &[name=post_password]
+      margin-right: $margin-small
+      width: auto
+    &[type=submit]
+      background-color: $color-white 
+      color: $color-black
+      margin-top: 0
+      width: auto
+      
+.wrong-password, .gform_confirmation_message 
+  padding: $margin-tiny
+  
+.gform_confirmation_message 
+  font-size: $font-size-h4

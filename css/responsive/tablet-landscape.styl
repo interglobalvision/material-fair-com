@@ -10,6 +10,9 @@ $margin-basic = ($gutter * 2)
 $margin-mid = ($gutter * 3.5)
 $margin-large = ($gutter * 5)
 
+$header-height = 296px
+$footer-height = 395px
+
 // ******************************************************
 
 // MARGINS AND PADDING
@@ -135,6 +138,9 @@ for col in 1..$cols
   
 // ****************************************************** 
 
+#main-content 
+  min-height: calc('100vh - ' + ($header-height + $footer-height))
+
 #header
   margin-top: 0
 
@@ -160,6 +166,8 @@ for col in 1..$cols
     margin-bottom: ( $gutter / 2 )
     margin-top: ( $gutter / 2 )
 
+// ******************************************************
+
 // FRONT PAGE
 
 #front-splash
@@ -171,10 +179,14 @@ for col in 1..$cols
   margin: 0 auto
   display: block
 
+// ******************************************************
+
 // VISITOR INFO
 
 .venue-map iframe
   border-width: $margin-micro !important
+
+// ******************************************************
 
 // PROGRAM
 
@@ -192,6 +204,8 @@ for col in 1..$cols
 .event-times-day
   display: block
 
+// ******************************************************
+
 // PRESS
 
 .press-highlight:nth-of-type(2)
@@ -202,6 +216,8 @@ for col in 1..$cols
   
 .swiper-button-prev, .swiper-button-next
   padding: $margin-small
+
+// ******************************************************
 
 // FOOTER
 
@@ -220,4 +236,19 @@ for col in 1..$cols
     
 .social-icon
   margin-bottom: ($margin-micro / 2)
+
+// ******************************************************
+
+// VIP 
+  
+.post-password-form
+  input 
+    &[name=post_password]
+      margin-right: $margin-small
+      
+.wrong-password, .gform_confirmation_message 
+  padding: $margin-tiny
+  
+.gform_confirmation_message 
+  font-size: $font-size-h4
   
