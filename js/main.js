@@ -216,11 +216,22 @@ Site.Vip = {
   },
 
   bindShowRsvp: function() {
+    var _this = this;
+
     $('#show-vip-rsvp').on('click', function() {
       $('#vip-rsvp-text-container').hide(200);
       $('#vip-rsvp-form-container').show(200);
+      _this.fillFormLang();
     })
   },
+
+  fillFormLang: function() {
+    if (currentLang === 'es') {
+      $('ul.gform_fields li:last-child input').val('Español');
+    } else {
+      $('ul.gform_fields li:last-child input').val('English');
+    }
+  }
 }
 
 jQuery(document).ready(function () {
