@@ -106,3 +106,8 @@ add_filter( 'the_password_form', 'vip_password_form' );
 // Gravity Forms
 // disable scrollto on confirmation
 add_filter( 'gform_confirmation_anchor', '__return_false' );
+
+add_filter( 'gform_field_value_language', 'populate_language' );
+function populate_language( $value ) {
+  return qtranxf_getLanguage() === 'es' ? 'Español' : 'English';
+}
