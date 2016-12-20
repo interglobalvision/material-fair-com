@@ -420,48 +420,48 @@ function igv_cmb_metaboxes() {
 
   $vip_metabox->add_field( array(
     'name'    => __( 'Museums', 'cmb2' ),
-    'desc'    => __( 'VIP Recommendations', 'cmb2' ),
+    'desc'    => __( 'VIP Recommendations, (Colonia: Heading 3, Item: Heading 4, Sub-item: Bold)', 'cmb2' ),
     'id'      => $prefix . 'vip_museums',
     'type'    => 'wysiwyg',
     'options' => array( 
       'media_buttons' => false,
-      'textarea_rows' => 6, 
+      'textarea_rows' => 10, 
       'editor_class' => 'cmb2-qtranslate'
     )
   ) );
 
   $vip_metabox->add_field( array(
     'name'    => __( 'Galleries / Project Spaces', 'cmb2' ),
-    'desc'    => __( 'VIP Recommendations', 'cmb2' ),
+    'desc'    => __( 'VIP Recommendations, (Colonia: Heading 3, Item: Heading 4, Sub-item: Bold)', 'cmb2' ),
     'id'      => $prefix . 'vip_galleries',
     'type'    => 'wysiwyg',
     'options' => array( 
       'media_buttons' => false,
-      'textarea_rows' => 6, 
+      'textarea_rows' => 10, 
       'editor_class' => 'cmb2-qtranslate'
     )
   ) );
 
   $vip_metabox->add_field( array(
     'name'    => __( 'Restaurants / Bars', 'cmb2' ),
-    'desc'    => __( 'VIP Recommendations', 'cmb2' ),
+    'desc'    => __( 'VIP Recommendations, (Colonia: Heading 3, Item: Heading 4, Sub-item: Bold)', 'cmb2' ),
     'id'      => $prefix . 'vip_restaurants',
     'type'    => 'wysiwyg',
     'options' => array( 
       'media_buttons' => false,
-      'textarea_rows' => 6, 
+      'textarea_rows' => 10, 
       'editor_class' => 'cmb2-qtranslate'
     )
   ) );
 
   $vip_metabox->add_field( array(
     'name'    => __( 'Other', 'cmb2' ),
-    'desc'    => __( 'VIP Recommendations', 'cmb2' ),
+    'desc'    => __( 'VIP Recommendations, (Colonia: Heading 3, Item: Heading 4, Sub-item: Bold)', 'cmb2' ),
     'id'      => $prefix . 'vip_other',
     'type'    => 'wysiwyg',
     'options' => array( 
       'media_buttons' => false,
-      'textarea_rows' => 6, 
+      'textarea_rows' => 10, 
       'editor_class' => 'cmb2-qtranslate'
     )
   ) );
