@@ -2,7 +2,7 @@
 if (get_fair_year_id()) {
 
   $fair_year_id = get_fair_year_id();
-  $fair_year = get_term($fair_year_id)->slug; 
+  $fair_year = get_term($fair_year_id)->slug;
   $current_year_id = IGV_get_option('_igv_site_options', '_igv_current_fair_year');
 
   $args = array (
@@ -47,14 +47,14 @@ if (get_fair_year_id()) {
     <div class="row">
       <div class="col col-s col-s-12 col-m col-m-12 col-l col-l-12">
         <h2>
-          <?php 
+          <?php
             if (is_page('vip')) {
               _e('[:en]VIP Program[:es]Programa VIP');
-              echo ' ' . $fair_year; 
+              echo ' ' . $fair_year;
             } else {
               _e('[:en]Schedule[:es]Calendario');
               if ($fair_year_id != $current_year_id) {
-                echo ' ' . $fair_year; 
+                echo ' ' . $fair_year;
               }
             }
           ?>
@@ -72,7 +72,8 @@ if (get_fair_year_id()) {
 
       $artist = get_post_meta($post->ID, '_igv_event_artist', true);
       $location = get_post_meta($post->ID, '_igv_event_location', true);
-      $url = get_post_meta($post->ID, '_igv_event_url', true); 
+      $url = get_post_meta($post->ID, '_igv_event_url', true);
+      $rsvp = get_post_meta($post->ID, '_igv_event_rsvp', true);
 
       if ($this_day != $current_day) {
 ?>
@@ -81,18 +82,18 @@ if (get_fair_year_id()) {
     <div class="calendar-day border-row">
       <div class="row calendar-heading">
         <h3 class="u-inline-block"><?php _e(date('l', $start)); ?></h3>
-        <span class="font-size-h3 calendar-date"><?php 
-          _e(date('j', $start)); 
+        <span class="font-size-h3 calendar-date"><?php
+          _e(date('j', $start));
           echo '&nbsp;';
-          _e(date('F', $start)); 
+          _e(date('F', $start));
           echo '&nbsp;' . date('Y', $start);
         ?>
       </div>
       <div class="calendar-events">
-<?php 
+<?php
         $current_day = $this_day;
       }
-?>  
+?>
       <div class="row">
         <div class="col col-s col-s-6 col-m col-m-6 col-l col-l-2 font-size-h4 text-align-center">
           <?php get_template_part('partials/event-times'); ?>
@@ -102,27 +103,30 @@ if (get_fair_year_id()) {
         </div>
         <div class="col col-s col-s-12 col-m col-m-12 col-l col-l-6">
           <span class="font-size-h4">
-          <?php 
-            echo !empty($url) ? '<a href="' . $url . '" target="_blank" rel="noopener noreferrer">' : ''; 
-            echo !empty($artist) ? $artist : ''; 
-            echo !empty($artist) && !empty($location) ? ' @ ' : ''; 
-            echo !empty($location) ? $location : ''; 
-            echo !empty($url) ? '</a>' : ''; 
+          <?php
+            echo !empty($url) ? '<a href="' . $url . '" target="_blank" rel="noopener noreferrer">' : '';
+            echo !empty($artist) ? $artist : '';
+            echo !empty($artist) && !empty($location) ? ' @ ' : '';
+            echo !empty($location) ? $location : '';
+            echo !empty($url) ? '</a>' : '';
           ?>
           </span>
           <h3 class="margin-bottom-micro"><?php the_title(); ?></h3>
-          <?php the_content(); ?>
+          <?php
+            the_content(); 
+            echo !empty($rsvp) ? apply_filters('the_content', $rsvp) : '';
+          ?>
         </div>
       </div>
-<?php 
-    } 
+<?php
+    }
 ?>
       </div>
     </div>
   </div>
 </section>
-<?php 
+<?php
   }
-  wp_reset_postdata(); 
+  wp_reset_postdata();
 }
 ?>
