@@ -155,7 +155,7 @@
 
         <div class="row">
           <div class="col col-s col-s-12 col-m col-m-12 col-l col-l-12">
-            <span class="font-small-caps">&copy; <?php echo get_the_date('Y'); ?> Feria de Arte Material México SA de CV</span>
+            <span class="font-small-caps">&copy; <?php echo date('Y'); ?> Feria de Arte Material México SA de CV</span>
           </div>
         </div>
 
