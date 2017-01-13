@@ -7,7 +7,7 @@ if (!empty($partners)) {
     <div class="container">
       <div class="row">
         <div class="col col-s col-s-12 col-m col-m-12 col-l col-l-12">
-        <?php 
+        <?php
           if (is_page('partners')) {
             echo '<h1>' . __('[:en]Sponsors & Partners[:es]Patrocinadores & Aliados') . '</h1>';
           } elseif (is_front_page()) {
@@ -18,7 +18,7 @@ if (!empty($partners)) {
         ?>
         </div>
       </div>
-      <?php 
+      <?php
         if (!is_front_page()) {
           if (is_page('vip')) {
             $partners_text = get_post_meta($post->ID, '_igv_vip_sponsors_text', true);
@@ -33,9 +33,9 @@ if (!empty($partners)) {
           <?php echo $partners_text; ?>
         </div>
       </div>
-      <?php 
+      <?php
           }
-          if (is_page('partners')) { 
+          if (is_page('partners')) {
       ?>
     </div>
   </section>
@@ -47,20 +47,20 @@ if (!empty($partners)) {
       ?>
       <div class="row justify-center align-center">
         <?php
-          foreach ($partners as $partner) {  
+          foreach ($partners as $partner) {
             $partner_img = wp_get_attachment_image($partner['logo_id'], 'sponsor');
-            if (is_front_page()) {
+            if (is_front_page() || is_page('vip')) {
               echo '<div class="col col-s col-s-6 col-m col-m-4 col-l col-l-2 text-align-center margin-top-tiny margin-bottom-tiny">';
             } else {
               echo '<div class="col col-s col-s-6 col-m col-m-4 col-l col-l-3 text-align-center margin-top-small margin-bottom-small">';
             }
             echo !empty($partner['url']) ? '<a target="_blank" rel="noopener noreferrer" href="' . esc_url($partner['url']) . '">' . $partner_img . '</a>' : $partner_img;
             echo '</div>';
-          } 
+          }
         ?>
       </div>
     </div>
   </section>
-<?php 
+<?php
 }
 ?>
