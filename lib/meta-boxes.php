@@ -232,14 +232,7 @@ function igv_cmb_metaboxes() {
   ) );
 
   $event_metabox->add_field( array(
-    'name'     => __( 'Artist / Performer', 'cmb2' ),
-    'desc'     => __( '', 'cmb2' ),
-    'id'       => $prefix . 'event_artist',
-    'type'     => 'text',
-  ) );
-
-  $event_metabox->add_field( array(
-    'name'     => __( 'Location', 'cmb2' ),
+    'name'     => __( 'Event Type (at Venue)', 'cmb2' ),
     'desc'     => __( '', 'cmb2' ),
     'id'       => $prefix . 'event_location',
     'type'     => 'text',
@@ -266,20 +259,8 @@ function igv_cmb_metaboxes() {
     'type'     => 'text_url',
   ) );
 
-  $event_metabox->add_field( array(
-    'name'    => __( 'RSVP info', 'cmb2' ),
-    'desc'    => __( '', 'cmb2' ),
-    'id'      => $prefix . 'event_rsvp',
-    'type'    => 'wysiwyg',
-    'options' => array( 
-      'media_buttons' => false,
-      'textarea_rows' => 3, 
-      'editor_class' => 'cmb2-qtranslate'
-    )
-  ) );
-
 // PRESS
-  
+
   $press_metabox = new_cmb2_box( array(
     'id'            => $prefix . 'press_metabox',
     'title'         => __( 'Press Options', 'cmb2' ),
@@ -337,7 +318,7 @@ function igv_cmb_metaboxes() {
   ) );
 
 // VIP
-  
+
   $vip_metabox = new_cmb2_box( array(
     'id'            => $prefix . 'vip_metabox',
     'title'         => __( 'VIP Options', 'cmb2' ),
@@ -350,9 +331,9 @@ function igv_cmb_metaboxes() {
     'desc'    => __( '', 'cmb2' ),
     'id'      => $prefix . 'vip_login_intro',
     'type'    => 'wysiwyg',
-    'options' => array( 
+    'options' => array(
       'media_buttons' => false,
-      'textarea_rows' => 6, 
+      'textarea_rows' => 6,
       'editor_class' => 'cmb2-qtranslate'
     )
   ) );
@@ -362,9 +343,9 @@ function igv_cmb_metaboxes() {
     'desc'    => __( '', 'cmb2' ),
     'id'      => $prefix . 'vip_rsvp_text',
     'type'    => 'wysiwyg',
-    'options' => array( 
+    'options' => array(
       'media_buttons' => false,
-      'textarea_rows' => 3, 
+      'textarea_rows' => 3,
       'editor_class' => 'cmb2-qtranslate'
     )
   ) );
@@ -402,9 +383,9 @@ function igv_cmb_metaboxes() {
     'name'    => __( 'Hotel Text English', 'cmb2' ),
     'id'      => 'text_en',
     'type'    => 'wysiwyg',
-    'options' => array( 
+    'options' => array(
       'media_buttons' => false,
-      'textarea_rows' => 6, 
+      'textarea_rows' => 6,
     )
   ) );
 
@@ -412,9 +393,9 @@ function igv_cmb_metaboxes() {
     'name'    => __( 'Hotel Text Español', 'cmb2' ),
     'id'      => 'text_es',
     'type'    => 'wysiwyg',
-    'options' => array( 
+    'options' => array(
       'media_buttons' => false,
-      'textarea_rows' => 6, 
+      'textarea_rows' => 6,
     )
   ) );
 
@@ -423,9 +404,9 @@ function igv_cmb_metaboxes() {
     'desc'    => __( 'VIP Recommendations, (Colonia: Heading 3, Item: Heading 4, Sub-item: Bold)', 'cmb2' ),
     'id'      => $prefix . 'vip_museums',
     'type'    => 'wysiwyg',
-    'options' => array( 
+    'options' => array(
       'media_buttons' => false,
-      'textarea_rows' => 10, 
+      'textarea_rows' => 10,
       'editor_class' => 'cmb2-qtranslate'
     )
   ) );
@@ -435,9 +416,9 @@ function igv_cmb_metaboxes() {
     'desc'    => __( 'VIP Recommendations, (Colonia: Heading 3, Item: Heading 4, Sub-item: Bold)', 'cmb2' ),
     'id'      => $prefix . 'vip_galleries',
     'type'    => 'wysiwyg',
-    'options' => array( 
+    'options' => array(
       'media_buttons' => false,
-      'textarea_rows' => 10, 
+      'textarea_rows' => 10,
       'editor_class' => 'cmb2-qtranslate'
     )
   ) );
@@ -447,9 +428,9 @@ function igv_cmb_metaboxes() {
     'desc'    => __( 'VIP Recommendations, (Colonia: Heading 3, Item: Heading 4, Sub-item: Bold)', 'cmb2' ),
     'id'      => $prefix . 'vip_restaurants',
     'type'    => 'wysiwyg',
-    'options' => array( 
+    'options' => array(
       'media_buttons' => false,
-      'textarea_rows' => 10, 
+      'textarea_rows' => 10,
       'editor_class' => 'cmb2-qtranslate'
     )
   ) );
@@ -459,9 +440,9 @@ function igv_cmb_metaboxes() {
     'desc'    => __( 'VIP Recommendations, (Colonia: Heading 3, Item: Heading 4, Sub-item: Bold)', 'cmb2' ),
     'id'      => $prefix . 'vip_other',
     'type'    => 'wysiwyg',
-    'options' => array( 
+    'options' => array(
       'media_buttons' => false,
-      'textarea_rows' => 10, 
+      'textarea_rows' => 10,
       'editor_class' => 'cmb2-qtranslate'
     )
   ) );
@@ -471,9 +452,9 @@ function igv_cmb_metaboxes() {
     'desc'    => __( 'VIP Sponsors', 'cmb2' ),
     'id'      => $prefix . 'vip_sponsors_text',
     'type'    => 'wysiwyg',
-    'options' => array( 
+    'options' => array(
       'media_buttons' => false,
-      'textarea_rows' => 3, 
+      'textarea_rows' => 3,
       'editor_class' => 'cmb2-qtranslate'
     )
   ) );
@@ -484,9 +465,9 @@ function igv_cmb_metaboxes() {
     'desc'    => __( 'VIP Contacts', 'cmb2' ),
     'id'      => $prefix . 'vip_contacts',
     'type'    => 'wysiwyg',
-    'options' => array( 
+    'options' => array(
       'media_buttons' => false,
-      'textarea_rows' => 6, 
+      'textarea_rows' => 6,
       'editor_class' => 'cmb2-qtranslate'
     )
   ) );

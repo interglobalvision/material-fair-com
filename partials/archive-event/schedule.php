@@ -70,10 +70,8 @@ if (get_fair_year_id()) {
 
       $this_day = date('Ymd', $start);
 
-      $artist = get_post_meta($post->ID, '_igv_event_artist', true);
       $location = get_post_meta($post->ID, '_igv_event_location', true);
       $url = get_post_meta($post->ID, '_igv_event_url', true);
-      $rsvp = get_post_meta($post->ID, '_igv_event_rsvp', true);
 
       if ($this_day != $current_day) {
 ?>
@@ -105,16 +103,13 @@ if (get_fair_year_id()) {
           <span class="font-size-h4">
           <?php
             echo !empty($url) ? '<a href="' . $url . '" target="_blank" rel="noopener noreferrer">' : '';
-            echo !empty($artist) ? $artist : '';
-            echo !empty($artist) && !empty($location) ? ' @ ' : '';
             echo !empty($location) ? $location : '';
             echo !empty($url) ? '</a>' : '';
           ?>
           </span>
           <h3 class="margin-bottom-micro"><?php the_title(); ?></h3>
           <?php
-            the_content(); 
-            echo !empty($rsvp) ? apply_filters('the_content', $rsvp) : '';
+            the_content();
           ?>
         </div>
       </div>
