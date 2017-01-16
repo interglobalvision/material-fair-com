@@ -48,6 +48,9 @@ if (!empty($partners)) {
       <div class="row justify-center align-center">
         <?php
           foreach ($partners as $partner) {
+            if (is_page('vip') && $partner['vip'] !== 'on') {
+              continue;
+            }
             $partner_img = wp_get_attachment_image($partner['logo_id'], 'sponsor');
             if (is_front_page() || is_page('vip')) {
               echo '<div class="col col-s col-s-6 col-m col-m-4 col-l col-l-2 text-align-center margin-top-tiny margin-bottom-tiny">';

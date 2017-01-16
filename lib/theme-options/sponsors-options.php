@@ -55,7 +55,7 @@ $metabox = array(
           'desc' => __( 'optional', 'cmb2' ),
         )
       )
-    ), 
+    ),
     array(
       'name' => __( 'Partners', 'cmb2' ),
       'id'   => $prefix . 'partners_title',
@@ -65,8 +65,8 @@ $metabox = array(
       'name' => __( 'Partners Introduction Text', 'IGV' ),
       'id'   => $prefix . 'partners_page_text',
       'type' => 'wysiwyg',
-      'options' => array( 
-        'textarea_rows' => 6, 
+      'options' => array(
+        'textarea_rows' => 6,
         'editor_class' => 'cmb2-qtranslate'
       ),
     ),
@@ -93,9 +93,15 @@ $metabox = array(
           'id'         => 'url',
           'type'       => 'text_url',
           'desc' => __( 'optional', 'cmb2' ),
+        ),
+        array(
+          'name'       => __( 'VIP', 'cmb2' ),
+          'id'         => 'vip',
+          'type'       => 'checkbox',
+          'desc' => __( '', 'cmb2' ),
         )
       )
-    )    
+    )
   )
 );
 
