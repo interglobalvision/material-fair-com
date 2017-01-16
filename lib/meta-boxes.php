@@ -236,6 +236,9 @@ function igv_cmb_metaboxes() {
     'desc'     => __( '', 'cmb2' ),
     'id'       => $prefix . 'event_location',
     'type'     => 'text',
+    'attributes' => array(
+      'class' => 'cmb2-qtranslate'
+    )
   ) );
 
   $event_metabox->add_field( array(
