@@ -1,6 +1,6 @@
 //copy styles from site.styl
 $cols = 12
-$gutter = 26px 
+$gutter = 26px
 
 $margin-small = ($gutter)
 $margin-tiny = ($gutter / 2)
@@ -95,15 +95,15 @@ $footer-height = 548px
 
 .padding-bottom-large
   padding-bottom: $margin-large
-  
+
 // ******************************************************
 
 .row
   padding-top: ($gutter / 2)
-  
+
 .col
   margin-bottom: ($gutter / 2)
-  
+
 .col-m
   flex: 0 0 auto
   padding-right: ($gutter / 2)
@@ -117,10 +117,10 @@ for col in 1..$cols
   .col-m-{col}
     flex-basis: ( 100% / $cols ) * col
     max-width: ( 100% / $cols ) * col
-    
+
 // ******************************************************
 
-#main-content 
+#main-content
   min-height: calc('100vh - ' + ($header-height + $footer-height))
 
 .text-columns-2
@@ -130,6 +130,10 @@ for col in 1..$cols
 .menu-item
   font-size: $font-size-h4
   &.col
+    margin-bottom: $margin-small
+
+.gform_wrapper
+  .gform_heading
     margin-bottom: $margin-small
 
 // ******************************************************
@@ -158,15 +162,15 @@ for col in 1..$cols
 
 .calendar-heading
   padding: $margin-small 0
-  
-.event-time, .event-times-divider 
+
+.event-time, .event-times-divider
   display: block
   margin: 0 0 $margin-micro 0
-  text-align: center 
+  text-align: center
 
 .event-times-divider
   transform: rotate(0deg)
-  
+
 .event-times-day
   display: block
 
@@ -179,15 +183,15 @@ for col in 1..$cols
 
 .swiper-container
   height: 500px
-  
+
 .swiper-button-prev, .swiper-button-next
   padding: $margin-tiny * 1.5
 
 // ******************************************************
-  
+
 // READING MATERIAL
-  
-.highlight-details 
+
+.highlight-details
   position: absolute
   top: 0
   padding-top: 0 !important
@@ -205,25 +209,25 @@ for col in 1..$cols
 
 #mailchimp-response
   margin-left: $margin-micro
-  
+
 // ******************************************************
 
-// VIP 
-  
+// VIP
+
 .post-password-form
-  input 
+  input
     border-color: $color-white
     &[name=post_password]
       margin-right: $margin-small
       width: auto
     &[type=submit]
-      background-color: $color-white 
+      background-color: $color-white
       color: $color-black
       margin-top: 0
       width: auto
-      
-.wrong-password, .gform_confirmation_message 
+
+.wrong-password, .gform_confirmation_message
   padding: $margin-tiny
-  
-.gform_confirmation_message 
+
+.gform_confirmation_message
   font-size: $font-size-h4

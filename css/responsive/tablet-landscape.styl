@@ -96,7 +96,7 @@ $footer-height = 395px
 
 .padding-bottom-large
   padding-bottom: $margin-large
-  
+
 // ******************************************************
 
 .mobile-only
@@ -107,14 +107,14 @@ $footer-height = 395px
 
 .row
   padding-top: ($gutter / 2)
-  
+
 .col
   margin-bottom: ($gutter / 2)
 
 .col-l
   flex: 0 0 auto
   padding-right: ($gutter / 2)
-  padding-left: ($gutter / 2) 
+  padding-left: ($gutter / 2)
 
 for offset in 0..($cols - 1)
   .offset-l-{offset}
@@ -124,21 +124,25 @@ for col in 1..$cols
   .col-l-{col}
     flex-basis: ( 100% / $cols ) * col
     max-width: ( 100% / $cols ) * col
-    
+
 
 .pagination-section
   .col
     margin-bottom: ($gutter / 2)
-    
+
 .pagination-container
   justify-content: flex-end
 
 .pagination-button
   margin: 0 $margin-micro
-  
-// ****************************************************** 
 
-#main-content 
+.gform_wrapper
+  .gform_heading
+    margin-bottom: $margin-small
+
+// ******************************************************
+
+#main-content
   min-height: calc('100vh - ' + ($header-height + $footer-height))
 
 #header
@@ -192,15 +196,15 @@ for col in 1..$cols
 
 .calendar-heading
   padding: $margin-small 0
-  
-.event-time, .event-times-divider 
+
+.event-time, .event-times-divider
   display: block
   margin: 0 0 $margin-micro 0
-  text-align: center 
+  text-align: center
 
 .event-times-divider
   transform: rotate(0deg)
-  
+
 .event-times-day
   display: block
 
@@ -213,7 +217,7 @@ for col in 1..$cols
 
 .swiper-container
   height: 500px
-  
+
 .swiper-button-prev, .swiper-button-next
   padding: $margin-small
 
@@ -230,25 +234,24 @@ for col in 1..$cols
 
 #mailchimp-response
   margin-left: $margin-micro
-  
+
 #social-icon-container
   flex-direction: column
-    
+
 .social-icon
   margin-bottom: ($margin-micro / 2)
 
 // ******************************************************
 
-// VIP 
-  
+// VIP
+
 .post-password-form
-  input 
+  input
     &[name=post_password]
       margin-right: $margin-small
-      
-.wrong-password, .gform_confirmation_message 
+
+.wrong-password, .gform_confirmation_message
   padding: $margin-tiny
-  
-.gform_confirmation_message 
+
+.gform_confirmation_message
   font-size: $font-size-h4
-  

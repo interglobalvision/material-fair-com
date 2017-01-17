@@ -1528,6 +1528,9 @@ textarea:disabled {
 .gform_wrapper {
   font-size: 13px;
 }
+.gform_wrapper .gform_heading {
+  margin-bottom: 24px;
+}
 .gform_wrapper input,
 .gform_wrapper select,
 .gform_wrapper textarea {
@@ -2090,6 +2093,9 @@ ul.language-chooser li a {
   .menu-item.col {
     margin-bottom: 26px;
   }
+  .gform_wrapper .gform_heading {
+    margin-bottom: 26px;
+  }
   #front-splash {
     padding: 0;
   }
@@ -2399,6 +2405,9 @@ ul.language-chooser li a {
   .pagination-button {
     margin: 0 8.652475842497966px;
   }
+  .gform_wrapper .gform_heading {
+    margin-bottom: 28px;
+  }
   #main-content {
     min-height: calc(100vh - 691px);
   }
@@ -2567,6 +2576,9 @@ ul.language-chooser li a {
   }
   .gform_wrapper {
     font-size: 14px;
+  }
+  .gform_wrapper .gform_heading {
+    margin-bottom: 24px;
   }
   .gform_wrapper input[type=submit],
   .gform_wrapper select[type=submit],
