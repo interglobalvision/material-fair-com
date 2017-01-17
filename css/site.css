@@ -1525,6 +1525,9 @@ textarea:disabled {
 ::placeholder {
   color: inherit !important;
 }
+.gform_wrapper {
+  font-size: 13px;
+}
 .gform_wrapper input,
 .gform_wrapper select,
 .gform_wrapper textarea {
@@ -2561,6 +2564,14 @@ ul.language-chooser li a {
   }
   input {
     padding: 7.416407864998257px;
+  }
+  .gform_wrapper {
+    font-size: 14px;
+  }
+  .gform_wrapper input[type=submit],
+  .gform_wrapper select[type=submit],
+  .gform_wrapper textarea[type=submit] {
+    font-size: 2.058106176075472rem;
   }
   .margin-top-micro {
     margin-top: 7.416407864998257px;

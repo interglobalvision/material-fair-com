@@ -4,16 +4,16 @@ $gutter = 32px
 
 .container
   width: 1150px
-  
+
 .mobile-only
   display: none
-  
+
 .row
   padding-top: ($gutter / 2)
-  
+
 .col
   margin-bottom: ($gutter / 2)
-  
+
 $font-size-basic = 14px
 $font-size-larger = 1.3rem
 $font-size-h4 = golden-ratio(1rem , 0.7)
@@ -66,7 +66,7 @@ h4, .font-size-h4
 
 .border-row
   margin-left: $margin-tiny
-  margin-right: $margin-tiny 
+  margin-right: $margin-tiny
 
 .section
   padding: $margin-small 0
@@ -85,6 +85,12 @@ h4, .font-size-h4
 
 input
   padding: $margin-micro
+
+.gform_wrapper
+  font-size: $font-size-basic
+  input, select, textarea
+    &[type=submit]
+      font-size: $font-size-h3
 
 // ******************************************************
 
@@ -169,17 +175,17 @@ input
 
 .padding-bottom-large
   padding-bottom: $margin-large
-  
+
 // ******************************************************
 
-#main-content 
+#main-content
   min-height: calc('100vh - ' + ($header-height + $footer-height))
 
 .menu-item
   font-size: $font-size-h4
   &.col
     margin-bottom: $margin-small
-    
+
 // ******************************************************
 
 // FRONT PAGE
@@ -197,7 +203,7 @@ input
 
 .venue-map iframe
   border-width: $margin-micro !important
-  
+
 // ******************************************************
 
 // PROGRAM
@@ -207,17 +213,17 @@ input
 
 .event-time, .event-times-divider
   margin: 0 $margin-micro 0 0
-  
+
 // ******************************************************
 
 // PRESS
 
 .swiper-container
   height: 500px
-  
+
 .swiper-button-prev, .swiper-button-next
   padding: $margin-tiny
-  
+
 // ******************************************************
 
 // FOOTER
@@ -231,19 +237,18 @@ input
 
 #mailchimp-response
   margin-left: $margin-micro
-  
+
 // ******************************************************
 
-// VIP 
-  
+// VIP
+
 .post-password-form
-  input 
+  input
     &[name=post_password]
       margin-right: $margin-small
-      
-.wrong-password, .gform_confirmation_message 
+
+.wrong-password, .gform_confirmation_message
   padding: $margin-tiny
-  
-.gform_confirmation_message 
+
+.gform_confirmation_message
   font-size: $font-size-h4
-    

@@ -272,13 +272,13 @@ html
 
 h1, h2
   color: $color-yellow
-  
-#main-content 
+
+#main-content
   min-height: calc('100vh - ' + ($header-height + $footer-height))
 
 .border-row
   margin-left: $margin-tiny
-  margin-right: $margin-tiny 
+  margin-right: $margin-tiny
   border-top: 1px solid $color-yellow
   &:last-of-type
     border-bottom: 1px solid $color-yellow
@@ -294,7 +294,7 @@ h1, h2
   padding: $margin-small 0
   border-top: 1px solid $color-yellow
 
-.section-yellow, .section-pink 
+.section-yellow, .section-pink
   color: $color-black
   border-color: $color-black
   .button, a.button
@@ -307,18 +307,18 @@ h1, h2
     border-color: $color-black
   & + .section
     border-color: $color-black
-  input 
+  input
     border-color: $color-black
-    
+
 .section-yellow
   background-color: $color-yellow
-  
+
 .section-pink
   background-color: $color-pink
-  
+
 .section-black-trans
   background-color: $color-black-trans
-  
+
 .pagination-section
   .col
     margin-bottom: ($gutter / 2)
@@ -362,15 +362,16 @@ input, select, textarea
 
 ::placeholder
   color: inherit !important
-  
+
 .gform_wrapper
+  font-size: $font-size-basic
   input, select, textarea
-    width: 100% 
+    width: 100%
     &[type=submit]
       width: auto
       font-size: $font-size-h3
     margin-bottom: $margin-small
-  label 
+  label
     display: block
     margin-bottom: $margin-tiny
     text-transform: uppercase
@@ -530,7 +531,7 @@ ul.language-chooser
   padding: 0
   &.col
     margin-bottom: $margin-small
-    
+
 // ******************************************************
 
 // FRONT PAGE
@@ -543,7 +544,7 @@ ul.language-chooser
   max-width: 1440px
   margin: 0 auto
   display: block
-  
+
 // ******************************************************
 
 // VISITOR INFO
@@ -553,7 +554,7 @@ ul.language-chooser
   max-height: 500px
   flex-grow: 1
   border: $margin-micro solid $color-yellow !important
-  
+
 // ******************************************************
 
 // PROGRAM
@@ -580,7 +581,7 @@ ul.language-chooser
 
 .event-times-divider
   transform: rotate(90deg)
-  
+
 // ******************************************************
 
 // PRESS
@@ -590,10 +591,10 @@ ul.language-chooser
 
 .swiper-slide img
   max-height: 0px
-  
+
 .slide-caption
   position: relative
-  
+
 .swiper-button-prev, .swiper-button-next
   width: auto
   height: auto
@@ -605,7 +606,7 @@ ul.language-chooser
 
 .swiper-button-next
   background-image: url('../img/dist/right_triangle.svg')
-  
+
 // ******************************************************
 
 // FOOTER
@@ -632,54 +633,54 @@ ul.language-chooser
 .social-icon
   display: flex
   justify-content: center
-  
+
 // ******************************************************
-  
+
 // READING MATERIAL
 
 .highlight-holder
   position: relative
-  
+
 .highlight-image
   vertical-align: bottom
-  
-.highlight-details 
+
+.highlight-details
   width: 100%
   padding-top: 0
-  
+
 // ******************************************************
 
-// VIP 
+// VIP
 
 .post-password-form
-  input 
+  input
     border-color: $color-white
     &[name=post_password]
       margin-right: $margin-small
       width: 100%
     &[type=submit]
-      background-color: $color-white 
+      background-color: $color-white
       color: $color-black
       margin-top: $margin-tiny
       width: 100%
-      &:hover 
+      &:hover
         background-color: $color-yellow
-        
-.wrong-password, .gform_confirmation_message 
-  background-color: $color-yellow 
+
+.wrong-password, .gform_confirmation_message
+  background-color: $color-yellow
   padding: $margin-tiny
   color: $color-black
   border: 1px solid $color-black
-  
-.gform_confirmation_message 
+
+.gform_confirmation_message
   font-size: $font-size-h4
-  
-#vip-rsvp-form-container 
+
+#vip-rsvp-form-container
   display: none
-  
+
 .gform_ajax_spinner
   display: none!important
-  
+
 // ******************************************************
 
 // 404
