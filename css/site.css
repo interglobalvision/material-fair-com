@@ -1858,6 +1858,11 @@ ul.language-chooser li a {
 .gform_ajax_spinner {
   display: none !important;
 }
+#vip-recommendations ul {
+  -webkit-columns: 3;
+  -moz-columns: 3;
+  columns: 3;
+}
 .dude {
   -webkit-animation: dance 1s infinite ease-in-out;
   animation: dance 1s infinite ease-in-out;
