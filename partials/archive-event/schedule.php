@@ -92,14 +92,17 @@ if (get_fair_year_id()) {
         $current_day = $this_day;
       }
 ?>
-      <div class="row">
-        <div class="col col-s col-s-6 col-m col-m-6 col-l col-l-2 font-size-h4 text-align-center">
+      <div class="calendar-event row margin-bottom-small">
+        <div class="col col-s col-s-5 col-l col-l-2 font-size-h4 text-align-center event-times">
           <?php get_template_part('partials/event-times'); ?>
         </div>
-        <div class="col col-s col-s-6 col-m col-m-6 col-l col-l-4">
+        <div class="col col-s col-s-7 col-m col-m-9 offset-m-3 col-l col-l-4 offset-l-0">
           <?php the_post_thumbnail('col-6-crop'); ?>
         </div>
-        <div class="col col-s col-s-12 col-m col-m-12 col-l col-l-6">
+        <div class="col col-m col-m-3 font-size-h4 text-align-center event-times-m">
+          <?php get_template_part('partials/event-times'); ?>
+        </div>
+        <div class="col col-s col-s-12 col-m col-m-9 col-l col-l-6">
           <span class="font-size-h4">
           <?php
             echo !empty($url) ? '<a href="' . $url . '" target="_blank" rel="noopener noreferrer">' : '';

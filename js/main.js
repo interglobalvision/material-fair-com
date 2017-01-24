@@ -34,6 +34,10 @@ Site = {
 
   onResize: function() {
     var _this = this;
+
+    if ($('.calendar-heading.active').length) {
+      _this.Program.resizeActiveEvents();
+    }
   },
 
   fixWidows: function() {
@@ -205,6 +209,17 @@ Site.Program = {
         $(this).removeClass('active');
       }
     })
+  },
+
+  resizeActiveEvents: function() {
+    $('.calendar-heading.active').each(function() {
+      var $events = $(this).next('.calendar-events');
+      var currentHeight = $events.outerHeight();
+      var autoHeight = $events.css('height','auto').outerHeight();
+
+      $events.css('height',currentHeight);
+      $events.stop().animate({'height':autoHeight},100);
+    });
   },
 };
 
