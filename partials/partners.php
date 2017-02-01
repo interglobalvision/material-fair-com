@@ -51,7 +51,11 @@ if (!empty($partners)) {
             if (is_page('vip') && $partner['vip'] !== 'on') {
               continue;
             }
-            $partner_img = wp_get_attachment_image($partner['logo_id'], 'sponsor');
+            if ($partner['row'] === 'on') {
+              $partner_img = wp_get_attachment_image($partner['logo_id'], 'sponsor_row');
+            } else {
+              $partner_img = wp_get_attachment_image($partner['logo_id'], 'sponsor');
+            }
 
             if (is_front_page() || is_page('vip')) {
               if ($partner['row'] === 'on') {
