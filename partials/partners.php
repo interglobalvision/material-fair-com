@@ -52,10 +52,19 @@ if (!empty($partners)) {
               continue;
             }
             $partner_img = wp_get_attachment_image($partner['logo_id'], 'sponsor');
+
             if (is_front_page() || is_page('vip')) {
-              echo '<div class="col col-s col-s-6 col-m col-m-4 col-l col-l-2 text-align-center margin-top-tiny margin-bottom-tiny">';
+              if ($partner['row'] === 'on') {
+                echo '<div class="col col-s col-s-12 col-m col-m-12 col-l col-l-12 text-align-center margin-top-tiny margin-bottom-tiny">';
+              } else {
+                echo '<div class="col col-s col-s-6 col-m col-m-4 col-l col-l-2 text-align-center margin-top-tiny margin-bottom-tiny">';
+              }
             } else {
-              echo '<div class="col col-s col-s-6 col-m col-m-4 col-l col-l-3 text-align-center margin-top-small margin-bottom-small">';
+              if ($partner['row'] === 'on') {
+                echo '<div class="col col-s col-s-12 col-m col-m-12 col-l col-l-12 text-align-center margin-top-small margin-bottom-small">';
+              } else {
+                echo '<div class="col col-s col-s-6 col-m col-m-4 col-l col-l-3 text-align-center margin-top-small margin-bottom-small">';
+              }
             }
             echo !empty($partner['url']) ? '<a target="_blank" rel="noopener noreferrer" href="' . esc_url($partner['url']) . '">' . $partner_img . '</a>' : $partner_img;
             echo '</div>';

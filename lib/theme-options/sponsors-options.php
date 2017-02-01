@@ -53,6 +53,11 @@ $metabox = array(
           'id'         => 'url',
           'type'       => 'text_url',
           'desc' => __( 'optional', 'cmb2' ),
+        ),
+        array(
+          'name'       => __( 'Full Row?', 'cmb2' ),
+          'id'         => 'row',
+          'type'       => 'checkbox',
         )
       )
     ),
@@ -99,6 +104,11 @@ $metabox = array(
           'id'         => 'vip',
           'type'       => 'checkbox',
           'desc' => __( '', 'cmb2' ),
+        ),
+        array(
+          'name'       => __( 'Full Row?', 'cmb2' ),
+          'id'         => 'row',
+          'type'       => 'checkbox',
         )
       )
     )
