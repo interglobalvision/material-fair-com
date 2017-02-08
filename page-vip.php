@@ -38,7 +38,7 @@ if( have_posts() ) {
           </div>
         </div>
       </div>
-<?php
+<?php /*
     if (!post_password_required()) {
       $rsvp_text = get_post_meta($post->ID, '_igv_vip_rsvp_text', true);
 ?>
@@ -58,14 +58,14 @@ if( have_posts() ) {
       </div>
 <?php
     }
-?>
+*/ ?>
     </div>
   </section>
 
 <?php
     if (!post_password_required()) {
       get_template_part('partials/archive-event/schedule');
-      
+
       get_template_part('partials/page-vip/vip-hotels');
 
       get_template_part('partials/page-vip/vip-recommendations');
